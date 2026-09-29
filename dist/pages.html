@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>706 · 页面目录</title>
+<style>body{margin:0;background:#f3f1eb;color:#222;font:16px/1.6 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px 24px}h1{font-size:32px;margin:0}p{color:#666}h2{font-size:20px;margin:32px 0 12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px}a{display:block;background:white;color:#222;text-decoration:none;border:1px solid #dedbd3;border-radius:12px;padding:14px 16px}a:hover{border-color:#ff5a36;color:#d44122}small{color:#888;font-size:12px}input{box-sizing:border-box;width:100%;padding:14px;border:1px solid #ccc;border-radius:10px;font:inherit}a:focus-visible{outline:3px solid #ff5a36}</style>
+<main><h1>706 页面目录</h1><p id="summary"></p><p>点击卡片在新标签页查看。这里包含独立页面、流程状态和弹窗；内容均为当前交互模型中的演示数据。</p><input id="search" type="search" placeholder="搜索页面名称…" aria-label="搜索页面"><div id="catalog"></div><p>通知设置、隐私与安全、关于、反馈、邀请管理员等目前只有提示，没有独立页面。组织的编辑入口目前复用空间编辑表单。</p></main>
+<script src="./preview-pages.js"></script><script>
+const catalog=document.getElementById('catalog');
+document.getElementById('summary').textContent=`共 ${previewGroups.reduce((n,g)=>n+g.pages.length,0)} 个可点击预览入口`;
+function draw(){catalog.replaceChildren();const term=document.getElementById('search').value.trim().toLowerCase();for(const g of previewGroups){const pages=g.pages.filter(p=>(g.name+p.label).toLowerCase().includes(term));if(!pages.length)continue;const section=document.createElement('section'),h=document.createElement('h2'),list=document.createElement('div');h.textContent=g.name;list.className='links';for(const p of pages){const a=document.createElement('a');a.href='./index.html?'+p.query;a.target='_blank';a.rel='noopener';a.textContent=p.label+' ↗';list.append(a)}section.append(h,list);catalog.append(section)}}
+document.getElementById('search').addEventListener('input',draw);draw();
+</script></html>
