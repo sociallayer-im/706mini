@@ -1,0 +1,428 @@
+{
+  "url": "https://sociallayer-im.github.io/706mini/design-review/",
+  "deploymentCommit": "e30278784f667ade9538bfcab8b9e8fd917b8b2c",
+  "workflow": "https://github.com/sociallayer-im/706mini/actions/runs/37563094856",
+  "method": "curl HTTPS with certificate verification; bounded single retry for transient TLS transport errors",
+  "requests": [
+    {
+      "path": "design-review/",
+      "status": 200,
+      "bytes": 2551,
+      "sha256": "0a35f47500da2842ff0def12c15c983716304ea96e8bbbd227b436649bce734a",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/manifest.json",
+      "status": 200,
+      "bytes": 1447,
+      "sha256": "24faa6f916d6dfe9068d3eada8ff170d8426925d2a420d7c65c5a9e0f3136c94",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/review.js",
+      "status": 200,
+      "bytes": 3359,
+      "sha256": "de59a8b279e17e2c390c4066b6c406cbfb2aea042442f3f4496d671787e7e14d",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/review.css",
+      "status": 200,
+      "bytes": 4793,
+      "sha256": "31c840568b48e0eb0e39aeb62ad74d09773fa0985bccb7f81b24a8aa87a6fe6b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources.html",
+      "status": 200,
+      "bytes": 4205,
+      "sha256": "74449ea9abc4d06ffd1ab6b3a6f595eaaa157b2dd1da99b42a3b501ace79b34c",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/style.css",
+      "status": 200,
+      "bytes": 59418,
+      "sha256": "64f8c29d2dc97cb017964c2745abde0d8481df2079a578f5da307e4f72835c8e",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/baseline/app.js",
+      "status": 200,
+      "bytes": 126653,
+      "sha256": "63e65ec806bc512a4fb67ffeae6a8482810375ce410183e957dce9f94d153e42",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "60448aab161dfc85c8b443b0b9e68f5466c901389083c8c42c0b91dfd55b384b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/frisbee-cover.svg",
+      "status": 200,
+      "bytes": 1168,
+      "sha256": "c5f55338d31c1ece6ab4b19965a9fce7a31a453905c4dc3030f8774e241a0f7c",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/style.css",
+      "status": 200,
+      "bytes": 68717,
+      "sha256": "b1eccd3d5fbeea80ae6b5e3afd94db2d72a2d428b39b2d3c2f586497da797e09",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/workshop-cover.svg",
+      "status": 200,
+      "bytes": 1168,
+      "sha256": "7bf283c814f421b1db46512a784067ff23eaf00d9d81ffcbef7d6472c2166a9a",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/film-cover.svg",
+      "status": 200,
+      "bytes": 1168,
+      "sha256": "43a22ac04f5346950f6fa86ca458b1bdc057569c88afd2f17ca4c008c9e7d117",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/app.js",
+      "status": 200,
+      "bytes": 128570,
+      "sha256": "a25784c35c562bac9cd85438639bc800f825857789abc03f528c4772c936cf6a",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sola-mint-cards/walk-cover.svg",
+      "status": 200,
+      "bytes": 1168,
+      "sha256": "9d41235ac11ba56cc08b19af5e37dc64cd33730fdd04b2b076c753440fcc3dd5",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "dd518eed5365e2d7722bac838cdf27872c51a736da897cacb4f3e72627fd86ce",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "dd518eed5365e2d7722bac838cdf27872c51a736da897cacb4f3e72627fd86ce",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1479,
+      "sha256": "dd518eed5365e2d7722bac838cdf27872c51a736da897cacb4f3e72627fd86ce",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/style.css",
+      "status": 200,
+      "bytes": 68134,
+      "sha256": "fb097fabffe0aa0559993f054d255df50800af0eb75bf028b7b0eda9c47adeda",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-original/app.js",
+      "status": 200,
+      "bytes": 126411,
+      "sha256": "9df29ab3eacabb3f5671ae644a8db7a799df22ab5a7364b4549a600296bc8093",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1524,
+      "sha256": "b0ceee712d182a835f4b9a05c51f20930c439c4f5f3a312b73caf7cf9c11a649",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1524,
+      "sha256": "b0ceee712d182a835f4b9a05c51f20930c439c4f5f3a312b73caf7cf9c11a649",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1524,
+      "sha256": "b0ceee712d182a835f4b9a05c51f20930c439c4f5f3a312b73caf7cf9c11a649",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/style.css",
+      "status": 200,
+      "bytes": 68381,
+      "sha256": "795fcaca146f4f58b6185949fbf6ebc9d622d7c0a76b1a6b91f107bc77eb22f3",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/character-lab.js",
+      "status": 200,
+      "bytes": 9063,
+      "sha256": "e1098a13f1538e41945f570c5df4152ec8794cb20110044dae212b17d78bb3aa",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706er/app.js",
+      "status": 200,
+      "bytes": 127359,
+      "sha256": "053284ed827b98b6cb58e38bbd4768ec2ed7d01c3a1e769be492732e52d5560e",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1543,
+      "sha256": "b1d18c5e010f1c73a46893769cf2f75eacc31f095decc9a00309198ef3ffa9c9",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1543,
+      "sha256": "b1d18c5e010f1c73a46893769cf2f75eacc31f095decc9a00309198ef3ffa9c9",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1543,
+      "sha256": "b1d18c5e010f1c73a46893769cf2f75eacc31f095decc9a00309198ef3ffa9c9",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/style.css",
+      "status": 200,
+      "bytes": 71925,
+      "sha256": "2112275a5905683931dad83d31dd6fd11dba685ceb5cde671ab0fedfec8446b1",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/character-lab.js",
+      "status": 200,
+      "bytes": 9063,
+      "sha256": "e1098a13f1538e41945f570c5df4152ec8794cb20110044dae212b17d78bb3aa",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-living-lab/app.js",
+      "status": 200,
+      "bytes": 128153,
+      "sha256": "4d27e16dfd9c87c8a074041a99d37172d529934b6f1e57cddfc3f5c779dbeffa",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1539,
+      "sha256": "7f66c212d5c21faa8a6e52845f3d3930f8b5a21d9db19c4f88cc574d7a9ea2c2",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1539,
+      "sha256": "7f66c212d5c21faa8a6e52845f3d3930f8b5a21d9db19c4f88cc574d7a9ea2c2",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1539,
+      "sha256": "7f66c212d5c21faa8a6e52845f3d3930f8b5a21d9db19c4f88cc574d7a9ea2c2",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/style.css",
+      "status": 200,
+      "bytes": 74609,
+      "sha256": "278889ced429e1b3b1e03f85116e058e859ae6742c17bd8be8c19028079838b1",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/character-lab.js",
+      "status": 200,
+      "bytes": 9063,
+      "sha256": "e1098a13f1538e41945f570c5df4152ec8794cb20110044dae212b17d78bb3aa",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/706-open-canvas/app.js",
+      "status": 200,
+      "bytes": 128440,
+      "sha256": "11729eee6ca198cc11a3b650feabbe0a55892fd2a8d248730500797981b81182",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/index.html?view=feed&id=film",
+      "status": 200,
+      "bytes": 1488,
+      "sha256": "dc52e9a5efd6c7f91b2db28a787dfdc872f71dc71f1219a960b4ed05eb9dabfc",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/index.html?view=discover&id=film",
+      "status": 200,
+      "bytes": 1488,
+      "sha256": "dc52e9a5efd6c7f91b2db28a787dfdc872f71dc71f1219a960b4ed05eb9dabfc",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/index.html?view=event&id=film",
+      "status": 200,
+      "bytes": 1488,
+      "sha256": "dc52e9a5efd6c7f91b2db28a787dfdc872f71dc71f1219a960b4ed05eb9dabfc",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/green-sculpture.png",
+      "status": 200,
+      "bytes": 2941549,
+      "sha256": "7bd9e6eaaf8b046f94743f16adec6bd58174be4ed22f0377c3526db3531aa52b",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/preview.js",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "e06e96517196be90516d349dbec5cf919767e76f3abbc70b601749df766a3ed8",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/style.css",
+      "status": 200,
+      "bytes": 67500,
+      "sha256": "2509ca83ca72153dae9b1e42a92c186f1baa0526e38e12154213b988fb956e9a",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/spark-706-green/app.js",
+      "status": 200,
+      "bytes": 126948,
+      "sha256": "3610ca6c7de667b4fa09e21c867dc929203da65ad40cd383c8cbcc5b11370a00",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources/706-original/sample.html",
+      "status": 200,
+      "bytes": 4423,
+      "sha256": "615b3b856f086ba2e0a9c04db11c068791d549e8ee662586255d00739aa0fd82",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources/706er/sample.html",
+      "status": 200,
+      "bytes": 13715,
+      "sha256": "7cfe059a88fc761ffc01675cf65c4853fea56a8f2cd47a2bb8ec4bda99737ab4",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources/706-living-lab/sample.html",
+      "status": 200,
+      "bytes": 7841,
+      "sha256": "d1c52e7a80a22152080bc41c8160935879ce030f4b8b4094c3769a44ce33f24e",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources/706-open-canvas/sample.html",
+      "status": 200,
+      "bytes": 12038,
+      "sha256": "d97469281e01ee8c128b5dde6f7ce657eb84212cd11a9b2621a070ee37723302",
+      "matchesLocal": true
+    },
+    {
+      "path": "design-review/sources/spark-706-green/sample.html",
+      "status": 200,
+      "bytes": 7080,
+      "sha256": "c0cf5a20eadd4d2b2c39056c0b2a4a21bb04de5da91e7f80dd5f0a4e8b48ec49",
+      "matchesLocal": true
+    }
+  ]
+}

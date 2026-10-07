@@ -1,6 +1,6 @@
 # SID-81 · 六套设计 × 三个页面
 
-状态：执行中；方案供统筹复查及用户选型，不代表最终选定设计。
+状态：开发与部署完成，待统筹复查及用户选型；不代表最终选定设计。
 
 ## 范围与基准
 
@@ -9,6 +9,8 @@
 - 开始时只有用户提供的 `references/sola-mint-cards.png` 未提交，已保留。
 - 原 `dist/index.html/app.js/style.css/preview.js` 不改；`dist/design-review/baseline/` 是基准逐字节副本。
 - 数据中的日期属于原型样例，保持一致供视觉比较，不将其改为当天活动。
+
+公开对比页：https://sociallayer-im.github.io/706mini/design-review/
 
 ## 交付入口
 

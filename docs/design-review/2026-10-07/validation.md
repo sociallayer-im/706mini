@@ -15,7 +15,7 @@
 1. Sola 详情返回箭头：原透明顶栏继承白字，浅底上不清楚。加深绿色，复测。
 2. Sola 日历入口：新左右留白仅覆盖左侧，继承右 margin 导致 3px 溢出。修正右留白为 16px，360/390 两宽复测均等宽。
 3. Original 详情系列入口：新 22px 两侧 margin 与原 width calc(-24px) 不匹配，造成 20px 溢出。修为 calc(-44px)，360/390 复测均等宽。
-4. 部分原型关注/清空筛选缺陷在方案副本修正，基准不变。
+4. 部分原型关注/清空筛选缺陷在方案副本修正，基准不变。Sola 追加真实点击复测：取消阿乔关注显示「＋ 关注」；空间＋放映的空结果清空后恢复 3 场。
 
 JSON 留存 `browser-validation.json` 包含初检及 `fixRetests`；有初检溢出记录时以修正后的复测值为准。`source-browser-checks.json` 是源 sample 核验。
 
@@ -25,4 +25,10 @@ JSON 留存 `browser-validation.json` 包含初检及 `fixRetests`；有初检�
 
 ## 部署
 
-发布工作流只上传 `dist`。仓库原本 PUBLIC，未修改可见性。公开访问结果在部署后补充。
+发布工作流只上传 `dist`。仓库原本 PUBLIC，未修改可见性。Actions 部署 e30278784f667ade9538bfcab8b9e8fd917b8b2c 成功，运行 https://github.com/sociallayer-im/706mini/actions/runs/37563094856 。
+
+公开地址 https://sociallayer-im.github.io/706mini/design-review/ 已在实际浏览器打开，动态目录生成 21 个链接，Sola 详情及原版并排正常，主报名按钮可见。上线截图 `screenshots/public-comparison.jpg`。公开 GET 与本地字节哈希比较详见 `public-verification.json`。
+
+注意：原始参考 analysis.md 末尾自带空行，为保持留存字节不改写；git diff --check 对其复制件有 EOF whitespace 提示，不涉及应用代码。
+
+公开验证最终结果：60 次 HTTPS GET 全部成功，响应 SHA-256 全部与本地已验收展示文件相同，覆盖 21 个入口、各套脚本/CSS/素材、对比台及五份源 sample。第一次 Python TLS 传输及一次 curl 单文件传输发生 EOF；改用保留证书验证的 curl、有界一次重试与两路并行后完成，不关闭 TLS 验证。
