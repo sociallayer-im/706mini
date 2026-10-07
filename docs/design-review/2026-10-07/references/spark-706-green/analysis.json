@@ -1,0 +1,166 @@
+{
+  "source": "https://dreamboard.shing19.cc/design-gallery/spark-blue-hero/sample/",
+  "source_type": "synthesis",
+  "title": "706 Green · Spark Hero 色彩分支",
+  "measurement_basis": "沿用 spark-blue-hero 的用户静态截图与既有布局代码；706 主绿 #00AD57 与深墨绿 #153D31 来自 706er 条目。其余同色系色阶是本次设计推导，不是原网站取样或 CSS 实测。green-sculpture.png 为基于已有蓝色重建图生成的绿色素材。",
+  "caveats": [
+    "source-blue-reference.png 保留蓝版所依据的用户原图；本条 reference.png 是绿色分支的渲染预览，不是新的原站截图。",
+    "绿色渐层、按钮、玻璃卡和素材均为这次的衍生实现；蓝版截图不能证明它们存在于原站。",
+    "Tab 切换与数字是沿用蓝版小样的演示行为和文案，不代表 706 的真实数据。"
+  ],
+  "tokens": {
+    "colors": [
+      {
+        "role": "Mist / 外围留白",
+        "value": "#EAF2EC",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "Dew / 浅背景",
+        "value": "#BDE7CB",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "Leaf / 浅签与球体",
+        "value": "#9EE0B9",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "Fresh / 亮面",
+        "value": "#40C882",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "706 Green / 主题锚点",
+        "value": "#00AD57",
+        "origin": "706原色"
+      },
+      {
+        "role": "Grove / 按钮与深签",
+        "value": "#008748",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "Forest / 深阴影",
+        "value": "#004F2E",
+        "origin": "衍生色阶/实现色"
+      },
+      {
+        "role": "Ink / 正文",
+        "value": "#153D31",
+        "origin": "706原色"
+      },
+      {
+        "role": "Paper / 内容板",
+        "value": "#FFFFFF",
+        "origin": "蓝版结构保留"
+      }
+    ],
+    "typography": {
+      "families": [
+        "system sans-serif; inherited from Spark Blue Hero layout"
+      ],
+      "scale": [
+        {
+          "role": "hero",
+          "size": "clamp(43px, 4.1vw, 60px)",
+          "weight": "430"
+        },
+        {
+          "role": "feature",
+          "size": "clamp(18px, 1.7vw, 26px)",
+          "weight": "640"
+        },
+        {
+          "role": "body",
+          "size": "15px",
+          "weight": "400"
+        },
+        {
+          "role": "micro",
+          "size": "9–12px",
+          "weight": "520–750"
+        }
+      ]
+    },
+    "layout": {
+      "canvas": "white rounded board within pale green exterior",
+      "hero": "same three-line heading and right micro annotation as blue sibling",
+      "showcase": "same wide sculpture card + four slim vertical tabs + one inset glass feature",
+      "lower_band": "same proof row, four metric tiles, plus explicit 706 green scale"
+    },
+    "components": {
+      "primary_button": "three-stop green gradient #38C77B → #00AD57 → #008748, light top edge, dark outline",
+      "tab": "alternating deep #008748 and pale #BDE7CB greens; white numbered disc",
+      "floating_card": "semi-transparent mint-white, green media underneath and backdrop blur",
+      "icon": "white disc with #008748 line icon",
+      "labels": "thin white outlines over green artwork"
+    },
+    "motion": "not observed from source still; keyboard/click tab switching inherited as authored prototype interaction",
+    "spacing": [
+      "outer canvas inset 4vw / desktop, 15px / small mobile",
+      "board padding 28–36px desktop, 18px mobile",
+      "showcase gap 8px desktop, 6px mobile",
+      "palette swatch gap 6px"
+    ],
+    "radius": [
+      "outer board 23px",
+      "media cards and rails 23px",
+      "metric tiles 20px",
+      "buttons and labels pill / 999px"
+    ],
+    "shadows": [
+      "no box-shadow; media depth comes from artwork light and dark",
+      "glass layer: backdrop blur 13px with translucent pale green"
+    ]
+  },
+  "taste": [
+    {
+      "name": "同结构比较色彩",
+      "trigger": "用户要把独立蓝色设计系统 fork 成 706 绿色",
+      "decision": "保留标题、卡带、玻璃卡与指标位置，只改变色阶和媒体色相",
+      "reason": "同一版式中的蓝绿差异可直接比较，不让重新布局干扰判断",
+      "evidence": "蓝版 sample.html 的网格与组件原位保留；绿色素材与颜色声明独立存放"
+    },
+    {
+      "name": "706 绿是锚点，不是整页底色",
+      "trigger": "高饱和 #00AD57 若铺满所有卡片会吞掉层级",
+      "decision": "以 #EAF2EC 外围和白板承载文本，#00AD57 用在行动与主图亮部，#008748/#004F2E 支撑深签和凹处",
+      "reason": "保留 706 品牌识别，同时让读者分清媒体、导航与内容",
+      "evidence": "蓝版白板/卡带比例保持；706er 核心绿色为 #00AD57"
+    },
+    {
+      "name": "用同色阶与材质制造深度",
+      "trigger": "把所有蓝色替换成单一绿色会让雕塑和小卡扁平",
+      "decision": "雕塑用粗糙亮绿到森林绿，球体用雾白薄荷；竖签交替深浅，毛玻璃卡透出局部绿",
+      "reason": "层次来自明度和材质差，而非新加阴影或额外主题色",
+      "evidence": "原图粗糙折叠体与光滑球体；绿色重建图沿用相同构图"
+    },
+    {
+      "name": "保留非主题元素的克制",
+      "trigger": "色系重构容易连指标、正文和纸面一并染绿",
+      "decision": "大面积继续保持白和浅中性，正文使用 #153D31，绿色只落在序号、图标线、按钮、签与媒体",
+      "reason": "深绿文本与白底可读，强绿形成可追踪的点击路径",
+      "evidence": "蓝版主白板和四块浅灰指标卡；706er 正文深绿 #153D31"
+    }
+  ],
+  "prototype": {
+    "entry": "sample.html",
+    "artwork": "green-sculpture.png generated from blue-sculpture.png",
+    "interaction": "inherited authored tabs; not source-observed",
+    "sibling": "spark-blue-hero"
+  },
+  "derived_from": "spark-blue-hero",
+  "preview": {
+    "layout": "rounded",
+    "background": "#FFFFFF",
+    "ink": "#153D31",
+    "accent": "#00AD57",
+    "soft": "#EAF2EC",
+    "label": "绿色阶段与雕塑卡",
+    "headline": "706 Green",
+    "caption": "设计提案 × 可视化构图",
+    "image_position": "right center",
+    "kicker": "706 Green · Spark Hero 色彩分支"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "baselineCommit": "f9f3bdc99f4dc6fd926ce4a4430258ea0b7a9675",
+  "styles": [
+    {
+      "slug": "baseline",
+      "name": "原版基准",
+      "description": "现有产品的原始页面与交互，逐字节保存。"
+    },
+    {
+      "slug": "sola-mint-cards",
+      "name": "Sola Mint Cards",
+      "description": "精选横卡、大封面活动与灰色参与者带；白底圆角、薄荷强调。"
+    },
+    {
+      "slug": "706-original",
+      "name": "706 Original",
+      "description": "无框成员目录、日期活动清单、白底单列与绿色页脚。"
+    },
+    {
+      "slug": "706er",
+      "name": "706er",
+      "description": "暖白与墨绿、几何角色、青柠行动按钮和活动海报。"
+    },
+    {
+      "slug": "706-living-lab",
+      "name": "706 Living Lab",
+      "description": "四房间成员屋、生活公告板、放映客厅与共居色块。"
+    },
+    {
+      "slug": "706-open-canvas",
+      "name": "706 Open Canvas",
+      "description": "白底人物焦点舞台、开放日期清单、半透明时间票。"
+    },
+    {
+      "slug": "spark-706-green",
+      "name": "Spark 706 Green",
+      "description": "绿色雕塑、鲜明字形与高对比构图。"
+    }
+  ],
+  "pages": [
+    {
+      "id": "feed",
+      "name": "动态首页"
+    },
+    {
+      "id": "discover",
+      "name": "活动信息流"
+    },
+    {
+      "id": "event",
+      "name": "活动详情"
+    }
+  ]
+}

@@ -1,0 +1,640 @@
+{
+  "initial390": [
+    {
+      "slug": "sola-mint-cards",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "Sola706 社区",
+        "精选活动",
+        "社区里的新鲜事",
+        "发现有意思的人"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "发现活动",
+        "本周活动",
+        "我们为什么留在这里？",
+        "把客厅打开"
+      ],
+      "screenScrollWidth": 393,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "秋日放映：城市游牧者",
+        "关于活动",
+        "适合谁参加",
+        "发起方",
+        "大家说"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706-original",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "动态",
+        "发现有意思的人"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706-original",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "发现",
+        "本周活动",
+        "我们为什么留在这里？",
+        "把客厅打开"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706-original",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "秋日放映：城市游牧者",
+        "关于活动",
+        "适合谁参加",
+        "发起方",
+        "大家说"
+      ],
+      "screenScrollWidth": 410,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706er",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "生活的更多可能，从一起开始。",
+        "发现有意思的人"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706er",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "从感兴趣的事开始。",
+        "本周活动",
+        "我们为什么留在这里？",
+        "把客厅打开"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706er",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "秋日放映：城市游牧者",
+        "关于活动",
+        "适合谁参加",
+        "发起方",
+        "大家说"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "title": "706 社区",
+      "viewport": 390
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "发现有意思的人"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "生活，是一起发生的。",
+        "本周活动",
+        "我们为什么留在这里？",
+        "把客厅打开"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "秋日放映：城市游牧者",
+        "关于活动",
+        "适合谁参加",
+        "发起方",
+        "大家说"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "发现有意思的人✳"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "发现下一场相遇✳",
+        "我们为什么留在这里？",
+        "本周活动"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "headings": [
+        "秋日放映：城市游牧者",
+        "关于活动",
+        "适合谁参加",
+        "发起方",
+        "大家说"
+      ],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "brokenImages": [],
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "baseline",
+      "page": "feed",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "baseline",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "baseline",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "initial360": [
+    {
+      "slug": "baseline",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "baseline",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "baseline",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 363,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-original",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-original",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-original",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 380,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706er",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706er",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706er",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-living-lab",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "feed",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "discover",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-open-canvas",
+      "page": "event",
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "feed",
+      "width": 360,
+      "bodyWidth": 360,
+      "brokenImages": [],
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "discover",
+      "width": 360,
+      "bodyWidth": 360,
+      "brokenImages": [],
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "spark-706-green",
+      "page": "event",
+      "width": 360,
+      "bodyWidth": 360,
+      "brokenImages": [],
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    }
+  ],
+  "fixRetests": [
+    {
+      "slug": "sola-mint-cards",
+      "page": "discover",
+      "width": 360,
+      "bodyWidth": 360,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "event",
+      "width": 360,
+      "bodyWidth": 360,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "706-original",
+      "page": "event",
+      "width": 360,
+      "bodyWidth": 360,
+      "screenScrollWidth": 360,
+      "screenWidth": 360,
+      "viewport": 360
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "discover",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "sola-mint-cards",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    },
+    {
+      "slug": "706-original",
+      "page": "event",
+      "width": 390,
+      "bodyWidth": 390,
+      "screenScrollWidth": 390,
+      "screenWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "interactions": [
+    {
+      "slug": "sola-mint-cards",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    },
+    {
+      "slug": "706-original",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    },
+    {
+      "slug": "706er",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    },
+    {
+      "slug": "706-living-lab",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    },
+    {
+      "slug": "706-open-canvas",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    },
+    {
+      "slug": "spark-706-green",
+      "follow": "已关注",
+      "freeTitles": [
+        "苏州河慢走：寻找城市缝隙",
+        "社区功能许愿工作坊"
+      ],
+      "sheet": "报名活动",
+      "joined": "报名审核中",
+      "disabled": true,
+      "recommend": "推荐给社区",
+      "comments": "评论与回复 · 4",
+      "returnedToDiscover": true
+    }
+  ]
+}

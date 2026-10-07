@@ -1,0 +1,50 @@
+[
+  {
+    "file": "01-umi.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "02-agency.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "03-vision.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "04-emotions.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "05-characters.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "06-green-composition.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "07-geometric-editorial.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  },
+  {
+    "file": "08-handdrawn-faces.png",
+    "source": "用户上传参考图",
+    "input_type": "image",
+    "note": "图片视觉参考；不推断字体文件、精确CSS或原站动效"
+  }
+]

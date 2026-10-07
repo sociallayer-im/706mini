@@ -1,0 +1,21 @@
+{
+  "status": "authored_proposal",
+  "coverage": [
+    {
+      "family": "参考图动效",
+      "status": "not_observed",
+      "reason": "静态图片无法测量交互"
+    }
+  ],
+  "interactions": [],
+  "proposal": {
+    "hover_ms": 180,
+    "panel_ms": 220,
+    "easing": "ease-out",
+    "autoplay": false,
+    "reduced_motion": "禁用位移过渡；状态仍可操作"
+  },
+  "limitations": [
+    "数值是新方案，不是图片或706原站实测。"
+  ]
+}

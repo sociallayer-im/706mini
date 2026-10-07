@@ -1,0 +1,140 @@
+{
+  "source": "https://www.706er.com/projects/living-lab.html",
+  "source_type": "synthesis",
+  "title": "706 生活实验室 · 共同生活提案 V1",
+  "sibling_of": "706er",
+  "measurement_basis": "2026-10-02 官方项目页浏览器截图为事实来源；视觉系统是基于706 Together V2的独立提案，色值、字级、版式、交互不是官方站实测。情境场景为示意。",
+  "tokens": {
+    "colors": [
+      {
+        "role": "主文字 / 森林墨绿",
+        "value": "#153D31"
+      },
+      {
+        "role": "背景 / 暖白",
+        "value": "#FAF8F2"
+      },
+      {
+        "role": "纸面 / 奶油",
+        "value": "#F0EBDD"
+      },
+      {
+        "role": "身份 / 社区绿",
+        "value": "#00AD57"
+      },
+      {
+        "role": "邀约 / 青柠",
+        "value": "#D5ED33"
+      },
+      {
+        "role": "生活 / 浅蓝",
+        "value": "#CCE5F4"
+      },
+      {
+        "role": "相遇 / 柔粉",
+        "value": "#F3C7E6"
+      },
+      {
+        "role": "暖意 / 杏橙",
+        "value": "#FFAD77"
+      }
+    ],
+    "typography": {
+      "families": [
+        "system-ui",
+        "PingFang SC",
+        "Georgia / Songti SC（局部强调）"
+      ],
+      "scale": [
+        {
+          "role": "首屏标题",
+          "size": "78px desktop / 42–59px mobile",
+          "weight": "770"
+        },
+        {
+          "role": "章节标题",
+          "size": "48–60px desktop / 43px mobile",
+          "weight": "780"
+        },
+        {
+          "role": "正文",
+          "size": "16–19px / 1.7–1.9",
+          "weight": "400"
+        }
+      ]
+    },
+    "layout": {
+      "max_width": "1200px",
+      "hero": "two columns approximately 1:1",
+      "mobile": "single column with 20px gutters",
+      "principles": "three columns desktop / one column mobile"
+    },
+    "surface": {
+      "radius": "18–24px cards; 240px arched hero top",
+      "shadow": "only one illustrative sticker; content cards none"
+    },
+    "motion": {
+      "tabs": "instant content change",
+      "hover": "180ms 2px button lift",
+      "reduce": "removes smooth scrolling and transitions"
+    }
+  },
+  "taste": [
+    {
+      "name": "把组织叙事落到屋檐下",
+      "trigger": "官方页是连续的项目说明",
+      "decision": "首屏把文字命题和四格房屋放在同一视野",
+      "reason": "让共居先成为可想象的关系，再进入解释",
+      "evidence": "官方描述共同居住与成长；房屋是概念图形。"
+    },
+    {
+      "name": "共享视觉家族，改变表达音量",
+      "trigger": "Random Play 的高能量适合开放社区活动",
+      "decision": "保留角色和绿色身份，加入奶油、浅蓝、粉和更大的留白",
+      "reason": "让两品牌同源而居住篇章更有温度",
+      "evidence": "官方将生活实验室描述为偏私密的居住环境；配色为提案。"
+    },
+    {
+      "name": "用共治替代房源销售话术",
+      "trigger": "项目的明确特色是成员自治",
+      "decision": "并列呈现共居、共治、共长",
+      "reason": "品牌承诺落在参与方式",
+      "evidence": "官方说明共同制定规则、协商活动。"
+    },
+    {
+      "name": "克制交互对事实的伪装",
+      "trigger": "示意场景可能被误认为真实活动",
+      "decision": "日常 Tab 标为情境示意，CTA 返回官方",
+      "reason": "保留探索性与事实边界",
+      "evidence": "官方列申请条件与扫码入口；小样无报名数据。"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.706er.com/projects/living-lab.html",
+      "role": "project facts and original screenshot"
+    },
+    {
+      "entry": "706er",
+      "role": "sibling visual grammar"
+    }
+  ],
+  "prototype": {
+    "entry": "sample.html",
+    "interaction": "morning / afternoon / evening tabs; keyboard support",
+    "facts": "official project page",
+    "illustration": "original geometry and shared modular SVG character library"
+  },
+  "preview": {
+    "layout": "rounded",
+    "background": "#FAF8F2",
+    "ink": "#153D31",
+    "accent": "#00AD57",
+    "soft": "#F0EBDD",
+    "label": "共同生活的屋檐",
+    "headline": "把日子，\n一起过成实验。",
+    "caption": "设计提案 × 可视化构图",
+    "image_position": "right center",
+    "kicker": "706 生活实验室 · 共同生活提案 V1"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "source": "image:01-spark-layout.png",
+  "source_type": "image",
+  "title": "706 Open Canvas · 白底弹性版 V3",
+  "sibling_of": [
+    "706er",
+    "706-living-lab"
+  ],
+  "measurement_basis": "两张用户提供的静态截图；尺寸与像素可测，CSS、字体文件、交互和动效不可由图像实测。新 token 为原创提案值，706 色板继承既有设计系统。 本轮还参考本馆独立 Spark Hero 小样的实现构图；它是设计转译依据，不是 706 原站实测。",
+  "caveats": [
+    "静态截图可能经过缩放/裁切；图像像素不是 CSS px。",
+    "交互和动效均为本小样新增，不是参考站实测。",
+    "页面内容为 706 社区概念演绎，不代表实时项目、统计或报名。",
+    "Gallery 封面是本方案实现截图，不是用户提供的原始蓝色参考；原始参考保存在 references/01-spark-layout.png。"
+  ],
+  "references": [
+    "references/01-spark-layout.png",
+    "references/02-urban-green-layout.png"
+  ],
+  "tokens": {
+    "colors": [
+      {
+        "role": "画布 / 白",
+        "value": "#FFFFFF"
+      },
+      {
+        "role": "主文字 / 墨绿",
+        "value": "#153D31"
+      },
+      {
+        "role": "品牌 / 706绿",
+        "value": "#00AD57"
+      },
+      {
+        "role": "强调 / 青柠",
+        "value": "#D5ED33"
+      },
+      {
+        "role": "主题 / 浅蓝",
+        "value": "#CCE5F4"
+      },
+      {
+        "role": "主题 / 柔粉",
+        "value": "#F3C7E6"
+      },
+      {
+        "role": "主题 / 杏橙",
+        "value": "#FFAD77"
+      },
+      {
+        "role": "细描边 / 灰绿",
+        "value": "#E8ECE8"
+      },
+      {
+        "role": "主题深色 / 钴蓝",
+        "value": "#365EC5"
+      },
+      {
+        "role": "主题深色 / 莓紫",
+        "value": "#BC62A3"
+      },
+      {
+        "role": "主题深色 / 杏橘",
+        "value": "#E97946"
+      }
+    ],
+    "typography": {
+      "families": [
+        "system-ui",
+        "PingFang SC"
+      ],
+      "scale": [
+        {
+          "role": "hero",
+          "size": "54–82px desktop / 42–56px mobile",
+          "weight": "710"
+        },
+        {
+          "role": "section",
+          "size": "42–64px",
+          "weight": "720"
+        },
+        {
+          "role": "body",
+          "size": "15–17px / 1.65–1.8",
+          "weight": "400"
+        }
+      ]
+    },
+    "layout": {
+      "max_width": "1240px sections / 1320px hero board",
+      "gutters": "40px desktop / 10–20px mobile",
+      "hero": "white 24px-radius hairline board; left headline / right microcopy; expanded feature + four slim rails; proof strip then three entry cards",
+      "breakpoint": "650px: full-width feature above four horizontal rails; three entry cards stay visible",
+      "about_art": "uniform 24px radius desktop / 20px mobile"
+    },
+    "components": {
+      "feature_panel": "22px desktop radius; layered tonal palette; one expanded and four slim rails; on mobile active card fills first row and four tabs sit below",
+      "pills": "20–50px radius; translucent outlined topic chips; separate filled navigation/CTA",
+      "content_cards": "20px radius",
+      "micro_details": "thin divider rules, bordered number circles, proof strip, active-card edge color, bottom pale-green entry cards with white numbered discs",
+      "floating_card": "translucent white, 1px white border, 18px backdrop blur, no shadow; white icon disc and 706-green SVG path",
+      "tonal_layers": "light/mid/deep per theme, two radial highlights plus linear base",
+      "brand_action": "706-green light/mid/deep gradient, light top border, dark green outline, no shadow",
+      "about_art": "all four corners use same radius; no special oversized top-left corner"
+    },
+    "motion": {
+      "panel_expand": "flex-basis 450ms cubic-bezier(.2,.8,.2,1)",
+      "hover": "transform 180ms",
+      "reduced_motion": "transition none, scroll-behavior auto",
+      "mobile_reflow": "grid reorders selected card above four horizontal tabs; click and keyboard selection preserved"
+    }
+  },
+  "taste": [
+    {
+      "name": "白底把舞台让给人和主题",
+      "trigger": "上一版大面积暖白和彩色区块偏海报",
+      "decision": "纯白占页面，颜色集中在主题卡、关键词和角色",
+      "reason": "持续变化的社区内容需要开放画布",
+      "evidence": "两张参考图内容面板白底；用户明确要求白底。"
+    },
+    {
+      "name": "宽窄卡让五个入口共存",
+      "trigger": "等宽卡不易区分当前主题",
+      "decision": "一个展开，其余保留竖向标题；可操作切换",
+      "reason": "同屏呈现社区宽度与当前焦点",
+      "evidence": "参考1的宽窄卡带；交互为新方案。"
+    },
+    {
+      "name": "布局换骨架，颜色保家族",
+      "trigger": "参考图蓝/浅绿不是706色板",
+      "decision": "借版式，保留墨绿/社区绿/青柠及点缀色",
+      "reason": "新版轻盈但仍属于同一家族",
+      "evidence": "用户明确要求沿用此前色彩；源自706er Design System。"
+    },
+    {
+      "name": "跳脱只发生在焦点处",
+      "trigger": "全页面都用大插画和阴影会再次拥挤",
+      "decision": "大标题、展开卡和有机视觉轮流表达，说明文本靠留白与细线组织",
+      "reason": "自由感需要稳定阅读底盘",
+      "evidence": "参考2的大标题/有机主体与大片白。"
+    },
+    {
+      "name": "颜色深浅以组件为单位成对出现",
+      "trigger": "原版仅使用平铺底色，标签和描边不足",
+      "decision": "每张主题卡采用浅底、同色系深边与半透明层；微标签使用细描边",
+      "reason": "在白画布中给卡片足够层次，但不扩大彩色面积",
+      "evidence": "参考1的深浅蓝卡带、白色边线与胶囊标签；参考2的灰绿承托色、浅绿选中态与描边标签。色值为706提案。"
+    },
+    {
+      "name": "质感来自色阶和透叠，不来自阴影",
+      "trigger": "参考图的蓝色比平涂更有深度，用户明确不要奇怪阴影",
+      "decision": "同色系三档渐层、半透明亮区、白底绿路径图标及无投影毛玻璃卡；行动按钮保留706品牌绿",
+      "reason": "保留清爽白底和706颜色家族，同时增加局部视觉密度",
+      "evidence": "参考1静态截图的蓝色明暗层次、白色小图标、浮置文字卡与蓝色按钮；CSS参数为本小样提案。"
+    },
+    {
+      "name": "把信息卡带收进白色舞台",
+      "trigger": "原首屏的主题条在手机上挤占主卡宽度，底部入口又与首屏脱节",
+      "decision": "白色细边框围合标题、主卡、窄签和三张入口卡；手机将当前卡置于上方，其他入口横排下方",
+      "reason": "借 Spark 小样的宽图、窄签、下沿信息卡层级，同时让 706 内容可读",
+      "evidence": "Spark 独立小样的版式关系；706 卡片和按钮仍使用自身绿与多彩主题，具体 CSS 属于本轮实现。"
+    }
+  ],
+  "prototype": {
+    "entry": "sample.html",
+    "interaction": "five expandable panels with click, arrow keys, Home/End",
+    "svg_reuse": "../706er/character-lab.js",
+    "status": "design proposal"
+  },
+  "cover_image": "reference.png 为当前 V3 sample.html 在 1440×900 视口下的首屏截图，用作 Gallery 首页封面；两张原始参考仍在 references/ 目录。",
+  "preview": {
+    "layout": "bento",
+    "background": "#FFFFFF",
+    "ink": "#153D31",
+    "accent": "#00AD57",
+    "soft": "#DCEBDD",
+    "label": "白底弹性主题卡",
+    "headline": "让生活的可能，\n自由生长",
+    "caption": "原始参考 × 可视化构图",
+    "image_position": "right center",
+    "kicker": "706 Open Canvas · 白底弹性版 V3"
+  }
+}
