@@ -1,0 +1,9 @@
+{
+  "description": "706 社区微信小程序",
+  "miniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "706-community",
+  "libVersion": "3.7.0",
+  "setting": { "es6": true, "minified": true, "postcss": true, "urlCheck": true }
+}

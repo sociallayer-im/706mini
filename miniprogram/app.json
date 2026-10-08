@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/feed/index",
+    "pages/discover/index",
+    "pages/messages/index",
+    "pages/me/index",
+    "pages/event/index",
+    "pages/member/index",
+    "pages/space/index",
+    "pages/org/index",
+    "pages/entity-events/index",
+    "pages/entity-members/index",
+    "pages/edit-entity/index",
+    "pages/admins/index",
+    "pages/edit-profile/index",
+    "pages/relations/index",
+    "pages/onboarding/index",
+    "pages/calendar/index",
+    "pages/spaces/index",
+    "pages/campaign/index",
+    "pages/campaign-edit/index",
+    "pages/campaign-create/index",
+    "pages/campaign-approval-detail/index",
+    "pages/campaign-review-progress/index",
+    "pages/event-access/index",
+    "pages/activity-preview/index",
+    "pages/publish/index",
+    "pages/approvals/index",
+    "pages/approval-detail/index",
+    "pages/approval-progress/index",
+    "pages/registrations/index",
+    "pages/my-events/index",
+    "pages/drafts/index",
+    "pages/following/index",
+    "pages/more/index",
+    "pages/login/index",
+    "pages/attendees/index",
+    "pages/invitations/index",
+    "pages/my-campaigns/index",
+    "pages/privacy/index",
+    "pages/feedback/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "706",
+    "navigationBarBackgroundColor": "#F3F3F3",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F3F3F3"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#222222",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/feed/index",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
