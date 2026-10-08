@@ -1,4 +1,4 @@
-const api=require('./montana'),prefs=require('./preferences'),i18n=require('./i18n'),theme=require('./theme'),dates=require('./dates'),forms=require('./forms');
+const api=require('./api'),prefs=require('./preferences'),i18n=require('./i18n'),theme=require('./theme'),dates=require('./dates'),forms=require('./forms');
 const tabs=['feed','discover','messages','me'];
 function go(route,id='',extra={}){const query=Object.entries({...extra,...(id?{id}:{})}).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');const url='/pages/'+route+'/index'+(query?'?'+query:'');return tabs.includes(route)?wx.switchTab({url}):wx.navigateTo({url});}
 const formKinds={publish:'event','campaign-create':'campaign','campaign-edit':'campaign','edit-profile':'profile',onboarding:'profile','edit-entity':'entity'};
@@ -6,24 +6,25 @@ function normalize(item,t,locale){const e=item.event||item;return {...item,activ
 module.exports=function createPage(route){return {
  data:{route,theme:theme.style(),t:{},loading:true,busy:false,error:'',items:[],people:[],campaigns:[],spaces:[],organizations:[],form:{},fields:[],step:1,formKind:formKinds[route]||'',sheet:'',sheetForm:{},filters:{},offset:0,calendarMode:'week',days:[],record:null,cityName:'',selectedDate:'',hasMore:false,nextCursor:null,consent:false,shareContact:false},
  onLoad(options){this.options=options||{};this.filters={};this.commandKeys={};this.refreshLanguage();const kind=formKinds[route];if(kind){const cached=wx.getStorageSync(this.draftKey());this.setData({form:cached||{city:prefs.get().city,price_minor:'',capacity:'',approval_required:false,waitlist_enabled:true,event_ids:[]},step:wx.getStorageSync(this.draftKey()+'.step')||1});this.updateFields();}},
- onShow(){this.setData({access:null});this.refreshLanguage();this.load();},
+ onShow(){this.setData({access:null,reviewCount:0,needsLogin:false,canRegister:false,contact:null});this.refreshLanguage();this.load();},
  onUnload(){clearTimeout(this.saveTimer);},
  onPullDownRefresh(){this.load().finally(()=>wx.stopPullDownRefresh());},
  onReachBottom(){if(this.data.hasMore&&!this.data.loading)this.load(true);},
  onShareAppMessage(){return {title:this.data.record?.title||'706',path:'/pages/'+route+'/index'+(this.options.id?'?id='+encodeURIComponent(this.options.id):'')};},
  refreshPeople(){this.run(async()=>{const r=await this.read('people',{city:this.data.city,exclude:this.data.people.map(x=>x.owner)});this.setData({people:r.items.slice(0,6)});});},
- refreshLanguage(){const p=prefs.get(),t=i18n.dictionary(p.locale);this.setData({t,locale:p.locale,city:p.city,title:t[route]||'706',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});if(!tabs.includes(route))wx.setNavigationBarTitle({title:t[route]||'706',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});tabs.forEach((r,index)=>wx.setTabBarItem({index,text:t[r]}));},
- draftKey(){return '706.draft.'+route+'.'+(this.options.id||'new')+'.'+(api.session()?.id||'anonymous');},
+ refreshLanguage(){const p=prefs.get(),t=i18n.dictionary(p.locale);this.setData({t,locale:p.locale,city:p.city,title:t[route]||'706',demo:api.isMock(),mode:api.mode(),demoName:api.isMock()?api.mock.personas.find(x=>x.id===api.session()?.id)?.label||'游客':'',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});if(!tabs.includes(route))wx.setNavigationBarTitle({title:t[route]||'706',demo:api.isMock(),mode:api.mode(),demoName:api.isMock()?api.mock.personas.find(x=>x.id===api.session()?.id)?.label||'游客':'',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});tabs.forEach((r,index)=>wx.setTabBarItem({index,text:t[r]}));},
+ draftKey(){return '706.draft.'+api.mode()+'.'+route+'.'+(this.options.id||'new')+'.'+(api.session()?.id||'anonymous');},
  read(op,params={}){return api.call('read',{op,params});},
  async write(op,params={}){const fingerprint=op+JSON.stringify(params);const key=this.commandKeys[fingerprint]||(this.commandKeys[fingerprint]='cmd-'+Date.now()+'-'+Math.random().toString(36).slice(2));const r=await api.call('write',{op,params,key});delete this.commandKeys[fingerprint];return r;},
  async load(append=false){
   append=append===true;
   if(this.data.loading&&this.loadingPromise)return this.loadingPromise;
-  this.setData({loading:true,error:''});
-  this.loadingPromise=this.loadData(append).catch(e=>this.setData({error:i18n.message(e,this.data.t),needsLogin:/LOGIN_REQUIRED|VERIFIED_LOGIN/.test(e.message||e.code||'')})).finally(()=>{this.setData({loading:false});this.loadingPromise=null;});return this.loadingPromise;
+  this.setData({loading:true,error:'',contact:null,access:null});
+  this.loadingPromise=this.loadData(append).catch(e=>{const needsLogin=/LOGIN_REQUIRED|VERIFIED_LOGIN/.test(e.message||e.code||'');this.setData({error:i18n.message(e,this.data.t),needsLogin,...(needsLogin?{record:null,items:[],form:{},fields:[],me:null,managed:[],reviewCount:0,contact:null,access:null}: {})});}).finally(()=>{this.setData({loading:false});this.loadingPromise=null;});return this.loadingPromise;
  },
  async loadData(append){
-  const t=this.data.t,p=prefs.get(),id=this.options.id;let result;if(['login','privacy','feedback','more'].includes(route))return;
+  if(['login','privacy','feedback','more'].includes(route))return;if(route!=='review-lab')await prefs.sync();this.refreshLanguage();const t=this.data.t,p=prefs.get(),id=this.options.id;let result;
+  if(route==='review-lab'){this.loadLab();return;}
   if(!this.config){this.config=await this.read('config');this.setData({cities:this.config.cities,cityName:this.config.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']});}
   if(route==='calendar'&&this.options.scene&&!this.shareLoaded){const share=await this.read('calendarShare',{id:decodeURIComponent(this.options.scene)});this.filters=share.params;this.shareLoaded=true;const start=share.params.from;this.sharedRange={from:start,to:share.params.to};const month=Date.parse(share.params.to)-Date.parse(start)>7*86400000;const base=dates.range(month?'month':'week');const a=dates.localDate(new Date(start)).split('-').map(Number),b=dates.localDate(new Date(base.from)).split('-').map(Number);const offset=month?(a[0]-b[0])*12+a[1]-b[1]:Math.floor((Date.parse(start)-Date.parse(base.from))/604800000);this.setData({calendarMode:month?'month':'week',offset,selectedDate:Date.parse(share.params.to)-Date.parse(start)===86400000?dates.localDate(new Date(start)):'',city:share.params.city,cityName:this.config.cities.find(c=>c.id===share.params.city)?.[p.locale==='en'?'en':'zh']});}
   const params={...this.filters,city:this.filters.city||p.city,cursor:append?this.data.nextCursor:null};this.setData({city:params.city,cityName:this.config.cities.find(c=>c.id===params.city)?.[p.locale==='en'?'en':'zh']});
@@ -59,7 +60,7 @@ module.exports=function createPage(route){return {
   else if(formKinds[route]){
    if(!api.session()){this.setData({needsLogin:true});throw Error('LOGIN_REQUIRED');}
    const kind=formKinds[route];let r=null;
-   if(!this.formLoaded){if(kind==='profile')r=(await this.read('me')).profile;else if(kind==='entity')r=await this.read('entity',{id});else if(id)r=await this.read('draft',{id,kind});
+   if(!this.formLoaded){if(kind==='profile'){r=(await this.read('me')).profile;const contact=await this.read('selfContact');r={...r,wechat:contact.wechat};}else if(kind==='entity')r=await this.read('entity',{id});else if(id)r=await this.read('draft',{id,kind});
     const cached=wx.getStorageSync(this.draftKey());this.setData({form:cached|| (r?forms.toForm(r):this.data.form),record:r});this.formLoaded=true;}
    const es=await this.read('managed');const spaces=await this.read('entities',{kind:'SPACE',city:p.city});
    this.setData({organizations:es.items.filter(e=>e.kind==='ORGANIZATION'),spaces:spaces.items});
@@ -77,7 +78,7 @@ module.exports=function createPage(route){return {
  login(){go('login');},
  chooseCity(){if(!this.config){this.run(async()=>{this.config=await this.read('config');this.chooseCity();});return;}wx.showActionSheet({itemList:this.config.cities.map(c=>c[this.data.locale==='en'?'en':'zh']),success:({tapIndex})=>{const c=this.config.cities[tapIndex];this.sharedRange=null;delete this.filters.city;prefs.set({city:c.id});if(api.session())this.run(()=>this.write('profile',{city:c.id}));this.setData({city:c.id,cityName:c[this.data.locale==='en'?'en':'zh']});this.load();}});},
  toggleLanguage(){prefs.set({locale:this.data.locale==='en'?'zh-CN':'en'});if(api.session())this.run(()=>this.write('profile',{locale:prefs.get().locale}));this.refreshLanguage();this.updateFields();this.load();},
- logout(){this.run(async()=>{await api.logout();go('feed');});},
+ logout(){this.run(async()=>{await api.logout();wx.reLaunch({url:'/pages/feed/index'});});},
  searchInput(e){this.setData({query:e.detail.value});},
  search(){this.run(async()=>{if(!this.data.query)return this.load();const r=await this.read('search',{q:this.data.query,city:this.data.city});this.setData({items:r.items.map(x=>normalize(x,this.data.t,this.data.locale)),searching:true});});},
  filter(e){this.sharedRange=null;const {key,value}=e.currentTarget.dataset;if(key==='clearTags'){delete this.filters.tag;delete this.filters.free_only;delete this.filters.has_capacity;this.setData({filters:{...this.filters}});this.load();return;}if(key==='date'){this.setData({offset:value==='next'?1:0,selectedDate:'',calendarMode:'week',showWeek:value==='calendar'});}else{this.filters[key]=value;this.setData({filters:{...this.filters}});}this.load();},
@@ -97,11 +98,13 @@ module.exports=function createPage(route){return {
   if(kind==='register')result=await this.write('register',{id:this.options.id,...this.data.sheetForm,privacy_consent:this.data.consent,contact_share_consent:this.data.shareContact});
   else if(kind==='invite')result=await this.write('invite',{id:this.options.id,...this.data.sheetForm});
   else result=await this.write(kind,{id:this.options.id,...this.data.sheetForm});
-  this.setData({sheet:''});if(kind==='register')go('event-access',result.id);else await this.load();});},
+  this.setData({sheet:''});if(kind==='report'){this.setData({sheetForm:{}});wx.showToast({title:this.data.t.saved,icon:'success'});}if(kind==='register')go('event-access',result.id);else await this.load();});},
  action(e){const {op,id,approve,version}=e.currentTarget.dataset;this.run(async()=>{const p={id:id||this.options.id,version:version||this.data.record?.version,...(approve===undefined?{}:{approve})};
   if(op==='review'&&!approve){if(!this.data.sheetForm.note){this.setData({error:this.data.t.REASON_REQUIRED});return;}p.note=this.data.sheetForm.note;}
   if(['cancelEvent','cancelRegistration','revokeRole'].includes(op)){const yes=await new Promise(resolve=>wx.showModal({title:this.data.t[op]||this.data.t.confirm,success:r=>resolve(r.confirm)}));if(!yes)return;}
-  if(op==='payment'){const r=await api.call('payment',p);await new Promise((resolve,reject)=>wx.requestPayment({...r,success:resolve,fail:reject}));await this.load();return;}
+  if(op==='payment'){if(api.isMock()){const choice=await new Promise(resolve=>wx.showModal({title:'模拟支付',content:'仅改变本地演示状态，不会扣款。',success:r=>resolve(r.confirm)}));if(choice){await api.call('payment',p);await this.load();}return;}const r=await api.call('payment',p);await new Promise((resolve,reject)=>wx.requestPayment({...r,success:resolve,fail:reject}));await this.load();return;}
+  if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
+  if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}
   const r=await this.write(op,p);
   if(op==='clone'){go('publish',r.id);return;}if(op==='access'){if(r?.type==='GROUP_QR'&&r.value?.startsWith('706-media:')){const asset=await api.call('mediaPreview',{id:r.value.slice(10),registration:p.id});r.value=asset.url;}this.setData({access:r});return;}
   await this.load();
@@ -116,7 +119,7 @@ module.exports=function createPage(route){return {
   if(type==='access')value=['GROUP_QR','ORGANIZER_WECHAT','ORGANIZER_WILL_CONTACT'][v];
   this.setData({['form.'+key]:value});this.updateFields();this.persist();
  },
- upload(e){const key=e.currentTarget.dataset.key;this.run(async()=>{const selected=await new Promise((resolve,reject)=>wx.chooseMedia({count:1,mediaType:['image'],success:resolve,fail:reject}));const file=selected.tempFiles[0];if(file.size>10*1024*1024)throw Error('MEDIA_INVALID');const path=file.tempFilePath;const ext=(path.split('.').pop()||'jpg').toLowerCase();const permit=await api.call('mediaUpload',{extension:ext,private:key==='access_value'});const data=await new Promise((resolve,reject)=>wx.getFileSystemManager().readFile({filePath:path,success:r=>resolve(r.data),fail:reject}));await new Promise((resolve,reject)=>wx.request({url:permit.upload_url,method:'PUT',data,header:{'content-type':ext==='png'?'image/png':ext==='webp'?'image/webp':'image/jpeg'},success:r=>r.statusCode<300?resolve(r):reject(Error('MEDIA_INVALID')),fail:reject}));const asset=await api.call('mediaFinish',{path:permit.path});this.setData({['form.'+key]:key==='access_value'?'706-media:'+asset.id:asset.url,['mediaPreviews.'+key]:asset.preview_url});this.updateFields();this.persist();});},
+ upload(e){const key=e.currentTarget.dataset.key;this.run(async()=>{const selected=await new Promise((resolve,reject)=>wx.chooseMedia({count:1,mediaType:['image'],success:resolve,fail:reject}));const file=selected.tempFiles[0];if(file.size>10*1024*1024)throw Error('MEDIA_INVALID');const path=file.tempFilePath;if(api.isMock()){const saved=await new Promise((resolve,reject)=>wx.getFileSystemManager().saveFile({tempFilePath:path,success:r=>resolve(r.savedFilePath),fail:reject}));const asset=api.mock.localMedia(saved);this.setData({['form.'+key]:key==='access_value'?'706-media:'+asset.id:asset.url,['mediaPreviews.'+key]:asset.url});this.updateFields();this.persist();return;}const ext=(path.split('.').pop()||'jpg').toLowerCase();const permit=await api.call('mediaUpload',{extension:ext,private:key==='access_value'});const data=await new Promise((resolve,reject)=>wx.getFileSystemManager().readFile({filePath:path,success:r=>resolve(r.data),fail:reject}));await new Promise((resolve,reject)=>wx.request({url:permit.upload_url,method:'PUT',data,header:{'content-type':ext==='png'?'image/png':ext==='webp'?'image/webp':'image/jpeg'},success:r=>r.statusCode<300?resolve(r):reject(Error('MEDIA_INVALID')),fail:reject}));const asset=await api.call('mediaFinish',{path:permit.path});this.setData({['form.'+key]:key==='access_value'?'706-media:'+asset.id:asset.url,['mediaPreviews.'+key]:asset.preview_url});this.updateFields();this.persist();});},
  dateInput(e){const key=e.currentTarget.dataset.key;const old=this.data.form[key]?dates.format(this.data.form[key]):dates.localDate()+' 12:00';const next=e.currentTarget.dataset.part==='date'?e.detail.value+' '+old.slice(11,16):old.slice(0,10)+' '+e.detail.value;this.setData({['form.'+key]:new Date(next.replace(' ','T')+':00+08:00').toISOString()});this.updateFields();this.persist();},
  spaceSelection(e){this.setData({'form.follow_spaces':e.detail.value});this.updateFields();this.persist();},
  preference(e){const kind=e.currentTarget.dataset.kind;this.run(async()=>{const me=await this.read('me');if(kind==='share_activity'){await this.write('profile',{share_activity:!me.profile?.share_activity});wx.showToast({title:this.data.t.saved});}else if(kind==='visibility'){const visibility=me.profile?.visibility==='PUBLIC'?'MEMBERS':'PUBLIC';await this.write('profile',{visibility});wx.showToast({title:this.data.t.saved});}else{const enabled=!me.profile?.notification_preferences?.enabled;await this.write('profile',{notification_preferences:{enabled}});wx.showToast({title:this.data.t.saved});}});},
@@ -127,6 +130,8 @@ module.exports=function createPage(route){return {
   const kind=formKinds[route], p=forms.payload(kind,this.data.form);let op=kind==='event'?'saveEvent':kind==='campaign'?'saveCampaign':kind==='profile'?'profile':'entity';
   if(kind==='profile'&&route==='onboarding'){p.complete=!!submit;p.privacy_consent=this.data.consent;}
   if(kind==='entity')p.id=this.options.id;
+  if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
+  if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}
   const r=await this.write(op,p);this.setData({form:forms.toForm({...r,...(kind==='event'?{access:p.access}:{}),...(kind==='profile'?{wechat:p.wechat,follow_spaces:p.follow_spaces}:{})}),record:r});this.persist();
   if(submit&&(kind==='event'||kind==='campaign')){await this.write(kind==='event'?'submitEvent':'submitCampaign',{id:r.id,version:r.version});wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');go(kind==='event'?'approval-progress':'campaign-review-progress',r.id);}
   else if(kind==='profile'&&submit){wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');go('me');}
@@ -134,10 +139,10 @@ module.exports=function createPage(route){return {
   this.updateFields();
  });},
  loginInput(e){this.setData({[e.currentTarget.dataset.key]:e.detail.value});},
- sendCode(){this.run(async()=>{await api.login(this.data.loginMode||'phone',this.data.address);this.setData({codeSent:true});});},
- verifyCode(){this.run(async()=>{await api.login(this.data.loginMode||'phone',this.data.address,this.data.code);const me=await this.read('me');if(me.profile?.onboarded)go('me');else go('onboarding');});},
+ sendCode(){this.run(async()=>{await api.login(this.data.loginMode||'phone',this.data.address);this.setData({codeSent:true});if(api.isMock())wx.showToast({title:'演示验证码：706000',icon:'none'});});},
+ verifyCode(){this.run(async()=>{if(!String(this.data.code||'').trim())throw Error('CODE_REQUIRED');await api.login(this.data.loginMode||'phone',this.data.address,this.data.code);const me=await this.read('me');prefs.fromProfile(me.profile);if(me.profile?.onboarded)go('me');else go('onboarding');});},
  loginMode(){this.setData({loginMode:this.data.loginMode==='email'?'phone':'email',codeSent:false});},
- wechatLogin(){this.run(async()=>{const r=await new Promise((resolve,reject)=>wx.login({success:resolve,fail:reject}));const login=await api.call('wechatLogin',{code:r.code});api.setSession(login.user);const me=await this.read('me');go(me.profile?.onboarded?'me':'onboarding');});},
+ wechatLogin(){this.run(async()=>{if(api.isMock()){await api.call('wechatLogin');go('me');return;}const r=await new Promise((resolve,reject)=>wx.login({success:resolve,fail:reject}));const login=await api.call('wechatLogin',{code:r.code});api.setSession(login.user);const me=await this.read('me');prefs.fromProfile(me.profile);go(me.profile?.onboarded?'me':'onboarding');});},
  copy(e){wx.setClipboardData({data:e.currentTarget.dataset.value});},
  async refreshMedia(){const values=this.data.formKind?this.data.form:this.data.record||{};const out={};for(const key of ['cover_url','avatar_url','access_value']){const value=values[key];if(!value)continue;const match=value.match(/(?:706-media:|\/community\/media\/)([^/?]+)$/);if(!match)continue;try{out[key]=(await api.call('mediaPreview',{id:match[1]})).url;}catch{out[key]=key==='access_value'?'':value;}}this.setData({mediaPreviews:out});},
  previewImage(e){wx.previewImage({urls:[e.currentTarget.dataset.url]});},
@@ -145,12 +150,18 @@ module.exports=function createPage(route){return {
   const range=this.sharedRange||dates.range(this.data.calendarMode,this.data.offset);const params={...this.filters,city:this.data.city,from:range.from,to:range.to};
   if(this.data.selectedDate){params.from=new Date(this.data.selectedDate+'T00:00:00+08:00').toISOString();params.to=new Date(new Date(params.from).getTime()+86400000).toISOString();}
   const share=await api.call('calendarCode',{params});const items=share.items;const height=230+items.length*190;
-  const codePath=wx.env.USER_DATA_PATH+'/706-calendar-code.png';await new Promise((resolve,reject)=>wx.getFileSystemManager().writeFile({filePath:codePath,data:share.code,encoding:'base64',success:resolve,fail:reject}));
-  const covers=await Promise.all(items.map(x=>x.cover_url?new Promise(resolve=>wx.getImageInfo({src:x.cover_url,success:r=>resolve(r.path),fail:()=>resolve(null)})):Promise.resolve(null)));
+  const codePath=wx.env.USER_DATA_PATH+'/706-calendar-code.png';if(!share.demo)await new Promise((resolve,reject)=>wx.getFileSystemManager().writeFile({filePath:codePath,data:share.code,encoding:'base64',success:resolve,fail:reject}));
+  const covers=await Promise.all(items.map(x=>x.cover_url?new Promise(resolve=>wx.getImageInfo({src:x.cover_url,success:r=>resolve(x.cover_url.startsWith('/')?x.cover_url:r.path),fail:()=>resolve(null)})):Promise.resolve(null)));
   this.setData({posterHeight:height,posterWidth:750});await new Promise(resolve=>wx.nextTick(resolve));
-  const c=wx.createCanvasContext('poster',this);c.setFillStyle('#ffffff');c.fillRect(0,0,750,height);c.setFillStyle('#222222');c.setFontSize(30);c.fillText(this.data.cityName+' · 706',30,50);c.setFontSize(18);c.fillText(this.data.rangeLabel,30,92);c.drawImage(codePath,590,20,130,130);
+  const c=wx.createCanvasContext('poster',this);c.setFillStyle('#ffffff');c.fillRect(0,0,750,height);c.setFillStyle('#222222');c.setFontSize(30);c.fillText(this.data.cityName+' · 706',30,50);c.setFontSize(18);c.fillText(this.data.rangeLabel,30,92);if(share.demo){c.setFontSize(20);c.fillText('演示数据',580,55);c.setFontSize(14);c.fillText('无有效活动码',580,90);}else c.drawImage(codePath,590,20,130,130);
   items.forEach((x,index)=>{const y=180+index*190;c.setFontSize(17);c.setFillStyle('#777777');c.fillText(dates.format(x.starts_at).slice(5,10),30,y);c.fillText(dates.format(x.starts_at).slice(11),30,y+26);c.setFillStyle('#222222');c.setFontSize(24);String(x.title||'').match(/.{1,18}/g)?.slice(0,2).forEach((line,n)=>c.fillText(line,120,y+n*30));c.setFontSize(16);c.fillText(String(x.venue_display||'').slice(0,28),120,y+78);c.fillText(String(x.host_display||'').slice(0,28),120,y+108);if(covers[index])c.drawImage(covers[index],600,y-18,108,144);});c.setFontSize(14);c.fillText(this.data.t.posterNotice,30,height-24);
   await new Promise(resolve=>c.draw(false,resolve));const r=await new Promise((resolve,reject)=>wx.canvasToTempFilePath({canvasId:'poster',width:750,height,success:resolve,fail:reject},this));this.setData({posterPath:r.tempFilePath,sheet:'poster'});
  });},
+ loadLab(){const catalog=require('./mock/catalog');this.setData({personas:api.mock.personas,labState:api.isMock()?api.mock.state():null,catalog,scenarios:[{id:'normal',label:'正常数据'},{id:'loading',label:'加载中（本地延迟）'},{id:'empty',label:'空列表'},{id:'error',label:'加载失败'},{id:'permission',label:'无权限'}]});},
+ labOpen(e){const entry=this.data.catalog[Number(e.currentTarget.dataset.index)];if(!api.isMock()){this.setData({error:'合成页面目录仅用于离线演示模式。'});return;}api.mock.configure({persona:entry.persona||'demo-member',scenario:'normal'});prefs.set({city:'shanghai'});wx.reLaunch({url:'/pages/'+entry.route+'/index'+(entry.id?'?id='+entry.id:'')});},
+ labPersona(e){api.mock.configure({persona:e.currentTarget.dataset.id});wx.reLaunch({url:'/pages/review-lab/index'});},
+ labScenario(e){api.mock.configure({scenario:e.currentTarget.dataset.id});wx.reLaunch({url:'/pages/discover/index'});},
+ labReset(){wx.showModal({title:'重置演示数据',content:'清空本地演示修改、草稿、身份与筛选，不影响 Montana 数据。',success:r=>{if(!r.confirm)return;const keys=wx.getStorageInfoSync().keys;keys.filter(k=>k.startsWith('706.draft.mock.')||k.startsWith('706.preferences.mock.')).forEach(k=>wx.removeStorageSync(k));api.mock.reset();wx.reLaunch({url:'/pages/review-lab/index'});}});},
+ labMode(){const next=api.isMock()?'montana':'mock';wx.showModal({title:next==='montana'?'连接真实 Montana':'切换离线演示',content:next==='montana'?'真实模式使用独立账号和真实服务，操作可能保存到服务端。请先完成域名与账号配置。':'所有演示操作仅保存在本机。',success:r=>{if(!r.confirm)return;api.setMode(next);wx.reLaunch({url:'/pages/review-lab/index'});}});},
  savePoster(){this.run(()=>new Promise((resolve,reject)=>wx.saveImageToPhotosAlbum({filePath:this.data.posterPath,success:resolve,fail:reject})));}
 };};

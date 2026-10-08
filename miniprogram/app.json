@@ -38,7 +38,8 @@
     "pages/invitations/index",
     "pages/my-campaigns/index",
     "pages/privacy/index",
-    "pages/feedback/index"
+    "pages/feedback/index",
+    "pages/review-lab/index"
   ],
   "window": {
     "navigationBarTitleText": "706",

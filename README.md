@@ -1,5 +1,10 @@
 # 706mini
 
+## 同事离线评审（2026-10-09）
+
+默认离线演示已接入原生小程序。导入仓库根目录，在首页顶部打开“演示数据”进入全部页面和状态目录。见 [同事评审指南](docs/colleague-review.md)、[Montana 真实接入矩阵](docs/montana-integration-matrix.md) 和 [验证记录](docs/review-validation.md)。
+
+
 706 社区微信原生小程序工程，以及保留的移动端网页交互模型。
 
 原生工程位于 `miniprogram/`，含 39 个页面，接入 Montana 服务。

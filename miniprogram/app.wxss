@@ -5,3 +5,9 @@ page{background:#f3f3f3;color:#222;font-family:-apple-system,BlinkMacSystemFont,
 .screen .fab{width:100rpx;min-width:100rpx;height:100rpx}
 .screen .row>.primary,.screen .row>.secondary,.screen .bottom-actions>.primary,.screen .bottom-actions>.secondary{width:auto;flex:1;min-width:0}
 .screen .error>text{display:block}
+
+.demo-banner{padding:18rpx 24rpx;background:#DFF8EB;color:#244C39;font-size:24rpx;border-radius:16rpx;margin-bottom:20rpx;}
+
+.screen .catalog-button{width:100%;justify-content:space-between;text-align:left;font-size:28rpx;font-weight:400;border-radius:0;background:#fff;white-space:normal;line-height:1.5;}
+
+.screen .demo-banner{width:100%;font-weight:400;text-align:left;line-height:1.6;}

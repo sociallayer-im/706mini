@@ -1,2 +1,2 @@
-const api = require('./lib/montana');
+const api = require('./lib/api');
 App({onHide() { api.close(); }});
