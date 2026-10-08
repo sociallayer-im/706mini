@@ -13,9 +13,9 @@ function request(path, data, method = 'POST') {
   }));
 }
 function session() { return wx.getStorageSync(key) || null; }
-function close() {
+function close(closeTransport = true) {
   const old = socket; socket = null; opening = null;
-  if (old) old.close({code:1000});
+  if (old && closeTransport) old.close({code:1000,fail() { /* A failed handshake may have no native task left. */ }});
   for (const p of pending.values()) { clearTimeout(p.timer); p.reject(error('NETWORK')); }
   pending.clear();
 }
@@ -32,7 +32,7 @@ function send(message) {
 function connect() {
   if (opening) return opening;
   opening = new Promise((resolve, reject) => {
-    const current = wx.connectSocket({url:config.websocketURI, fail() { close(); reject(error('NETWORK')); }});
+    const current = wx.connectSocket({url:config.websocketURI, fail(e) { close(false); reject(error(/domain|域名/i.test(e?.errMsg||'')?'DOMAIN_NOT_ALLOWED':'NETWORK')); }});
     socket = current;
     const timer = setTimeout(() => { close(); reject(error('TIMEOUT')); }, 20000);
     current.onOpen(async () => {
@@ -52,9 +52,9 @@ function connect() {
         });
       } catch (_) { /* Ignore non-protocol frames; pending requests retain their timeout. */ }
     });
-    current.onClose(() => { if (socket === current) close(); clearTimeout(timer); reject(error('NETWORK')); });
-    current.onError(() => { if (socket === current) close(); clearTimeout(timer); reject(error('NETWORK')); });
-  });
+    current.onClose(() => { if (socket === current) close(false); clearTimeout(timer); reject(error('NETWORK')); });
+    current.onError((e) => { if (socket === current) close(false); clearTimeout(timer); reject(error(/domain|域名/i.test(e?.errMsg||'')?'DOMAIN_NOT_ALLOWED':'NETWORK')); });
+  }).catch(e => { opening = null; throw e; });
   return opening;
 }
 async function call(name, args = {}) {
