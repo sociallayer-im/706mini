@@ -1,0 +1,5 @@
+apps/community706/functions/community.ts
+apps/community706/tests/access-media-contract.mjs
+apps/community706/tests/calendar-contract.mjs
+apps/community706/tests/member-contract.mjs
+apps/community706/tests/visual-contract.mjs

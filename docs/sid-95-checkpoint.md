@@ -2,6 +2,7 @@
 
 ## 用户暂停，待本人Review（2026-10-09，当前唯一恢复点）
 
+- Git WIP实现快照：前端main `2bbf0225942a61da847f5281a60c33701d17549b`；后端codex/706-community `d70d1db5e2b7ea9f0fba93ecbe426fe1f0acca8d`。远端与精确清单见[暂停报告](visual-review/2026-10-09/pause-status.md)。后续文档收尾commit不包含新实现/测试。
 - 用户明确主动暂停；停止新实现、新页面/GUI核对与新测试。仅整理既有代码/文档/证据并按授权WIP提交push；不部署/发布、不重置演示数据。等待用户，禁止自主恢复。
 - 全量与本人验收未完成。当前19 VERIFIED /12 NEEDS_FIX /32 PENDING；16–19仍NEEDS_FIX。20–23及其他项未提升。详细实现、验证时间边界、Figma情况和未完成项见`visual-review/2026-10-09/members-16-19-mapping.md`。
 - 16最终15:30首屏真正顶部已目视，source_bio恢复；编辑/分享取消/复制/两关系/两活动入口已做。最新中下未终审。17三图已拍但未目视终审，互动回路未做；18–19本批GUI未开始。现有r6数字证据不代表整页通过。

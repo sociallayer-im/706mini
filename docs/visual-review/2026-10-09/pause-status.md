@@ -30,7 +30,9 @@ Figma已读与直接/组件组合边界以coverage和各mapping为准；没有�
 
 - 前端：`origin` = `git@github.com:sociallayer-im/706mini.git`，branch `main`。
 - 后端：`origin` = `https://github.com/sola-day/montana.git`，branch `codex/706-community`。
-- 提交hash及精确文件清单在完成推送后的最终交接中报告；本报告随WIP提交保存。提交不触发人工部署；前端Pages工作流仅dist/工作流修改触发，本次均不修改。
+- 前端实现快照：`2bbf0225942a61da847f5281a60c33701d17549b`（275文件）；[精确文件清单](pause-frontend-files.txt)。本次收尾文档提交仅更新此报告、检查点和两份清单。
+- 后端快照：`d70d1db5e2b7ea9f0fba93ecbe426fe1f0acca8d`（5文件，已push）；[精确文件清单](pause-backend-files.txt)。全量原始证据目录均未进入提交。
+- 最终branch HEAD/push结果在聊天交接报告；不人工部署。前端Pages工作流仅dist/工作流修改触发，本次均不修改。
 
 ## 63状态简短索引（本人均未验收）
 
