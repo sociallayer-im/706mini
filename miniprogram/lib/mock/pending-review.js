@@ -1,4 +1,5 @@
-{
+// Native Mini Program require loads JavaScript modules, not JSON data files.
+module.exports = {
   "source": "docs/visual-review/2026-10-09/coverage.json",
   "sourceDate": "2026-10-09",
   "originalQueries": [
@@ -53,4 +54,4 @@
     "campaign-approval-detail",
     "campaign-review-progress"
   ]
-}
+};

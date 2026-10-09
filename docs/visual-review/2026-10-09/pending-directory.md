@@ -4,7 +4,7 @@
 
 入口：小程序“我的” → **待查看页面（48项）**；也可用已有页面顶部“页面目录”进入。微信开发者工具如需手动直达，启动页面填 `pages/review-lab/index`，无需参数；本轮不改项目编译配置。
 
-内容来自既有 `coverage.json`：12 NEEDS_FIX + 32 PENDING，另加onboarding、campaign-create、campaign-approval-detail、campaign-review-progress。19 VERIFIED不列入；coverage及已有业务实现不变，开发核对不代表本人验收。`pending-review.json`仅存待查看sourceQuery和4路由的选择快照。
+内容来自既有 `coverage.json`：12 NEEDS_FIX + 32 PENDING，另加onboarding、campaign-create、campaign-approval-detail、campaign-review-progress。19 VERIFIED不列入；coverage及已有业务实现不变，开发核对不代表本人验收。`pending-review.js`仅存待查看sourceQuery和4路由的选择快照。
 
 按钮使用原118目录中的索引和角色/实体ID/步骤/弹框参数，不重新编号后传错索引。本目录不显示旧“前后项/118”工具条；沿用已有顶部目录入口。tabBar页面通过一次性内存参数接力，再reLaunch无query的tabBar路径，避免把sheet参数塞入tabBar URL。非tab页继续原query跳转。
 
@@ -14,4 +14,10 @@
 
 本轮仅静态阅读与文件差异检查：按coverage选44项并追加4路由；对照prototype-catalog与已有catalog的route/id/persona/options；git diff --check无空白错误。**未新增或运行任何测试，未运行编译、未启动GUI或逐页视觉核对**。没有后端改动/部署、没有恢复其他暂停工作。实际点击体验留给本人Review。
 
-变更文件：`miniprogram/lib/mock/pending-review.json`、`miniprogram/lib/page.js`、`miniprogram/templates/screen.wxml`及本说明。
+变更文件：`miniprogram/lib/mock/pending-review.js`、`miniprogram/lib/page.js`、`miniprogram/templates/screen.wxml`及本说明。
+
+## 目录加载故障修正
+
+用户报告从“我的”打开目录出现“操作失败，请重试”。静态定位到loadLab直接require JSON，改成与现有catalog相同的JavaScript module.exports模块；48项选择、索引、角色、步骤、弹框和群二维码前置提示均未改变。加载链路中的catch将未识别的模块异常映射为通用SERVER提示。
+
+读取既有微信工具日志：15:52:48记录pending-review.json加入编译，未找到包含该模块的具体异常堆栈；不能称为日志复现证明。此次只改模块封装/引用并静态查看加载路径，没有新增/运行测试、编译或GUI，修复后的实际原生点击结果尚未实测。r12和其他暂停工作不变。
