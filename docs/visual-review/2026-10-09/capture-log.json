@@ -1,0 +1,1307 @@
+[
+  {
+    "index": 0,
+    "query": "view=feed",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-main-r7",
+    "evidence": [
+      "native/main-r7-feed-top.jpg",
+      "native/main-r7-people-1-left.jpg",
+      "native/main-r7-people-2-left.jpg",
+      "native/main-r7-people-eighth-visible.jpg",
+      "native/main-r7-feed-tail.jpg"
+    ],
+    "captures": [
+      {
+        "name": "feed-top",
+        "capturedAt": "2026-10-09T04:54:00.619Z"
+      },
+      {
+        "name": "people-1-left",
+        "capturedAt": "2026-10-09T04:54:03.873Z"
+      },
+      {
+        "name": "people-2-left",
+        "capturedAt": "2026-10-09T04:54:07.388Z"
+      },
+      {
+        "name": "people-eighth-visible",
+        "capturedAt": "2026-10-09T04:57:04.954Z"
+      },
+      {
+        "name": "feed-tail",
+        "capturedAt": "2026-10-09T04:54:12.603Z"
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "query": "view=discover",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-main-r7",
+    "evidence": [
+      "native/main-r7-discover-final-top.jpg",
+      "native/main-r7-banner-swipe.jpg",
+      "native/main-r7-banner-second-destination.jpg",
+      "native/main-r7-filter-free.jpg",
+      "native/main-r7-filter-screening.jpg",
+      "native/main-r7-filter-outdoor.jpg",
+      "native/main-r7-filter-capacity.jpg",
+      "native/main-r7-filter-space-706.jpg",
+      "native/main-r7-filter-space-m50.jpg",
+      "native/main-r7-filter-space-river-empty.jpg",
+      "native/main-r7-filter-next-week.jpg",
+      "native/main-r7-filter-next-capacity.jpg",
+      "native/main-r7-filter-day10-verified.jpg",
+      "native/main-r7-reading-empty-tail.jpg",
+      "native/main-r7-filters-cleared-final.jpg"
+    ],
+    "captures": [
+      {
+        "name": "discover-final-top",
+        "capturedAt": "2026-10-09T04:58:59.063Z"
+      },
+      {
+        "name": "banner-swipe",
+        "capturedAt": "2026-10-09T04:59:00.431Z"
+      },
+      {
+        "name": "banner-second-destination",
+        "capturedAt": "2026-10-09T04:54:39.424Z"
+      },
+      {
+        "name": "filter-free",
+        "capturedAt": "2026-10-09T04:55:04.957Z"
+      },
+      {
+        "name": "filter-screening",
+        "capturedAt": "2026-10-09T04:55:07.388Z"
+      },
+      {
+        "name": "filter-outdoor",
+        "capturedAt": "2026-10-09T04:55:11.787Z"
+      },
+      {
+        "name": "filter-capacity",
+        "capturedAt": "2026-10-09T04:55:14.287Z"
+      },
+      {
+        "name": "filter-space-706",
+        "capturedAt": "2026-10-09T04:55:31.053Z"
+      },
+      {
+        "name": "filter-space-m50",
+        "capturedAt": "2026-10-09T04:55:33.260Z"
+      },
+      {
+        "name": "filter-space-river-empty",
+        "capturedAt": "2026-10-09T04:55:35.484Z"
+      },
+      {
+        "name": "filter-next-week",
+        "capturedAt": "2026-10-09T04:55:40.253Z"
+      },
+      {
+        "name": "filter-next-capacity",
+        "capturedAt": "2026-10-09T04:55:42.534Z"
+      },
+      {
+        "name": "filter-day10-verified",
+        "capturedAt": "2026-10-09T04:57:41.386Z"
+      },
+      {
+        "name": "reading-empty-tail",
+        "capturedAt": "2026-10-09T05:00:13.119Z"
+      },
+      {
+        "name": "filters-cleared-final",
+        "capturedAt": "2026-10-09T04:59:17.889Z"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "query": "view=discover&mode=space",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-main-r7",
+    "evidence": [
+      "native/main-r7-space-final-top.jpg",
+      "native/main-r7-space-entry-tail.jpg",
+      "native/main-r7-space-entry-m50-verified.jpg",
+      "native/main-r7-space-entry-m50-tail.jpg"
+    ],
+    "captures": [
+      {
+        "name": "space-final-top",
+        "capturedAt": "2026-10-09T04:59:22.932Z"
+      },
+      {
+        "name": "space-entry-tail",
+        "capturedAt": "2026-10-09T04:56:07.037Z"
+      },
+      {
+        "name": "space-entry-m50-verified",
+        "capturedAt": "2026-10-09T04:59:26.017Z"
+      },
+      {
+        "name": "space-entry-m50-tail",
+        "capturedAt": "2026-10-09T04:59:27.800Z"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "query": "view=messages",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-personal-r10",
+    "evidence": [
+      "native/personal-r10-messages-final-top.jpg",
+      "native/personal-r10-messages-final-tail.jpg"
+    ],
+    "captures": [
+      {
+        "name": "messages-final-top",
+        "capturedAt": "2026-10-09T05:14:31.845Z"
+      },
+      {
+        "name": "messages-final-tail",
+        "capturedAt": "2026-10-09T05:14:32.944Z"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "query": "view=me",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-personal-r10",
+    "evidence": [
+      "native/personal-r10-me-final-top.jpg",
+      "native/personal-r10-me-final-bottom.jpg",
+      "native/personal-r10-approvals-final.jpg",
+      "native/personal-r10-self-profile-entry.jpg"
+    ],
+    "captures": [
+      {
+        "name": "me-final-top",
+        "capturedAt": "2026-10-09T05:15:24.034Z"
+      },
+      {
+        "name": "me-final-bottom",
+        "capturedAt": "2026-10-09T05:15:25.131Z"
+      },
+      {
+        "name": "approvals-final",
+        "capturedAt": "2026-10-09T05:15:27.001Z"
+      },
+      {
+        "name": "self-profile-entry",
+        "capturedAt": "2026-10-09T05:16:49.525Z"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "query": "view=more",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-personal-r10",
+    "evidence": [
+      "native/personal-r10-more-final-top.jpg",
+      "native/personal-r10-more-final-bottom.jpg",
+      "native/personal-r10-city-final-hangzhou.jpg",
+      "native/personal-r10-english-final.jpg",
+      "native/personal-r10-notification-setting-final.jpg",
+      "native/personal-r10-notification-off-final.jpg",
+      "native/personal-r10-privacy-final.jpg",
+      "native/personal-r10-logout-final.jpg",
+      "native/personal-r10-fixture-version.jpg"
+    ],
+    "captures": [
+      {
+        "name": "more-final-top",
+        "capturedAt": "2026-10-09T05:15:33.050Z"
+      },
+      {
+        "name": "more-final-bottom",
+        "capturedAt": "2026-10-09T05:15:34.088Z"
+      },
+      {
+        "name": "city-final-hangzhou",
+        "capturedAt": "2026-10-09T05:18:04.947Z"
+      },
+      {
+        "name": "english-final",
+        "capturedAt": "2026-10-09T05:16:03.241Z"
+      },
+      {
+        "name": "notification-setting-final",
+        "capturedAt": "2026-10-09T05:15:35.487Z"
+      },
+      {
+        "name": "notification-off-final",
+        "capturedAt": "2026-10-09T05:16:08.418Z"
+      },
+      {
+        "name": "privacy-final",
+        "capturedAt": "2026-10-09T05:16:41.761Z"
+      },
+      {
+        "name": "logout-final",
+        "capturedAt": "2026-10-09T05:14:26.293Z"
+      },
+      {
+        "name": "fixture-version",
+        "capturedAt": "2026-10-09T05:18:09.685Z"
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "query": "view=event&id=film",
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-film-r11",
+    "evidence": [
+      "native/details-r12-film-single-series-top.jpg",
+      "native/details-r12-film-single-series-facts.jpg",
+      "native/film-r11-final-bottom.jpg",
+      "native/film-r11-final-comment-sheet.jpg",
+      "native/film-r11-final-detail-reply.jpg",
+      "native/film-r11-recommendation-reply.jpg",
+      "native/film-r11-host-target.jpg",
+      "native/film-r11-venue-target.jpg",
+      "native/film-r11-campaign-target.jpg",
+      "native/film-r11-registration-target.jpg",
+      "native/film-r11-recommend-sheet.jpg",
+      "native/film-r11-unjoined-bottom.jpg",
+      "native/film-r11-signup-from-button.jpg"
+    ],
+    "captures": [
+      {
+        "name": "final-top",
+        "capturedAt": "2026-10-09T05:33:29.370Z"
+      },
+      {
+        "name": "final-facts",
+        "capturedAt": "2026-10-09T05:33:30.485Z"
+      },
+      {
+        "name": "final-bottom",
+        "capturedAt": "2026-10-09T05:34:06.425Z"
+      },
+      {
+        "name": "final-comment-sheet",
+        "capturedAt": "2026-10-09T05:34:08.347Z"
+      },
+      {
+        "name": "final-detail-reply",
+        "capturedAt": "2026-10-09T05:34:14.538Z"
+      },
+      {
+        "name": "recommendation-reply",
+        "capturedAt": "2026-10-09T05:35:19.208Z"
+      },
+      {
+        "name": "host-target",
+        "capturedAt": "2026-10-09T05:31:58.531Z"
+      },
+      {
+        "name": "venue-target",
+        "capturedAt": "2026-10-09T05:32:19.270Z"
+      },
+      {
+        "name": "campaign-target",
+        "capturedAt": "2026-10-09T05:33:37.498Z"
+      },
+      {
+        "name": "registration-target",
+        "capturedAt": "2026-10-09T05:30:23.247Z"
+      },
+      {
+        "name": "recommend-sheet",
+        "capturedAt": "2026-10-09T05:38:06.239Z"
+      },
+      {
+        "name": "unjoined-bottom",
+        "capturedAt": "2026-10-09T05:33:50.874Z"
+      },
+      {
+        "name": "signup-from-button",
+        "capturedAt": "2026-10-09T05:33:52.576Z"
+      },
+      {
+        "name": "film-single-series-top",
+        "capturedAt": "2026-10-09T06:04:29.620Z"
+      },
+      {
+        "name": "film-single-series-facts",
+        "capturedAt": "2026-10-09T06:04:31.053Z"
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "query": "view=event&id=walk",
+    "evidence": [
+      "native/details-r12-walk-top.jpg",
+      "native/details-r12-walk-middle.jpg",
+      "native/details-r12-walk-bottom.jpg",
+      "native/details-r12-walk-host.jpg",
+      "native/details-r12-walk-venue.jpg",
+      "native/details-r12-walk-comment.jpg",
+      "native/details-r12-walk-reply.jpg",
+      "native/details-r12-walk-unregistered.jpg",
+      "native/details-r12-walk-free-signup.jpg",
+      "native/details-r12-walk-receipt.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "walk-top",
+        "capturedAt": "2026-10-09T05:44:38.714Z"
+      },
+      {
+        "name": "walk-middle",
+        "capturedAt": "2026-10-09T05:44:40.572Z"
+      },
+      {
+        "name": "walk-bottom",
+        "capturedAt": "2026-10-09T05:44:45.850Z"
+      },
+      {
+        "name": "walk-host",
+        "capturedAt": "2026-10-09T05:48:38.876Z"
+      },
+      {
+        "name": "walk-venue",
+        "capturedAt": "2026-10-09T05:48:50.184Z"
+      },
+      {
+        "name": "walk-comment",
+        "capturedAt": "2026-10-09T05:48:15.873Z"
+      },
+      {
+        "name": "walk-reply",
+        "capturedAt": "2026-10-09T05:49:43.975Z"
+      },
+      {
+        "name": "walk-unregistered",
+        "capturedAt": "2026-10-09T05:49:15.770Z"
+      },
+      {
+        "name": "walk-free-signup",
+        "capturedAt": "2026-10-09T05:49:17.255Z"
+      },
+      {
+        "name": "walk-receipt",
+        "capturedAt": "2026-10-09T05:49:01.982Z"
+      }
+    ],
+    "mappingDocument": "walk-detail-mapping.md"
+  },
+  {
+    "index": 8,
+    "query": "view=event&id=workshop",
+    "evidence": [
+      "native/details-r12-workshop-top.jpg",
+      "native/details-r12-workshop-middle.jpg",
+      "native/details-r12-workshop-cards.jpg",
+      "native/details-r12-workshop-bottom.jpg",
+      "native/details-r12-workshop-host.jpg",
+      "native/details-r12-workshop-venue.jpg",
+      "native/details-r12-workshop-comment.jpg",
+      "native/details-r12-workshop-reply.jpg",
+      "native/details-r12-workshop-receipt.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "workshop-top",
+        "capturedAt": "2026-10-09T05:51:41.083Z"
+      },
+      {
+        "name": "workshop-middle",
+        "capturedAt": "2026-10-09T05:51:42.669Z"
+      },
+      {
+        "name": "workshop-cards",
+        "capturedAt": "2026-10-09T05:52:46.378Z"
+      },
+      {
+        "name": "workshop-bottom",
+        "capturedAt": "2026-10-09T05:51:46.969Z"
+      },
+      {
+        "name": "workshop-host",
+        "capturedAt": "2026-10-09T05:53:12.499Z"
+      },
+      {
+        "name": "workshop-venue",
+        "capturedAt": "2026-10-09T05:52:55.262Z"
+      },
+      {
+        "name": "workshop-comment",
+        "capturedAt": "2026-10-09T05:51:53.871Z"
+      },
+      {
+        "name": "workshop-reply",
+        "capturedAt": "2026-10-09T05:51:56.483Z"
+      },
+      {
+        "name": "workshop-receipt",
+        "capturedAt": "2026-10-09T05:52:36.190Z"
+      }
+    ],
+    "mappingDocument": "workshop-frisbee-mapping.md"
+  },
+  {
+    "index": 9,
+    "query": "view=event&id=frisbee",
+    "evidence": [
+      "native/details-r12-frisbee-top.jpg",
+      "native/details-r12-frisbee-middle.jpg",
+      "native/details-r12-frisbee-bottom.jpg",
+      "native/details-r12-frisbee-host.jpg",
+      "native/details-r12-frisbee-venue.jpg",
+      "native/details-r12-frisbee-comment.jpg",
+      "native/details-r12-frisbee-reply.jpg",
+      "native/details-r12-frisbee-unregistered.jpg",
+      "native/details-r12-frisbee-waitlist-form.jpg",
+      "native/details-r12-frisbee-waitlisted.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "frisbee-top",
+        "capturedAt": "2026-10-09T05:53:17.152Z"
+      },
+      {
+        "name": "frisbee-middle",
+        "capturedAt": "2026-10-09T05:53:19.030Z"
+      },
+      {
+        "name": "frisbee-bottom",
+        "capturedAt": "2026-10-09T05:53:21.949Z"
+      },
+      {
+        "name": "frisbee-host",
+        "capturedAt": "2026-10-09T05:53:43.165Z"
+      },
+      {
+        "name": "frisbee-venue",
+        "capturedAt": "2026-10-09T05:54:03.658Z"
+      },
+      {
+        "name": "frisbee-comment",
+        "capturedAt": "2026-10-09T05:53:30.680Z"
+      },
+      {
+        "name": "frisbee-reply",
+        "capturedAt": "2026-10-09T05:53:33.227Z"
+      },
+      {
+        "name": "frisbee-unregistered",
+        "capturedAt": "2026-10-09T05:54:21.207Z"
+      },
+      {
+        "name": "frisbee-waitlist-form",
+        "capturedAt": "2026-10-09T05:54:22.715Z"
+      },
+      {
+        "name": "frisbee-waitlisted",
+        "capturedAt": "2026-10-09T05:54:15.637Z"
+      }
+    ],
+    "mappingDocument": "workshop-frisbee-mapping.md"
+  },
+  {
+    "index": 10,
+    "query": "view=campaign",
+    "evidence": [
+      "native/details-r12-campaign-top.jpg",
+      "native/details-r12-campaign-middle.jpg",
+      "native/details-r12-campaign-bottom.jpg",
+      "native/details-r12-campaign-resource.jpg",
+      "native/details-r12-campaign-film-target.jpg",
+      "native/details-r12-campaign-hangzhou-target.jpg",
+      "native/details-r12-campaign-workshop-target.jpg",
+      "native/details-r12-campaign-nonowner.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "campaign-top",
+        "capturedAt": "2026-10-09T06:00:23.522Z"
+      },
+      {
+        "name": "campaign-middle",
+        "capturedAt": "2026-10-09T06:00:25.235Z"
+      },
+      {
+        "name": "campaign-bottom",
+        "capturedAt": "2026-10-09T06:00:28.275Z"
+      },
+      {
+        "name": "campaign-resource",
+        "capturedAt": "2026-10-09T06:00:48.222Z"
+      },
+      {
+        "name": "campaign-film-target",
+        "capturedAt": "2026-10-09T06:03:35.582Z"
+      },
+      {
+        "name": "campaign-hangzhou-target",
+        "capturedAt": "2026-10-09T06:03:58.651Z"
+      },
+      {
+        "name": "campaign-workshop-target",
+        "capturedAt": "2026-10-09T06:04:20.060Z"
+      },
+      {
+        "name": "campaign-nonowner",
+        "capturedAt": "2026-10-09T06:04:39.027Z"
+      }
+    ],
+    "mappingDocument": "campaign-detail-edit-mapping.md"
+  },
+  {
+    "index": 11,
+    "query": "view=campaign-edit",
+    "evidence": [
+      "native/details-r12-campaign-edit-final-top.jpg",
+      "native/details-r12-campaign-edit-options.jpg",
+      "native/details-r12-campaign-edit-added.jpg",
+      "native/details-r12-campaign-edit-cover-replaced.jpg",
+      "native/details-r12-campaign-edit-final-bottom.jpg",
+      "native/details-r12-campaign-edit-submitted.jpg",
+      "native/details-r12-campaign-edit-review-progress.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "campaign-edit-final-top",
+        "capturedAt": "2026-10-09T06:11:23.079Z"
+      },
+      {
+        "name": "campaign-edit-options",
+        "capturedAt": "2026-10-09T06:08:57.094Z"
+      },
+      {
+        "name": "campaign-edit-added",
+        "capturedAt": "2026-10-09T06:09:07.011Z"
+      },
+      {
+        "name": "campaign-edit-cover-replaced",
+        "capturedAt": "2026-10-09T06:12:02.563Z"
+      },
+      {
+        "name": "campaign-edit-final-bottom",
+        "capturedAt": "2026-10-09T06:12:17.927Z"
+      },
+      {
+        "name": "campaign-edit-submitted",
+        "capturedAt": "2026-10-09T06:12:25.580Z"
+      },
+      {
+        "name": "campaign-edit-review-progress",
+        "capturedAt": "2026-10-09T06:12:48.007Z"
+      }
+    ],
+    "mappingDocument": "campaign-detail-edit-mapping.md"
+  },
+  {
+    "index": 12,
+    "query": "view=event-access&id=film",
+    "evidence": [
+      "native/details-r12-access-paid-final-top.jpg",
+      "native/details-r12-access-paid-bottom.jpg",
+      "native/details-r12-access-paid-disabled.jpg",
+      "native/details-r12-access-paid-payment-sheet.jpg",
+      "native/details-r12-access-paid-payment-closed.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "access-paid-final-top",
+        "file": "native/details-r12-access-paid-final-top.jpg",
+        "at": "2026-10-09T06:27:47.310Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-paid-final-top.png"
+      },
+      {
+        "name": "access-paid-bottom",
+        "file": "native/details-r12-access-paid-bottom.jpg",
+        "at": "2026-10-09T06:27:53.718Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-paid-bottom.png"
+      },
+      {
+        "name": "access-paid-disabled",
+        "file": "native/details-r12-access-paid-disabled.jpg",
+        "at": "2026-10-09T06:27:56.280Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-paid-disabled.png"
+      },
+      {
+        "name": "access-paid-payment-sheet",
+        "file": "native/details-r12-access-paid-payment-sheet.jpg",
+        "at": "2026-10-09T06:28:03.572Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-paid-payment-sheet.png"
+      },
+      {
+        "name": "access-paid-payment-closed",
+        "file": "native/details-r12-access-paid-payment-closed.jpg",
+        "at": "2026-10-09T06:28:05.037Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-paid-payment-closed.png"
+      }
+    ],
+    "supplementalCaptures": [
+      {
+        "name": "access-confirmed-contact",
+        "file": "native/details-r12-access-confirmed-contact.jpg",
+        "at": "2026-10-09T06:31:27.445Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-confirmed-contact.png"
+      },
+      {
+        "name": "access-confirmed-contact-copy",
+        "file": "native/details-r12-access-confirmed-contact-copy.jpg",
+        "at": "2026-10-09T06:31:28.870Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-confirmed-contact-copy.png"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "query": "view=event-access&id=walk",
+    "evidence": [
+      "native/details-r12-access-free-final-top.jpg",
+      "native/details-r12-access-free-final-bottom.jpg",
+      "native/details-r12-access-free-final-methods.jpg",
+      "native/details-r12-access-free-final-copy.jpg",
+      "native/details-r12-access-free-final-closed.jpg",
+      "native/details-r12-access-free-later-open.jpg"
+    ],
+    "status": "VERIFIED",
+    "fixtureVersion": "2026-10-09-native-details-r12",
+    "captures": [
+      {
+        "name": "access-free-final-top",
+        "file": "native/details-r12-access-free-final-top.jpg",
+        "at": "2026-10-09T06:31:01.937Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-final-top.png"
+      },
+      {
+        "name": "access-free-final-bottom",
+        "file": "native/details-r12-access-free-final-bottom.jpg",
+        "at": "2026-10-09T06:31:03.447Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-final-bottom.png"
+      },
+      {
+        "name": "access-free-final-methods",
+        "file": "native/details-r12-access-free-final-methods.jpg",
+        "at": "2026-10-09T06:31:12.017Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-final-methods.png"
+      },
+      {
+        "name": "access-free-final-copy",
+        "file": "native/details-r12-access-free-final-copy.jpg",
+        "at": "2026-10-09T06:31:13.383Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-final-copy.png"
+      },
+      {
+        "name": "access-free-final-closed",
+        "file": "native/details-r12-access-free-final-closed.jpg",
+        "at": "2026-10-09T06:31:14.914Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-final-closed.png"
+      },
+      {
+        "name": "access-free-later-open",
+        "file": "native/details-r12-access-free-later-open.jpg",
+        "at": "2026-10-09T06:31:16.284Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-free-later-open.png"
+      }
+    ],
+    "supplementalCaptures": [
+      {
+        "name": "access-confirmed-contact",
+        "file": "native/details-r12-access-confirmed-contact.jpg",
+        "at": "2026-10-09T06:31:27.445Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-confirmed-contact.png"
+      },
+      {
+        "name": "access-confirmed-contact-copy",
+        "file": "native/details-r12-access-confirmed-contact-copy.jpg",
+        "at": "2026-10-09T06:31:28.870Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "privateOriginal": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-access-confirmed-contact-copy.png"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "query": "view=calendar",
+    "evidence": [
+      "native/details-r12-calendar-final-day-top.jpg",
+      "native/details-r12-calendar-final-day-timeline.jpg",
+      "native/details-r12-calendar-final-overview-end.jpg",
+      "native/details-r12-calendar-final-overview-back.jpg",
+      "native/details-r12-calendar-month-final-top.jpg",
+      "native/details-r12-calendar-month-final-legend.jpg",
+      "native/details-r12-calendar-month-final-list-top.jpg",
+      "native/details-r12-calendar-month-final-bottom.jpg",
+      "native/details-r12-calendar-month-select-workshop.jpg",
+      "native/details-r12-calendar-week-cross-september.jpg",
+      "native/details-r12-calendar-month-november.jpg",
+      "native/details-r12-calendar-month-september.jpg",
+      "native/details-r12-calendar-empty-month-final.jpg",
+      "native/details-r12-calendar-empty-day.jpg",
+      "native/details-r12-calendar-space-706.jpg",
+      "native/details-r12-calendar-space-m50.jpg",
+      "native/details-r12-calendar-space-river.jpg",
+      "native/details-r12-calendar-space-all.jpg",
+      "native/details-r12-calendar-tag-free.jpg",
+      "native/details-r12-calendar-tag-capacity.jpg",
+      "native/details-r12-calendar-tag-screening.jpg",
+      "native/details-r12-calendar-tag-outdoor.jpg",
+      "native/details-r12-calendar-tag-any.jpg",
+      "native/details-r12-calendar-day-event-detail.jpg",
+      "native/details-r12-calendar-month-event-detail.jpg",
+      "native/details-r12-calendar-poster-final-safe-actions.jpg",
+      "native/details-r12-calendar-poster-selected-day.jpg",
+      "native/details-r12-calendar-poster-final-cancelled.jpg",
+      "native/details-r12-calendar-poster-saved.jpg",
+      "native/calendar-month-poster.png"
+    ],
+    "status": "VERIFIED",
+    "captures": [
+      {
+        "name": "calendar-final-day-top",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-final-day-top.png",
+        "at": "2026-10-09T06:50:22.836Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-final-day-top.jpg"
+      },
+      {
+        "name": "calendar-final-day-timeline",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-final-day-timeline.png",
+        "at": "2026-10-09T07:05:20.245Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-final-day-timeline.jpg"
+      },
+      {
+        "name": "calendar-final-overview-end",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-final-overview-end.png",
+        "at": "2026-10-09T07:05:47.134Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-final-overview-end.jpg"
+      },
+      {
+        "name": "calendar-final-overview-back",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-final-overview-back.png",
+        "at": "2026-10-09T07:05:49.665Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-final-overview-back.jpg"
+      },
+      {
+        "name": "calendar-month-final-top",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-final-top.png",
+        "at": "2026-10-09T07:07:38.731Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-final-top.jpg"
+      },
+      {
+        "name": "calendar-month-final-legend",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-final-legend.png",
+        "at": "2026-10-09T07:04:39.936Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-final-legend.jpg"
+      },
+      {
+        "name": "calendar-month-final-list-top",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-final-list-top.png",
+        "at": "2026-10-09T07:04:29.480Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-final-list-top.jpg"
+      },
+      {
+        "name": "calendar-month-final-bottom",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-final-bottom.png",
+        "at": "2026-10-09T07:04:47.304Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-final-bottom.jpg"
+      },
+      {
+        "name": "calendar-month-select-workshop",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-select-workshop.png",
+        "at": "2026-10-09T06:56:26.648Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-select-workshop.jpg"
+      },
+      {
+        "name": "calendar-week-cross-september",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-week-cross-september.png",
+        "at": "2026-10-09T06:56:31.571Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-week-cross-september.jpg"
+      },
+      {
+        "name": "calendar-month-november",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-november.png",
+        "at": "2026-10-09T06:54:33.724Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-november.jpg"
+      },
+      {
+        "name": "calendar-month-september",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-september.png",
+        "at": "2026-10-09T06:54:37.274Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-september.jpg"
+      },
+      {
+        "name": "calendar-empty-month-final",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-empty-month-final.png",
+        "at": "2026-10-09T07:07:23.581Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-empty-month-final.jpg"
+      },
+      {
+        "name": "calendar-empty-day",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-empty-day.png",
+        "at": "2026-10-09T06:56:50.570Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-empty-day.jpg"
+      },
+      {
+        "name": "calendar-space-706",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-space-706.png",
+        "at": "2026-10-09T06:54:48.049Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-space-706.jpg"
+      },
+      {
+        "name": "calendar-space-m50",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-space-m50.png",
+        "at": "2026-10-09T06:54:50.376Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-space-m50.jpg"
+      },
+      {
+        "name": "calendar-space-river",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-space-river.png",
+        "at": "2026-10-09T06:54:52.672Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-space-river.jpg"
+      },
+      {
+        "name": "calendar-space-all",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-space-all.png",
+        "at": "2026-10-09T06:54:54.640Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-space-all.jpg"
+      },
+      {
+        "name": "calendar-tag-free",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-tag-free.png",
+        "at": "2026-10-09T06:54:56.690Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-tag-free.jpg"
+      },
+      {
+        "name": "calendar-tag-capacity",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-tag-capacity.png",
+        "at": "2026-10-09T06:54:58.744Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-tag-capacity.jpg"
+      },
+      {
+        "name": "calendar-tag-screening",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-tag-screening.png",
+        "at": "2026-10-09T06:55:00.823Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-tag-screening.jpg"
+      },
+      {
+        "name": "calendar-tag-outdoor",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-tag-outdoor.png",
+        "at": "2026-10-09T06:55:02.768Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-tag-outdoor.jpg"
+      },
+      {
+        "name": "calendar-tag-any",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-tag-any.png",
+        "at": "2026-10-09T06:55:04.856Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-tag-any.jpg"
+      },
+      {
+        "name": "calendar-day-event-detail",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-day-event-detail.png",
+        "at": "2026-10-09T07:05:27.916Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-day-event-detail.jpg"
+      },
+      {
+        "name": "calendar-month-event-detail",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-month-event-detail.png",
+        "at": "2026-10-09T07:07:08.468Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-month-event-detail.jpg"
+      },
+      {
+        "name": "calendar-poster-final-safe-actions",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-poster-final-safe-actions.png",
+        "at": "2026-10-09T07:08:36.393Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-poster-final-safe-actions.jpg"
+      },
+      {
+        "name": "calendar-poster-selected-day",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-poster-selected-day.png",
+        "at": "2026-10-09T07:06:47.952Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-poster-selected-day.jpg"
+      },
+      {
+        "name": "calendar-poster-final-cancelled",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-poster-final-cancelled.png",
+        "at": "2026-10-09T07:08:57.775Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-poster-final-cancelled.jpg"
+      },
+      {
+        "name": "calendar-poster-saved",
+        "file": "/Users/shing/Projects/706-montana/apps/community706/evidence/visual-2026-10-09/details-r12-calendar-poster-saved.png",
+        "at": "2026-10-09T06:56:10.518Z",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "publicEvidence": "native/details-r12-calendar-poster-saved.jpg"
+      }
+    ],
+    "mapping": "calendar-mapping.md",
+    "note": "Final native GUI verified. Earlier Console red-2 attribution remains unknown and documented; B approved closeout of current version. poster-saved proves earlier save toast; final-safe-actions is current UI."
+  },
+  {
+    "index": 15,
+    "query": "view=spaces",
+    "evidence": [
+      "native/state-15-scroll-1.jpg",
+      "native/state-15-scroll-2.jpg",
+      "native/state-15-scroll-3.jpg",
+      "native/state-15-scroll-4.jpg",
+      "native/state-15-top.jpg"
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "index": 16,
+    "query": "view=member&id=jiang",
+    "evidence": [
+      "native/state-16-scroll-1.jpg",
+      "native/state-16-scroll-2.jpg",
+      "native/state-16-scroll-3.jpg",
+      "native/state-16-scroll-4.jpg",
+      "native/state-16-top.jpg",
+      "native/member-counts-r6-16.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 18,
+      "followers": 42,
+      "communityActivities": 16,
+      "capturedAt": "2026-10-09T04:49:36.449Z",
+      "evidence": "native/member-counts-r6-16.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    },
+    "currentBatch": {
+      "status": "WIP_PAUSED",
+      "mapping": "members-16-19-mapping.md",
+      "rawEvidenceKeptPrivate": true,
+      "finalGuiComplete": false
+    }
+  },
+  {
+    "index": 17,
+    "query": "view=member&id=qiao",
+    "evidence": [
+      "native/state-17-scroll-1.jpg",
+      "native/state-17-scroll-2.jpg",
+      "native/state-17-scroll-3.jpg",
+      "native/state-17-scroll-4.jpg",
+      "native/state-17-top.jpg",
+      "native/member-counts-r6-17.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:39.451Z",
+      "evidence": "native/member-counts-r6-17.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    },
+    "currentBatch": {
+      "status": "WIP_PAUSED",
+      "mapping": "members-16-19-mapping.md",
+      "rawEvidenceKeptPrivate": true,
+      "finalGuiComplete": false
+    }
+  },
+  {
+    "index": 18,
+    "query": "view=member&id=shing",
+    "evidence": [
+      "native/state-18-scroll-1.jpg",
+      "native/state-18-scroll-2.jpg",
+      "native/state-18-scroll-3.jpg",
+      "native/state-18-scroll-4.jpg",
+      "native/state-18-top.jpg",
+      "native/member-counts-r6-18.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:42.217Z",
+      "evidence": "native/member-counts-r6-18.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    },
+    "currentBatch": {
+      "status": "WIP_PAUSED",
+      "mapping": "members-16-19-mapping.md",
+      "rawEvidenceKeptPrivate": true,
+      "finalGuiComplete": false
+    }
+  },
+  {
+    "index": 19,
+    "query": "view=member&id=maomao",
+    "evidence": [
+      "native/state-19-scroll-1.jpg",
+      "native/state-19-scroll-2.jpg",
+      "native/state-19-scroll-3.jpg",
+      "native/state-19-scroll-4.jpg",
+      "native/state-19-top.jpg",
+      "native/member-counts-r6-19.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:44.966Z",
+      "evidence": "native/member-counts-r6-19.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    },
+    "currentBatch": {
+      "status": "WIP_PAUSED",
+      "mapping": "members-16-19-mapping.md",
+      "rawEvidenceKeptPrivate": true,
+      "finalGuiComplete": false
+    }
+  },
+  {
+    "index": 20,
+    "query": "view=member&id=ning",
+    "evidence": [
+      "native/state-20-scroll-1.jpg",
+      "native/state-20-scroll-2.jpg",
+      "native/state-20-scroll-3.jpg",
+      "native/state-20-scroll-4.jpg",
+      "native/state-20-top.jpg",
+      "native/member-counts-r6-20.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:50.066Z",
+      "evidence": "native/member-counts-r6-20.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    }
+  },
+  {
+    "index": 21,
+    "query": "view=member&id=xiaobei",
+    "evidence": [
+      "native/state-21-scroll-1.jpg",
+      "native/state-21-scroll-2.jpg",
+      "native/state-21-scroll-3.jpg",
+      "native/state-21-scroll-4.jpg",
+      "native/state-21-top.jpg",
+      "native/member-counts-r6-21.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:52.855Z",
+      "evidence": "native/member-counts-r6-21.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    }
+  },
+  {
+    "index": 22,
+    "query": "view=member&id=yiming",
+    "evidence": [
+      "native/state-22-scroll-1.jpg",
+      "native/state-22-scroll-2.jpg",
+      "native/state-22-scroll-3.jpg",
+      "native/state-22-scroll-4.jpg",
+      "native/state-22-top.jpg",
+      "native/member-counts-r6-22.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:55.610Z",
+      "evidence": "native/member-counts-r6-22.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    }
+  },
+  {
+    "index": 23,
+    "query": "view=member&id=chenmo",
+    "evidence": [
+      "native/state-23-scroll-1.jpg",
+      "native/state-23-scroll-2.jpg",
+      "native/state-23-scroll-3.jpg",
+      "native/state-23-scroll-4.jpg",
+      "native/state-23-top.jpg",
+      "native/member-counts-r6-23.jpg"
+    ],
+    "status": "NEEDS_FIX",
+    "memberCounts": {
+      "status": "VERIFIED",
+      "fixtureVersion": "2026-10-09-native-batch1-r6",
+      "following": 32,
+      "followers": 128,
+      "communityActivities": 23,
+      "capturedAt": "2026-10-09T04:49:58.486Z",
+      "evidence": "native/member-counts-r6-23.jpg",
+      "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+    }
+  },
+  {
+    "index": 24,
+    "query": "view=edit-profile",
+    "evidence": [
+      "native/state-24-scroll-1.jpg",
+      "native/state-24-scroll-2.jpg",
+      "native/state-24-scroll-3.jpg",
+      "native/state-24-scroll-4.jpg",
+      "native/state-24-top.jpg"
+    ],
+    "status": "NEEDS_FIX"
+  },
+  {
+    "index": 25,
+    "query": "view=relations",
+    "evidence": [
+      "native/state-25-scroll-1.jpg",
+      "native/state-25-scroll-2.jpg",
+      "native/state-25-scroll-3.jpg",
+      "native/state-25-scroll-4.jpg",
+      "native/state-25-top.jpg"
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "index": 26,
+    "query": "view=relations&relation=followers",
+    "evidence": [
+      "native/state-26-native-scroll-1.jpg",
+      "native/state-26-native-scroll-2.jpg",
+      "native/state-26-native-scroll-3.jpg",
+      "native/state-26-native-scroll-4.jpg",
+      "native/state-26-scroll-1.jpg",
+      "native/state-26-scroll-2.jpg",
+      "native/state-26-scroll-3.jpg",
+      "native/state-26-scroll-4.jpg",
+      "native/state-26-top.jpg"
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "index": 27,
+    "query": "view=following",
+    "evidence": [
+      "native/state-27-scroll-1.jpg",
+      "native/state-27-scroll-2.jpg",
+      "native/state-27-scroll-3.jpg",
+      "native/state-27-scroll-4.jpg",
+      "native/state-27-top.jpg"
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "index": 28,
+    "query": "view=registrations",
+    "evidence": [
+      "native/state-28-scroll-1.jpg",
+      "native/state-28-scroll-2.jpg",
+      "native/state-28-scroll-3.jpg",
+      "native/state-28-scroll-4.jpg",
+      "native/state-28-top.jpg"
+    ],
+    "status": "NEEDS_FIX"
+  },
+  {
+    "index": 29,
+    "query": "view=my-events",
+    "evidence": [
+      "native/state-29-scroll-1.jpg",
+      "native/state-29-scroll-2.jpg",
+      "native/state-29-scroll-3.jpg",
+      "native/state-29-scroll-4.jpg",
+      "native/state-29-top.jpg"
+    ],
+    "status": "NEEDS_FIX"
+  },
+  {
+    "index": 30,
+    "query": "view=drafts",
+    "evidence": [
+      "native/state-30-scroll-1.jpg",
+      "native/state-30-scroll-2.jpg",
+      "native/state-30-scroll-3.jpg",
+      "native/state-30-scroll-4.jpg",
+      "native/state-30-top.jpg"
+    ],
+    "status": "NEEDS_FIX"
+  }
+]

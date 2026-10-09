@@ -1,4 +1,5 @@
 // Synthetic offline fixtures inspired by dist's business situations, never real accounts.
+const VERSION='2026-10-09-native-details-r12';
 const cities=[['shanghai','上海','Shanghai'],['beijing','北京','Beijing'],['guangzhou','广州','Guangzhou'],['shenzhen','深圳','Shenzhen'],['hangzhou','杭州','Hangzhou'],['chengdu','成都','Chengdu']].map(([id,zh,en])=>({id,zh,en,timezone:'Asia/Shanghai'}));
 const personas=[['demo-member','林叶 · 演示成员'],['demo-host','禾舟 · 演示发起人'],['demo-admin','星桥 · 演示运营'],['demo-new','初芽 · 演示新人'],['','游客']].map(([id,label])=>({id,label}));
 function seed(){
@@ -34,7 +35,7 @@ function seed(){
  const r=add('event','demo-'+key,{title,summary:'沿用原型活动主题的合成演示；可检查报名、候补、审核与通知。',description:'一起从城市生活中寻找连接。\n活动包含开场介绍、小组交流和共同记录。此活动为本地虚构数据，不接受实际报名。',fit_description:'欢迎第一次参与的伙伴；无需相关经验。',city:key==='dinner'?'hangzhou':'shanghai',space_id:key==='dinner'?'demo-space-hz':'demo-space',organization_id:'demo-org',venue_display:key==='dinner'?'纸舟演示书屋':'706 演示客厅',address:'演示地址 · 不对应实际场地',host_display:'禾舟 · 演示发起人 & 演示小组',starts_at:at(day),ends_at:at(day,14),price_minor:price,capacity,approval_required:approval,waitlist_enabled:key!=='no-wait',tags:[tag],visibility:'PUBLIC',status:key==='draft'?'DRAFT':key==='review'?'IN_REVIEW':key==='returned'?'CHANGES_REQUESTED':key==='cancelled'?'CANCELLED':'PUBLISHED',round:['review','returned'].includes(key)?1:0,cover_url:'/assets/demo/cover-'+i%4+'.png'});
  add('eventSecret','access-'+key,{parent:r.id,access:{type:'ORGANIZER_WILL_CONTACT',value:'演示参与方式：工作人员将在活动前联系你。不会发送实际消息。'}});
  });
- const reg=(id,event,owner,status,extra={})=>add('registration',id,{parent:'demo-'+event,owner,status,display_name:members.find(x=>x.id===owner)?.label||'演示成员',motivation:'想认识一起观察城市的伙伴（演示）。',approval_status:status==='REQUESTED'?'PENDING':'APPROVED',contact_share_consent:false,payment_expires_at:at(1),...extra});
+ const reg=(id,event,owner,status,extra={})=>add('registration',id,{parent:'demo-'+event,owner,status,display_name:members.find(x=>x.id===owner)?.label||'演示成员',motivation:'想认识一起观察城市的伙伴（演示）。',approval_status:status==='REQUESTED'?'PENDING':'APPROVED',contact_share_consent:false,payment_expires_at:new Date(Date.now()+1800000).toISOString(),...extra});
  reg('demo-reg-confirmed','reading','demo-member','CONFIRMED');
  reg('demo-reg-requested','workshop','demo-member','REQUESTED');
  reg('demo-reg-payment','film','demo-member','APPROVED_AWAITING_PAYMENT');
@@ -66,6 +67,7 @@ function seed(){
  add('comment','demo-comment',{owner:'demo-peer-0',parent:'demo-film',text:'第一次参与也可以吗？（演示）'});
  add('comment','demo-reply',{owner:'demo-host',parent:'demo-film',reply_to:'demo-comment',text:'欢迎！我们会先做简单介绍。（演示）'});
  for(const owner of ['demo-member','demo-host','demo-admin'])['EVENT','SOCIAL','ADMIN'].forEach((category,i)=>add('notification','demo-note-'+owner+'-'+i,{owner,category,status:i===1?'READ':'UNREAD',key:['CONFIRMED','COMMENTED','ROLE_INVITED'][i],target:i===2?{route:'invitations'}:{route:'event',id:'demo-film'}}));
- return {version:1,anchor,rows,serial:100,commands:{},persona:'demo-member',scenario:'normal'};
+ const sourceMap=require('./restore-prototype')(rows,add,at);
+ return {version:VERSION,anchor,rows,sourceMap,serial:100,commands:{},persona:'demo-member',scenario:'normal'};
 }
-module.exports={seed,cities,personas};
+module.exports={seed,cities,personas,VERSION};

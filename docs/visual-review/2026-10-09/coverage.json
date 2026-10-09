@@ -1,0 +1,2274 @@
+{
+  "status": "PAUSED_PENDING_USER_REVIEW",
+  "sources": [
+    "dist/app.js",
+    "dist/preview.js",
+    "dist/preview-pages.js"
+  ],
+  "entries": [
+    {
+      "label": "动态",
+      "query": "view=feed",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          },
+          {
+            "node": "19521:3155",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-3155",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/organizer-list-and-card.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "feed",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-main-r7",
+        "nativeEvidence": [
+          "native/main-r7-feed-top.jpg",
+          "native/main-r7-people-1-left.jpg",
+          "native/main-r7-people-2-left.jpg",
+          "native/main-r7-people-eighth-visible.jpg",
+          "native/main-r7-feed-tail.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original eight people reachable through two refreshes and horizontal drag; original bios/relation hints retained in offline source data.",
+          "Both original feed posts, quote, merged actor/count title, times and final participant footer visually checked."
+        ],
+        "remaining": [],
+        "sourceMapping": "main-pages-mapping.md"
+      }
+    },
+    {
+      "label": "发现 · 按时间",
+      "query": "view=discover",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "discover",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-main-r7",
+        "nativeEvidence": [
+          "native/main-r7-discover-final-top.jpg",
+          "native/main-r7-banner-swipe.jpg",
+          "native/main-r7-banner-second-destination.jpg",
+          "native/main-r7-filter-free.jpg",
+          "native/main-r7-filter-screening.jpg",
+          "native/main-r7-filter-outdoor.jpg",
+          "native/main-r7-filter-capacity.jpg",
+          "native/main-r7-filter-space-706.jpg",
+          "native/main-r7-filter-space-m50.jpg",
+          "native/main-r7-filter-space-river-empty.jpg",
+          "native/main-r7-filter-next-week.jpg",
+          "native/main-r7-filter-next-capacity.jpg",
+          "native/main-r7-filter-day10-verified.jpg",
+          "native/main-r7-reading-empty-tail.jpg",
+          "native/main-r7-filters-cleared-final.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Both original banners retain short source copy; next control and physical swipe show second slide; clicking opens its matching campaign.",
+          "GUI verified this/next week, three space options, all spaces, exclusive free/capacity/reading/screening/outdoor/any tags, single day and clear filters.",
+          "Dates remain real Shanghai calendar dates; current/next week each contain two events after source date remapping."
+        ],
+        "remaining": [],
+        "sourceMapping": "main-pages-mapping.md"
+      }
+    },
+    {
+      "label": "发现 · 按空间",
+      "query": "view=discover&mode=space",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "discover",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "sourceMode": "space"
+        }
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-main-r7",
+        "nativeEvidence": [
+          "native/main-r7-space-final-top.jpg",
+          "native/main-r7-space-entry-tail.jpg",
+          "native/main-r7-space-entry-m50-verified.jpg",
+          "native/main-r7-space-entry-m50-tail.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Both prototype query modes share the same filter stack in dist/app.js; no unsupported mode toggle added.",
+          "Space query entry opened independently; M50 filter displays only the walk event and its complete footer."
+        ],
+        "remaining": [],
+        "sourceMapping": "main-pages-mapping.md"
+      }
+    },
+    {
+      "label": "消息",
+      "query": "view=messages",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19616:14428",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19616-14428",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/notification-page-whole.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "messages",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-personal-r10",
+        "nativeEvidence": [
+          "native/personal-r10-messages-final-top.jpg",
+          "native/personal-r10-messages-final-tail.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original six titles/bodies/click handlers retained; system categories use line icons without invented actors; only source social actor uses public synthetic avatar/name.",
+          "Actual Figma notification 19616:14428 compared: circular leading icon/avatar, small source/time on one line, body/event text hierarchy and inline event emphasis; top and complete tail viewed."
+        ],
+        "remaining": [],
+        "sourceMapping": "personal-pages-mapping.md"
+      }
+    },
+    {
+      "label": "我的",
+      "query": "view=me",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19616:12687",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19616-12687",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/settings-actual-close.png"
+          },
+          {
+            "node": "19521:4028",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-4028",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/settings.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "me",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-personal-r10",
+        "nativeEvidence": [
+          "native/personal-r10-me-final-top.jpg",
+          "native/personal-r10-me-final-bottom.jpg",
+          "native/personal-r10-approvals-final.jpg",
+          "native/personal-r10-self-profile-entry.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original menu grouping/order and icons restored; profile and edit entry,18/42 relation buttons, all event/series/managed entity/more menu destinations clicked in native GUI.",
+          "Dashboard derives 1 draft,3 non-ended registrations,2 active authored events,1 reviewing series and3 authorized tasks (2 events +1 series) from records.",
+          "Current synthetic self explicitly holds product organization owner/space admin roles; actual task permissions remain enforced; ordinary persona has no managed entries or tasks.",
+          "Native style-v2 full-width override confirmed after full compile at13:14; final images replace failed13:12 captures."
+        ],
+        "remaining": [],
+        "sourceMapping": "personal-pages-mapping.md"
+      }
+    },
+    {
+      "label": "更多设置",
+      "query": "view=more",
+      "group": "主要页面",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19616:12687",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19616-12687",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/settings-actual-close.png"
+          },
+          {
+            "node": "19521:4028",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-4028",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/settings.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "more",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-personal-r10",
+        "nativeEvidence": [
+          "native/personal-r10-more-final-top.jpg",
+          "native/personal-r10-more-final-bottom.jpg",
+          "native/personal-r10-city-final-hangzhou.jpg",
+          "native/personal-r10-english-final.jpg",
+          "native/personal-r10-notification-setting-final.jpg",
+          "native/personal-r10-notification-off-final.jpg",
+          "native/personal-r10-privacy-final.jpg",
+          "native/personal-r10-logout-final.jpg",
+          "native/personal-r10-fixture-version.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original newcomer/city/language/notifications/privacy/about/feedback grouping restored with line icons,current values and onboarding status.",
+          "GUI verified city Shanghai→Hangzhou→Shanghai,Chinese→English→Chinese,notifications on→off→on,sharing on→off→on,public→members→public; current state shown after writes.",
+          "Newcomer/about/feedback and logout clicked; logout reaches guest feed; review persona restored.",
+          "Actual Setting component and19616:12687 compared; full-width rows, icon/value/chevron columns and outlined full-width logout confirmed after final compile."
+        ],
+        "remaining": [],
+        "sourceMapping": "personal-pages-mapping.md"
+      }
+    },
+    {
+      "label": "秋日放映：城市游牧者",
+      "query": "view=event&id=film",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_WITH_ACTUAL_DETAIL_VARIANTS",
+        "references": [
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-middle.png"
+          },
+          {
+            "node": "19604:82314",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-82314",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-unjoined-19604-82314-bottom.png"
+          },
+          {
+            "node": "19553:25605",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25605",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-host-19553-25605-bottom.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-film",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-film-r11",
+        "nativeEvidence": [
+          "native/details-r12-film-single-series-top.jpg",
+          "native/details-r12-film-single-series-facts.jpg",
+          "native/film-r11-final-bottom.jpg",
+          "native/film-r11-final-comment-sheet.jpg",
+          "native/film-r11-final-detail-reply.jpg",
+          "native/film-r11-recommendation-reply.jpg",
+          "native/film-r11-host-target.jpg",
+          "native/film-r11-venue-target.jpg",
+          "native/film-r11-campaign-target.jpg",
+          "native/film-r11-registration-target.jpg",
+          "native/film-r11-recommend-sheet.jpg",
+          "native/film-r11-unjoined-bottom.jpg",
+          "native/film-r11-signup-from-button.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Full source summary, fit, tags, facts, social proof, independent host and venue cards, detail comments and replies verified visually.",
+          "Actual Figma joined, unjoined and host detail variants inspected, not only home cards.",
+          "Detail and sheet comment examples have separate record IDs; reply opens its original thread; badges/counts are derived from live records.",
+          "Write-comment and close controls aligned at right; sheet replies left aligned; fixed recommendation and registration actions verified.",
+          "GUI host/member, venue/space, campaign, registration access and unjoined application navigation confirmed."
+        ],
+        "remaining": [],
+        "mappingDocument": "film-detail-mapping.md",
+        "associationCorrection": {
+          "fixtureVersion": "2026-10-09-native-details-r12",
+          "note": "Exactly one source series; unchanged r11 evidence retained for other checks."
+        }
+      }
+    },
+    {
+      "label": "苏州河慢走：寻找城市缝隙",
+      "query": "view=event&id=walk",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_WITH_ACTUAL_DETAIL_VARIANTS",
+        "references": [
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-middle.png"
+          },
+          {
+            "node": "19604:82314",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-82314",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-unjoined-19604-82314-bottom.png"
+          },
+          {
+            "node": "19553:25605",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25605",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-host-19553-25605-bottom.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-walk",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-walk-top.jpg",
+          "native/details-r12-walk-middle.jpg",
+          "native/details-r12-walk-bottom.jpg",
+          "native/details-r12-walk-host.jpg",
+          "native/details-r12-walk-venue.jpg",
+          "native/details-r12-walk-comment.jpg",
+          "native/details-r12-walk-reply.jpg",
+          "native/details-r12-walk-unregistered.jpg",
+          "native/details-r12-walk-free-signup.jpg",
+          "native/details-r12-walk-receipt.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original walk summary/fit/tags, time/location/free price, 15 registered and 5 remaining visually checked; no invented campaign association.",
+          "Reused actual Figma joined/unjoined/host detail references and the shared film detail component; upper/middle/actual bottom evidence reviewed.",
+          "Independent host button opened Yun Ting member profile; separate M50 venue button opened the correct space.",
+          "Write-comment opened the 3-item sheet, with right-aligned close control; detail reply opened only the 2-item target thread. Original shared source discussion retained in independent walk records.",
+          "Unregistered demo-new shows direct signup and opens signup form; demo-member shows confirmed signup and opens the free event receipt. No registration, comment, recommendation or payment submitted.",
+          "Host recent-five, counts, original fields and independent records passed controller checks; actual backend handler tests passed locally."
+        ],
+        "remaining": [],
+        "mappingDocument": "walk-detail-mapping.md"
+      }
+    },
+    {
+      "label": "社区功能许愿工作坊",
+      "query": "view=event&id=workshop",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_WITH_ACTUAL_DETAIL_VARIANTS",
+        "references": [
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-middle.png"
+          },
+          {
+            "node": "19604:82314",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-82314",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-unjoined-19604-82314-bottom.png"
+          },
+          {
+            "node": "19553:25605",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25605",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-host-19553-25605-bottom.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-workshop",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-workshop-top.jpg",
+          "native/details-r12-workshop-middle.jpg",
+          "native/details-r12-workshop-cards.jpg",
+          "native/details-r12-workshop-bottom.jpg",
+          "native/details-r12-workshop-host.jpg",
+          "native/details-r12-workshop-venue.jpg",
+          "native/details-r12-workshop-comment.jpg",
+          "native/details-r12-workshop-reply.jpg",
+          "native/details-r12-workshop-receipt.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Complete original summary/fit/host/organization/location/tags and shared discussion text checked visually; independent event records retained.",
+          "Actual Figma detail variants reused; top/middle/actual tail and independent host/venue buttons verified.",
+          "Host button opened the correct member; venue button independently opened the correct space.",
+          "Comment sheet shows three items; detail reply opens its two-item target thread; controls and text alignment visually checked.",
+          "Free automatic-confirmation records verified in isolated test; existing confirmed persona opens correct free receipt. Owner-only management section is visible."
+        ],
+        "remaining": [],
+        "mappingDocument": "workshop-frisbee-mapping.md"
+      }
+    },
+    {
+      "label": "傍晚飞盘｜零基础友好",
+      "query": "view=event&id=frisbee",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_WITH_ACTUAL_DETAIL_VARIANTS",
+        "references": [
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-middle.png"
+          },
+          {
+            "node": "19604:82314",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-82314",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-unjoined-19604-82314-bottom.png"
+          },
+          {
+            "node": "19553:25605",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25605",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-host-19553-25605-bottom.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-frisbee",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-frisbee-top.jpg",
+          "native/details-r12-frisbee-middle.jpg",
+          "native/details-r12-frisbee-bottom.jpg",
+          "native/details-r12-frisbee-host.jpg",
+          "native/details-r12-frisbee-venue.jpg",
+          "native/details-r12-frisbee-comment.jpg",
+          "native/details-r12-frisbee-reply.jpg",
+          "native/details-r12-frisbee-unregistered.jpg",
+          "native/details-r12-frisbee-waitlist-form.jpg",
+          "native/details-r12-frisbee-waitlisted.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Complete original summary/fit/host/organization/location/tags and shared discussion text checked visually; independent event records retained.",
+          "Actual Figma detail variants reused; top/middle/actual tail and independent host/venue buttons verified.",
+          "Host button opened the correct member; venue button independently opened the correct space.",
+          "Comment sheet shows three items; detail reply opens its two-item target thread; controls and text alignment visually checked.",
+          "24 confirmed records, zero remaining, price 2000 minor units; current member WAITLISTED, new persona can open waitlist form, added waitlist does not change confirmed total."
+        ],
+        "remaining": [],
+        "mappingDocument": "workshop-frisbee-mapping.md"
+      }
+    },
+    {
+      "label": "活动系列",
+      "query": "view=campaign",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_COMPOSED_FROM_ACTUAL_PAGES_AND_COMPONENTS",
+        "references": [
+          {
+            "node": "19603:65381",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19603-65381",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/campaign-19603-65381-top.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ],
+        "searchEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/series-search-evidence.json"
+      },
+      "native": {
+        "route": "campaign",
+        "id": "demo-campaign",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-campaign-top.jpg",
+          "native/details-r12-campaign-middle.jpg",
+          "native/details-r12-campaign-bottom.jpg",
+          "native/details-r12-campaign-resource.jpg",
+          "native/details-r12-campaign-film-target.jpg",
+          "native/details-r12-campaign-hangzhou-target.jpg",
+          "native/details-r12-campaign-workshop-target.jpg",
+          "native/details-r12-campaign-nonowner.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Original kicker/title/five cities/introduction/resource/action order and three event cards verified in native GUI; 12-city kicker preserved as source copy, five nodes derived from city array.",
+          "Resource copy toast observed; source URL uses the established synthetic fixture URL. All three event title buttons opened the correct event.",
+          "Hangzhou uses its own title/date/venue/host/organization/counts and no inherited workshop description/address.",
+          "Owner manage entered demo-campaign edit; ordinary member sees share only. Film source association corrected to exactly one series, with r12 evidence replacing old top/facts."
+        ],
+        "remaining": [],
+        "mappingDocument": "campaign-detail-edit-mapping.md"
+      }
+    },
+    {
+      "label": "编辑活动系列",
+      "query": "view=campaign-edit",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "PROTOTYPE_STRUCTURE_COMPOSED_FROM_ACTUAL_PAGES_AND_COMPONENTS",
+        "references": [
+          {
+            "node": "19602:56210",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19602-56210",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/group-form-whole.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ],
+        "searchEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/series-search-evidence.json"
+      },
+      "native": {
+        "route": "campaign-edit",
+        "id": "demo-campaign",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-campaign-edit-final-top.jpg",
+          "native/details-r12-campaign-edit-options.jpg",
+          "native/details-r12-campaign-edit-added.jpg",
+          "native/details-r12-campaign-edit-cover-replaced.jpg",
+          "native/details-r12-campaign-edit-final-bottom.jpg",
+          "native/details-r12-campaign-edit-submitted.jpg",
+          "native/details-r12-campaign-edit-review-progress.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native edit loads current demo-campaign with original title/introduction/cover/resources and three selected events, retaining Hangzhou.",
+          "Scoped source field order restored; add-event picker and add/remove interactions verified; fixed native deselection by avoiding control rebuild during change event.",
+          "Project synthetic image selected through native file picker and replaced existing cover without appending another image; local saved indication observed.",
+          "Actual GUI submission saved changes and entered IN_REVIEW; success and review-progress screenshots captured. Offline only; real backend owner permission unchanged."
+        ],
+        "remaining": [],
+        "mappingDocument": "campaign-detail-edit-mapping.md"
+      }
+    },
+    {
+      "label": "报名已通过 · 付费活动",
+      "query": "view=event-access&id=film",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19604:77251",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-77251",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/access-popup-ticket-bottom.png"
+          },
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-top.png"
+          }
+        ],
+        "scopeNote": "Ticket Type Settings is not a receipt frame; Buy Ticket is component evidence. No exact receipt/contact frame verified. See mapping."
+      },
+      "native": {
+        "route": "event-access",
+        "id": "demo-reg-payment",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/details-r12-access-paid-final-top.jpg",
+          "native/details-r12-access-paid-bottom.jpg",
+          "native/details-r12-access-paid-disabled.jpg",
+          "native/details-r12-access-paid-payment-sheet.jpg",
+          "native/details-r12-access-paid-payment-closed.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "mappingDocument": "access-receipts-mapping.md",
+        "checks": [
+          "Actual native top and middle/bottom visually inspected; original next-step order and generic notice retained.",
+          "Unpaid buttons disabled and clicked without private access; payment sheet opened and closed without payment.",
+          "Actual backend non-first QR and media-array authorization; public private-reference/signed-URL rejection; published clone reuse tested."
+        ],
+        "remaining": [],
+        "supplementalEvidence": [
+          "native/details-r12-access-confirmed-contact.jpg",
+          "native/details-r12-access-confirmed-contact-copy.jpg"
+        ]
+      }
+    },
+    {
+      "label": "报名已通过 · 免费活动",
+      "query": "view=event-access&id=walk",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19604:77251",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-77251",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/access-popup-ticket-bottom.png"
+          },
+          {
+            "node": "19553:25453",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19553-25453",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/film-participant-19553-25453-top.png"
+          }
+        ],
+        "scopeNote": "Ticket Type Settings is not a receipt frame; Buy Ticket is component evidence. No exact receipt/contact frame verified. See mapping."
+      },
+      "native": {
+        "route": "event-access",
+        "id": "prototype-walk-0",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/details-r12-access-free-final-top.jpg",
+          "native/details-r12-access-free-final-bottom.jpg",
+          "native/details-r12-access-free-final-methods.jpg",
+          "native/details-r12-access-free-final-copy.jpg",
+          "native/details-r12-access-free-final-closed.jpg",
+          "native/details-r12-access-free-later-open.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "mappingDocument": "access-receipts-mapping.md",
+        "checks": [
+          "Actual native top and middle/bottom visually inspected; original next-step order and generic notice retained.",
+          "Free confirmed group + later-contact; both view entries, synthetic QR, copy toast, Done and X close verified.",
+          "Actual backend non-first QR and media-array authorization; public private-reference/signed-URL rejection; published clone reuse tested."
+        ],
+        "remaining": [],
+        "supplementalEvidence": [
+          "native/details-r12-access-confirmed-contact.jpg",
+          "native/details-r12-access-confirmed-contact-copy.jpg"
+        ]
+      }
+    },
+    {
+      "label": "活动日历（独立视图）",
+      "query": "view=calendar",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19642:4724",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19642-4724",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/calendar-day-month.jpg"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          },
+          {
+            "node": "19610:85309",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19610-85309",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/calendar-day-19610-85309-close.png"
+          },
+          {
+            "node": "19604:82751",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19604-82751",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/calendar-month-19604-82751.png"
+          },
+          {
+            "node": "19629:4336",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19629-4336",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/calendar-month-19629-4336.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "calendar",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "fixtureVersion": "2026-10-09-native-details-r12",
+        "nativeEvidence": [
+          "native/details-r12-calendar-final-day-top.jpg",
+          "native/details-r12-calendar-final-day-timeline.jpg",
+          "native/details-r12-calendar-final-overview-end.jpg",
+          "native/details-r12-calendar-final-overview-back.jpg",
+          "native/details-r12-calendar-month-final-top.jpg",
+          "native/details-r12-calendar-month-final-legend.jpg",
+          "native/details-r12-calendar-month-final-list-top.jpg",
+          "native/details-r12-calendar-month-final-bottom.jpg",
+          "native/details-r12-calendar-month-select-workshop.jpg",
+          "native/details-r12-calendar-week-cross-september.jpg",
+          "native/details-r12-calendar-month-november.jpg",
+          "native/details-r12-calendar-month-september.jpg",
+          "native/details-r12-calendar-empty-month-final.jpg",
+          "native/details-r12-calendar-empty-day.jpg",
+          "native/details-r12-calendar-space-706.jpg",
+          "native/details-r12-calendar-space-m50.jpg",
+          "native/details-r12-calendar-space-river.jpg",
+          "native/details-r12-calendar-space-all.jpg",
+          "native/details-r12-calendar-tag-free.jpg",
+          "native/details-r12-calendar-tag-capacity.jpg",
+          "native/details-r12-calendar-tag-screening.jpg",
+          "native/details-r12-calendar-tag-outdoor.jpg",
+          "native/details-r12-calendar-tag-any.jpg",
+          "native/details-r12-calendar-day-event-detail.jpg",
+          "native/details-r12-calendar-month-event-detail.jpg",
+          "native/details-r12-calendar-poster-final-safe-actions.jpg",
+          "native/details-r12-calendar-poster-selected-day.jpg",
+          "native/details-r12-calendar-poster-final-cancelled.jpg",
+          "native/details-r12-calendar-poster-saved.jpg",
+          "native/calendar-month-poster.png"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "mapping": "calendar-mapping.md",
+        "functionalGui": "VERIFIED",
+        "checks": [
+          "Native week/month, source spaces/tags, empty states, month boundary, select/clear, timeline/detail navigation verified",
+          "Full month/day posters, cancel and native local PNG save verified; final safe-area actions visible",
+          "118 controllers, 42 WXML/2 WXSS, actual backend calendar boundary/privacy handlers passed",
+          "B reviewed final scope and accepted retaining unconfirmed historical Console attribution without further log expansion"
+        ],
+        "remaining": [],
+        "knownHistoricalEvidenceLimitation": [
+          "Historical Console red-2 original messages unavailable; final actual Console has no red errors. B accepted documenting this limitation and closing current verified version."
+        ]
+      }
+    },
+    {
+      "label": "按空间发现（独立视图）",
+      "query": "view=spaces",
+      "group": "活动与系列",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19558:28896",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19558-28896",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/home-large-card-complete.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "spaces",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-15-scroll-1.jpg",
+          "native/state-15-scroll-2.jpg",
+          "native/state-15-scroll-3.jpg",
+          "native/state-15-scroll-4.jpg",
+          "native/state-15-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Two illustrated space cards rendered.",
+          "4 events / 36 active members and 2 / 12 derived from actual local event/registration records.",
+          "Changing one registration changes the count; no display-only hardcode."
+        ],
+        "remaining": []
+      }
+    },
+    {
+      "label": "林叶",
+      "query": "view=member&id=jiang",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-member",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-16-scroll-1.jpg",
+          "native/state-16-scroll-2.jpg",
+          "native/state-16-scroll-3.jpg",
+          "native/state-16-scroll-4.jpg",
+          "native/state-16-top.jpg",
+          "native/member-counts-r6-16.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Final member GUI and visual/source review incomplete; paused by user. See members-16-19-mapping.md."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 18,
+          "followers": 42,
+          "communityActivities": 16,
+          "capturedAt": "2026-10-09T04:49:36.449Z",
+          "evidence": "native/member-counts-r6-16.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        },
+        "currentBatch": {
+          "status": "WIP_PAUSED",
+          "mapping": "members-16-19-mapping.md",
+          "finalGuiComplete": false,
+          "capturedButNotFinalReviewed": true,
+          "publicFinalEvidence": []
+        }
+      }
+    },
+    {
+      "label": "禾舟",
+      "query": "view=member&id=qiao",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-host",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-17-scroll-1.jpg",
+          "native/state-17-scroll-2.jpg",
+          "native/state-17-scroll-3.jpg",
+          "native/state-17-scroll-4.jpg",
+          "native/state-17-top.jpg",
+          "native/member-counts-r6-17.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Final member GUI and visual/source review incomplete; paused by user. See members-16-19-mapping.md."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:39.451Z",
+          "evidence": "native/member-counts-r6-17.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        },
+        "currentBatch": {
+          "status": "WIP_PAUSED",
+          "mapping": "members-16-19-mapping.md",
+          "finalGuiComplete": false,
+          "capturedButNotFinalReviewed": true,
+          "publicFinalEvidence": []
+        }
+      }
+    },
+    {
+      "label": "星桥",
+      "query": "view=member&id=shing",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-admin",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-18-scroll-1.jpg",
+          "native/state-18-scroll-2.jpg",
+          "native/state-18-scroll-3.jpg",
+          "native/state-18-scroll-4.jpg",
+          "native/state-18-top.jpg",
+          "native/member-counts-r6-18.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Final member GUI and visual/source review incomplete; paused by user. See members-16-19-mapping.md."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:42.217Z",
+          "evidence": "native/member-counts-r6-18.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        },
+        "currentBatch": {
+          "status": "WIP_PAUSED",
+          "mapping": "members-16-19-mapping.md",
+          "finalGuiComplete": false,
+          "capturedButNotFinalReviewed": false,
+          "publicFinalEvidence": []
+        }
+      }
+    },
+    {
+      "label": "云汀",
+      "query": "view=member&id=maomao",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-peer-0",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-19-scroll-1.jpg",
+          "native/state-19-scroll-2.jpg",
+          "native/state-19-scroll-3.jpg",
+          "native/state-19-scroll-4.jpg",
+          "native/state-19-top.jpg",
+          "native/member-counts-r6-19.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Final member GUI and visual/source review incomplete; paused by user. See members-16-19-mapping.md."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:44.966Z",
+          "evidence": "native/member-counts-r6-19.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        },
+        "currentBatch": {
+          "status": "WIP_PAUSED",
+          "mapping": "members-16-19-mapping.md",
+          "finalGuiComplete": false,
+          "capturedButNotFinalReviewed": false,
+          "publicFinalEvidence": []
+        }
+      }
+    },
+    {
+      "label": "夏枝",
+      "query": "view=member&id=ning",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-peer-1",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-20-scroll-1.jpg",
+          "native/state-20-scroll-2.jpg",
+          "native/state-20-scroll-3.jpg",
+          "native/state-20-scroll-4.jpg",
+          "native/state-20-top.jpg",
+          "native/member-counts-r6-20.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Member profile layout captured; source links/history completeness and final visual comparison remain."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:50.066Z",
+          "evidence": "native/member-counts-r6-20.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        }
+      }
+    },
+    {
+      "label": "月弦",
+      "query": "view=member&id=xiaobei",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-peer-2",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-21-scroll-1.jpg",
+          "native/state-21-scroll-2.jpg",
+          "native/state-21-scroll-3.jpg",
+          "native/state-21-scroll-4.jpg",
+          "native/state-21-top.jpg",
+          "native/member-counts-r6-21.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Member profile layout captured; source links/history completeness and final visual comparison remain."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:52.855Z",
+          "evidence": "native/member-counts-r6-21.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        }
+      }
+    },
+    {
+      "label": "山岚",
+      "query": "view=member&id=yiming",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-peer-3",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-22-scroll-1.jpg",
+          "native/state-22-scroll-2.jpg",
+          "native/state-22-scroll-3.jpg",
+          "native/state-22-scroll-4.jpg",
+          "native/state-22-top.jpg",
+          "native/member-counts-r6-22.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Member profile layout captured; source links/history completeness and final visual comparison remain."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:55.610Z",
+          "evidence": "native/member-counts-r6-22.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        }
+      }
+    },
+    {
+      "label": "石溪",
+      "query": "view=member&id=chenmo",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19614:9378",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19614-9378",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/profile-member-current.png"
+          },
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-peer-4",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-23-scroll-1.jpg",
+          "native/state-23-scroll-2.jpg",
+          "native/state-23-scroll-3.jpg",
+          "native/state-23-scroll-4.jpg",
+          "native/state-23-top.jpg",
+          "native/member-counts-r6-23.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately.",
+          "Member counters verified in native GUI at r6 and against mock + actual backend handlers, including cancellation, duplicate registrations, unlisted events and sharing consent."
+        ],
+        "remaining": [
+          "Member profile layout captured; source links/history completeness and final visual comparison remain."
+        ],
+        "memberCounts": {
+          "status": "VERIFIED",
+          "fixtureVersion": "2026-10-09-native-batch1-r6",
+          "following": 32,
+          "followers": 128,
+          "communityActivities": 23,
+          "capturedAt": "2026-10-09T04:49:58.486Z",
+          "evidence": "native/member-counts-r6-23.jpg",
+          "definition": "Unique public events with this member’s CONFIRMED registration, gated by share_activity; independent of viewer."
+        }
+      }
+    },
+    {
+      "label": "编辑个人资料",
+      "query": "view=edit-profile",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "DIRECT_PAGE_PLUS_COMPONENTS",
+        "references": [
+          {
+            "node": "19621:15716",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19621-15716",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/profile-edit-whole.png"
+          },
+          {
+            "node": "19602:56210",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19602-56210",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/group-form-whole.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "edit-profile",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-24-scroll-1.jpg",
+          "native/state-24-scroll-2.jpg",
+          "native/state-24-scroll-3.jpg",
+          "native/state-24-scroll-4.jpg",
+          "native/state-24-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately."
+        ],
+        "remaining": [
+          "Avatar restored using actual Edit Profile reference; final screenshot visual inspection pending."
+        ]
+      }
+    },
+    {
+      "label": "关注列表",
+      "query": "view=relations",
+      "group": "成员与个人",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19521:3106",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-3106",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/organizer-list-and-card.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "relations",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-25-scroll-1.jpg",
+          "native/state-25-scroll-2.jpg",
+          "native/state-25-scroll-3.jpg",
+          "native/state-25-scroll-4.jpg",
+          "native/state-25-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Relation records produce 18 following / 42 followers.",
+          "List rows and counts change with follow mutations.",
+          "Native list top/lower captured; followers tail captured with actual native scrolling."
+        ],
+        "remaining": []
+      }
+    },
+    {
+      "label": "关注者列表",
+      "query": "view=relations&relation=followers",
+      "group": "成员与个人",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19521:3106",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-3106",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/organizer-list-and-card.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "relations",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "mode": "followers"
+        }
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-26-native-scroll-1.jpg",
+          "native/state-26-native-scroll-2.jpg",
+          "native/state-26-native-scroll-3.jpg",
+          "native/state-26-native-scroll-4.jpg",
+          "native/state-26-scroll-1.jpg",
+          "native/state-26-scroll-2.jpg",
+          "native/state-26-scroll-3.jpg",
+          "native/state-26-scroll-4.jpg",
+          "native/state-26-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Relation records produce 18 following / 42 followers.",
+          "List rows and counts change with follow mutations.",
+          "Native list top/lower captured; followers tail captured with actual native scrolling."
+        ],
+        "remaining": []
+      }
+    },
+    {
+      "label": "关注入口",
+      "query": "view=following",
+      "group": "成员与个人",
+      "status": "VERIFIED",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19521:3106",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19521-3106",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/component-audit/organizer-list-and-card.png"
+          }
+        ]
+      },
+      "native": {
+        "route": "following",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-27-scroll-1.jpg",
+          "native/state-27-scroll-2.jpg",
+          "native/state-27-scroll-3.jpg",
+          "native/state-27-scroll-4.jpg",
+          "native/state-27-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Relation records produce 18 following / 42 followers.",
+          "List rows and counts change with follow mutations.",
+          "Native list top/lower captured; followers tail captured with actual native scrolling."
+        ],
+        "remaining": []
+      }
+    },
+    {
+      "label": "我报名的活动",
+      "query": "view=registrations",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "registrations",
+        "id": "",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-28-scroll-1.jpg",
+          "native/state-28-scroll-2.jpg",
+          "native/state-28-scroll-3.jpg",
+          "native/state-28-scroll-4.jpg",
+          "native/state-28-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately."
+        ],
+        "remaining": [
+          "Registration titles/cards fixed; original four-state subset/filter reconciliation and refreshed bottom inspection remain."
+        ]
+      }
+    },
+    {
+      "label": "我发布的活动",
+      "query": "view=my-events",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "my-events",
+        "id": "",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-29-scroll-1.jpg",
+          "native/state-29-scroll-2.jpg",
+          "native/state-29-scroll-3.jpg",
+          "native/state-29-scroll-4.jpg",
+          "native/state-29-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately."
+        ],
+        "remaining": [
+          "Generic list and additional regression fixtures still differ from prototype source list."
+        ]
+      }
+    },
+    {
+      "label": "活动草稿",
+      "query": "view=drafts",
+      "group": "成员与个人",
+      "status": "NEEDS_FIX",
+      "figma": {
+        "status": "ACTUAL_REFERENCE_CAPTURED",
+        "mapping": "COMPOSED_FROM_VERIFIED_COMPONENTS",
+        "references": [
+          {
+            "node": "19696:4524",
+            "url": "https://www.figma.com/design/M381MXl5aimlr3Lfnt2Zrc/Sola---WeChat-Mini-Program--Copy-?node-id=19696-4524",
+            "privateEvidence": "706-montana/apps/community706/evidence/figma/2026-10-09/event-card-compact.jpg"
+          }
+        ]
+      },
+      "native": {
+        "route": "drafts",
+        "id": "",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": {
+        "date": "2026-10-09",
+        "nativeEvidence": [
+          "native/state-30-scroll-1.jpg",
+          "native/state-30-scroll-2.jpg",
+          "native/state-30-scroll-3.jpg",
+          "native/state-30-scroll-4.jpg",
+          "native/state-30-top.jpg"
+        ],
+        "actualGui": true,
+        "topAndLowerCaptured": true,
+        "checks": [
+          "Native rendering captured; compilation/controller checks are recorded separately."
+        ],
+        "remaining": [
+          "Draft content present; complete original draft card metadata/action arrangement remains."
+        ]
+      }
+    },
+    {
+      "label": "空间主页",
+      "query": "view=space",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19603:65381",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "space",
+        "id": "demo-space",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "组织主页",
+      "query": "view=org",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19603:65381",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "org",
+        "id": "demo-org",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "空间全部活动",
+      "query": "view=entity-events&entity=space",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:79224",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "entity-events",
+        "id": "demo-space",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "组织全部活动",
+      "query": "view=entity-events&entity=org",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:79224",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "entity-events",
+        "id": "demo-org",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "空间活跃成员",
+      "query": "view=entity-members&entity=space",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:81821",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "entity-members",
+        "id": "demo-space",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "组织活跃成员",
+      "query": "view=entity-members&entity=org",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:81821",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "entity-members",
+        "id": "demo-org",
+        "persona": "demo-member",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "编辑空间资料",
+      "query": "view=edit-entity",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19615:11926",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "edit-entity",
+        "id": "demo-space",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "管理员设置",
+      "query": "view=admins",
+      "group": "空间与组织",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19710:5257",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "admins",
+        "id": "demo-space",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "发布 ① 活动信息",
+      "query": "view=publish&step=1",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19576:41642",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "publish",
+        "id": "demo-draft",
+        "persona": "demo-host",
+        "options": {
+          "step": "1"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "发布 ② 报名设置",
+      "query": "view=publish&step=2",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19576:41642",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "publish",
+        "id": "demo-draft",
+        "persona": "demo-host",
+        "options": {
+          "step": "2"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "发布 ③ 确认提交",
+      "query": "view=publish&step=3",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19576:41642",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "publish",
+        "id": "demo-draft",
+        "persona": "demo-host",
+        "options": {
+          "step": "3"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "提交成功",
+      "query": "view=publish&submitted=1",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19576:41642",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "publish",
+        "id": "demo-draft",
+        "persona": "demo-host",
+        "options": {
+          "submitted": "1"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "活动预览",
+      "query": "view=activity-preview",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19553:25605",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "activity-preview",
+        "id": "demo-draft",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "审核待办",
+      "query": "view=approvals",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19696:4524",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "approvals",
+        "id": "",
+        "persona": "demo-admin",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "审核完成",
+      "query": "view=approvals&done=1",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19696:4524",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "approvals",
+        "id": "",
+        "persona": "demo-admin",
+        "options": {
+          "done": "1"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "活动审核详情",
+      "query": "view=approval-detail",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19702:8371",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "approval-detail",
+        "id": "demo-review-0",
+        "persona": "demo-admin",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "审核进度",
+      "query": "view=approval-progress",
+      "group": "发布与审核",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19710:5163",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "approval-progress",
+        "id": "demo-review",
+        "persona": "demo-host",
+        "options": {}
+      },
+      "verification": null
+    },
+    {
+      "label": "报名申请",
+      "query": "view=event&id=film&sheet=signup",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82314",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-film",
+        "persona": "demo-new",
+        "options": {
+          "sheet": "register"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "直接报名",
+      "query": "view=event&id=walk&sheet=signup",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82314",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-walk",
+        "persona": "demo-new",
+        "options": {
+          "sheet": "register"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "加入候补",
+      "query": "view=event&id=frisbee&sheet=signup",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82314",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-frisbee",
+        "persona": "demo-new",
+        "options": {
+          "sheet": "register"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "评论与回复",
+      "query": "view=event&sheet=comment",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82314",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-film",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "comment"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "推荐活动",
+      "query": "view=event&sheet=recommend",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82314",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event",
+        "id": "demo-film",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "recommend"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "小程序菜单",
+      "query": "view=feed&sheet=mini",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19558:28896",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "feed",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "mini"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "选择城市",
+      "query": "view=more&sheet=city",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19718:8159",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "more",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "city"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "选择语言",
+      "query": "view=more&sheet=language",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19718:8159",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "more",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "language"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "空间管理",
+      "query": "view=space&sheet=manage",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19603:65381",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "space",
+        "id": "demo-space",
+        "persona": "demo-host",
+        "options": {
+          "sheet": "manage"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "组织管理",
+      "query": "view=org&sheet=manage",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19603:65381",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "org",
+        "id": "demo-org",
+        "persona": "demo-host",
+        "options": {
+          "sheet": "manage"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "成员操作",
+      "query": "view=member&id=qiao&sheet=member",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19614:9378",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "member",
+        "id": "demo-host",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "member"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "推荐原因",
+      "query": "view=feed&sheet=why",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19558:28896",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "feed",
+        "id": "",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "why"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "活动付款",
+      "query": "view=event-access&sheet=payment",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82462",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event-access",
+        "id": "demo-reg-payment",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "payment"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "活动群二维码",
+      "query": "view=event-access&sheet=group",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19604:82462",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "event-access",
+        "id": "demo-reg-payment",
+        "persona": "demo-member",
+        "options": {
+          "sheet": "group"
+        }
+      },
+      "verification": null
+    },
+    {
+      "label": "退回修改",
+      "query": "view=approval-detail&sheet=return",
+      "group": "弹窗与浮层",
+      "status": "PENDING",
+      "figma": {
+        "candidateNode": "19702:8371",
+        "status": "CANDIDATE_REQUIRES_PAGE_MATCH"
+      },
+      "native": {
+        "route": "approval-detail",
+        "id": "demo-review-0",
+        "persona": "demo-admin",
+        "options": {
+          "sheet": "return"
+        }
+      },
+      "verification": null
+    }
+  ],
+  "updatedAt": "2026-10-09T07:34:26.047433+00:00",
+  "fixtureVersion": "2026-10-09-native-details-r12",
+  "pause": {
+    "reason": "User explicitly paused; await personal review",
+    "date": "2026-10-09",
+    "overallAcceptanceComplete": false,
+    "resumeRequires": "Explicit user instruction",
+    "mapping": "members-16-19-mapping.md"
+  }
+}

@@ -1,4 +1,4 @@
 // Central theme parameters. Geometry and source evidence are documented separately.
-const tokens={accent:'#A4EFCC',accentText:'#173C2C',ink:'#222222',muted:'#85888C',canvas:'#F3F3F3',surface:'#FFFFFF',line:'#ECEEEF',danger:'#B94747',radius:'32rpx'};
+const tokens={accent:'#A4EFCC',accentText:'#173C2C',ink:'#222222',muted:'#85888C',info:'#477AC4',infoSoft:'#E2EBFF',accentSoft:'#DCF5E4',control:'#EEEEEE',canvas:'#F3F3F3',surface:'#FFFFFF',line:'#ECEEEF',danger:'#B94747',calendarGrid:'#e7e7e7',calendarAxis:'#969696',calendarEvent:'#a6edcf',calendarEventInk:'#25332d',calendarMonthInk:'#24342e',calendarSelected:'#323b39',calendarDot:'#a5ecd0',calendarLegend:'#737a76',calendarLegendDot:'#4e9876',posterMuted:'#777777',posterBadge:'#e1f7eb',posterBadgeInk:'#284e3c',posterRule:'#dddddd',posterSpine:'#c6d9ce',posterDot:'#84d6af',posterFooter:'#888888',radius:'32rpx'};
 function style(){return Object.entries(tokens).map(([k,v])=>'--'+k+':'+v).join(';');}
 module.exports={tokens,style};
