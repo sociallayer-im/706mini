@@ -9,7 +9,14 @@ function state(){if(!db)db=wx.getStorageSync(KEY);if(!db||db.version!==fixtures.
  // One-time, narrow receipt-review migration; preserve all other saved demo work.
  if(db.accessReviewRevision!=='receipt-r1'){const r=db.rows.find(x=>x.id==='demo-reg-payment');if(r&&['EXPIRED','APPROVED_AWAITING_PAYMENT'].includes(r.status)&&(!r.payment_expires_at||r.payment_expires_at<=now())){r.status='APPROVED_AWAITING_PAYMENT';r.approved_at=now();r.payment_expires_at=new Date(Date.now()+30*60000).toISOString();r.version++;}db.accessReviewRevision='receipt-r1';persist();}
  if(db.memberReviewRevision!=='member-r1'){require('./member-relations')(db.rows);db.memberReviewRevision='member-r1';persist();}
- if(db.memberBioRevision!=='bio-r1'){const people=require('./prototype').people;for(const person of people){const p=db.rows.find(r=>r.id==='profile-'+person.id);if(p&&p.member_bio_edited===undefined)p.member_bio_edited=p.bio!==(person.id==='demo-member'?'城市研究 / 社区产品':person.bio);}db.memberBioRevision='bio-r1';persist();}return db;}
+ if(db.memberBioRevision!=='bio-r1'){const people=require('./prototype').people;for(const person of people){const p=db.rows.find(r=>r.id==='profile-'+person.id);if(p&&p.member_bio_edited===undefined)p.member_bio_edited=p.bio!==(person.id==='demo-member'?'城市研究 / 社区产品':person.bio);}db.memberBioRevision='bio-r1';persist();}
+ // Repair only the missing source links; retain r12 records, roles and decisions.
+ if(db.navigationReviewRevision!=='links-r1'){
+  for(const n of db.rows.filter(r=>r.type==='notification'&&/^prototype-note-.*-0$/.test(r.id)&&r.target?.route==='approvals'&&!r.target.id))n.target={route:'approval-detail',id:'demo-review-0'};
+  const c=db.rows.find(r=>r.id==='demo-open-living-room'),theme=db.rows.find(r=>r.id==='demo-campaign-review');
+  if(c&&Array.isArray(c.event_ids)&&!c.event_ids.length)c.event_ids=(theme?.event_ids||['demo-film','demo-walk','demo-workshop','demo-frisbee']).filter(id=>db.rows.some(r=>r.id===id&&r.type==='event'));
+  db.navigationReviewRevision='links-r1';persist();
+ }return db;}
 function persist(){wx.setStorageSync(KEY,db);}
 function rows(type){return state().rows.filter(r=>r.type===type);}
 function get(id,type){return state().rows.find(r=>r.id===id&&(!type||r.type===type))||fail('NOT_FOUND');}

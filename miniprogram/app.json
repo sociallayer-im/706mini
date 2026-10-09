@@ -54,19 +54,27 @@
     "list": [
       {
         "pagePath": "pages/feed/index",
-        "text": "动态"
+        "text": "动态",
+        "iconPath": "assets/tab-icons/feed-default.png",
+        "selectedIconPath": "assets/tab-icons/feed-selected.png"
       },
       {
         "pagePath": "pages/discover/index",
-        "text": "发现"
+        "text": "发现",
+        "iconPath": "assets/tab-icons/discover-default.png",
+        "selectedIconPath": "assets/tab-icons/discover-selected.png"
       },
       {
         "pagePath": "pages/messages/index",
-        "text": "消息"
+        "text": "消息",
+        "iconPath": "assets/tab-icons/messages-default.png",
+        "selectedIconPath": "assets/tab-icons/messages-selected.png"
       },
       {
         "pagePath": "pages/me/index",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "assets/tab-icons/me-default.png",
+        "selectedIconPath": "assets/tab-icons/me-selected.png"
       }
     ]
   },
