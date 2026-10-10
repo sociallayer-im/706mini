@@ -34,5 +34,5 @@ data = {'issue': 'SID-123', 'summary': summary, 'applicationStorage': applicatio
 (DOCS / 'storage-review.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
 template = (ROOT / 'data-integration-review' / 'storage-template.html').read_text()
 payload = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
-(ROOT / 'data-integration-review' / 'index.html').write_text(template.replace('__DATA__', payload))
+(ROOT / 'data-integration-review' / 'storage.html').write_text(template.replace('__DATA__', payload))
 print(json.dumps(summary, ensure_ascii=False))

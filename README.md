@@ -13,6 +13,8 @@
 
 ## 开发文档
 
+- [数据模型与关系首页](data-integration-review/model.html)：前后端数据对接的第一视图；继续进入字段、需求、接口和Gap。见[说明](docs/data-integration/README.md)。
+
 - [后端 AI Agent 开发手册](docs/backend-ai-agent-development-manual.md)：产品界面与交互、状态机、数据模型、API、权限、支付、隐私及联调验收标准。
 - [产品讨论补充（10/8 导入）](docs/meetings/2026-10-08-community-mini-program-feature-plan.md)：去敏需求、会中决定与未决事项；实际发生日期未知，不覆盖最新确定规则。
 - [需求与待确认 Backlog](docs/backlog.md)：节点展示、活动复用及后置需求的可读入口，区分已有规则、候选方案和验证缺口。
