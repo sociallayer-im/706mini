@@ -1,5 +1,7 @@
 # 706mini 文档维护规则
 
+Linear 当前入口为 pointer lab，见 [当前任务路由](docs/linear-routing.md)。回填前验证工作区与旧新任务映射，只写新工作区；旧 ai-tech 记录保留历史。本次仅登记的清单不自动触发开发或测试。
+
 ## 数据对接文档阅读顺序
 
 数据对接文档先展示数据模型与关系，再展示字段、前端需求、接口覆盖和Gap。默认入口是 `data-integration-review/index.html`，独立模型页是 `model.html`，字段讨论页是 `storage.html`，原需求索引保留在 `requirements.html`。
