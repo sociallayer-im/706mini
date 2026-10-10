@@ -29,6 +29,6 @@ summary={'pages':len(front.get('pages',[])),'requirements':len(rows),'backendOpe
 bundle={'generatedDate':'2026-10-10','issue':'SID-123','frontendCommit':'35fa1eb0ac81bbc06092fa185ba181caa48d533a','backendCommit':'d70d1db5e2b7ea9f0fba93ecbe426fe1f0acca8d','summary':summary,'frontend':front,'backend':back,'gapFindings':gaps,'mapping':rows,'boundaries':['讨论稿：代码匹配不等于线上可用或契约完整。','仅代码与已有证据；本轮无真实业务请求、测试、编译、GUI或部署。','Gap关联由关键字辅助，逐条确认范围；完整证据与接口字段见展开详情。']}
 (DOC/'mapping.json').write_text(json.dumps(bundle,ensure_ascii=False,indent=2)+'\n')
 data=json.dumps(bundle,ensure_ascii=False).replace('<','\\u003c').replace('&','\\u0026')
-page=Path(__file__).with_name('template.html').read_text().replace('__DATA__',data)
-Path(__file__).with_name('index.html').write_text(page)
+page=Path(__file__).with_name('requirements-template.html').read_text().replace('__DATA__',data)
+Path(__file__).with_name('requirements.html').write_text(page)
 print(json.dumps(summary,ensure_ascii=False))

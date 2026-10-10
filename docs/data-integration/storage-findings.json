@@ -1,0 +1,2139 @@
+{
+  "scope": {
+    "issue": "SID-123",
+    "mode": "read_only_discussion",
+    "date": "2026-10-10 Asia/Shanghai",
+    "physicalTable": "community706",
+    "entityNaming": "logical type原名；$users/$files独立系统表；metadata owner/parent/status/version/id与data.*、DTO.*、environment.*分开",
+    "sourceRequirementIndex": "frontend-inventory.json (147项，保留不改)",
+    "sourceEndpointIndex": "backend-inventory.json (81项，保留不改)",
+    "sourceGapIndex": "gap-findings.json (30项，保留不改)"
+  },
+  "findings": [
+    {
+      "id": "SF-NOTIFICATION-CONTENT",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "notification",
+        "profile",
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "notification.DTO.title",
+        "notification.DTO.description",
+        "notification.data.actor_id",
+        "notification.data.target"
+      ],
+      "endpoints": [
+        "read.notifications",
+        "write.read"
+      ],
+      "requirementIds": [
+        "FE-R-notifications"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 62,
+          "detail": "notify仅key/target/category"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 115,
+          "detail": "可选actor_id join"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/templates/screen.wxml",
+          "line": 138,
+          "detail": "模板消费title/description"
+        }
+      ],
+      "rationale": "前端消息需要title/description/actor；notify只写key/category/target，actor_id未在生产点赋值。可用key模板+目标对象join派生，未决定新增存储正文。",
+      "backgroundUses": [
+        "站内消息target导航和read_at已使用；标题快照与实时名称取舍需考虑历史改名。"
+      ],
+      "openQuestion": "消息文案派生还是存事件时快照？谁作为actor？",
+      "sourceGapIds": [
+        "GAP-NOTIFICATION-CONTENT"
+      ]
+    },
+    {
+      "id": "SF-CAMPAIGN-DERIVED",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "campaign",
+        "event"
+      ],
+      "fields": [
+        "campaign.DTO.cities",
+        "campaign.DTO.citySummary",
+        "campaign.DTO.resource_description",
+        "campaign.DTO.banner_description"
+      ],
+      "endpoints": [
+        "read.campaign",
+        "read.campaigns",
+        "write.saveCampaign"
+      ],
+      "requirementIds": [
+        "FE-R-campaign",
+        "FE-R-campaigns"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 87,
+          "detail": "专题读取items但不派生cities"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 199,
+          "detail": "保存白名单"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 48,
+          "detail": "城市摘要消费r.cities"
+        }
+      ],
+      "rationale": "cities可由event_ids→event.city派生；resource_description/banner文案未在保存字段中定义。不能把每个演示固定文案直接变存储字段。",
+      "backgroundUses": [
+        "event_ids是专题关联与审核基础；kicker/introduction可作为文案来源。"
+      ],
+      "openQuestion": "城市派生与编辑说明哪些是正式需要？",
+      "sourceGapIds": [
+        "GAP-CAMPAIGN-METADATA"
+      ]
+    },
+    {
+      "id": "SF-EVENT-ADDRESS",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "event",
+        "entity"
+      ],
+      "fields": [
+        "event.data.space_id",
+        "event.data.address",
+        "event.DTO.address",
+        "entity.data.address"
+      ],
+      "endpoints": [
+        "write.submitEvent",
+        "read.event"
+      ],
+      "requirementIds": [
+        "FE-R-event",
+        "FE-F-event-space_id",
+        "FE-F-event-address"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/forms.js",
+          "line": 7,
+          "detail": "受管空间隐藏自定义地址"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 151,
+          "detail": "只赋空间名称"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 38,
+          "detail": "DTO来自event.address"
+        }
+      ],
+      "rationale": "选择space后表单不让填地址；validateEvent只写venue_display而未提供entity.address。因此是join/快照未落实，不是entity缺address。",
+      "backgroundUses": [
+        "自定义地点已有event.address；实体地址可能后来更改，事件历史需考虑。"
+      ],
+      "openQuestion": "详情显示空间当前地址还是提交时快照？",
+      "sourceGapIds": [
+        "GAP-VENUE-ADDRESS"
+      ]
+    },
+    {
+      "id": "SF-MEMBER-FEATURED",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "profile",
+        "membership",
+        "entity",
+        "registration",
+        "event"
+      ],
+      "fields": [
+        "profile.data.featured_entities",
+        "profile.data.frequent_spaces",
+        "profile.DTO.frequent_entities",
+        "membership.parent"
+      ],
+      "endpoints": [
+        "write.profile",
+        "read.member"
+      ],
+      "requirementIds": [
+        "FE-F-profile-frequent_spaces",
+        "FE-G-featured-update",
+        "FE-G-relations-membership"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 67,
+          "detail": "读取membership/参与记录"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 70,
+          "detail": "优先featured_entities"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 173,
+          "detail": "写profile只frequent_spaces"
+        }
+      ],
+      "rationale": "featured_entities优先掩盖frequent_spaces；前端存后回读期望空间与组织组合。已有memberEntities join，不需新增重复成员表。",
+      "backgroundUses": [
+        "组织正式成员来自membership，角色role不能替代；历史profile.featured_entities可能已写入。"
+      ],
+      "openQuestion": "合并空间偏好与正式组织归属，还是保留一套可排序featured清单？",
+      "sourceGapIds": [
+        "GAP-MEMBER-FEATURED"
+      ]
+    },
+    {
+      "id": "SF-MEMBER-COUNT",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "profile",
+        "registration",
+        "event"
+      ],
+      "fields": [
+        "profile.DTO.activity_count"
+      ],
+      "endpoints": [
+        "read.member"
+      ],
+      "requirementIds": [
+        "FE-R-member",
+        "FE-G-relations-membership"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 90,
+          "detail": "计数只joined目标本人"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/templates/screen.wxml",
+          "line": 72,
+          "detail": "共同活动文案"
+        }
+      ],
+      "rationale": "activity_count由目标本人CONFIRMED活动派生，前端标共同活动；没有viewer交集。差异是派生定义，不是需要存冗余count。",
+      "backgroundUses": [
+        "分享同意和公开事件条件已经参与过滤。"
+      ],
+      "openQuestion": "共同是社区参与总数还是与浏览者共同参加？",
+      "sourceGapIds": [
+        "GAP-MEMBER-ACTIVITY-COUNT"
+      ]
+    },
+    {
+      "id": "SF-ENTITY-ACTIVE-COUNT",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "entity",
+        "event",
+        "registration",
+        "profile"
+      ],
+      "fields": [
+        "entity.DTO.event_count",
+        "entity.DTO.active_member_count",
+        "entity.DTO.members"
+      ],
+      "endpoints": [
+        "read.entities",
+        "read.entity"
+      ],
+      "requirementIds": [
+        "FE-R-entities",
+        "FE-R-entity",
+        "FE-G-entity-pagination"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 88,
+          "detail": "目录未来事件集合"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 89,
+          "detail": "主页全部公开事件集合"
+        }
+      ],
+      "rationale": "directory只取未来未结束事件，主页所有公开事件；计数和成员范围不同，暂无统一近期定义。",
+      "backgroundUses": [
+        "CONFIRMED、share_activity、PUBLIC是已有展示许可条件，不可删。"
+      ],
+      "openQuestion": "近期窗口与两个入口的集合应一致吗？",
+      "sourceGapIds": [
+        "GAP-ACTIVE-MEMBER-WINDOW"
+      ]
+    },
+    {
+      "id": "SF-INVITATION-TITLE",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "invitation",
+        "entity",
+        "profile"
+      ],
+      "fields": [
+        "invitation.DTO.title",
+        "invitation.data.parent",
+        "invitation.data.inviter"
+      ],
+      "endpoints": [
+        "read.invitations",
+        "write.invite"
+      ],
+      "requirementIds": [
+        "FE-R-invitations"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 126,
+          "detail": "返回原始invitation"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 223,
+          "detail": "保存inviter和parent"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 224,
+          "detail": "inviter权限重查"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/templates/screen.wxml",
+          "line": 140,
+          "detail": "通用列表title兜底owner"
+        }
+      ],
+      "rationale": "模板/需求读取title，真实invitations只原始行，缺邀请组织/空间名称和发起者join；可以派生DTO而非另存名称。",
+      "backgroundUses": [
+        "parent定位实体，inviter用于acceptInvite时再次验证邀请人权限，不能以未前端显示为由删除。"
+      ],
+      "openQuestion": "邀请卡显示哪些实体与邀请人信息？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-REVIEW-SNAPSHOT",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "review",
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "review.data.snapshot",
+        "review.data.round",
+        "review.DTO.subject"
+      ],
+      "endpoints": [
+        "read.review",
+        "read.progress",
+        "write.review"
+      ],
+      "requirementIds": [
+        "FE-R-review",
+        "FE-R-progress"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 121,
+          "detail": "读实时subject"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 197,
+          "detail": "event快照"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 203,
+          "detail": "INITIATOR无snapshot"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 122,
+          "detail": "全轮次progress"
+        }
+      ],
+      "rationale": "已有snapshot但页面展示实时subject；INITIATOR行没有snapshot，progress混合轮次。应明确轮次/快照DTO，不增加重复业务主体。",
+      "backgroundUses": [
+        "旧审核决定与SUPERSEDED保留追溯用途；不能当未使用历史字段删除。"
+      ],
+      "openQuestion": "展示审核时内容还是当前内容，如何并列？",
+      "sourceGapIds": [
+        "GAP-REVIEW-SNAPSHOT"
+      ]
+    },
+    {
+      "id": "SF-NOTIFICATION-PREFERENCE",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "profile",
+        "notification"
+      ],
+      "fields": [
+        "profile.data.notification_preferences.enabled"
+      ],
+      "endpoints": [
+        "write.profile",
+        "read.me"
+      ],
+      "requirementIds": [
+        "FE-W-profile-preferences"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 173,
+          "detail": "profile允许保存偏好"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 62,
+          "detail": "notify无偏好判断"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 156,
+          "detail": "前端开关"
+        }
+      ],
+      "rationale": "前端可存通知开关，notify不读取；字段存在，缺消费者或语义，并非缺字段建表。",
+      "backgroundUses": [
+        "安全/审核/支付必要站内通知可能不应被用户屏蔽；先定义开关作用。"
+      ],
+      "openQuestion": "开关控制站内还是微信推送？必要消息是否例外？",
+      "sourceGapIds": [
+        "GAP-NOTIFICATION-PREFERENCE"
+      ]
+    },
+    {
+      "id": "SF-EVENT-FORM-COVERAGE",
+      "category": "field_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "event"
+      ],
+      "fields": [
+        "event.data.tags",
+        "event.data.fit_description",
+        "event.data.waitlist_enabled"
+      ],
+      "endpoints": [
+        "write.saveEvent",
+        "write.submitEvent",
+        "read.event"
+      ],
+      "requirementIds": [
+        "FE-W-save-event",
+        "FE-R-event"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 144,
+          "detail": "存储白名单"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/forms.js",
+          "line": 2,
+          "detail": "表单缺控件"
+        }
+      ],
+      "rationale": "字段已存在但发布表单没有对应编辑控件；是前端字段接入缺口，不是存储缺字段。",
+      "backgroundUses": [
+        "tags用于筛选，waitlist_enabled控制服务端满额报名，fit_description详情展示。"
+      ],
+      "openQuestion": "当前首版需要允许编辑哪些字段？",
+      "sourceGapIds": [
+        "GAP-EVENT-FORM-FIELDS"
+      ]
+    },
+    {
+      "id": "SF-PROFILE-VISIBILITY",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "profile",
+        "membership"
+      ],
+      "fields": [
+        "profile.data.visibility"
+      ],
+      "endpoints": [
+        "read.member",
+        "read.people",
+        "read.relations"
+      ],
+      "requirementIds": [
+        "FE-W-profile-preferences",
+        "FE-R-member"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 31,
+          "detail": "publicProfile只PUBLIC"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 156,
+          "detail": "提供MEMBERS"
+        }
+      ],
+      "rationale": "PUBLIC/MEMBERS开关存在，publicProfile只PUBLIC；需要受众授权DTO语义，而不是新增同名接口。",
+      "backgroundUses": [
+        "PUBLIC过滤保护隐私，不能为让列表有值去掉。membership和注册账号不同。"
+      ],
+      "openQuestion": "MEMBERS受众定义？",
+      "sourceGapIds": [
+        "GAP-PROFILE-VISIBILITY"
+      ]
+    },
+    {
+      "id": "SF-ENTITY-REQUEST-POLICY",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "entity",
+        "event",
+        "review"
+      ],
+      "fields": [
+        "entity.data.allow_event_requests",
+        "event.data.space_id"
+      ],
+      "endpoints": [
+        "write.entity",
+        "write.submitEvent"
+      ],
+      "requirementIds": [
+        "FE-F-entity-allow_event_requests",
+        "FE-W-submit-event"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 151,
+          "detail": "空间校验"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 196,
+          "detail": "空间审核"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 222,
+          "detail": "开关保存"
+        }
+      ],
+      "rationale": "开关已存但提交仅检查实体ACTIVE/kind，未约束外部申请。缺服务端规则执行而非字段。",
+      "backgroundUses": [
+        "空间审核链仍必要；管理员自己发起可能需例外，未决定。"
+      ],
+      "openQuestion": "关开关后谁仍可申请？",
+      "sourceGapIds": [
+        "GAP-SPACE-REQUEST-POLICY"
+      ]
+    },
+    {
+      "id": "SF-ENTITY-CONTACT-ACCESS",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "entity",
+        "event",
+        "role"
+      ],
+      "fields": [
+        "entity.data.public_contact",
+        "entity.data.public_links"
+      ],
+      "endpoints": [
+        "read.entity",
+        "write.entity"
+      ],
+      "requirementIds": [
+        "FE-F-entity-public_contact",
+        "FE-R-entity"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 54,
+          "detail": "entityDTO去私有联系"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 222,
+          "detail": "实体编辑白名单"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 11,
+          "detail": "节点资料候选"
+        }
+      ],
+      "rationale": "非管理DTO删除联系人；没有获准发起者读取路径。公众号/回顾等具体字段未定，可用public_links但不能先默认公开。",
+      "backgroundUses": [
+        "role权限和明确公开许可不能被公共页面替代。"
+      ],
+      "openQuestion": "哪些真正公开，哪些只对已批准发起者？",
+      "sourceGapIds": [
+        "GAP-ENTITY-CONTACT"
+      ]
+    },
+    {
+      "id": "SF-MEMBERSHIP-MAINTENANCE",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "membership",
+        "profile",
+        "entity"
+      ],
+      "fields": [
+        "membership.owner",
+        "membership.parent",
+        "membership.data.contribution",
+        "profile.data.featured_entities"
+      ],
+      "endpoints": [
+        "read.member",
+        "write.profile"
+      ],
+      "requirementIds": [
+        "FE-G-relations-membership",
+        "FE-G-featured-update"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 67,
+          "detail": "membership读取"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 173,
+          "detail": "profile写入不含membership"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 22,
+          "detail": "不自动合并提权"
+        }
+      ],
+      "rationale": "membership已读取但81操作未见维护入口；不能由profile自行给自己设正式成员。需要授权后台操作设计，不是自动改write.profile白名单。",
+      "backgroundUses": [
+        "独立成员身份与管理员role隔离；可能通过外部受控后台维护，尚未有运行证据。"
+      ],
+      "openQuestion": "谁能创建/撤销成员关系，用什么证明？",
+      "sourceGapIds": [
+        "GAP-MEMBER-FEATURED",
+        "GAP-POSTPONED-REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "SF-REVIEWS-COMPLETED",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "review",
+        "event",
+        "campaign",
+        "role"
+      ],
+      "fields": [
+        "review.status",
+        "review.data.decided_by",
+        "review.data.round"
+      ],
+      "endpoints": [
+        "read.reviews",
+        "read.progress"
+      ],
+      "requirementIds": [
+        "FE-G-pending-approvals",
+        "FE-R-reviews"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 120,
+          "detail": "只PENDING"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 62,
+          "detail": "done mock分支"
+        }
+      ],
+      "rationale": "真实reviews仅PENDING；done仅mock过滤专题，非完成列表契约。按操作者/实体/主体完成的含义需定。",
+      "backgroundUses": [
+        "progress历史能查单主体但不等于审核人员已处理集合。"
+      ],
+      "openQuestion": "完成按谁/哪个范围定义？",
+      "sourceGapIds": [
+        "GAP-REVIEW-COMPLETED"
+      ]
+    },
+    {
+      "id": "SF-REFUND-SERVICE",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "payment",
+        "registration",
+        "event",
+        "notification"
+      ],
+      "fields": [
+        "payment.data.requires_refund",
+        "registration.status"
+      ],
+      "endpoints": [
+        "payment",
+        "settlePayment",
+        "write.cancelRegistration",
+        "write.cancelEvent"
+      ],
+      "requirementIds": [
+        "FE-G-refund",
+        "FE-W-cancel-registration",
+        "FE-W-cancel-event",
+        "FE-P-reconcile"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 218,
+          "detail": "REFUND_POLICY_REQUIRED"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 296,
+          "detail": "requires_refund"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 24,
+          "detail": "规则未决"
+        }
+      ],
+      "rationale": "仅拒绝已付取消及requires_refund标记；无退款申请/执行/回调/查询契约，属于未决规则之后的服务缺口。",
+      "backgroundUses": [
+        "requires_refund后台处理异常支付用途明确，不能删；真实退款凭证也不应只存前端。"
+      ],
+      "openQuestion": "退款责任政策及异常赔付由谁处理？",
+      "sourceGapIds": [
+        "GAP-REFUND-LIFECYCLE"
+      ]
+    },
+    {
+      "id": "SF-PAYMENT-RECONCILE",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "payment",
+        "registration"
+      ],
+      "fields": [
+        "payment.status",
+        "registration.status",
+        "registration.data.payment_expires_at"
+      ],
+      "endpoints": [
+        "payment",
+        "settlePayment",
+        "read.registration",
+        "expire"
+      ],
+      "requirementIds": [
+        "FE-P-reconcile",
+        "FE-P-payment"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 125,
+          "detail": "requestPayment后一次load"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 297,
+          "detail": "回调确认"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 310,
+          "detail": "到期任务"
+        }
+      ],
+      "rationale": "已有回调结算和read.registration，但前端付款后只load一次，无异步确认闭环。不是新付款接口缺失。",
+      "backgroundUses": [
+        "expiryInfo/expire保证占位和关单，不能因为未前端直接调用删除internal接口。"
+      ],
+      "openQuestion": "使用权威轮询、业务事件刷新或明确手动刷新？",
+      "sourceGapIds": [
+        "GAP-PAYMENT-SETTLEMENT-UX"
+      ]
+    },
+    {
+      "id": "SF-MEDIA-ARRAY-ACCESS",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "media",
+        "$files",
+        "event",
+        "eventSecret",
+        "campaign",
+        "profile"
+      ],
+      "fields": [
+        "event.data.media",
+        "campaign.data.media",
+        "eventSecret.data.payload.methods[].value",
+        "media.DTO.preview_url"
+      ],
+      "endpoints": [
+        "mediaFinish",
+        "mediaPreview",
+        "privateMedia"
+      ],
+      "requirementIds": [
+        "FE-M-preview-arrays",
+        "FE-F-event-media",
+        "FE-F-campaign-media",
+        "FE-F-event-join_methods"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 153,
+          "detail": "数组只存asset.url"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 179,
+          "detail": "只平面3键"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 348,
+          "detail": "preview_url"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 375,
+          "detail": "实时ACL"
+        }
+      ],
+      "rationale": "媒体权限接口已存在；前端数组丢弃预览值、refreshMedia只平面字段，详情不渲染media[]。这是同一接入缺口涉及多实体，计1项。",
+      "backgroundUses": [
+        "canonical公共引用/private群码标识与短时签名分离，签名不可持久化为业务URL。"
+      ],
+      "openQuestion": "预览映射如何按数组项刷新，并如何展示多媒体？",
+      "sourceGapIds": [
+        "GAP-MEDIA-PREVIEW",
+        "GAP-MEDIA-DETAIL"
+      ]
+    },
+    {
+      "id": "SF-PAGINATION-OPTIONS",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "entity",
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "DTO.next_cursor",
+        "DTO.has_more"
+      ],
+      "endpoints": [
+        "read.entities",
+        "read.events",
+        "read.mine",
+        "read.campaigns"
+      ],
+      "requirementIds": [
+        "FE-R-event-options",
+        "FE-R-entities",
+        "FE-R-campaigns",
+        "FE-L-pagination"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 49,
+          "detail": "分页30"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 74,
+          "detail": "entities一页"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 76,
+          "detail": "活动选项一页"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 119,
+          "detail": "managed全量"
+        }
+      ],
+      "rationale": "辅助选项只第一30条；managed本来全量，不计入此缺口。需要复用已有cursor或搜索分页。",
+      "backgroundUses": [
+        "主列表onReachBottom、allMine已有，不能误报全站缺分页。"
+      ],
+      "openQuestion": "选择器检索/续读方式？",
+      "sourceGapIds": [
+        "GAP-PAGINATION-SELECTORS"
+      ]
+    },
+    {
+      "id": "SF-PAGINATION-DETAIL",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "entity",
+        "profile",
+        "event",
+        "comment",
+        "registration"
+      ],
+      "fields": [
+        "DTO.items",
+        "DTO.members",
+        "DTO.comments",
+        "DTO.total"
+      ],
+      "endpoints": [
+        "read.entity",
+        "read.member",
+        "read.comments",
+        "read.event"
+      ],
+      "requirementIds": [
+        "FE-G-entity-pagination",
+        "FE-R-member",
+        "FE-R-event"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 89,
+          "detail": "entity内嵌全量"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 90,
+          "detail": "member内嵌全量"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 109,
+          "detail": "comments已有分页"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 47,
+          "detail": "只r.comments"
+        }
+      ],
+      "rationale": "详情内嵌集合全量且评论分页未接，需确定独立游标；calendar完整期间为另一契约，不机械要求分页。",
+      "backgroundUses": [
+        "member/entity join派生成员及活动，评论状态/作者隐私必须保留。"
+      ],
+      "openQuestion": "详情集合阈值与稳定排序如何定义？",
+      "sourceGapIds": [
+        "GAP-PAGINATION-NESTED",
+        "GAP-PAGINATION-STABILITY"
+      ]
+    },
+    {
+      "id": "SF-NOTIFICATION-PRODUCERS",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "notification",
+        "review",
+        "event",
+        "registration",
+        "follow",
+        "recommendation",
+        "role"
+      ],
+      "fields": [
+        "notification.data.key",
+        "notification.data.target"
+      ],
+      "endpoints": [
+        "write.submitEvent",
+        "write.follow",
+        "write.recommend",
+        "write.revokeRole"
+      ],
+      "requirementIds": [
+        "FE-R-notifications",
+        "FE-G-subscription"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 195,
+          "detail": "提交event审核无notify"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 62,
+          "detail": "站内存储"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backend-ai-agent-development-manual.md",
+          "line": 277,
+          "detail": "类型属于建议"
+        }
+      ],
+      "rationale": "需确认必要事件生产；活动提交无审核人通知、若干社交/角色提醒未生产。微信订阅另外需同意与投递配置，不能把站内notify当微信送达。",
+      "backgroundUses": [
+        "当前站内notify、角色邀请/支付/评论通知真实代码存在；未做真实投递。"
+      ],
+      "openQuestion": "首版消息类型和渠道有哪些？",
+      "sourceGapIds": [
+        "GAP-NOTIFICATION-EVENTS"
+      ]
+    },
+    {
+      "id": "SF-REALTIME-CONTRACT",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "event",
+        "registration",
+        "review",
+        "notification"
+      ],
+      "fields": [
+        "DTO.change_event"
+      ],
+      "endpoints": [
+        "runtime.socket",
+        "read.registration",
+        "read.notifications"
+      ],
+      "requirementIds": [
+        "FE-T-realtime",
+        "FE-P-reconcile"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/montana.js",
+          "line": 45,
+          "detail": "onMessage仅pending response"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 10,
+          "detail": "onShow拉取"
+        }
+      ],
+      "rationale": "socket仅发函数并按client-event-id处理响应，未订阅业务变更。传输socket存在不等于realtime功能。",
+      "backgroundUses": [
+        "onShow/下拉刷新是已有拉取；runtime其它客户可能使用订阅，不能删通用socket。"
+      ],
+      "openQuestion": "首版需实时刷新哪些对象？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-IDENTITY-LINK",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "$users",
+        "wechatIdentity",
+        "profile",
+        "contact"
+      ],
+      "fields": [
+        "wechatIdentity.parent",
+        "wechatIdentity.owner"
+      ],
+      "endpoints": [
+        "wechatLogin",
+        "runtime.link_email",
+        "runtime.link_phone"
+      ],
+      "requirementIds": [
+        "FE-A-wechat",
+        "FE-A-phone-verify",
+        "FE-A-email-verify"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 316,
+          "detail": "openid身份"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 177,
+          "detail": "微信独立登录"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/montana.js",
+          "line": 67,
+          "detail": "验证码路径"
+        }
+      ],
+      "rationale": "runtime已有link能力目录，但小程序未接；微信openid创建独立$users，验证码与微信资料可能不同。不能自动按联系字段合并。",
+      "backgroundUses": [
+        "openid加密和digest用于找回身份，CONTACT_KEY不可无迁移轮换；runtime其它应用也使用link。"
+      ],
+      "openQuestion": "是否要绑账号，如何证明双身份？",
+      "sourceGapIds": [
+        "GAP-AUTH-ACCOUNT-LINK"
+      ]
+    },
+    {
+      "id": "SF-CALENDAR-PREFS",
+      "category": "interface_gap",
+      "status": "代码差异已确认；处理方式待讨论",
+      "entities": [
+        "profile",
+        "calendarShare"
+      ],
+      "fields": [
+        "profile.DTO.calendar_preferences",
+        "calendarShare.data.params"
+      ],
+      "endpoints": [
+        "write.profile",
+        "calendarCode",
+        "read.calendarShare"
+      ],
+      "requirementIds": [
+        "FE-L-prefs",
+        "FE-L-filters"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 102,
+          "detail": "页面filters"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 359,
+          "detail": "一次分享params"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backend-ai-agent-development-manual.md",
+          "line": 71,
+          "detail": "偏好需求"
+        }
+      ],
+      "rationale": "日历滤选页面state未账户持久化；calendarShare是一次分享参数，不能冒充账户偏好。是否需要服务端字段未定。",
+      "backgroundUses": [
+        "分享回流参数须保持，不能因为不用于偏好删除。"
+      ],
+      "openQuestion": "需要本机还是跨设备恢复？",
+      "sourceGapIds": [
+        "GAP-CALENDAR-PREFERENCES"
+      ]
+    },
+    {
+      "id": "SF-DRAFT-DELETE",
+      "category": "interface_gap",
+      "status": "候选需求；未批准实现",
+      "entities": [
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "event.status",
+        "campaign.status"
+      ],
+      "endpoints": [
+        "write.saveEvent",
+        "write.saveCampaign"
+      ],
+      "requirementIds": [
+        "FE-G-draft-delete"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 161,
+          "detail": "保存表单"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 190,
+          "detail": "saveEvent"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 199,
+          "detail": "saveCampaign"
+        }
+      ],
+      "rationale": "前端需求索引明确保留是否需要删除草稿的待确认项；未见deleteDraft操作，不能直接推导必须新增。",
+      "backgroundUses": [
+        "编辑和提交依赖草稿，command历史保留需定义软删除。"
+      ],
+      "openQuestion": "删除/清理草稿是否首版需求？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-INVITE-DECLINE",
+      "category": "interface_gap",
+      "status": "候选需求；未批准实现",
+      "entities": [
+        "invitation",
+        "role"
+      ],
+      "fields": [
+        "invitation.status"
+      ],
+      "endpoints": [
+        "write.invite",
+        "write.acceptInvite",
+        "write.revokeRole"
+      ],
+      "requirementIds": [
+        "FE-G-invite-decline"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 224,
+          "detail": "接受邀请"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 225,
+          "detail": "撤销角色及匹配邀请"
+        }
+      ],
+      "rationale": "接受与Owner撤销已有，受邀人主动拒绝未见；不可将role撤销接口当拒绝邀请。",
+      "backgroundUses": [
+        "邀请人权限重查及Owner不可撤销规则已用。"
+      ],
+      "openQuestion": "是否需要拒绝以及拒绝后的历史状态？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-COVER-FIRST-MEDIA",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "data.cover_url",
+        "data.media[image].url"
+      ],
+      "endpoints": [
+        "write.saveEvent",
+        "write.saveCampaign",
+        "read.event",
+        "read.campaigns"
+      ],
+      "requirementIds": [
+        "FE-F-event-media",
+        "FE-F-campaign-media"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/forms.js",
+          "line": 13,
+          "detail": "从第一图选择cover"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 194,
+          "detail": "clone复制cover"
+        }
+      ],
+      "rationale": "cover_url与第一图内容可能重复，但卡片/旧单图记录/clone独立读cover；不是可直接删除。",
+      "backgroundUses": [
+        "旧记录没有media；卡片只需轻量封面；clone只复制cover。"
+      ],
+      "openQuestion": "把cover定义为派生或独立选图？需要兼容迁移吗？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-HOST-VENUE-SNAPSHOT",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "event",
+        "entity",
+        "profile"
+      ],
+      "fields": [
+        "event.data.host_display",
+        "event.data.venue_display",
+        "event.data.organization_id",
+        "event.data.space_id"
+      ],
+      "endpoints": [
+        "write.submitEvent",
+        "read.event",
+        "read.events"
+      ],
+      "requirementIds": [
+        "FE-R-event",
+        "FE-R-calendar"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 57,
+          "detail": "搜索显示名"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 151,
+          "detail": "固定venue_display"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 155,
+          "detail": "固定host_display"
+        }
+      ],
+      "rationale": "显示名与关联实体/个人名称可join，但当前submit固定它们，可能是发布快照。改为全派生会改变历史内容和搜索。",
+      "backgroundUses": [
+        "events q用host_display/venue_display；公开卡片直接消费；历史名称保留可能必要。"
+      ],
+      "openQuestion": "这些是历史快照还是始终最新名称？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-ACCESS-LEGACY-FLAT",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "eventSecret"
+      ],
+      "fields": [
+        "eventSecret.data.payload.type",
+        "eventSecret.data.payload.value",
+        "eventSecret.data.payload.methods"
+      ],
+      "endpoints": [
+        "write.saveEvent",
+        "write.access",
+        "mediaPreview"
+      ],
+      "requirementIds": [
+        "FE-W-private-access",
+        "FE-F-event-join_methods"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 192,
+          "detail": "同时写第一项和数组"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 220,
+          "detail": "返回平面+methods"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/forms.js",
+          "line": 8,
+          "detail": "旧结构fallback"
+        }
+      ],
+      "rationale": "payload同时平面第一method与methods数组；新路径消费methods但旧记录/返回仍兼容平面结构。",
+      "backgroundUses": [
+        "toForm、access与mediaPermission均有fallback；加密数据迁移要保留访问及到期语义。"
+      ],
+      "openQuestion": "是否已存在旧单参与方式记录？有无安全迁移计划？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-PROFILE-FEATURED-OVERLAP",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "profile"
+      ],
+      "fields": [
+        "profile.data.featured_entities",
+        "profile.data.frequent_spaces"
+      ],
+      "endpoints": [
+        "read.member",
+        "write.profile"
+      ],
+      "requirementIds": [
+        "FE-G-featured-update"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 70,
+          "detail": "优先分支"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 73,
+          "detail": "组织需membership"
+        }
+      ],
+      "rationale": "两字段有空间重叠且优先造成显示问题，但featured可含组织与排序，frequent_spaces是本人偏好。不能简单删除一个。",
+      "backgroundUses": [
+        "历史固定featured列表、membership组织许可依赖当前组装。"
+      ],
+      "openQuestion": "合并数据来源还是保留语义不同字段？",
+      "sourceGapIds": [
+        "GAP-MEMBER-FEATURED"
+      ]
+    },
+    {
+      "id": "SF-REVIEW-TITLE-COPY",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "review",
+        "event",
+        "campaign"
+      ],
+      "fields": [
+        "review.data.title",
+        "review.data.snapshot.title"
+      ],
+      "endpoints": [
+        "read.reviews",
+        "read.review"
+      ],
+      "requirementIds": [
+        "FE-R-reviews",
+        "FE-R-review"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 197,
+          "detail": "snapshot+title"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 203,
+          "detail": "INITIATOR只有title"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 120,
+          "detail": "列表title"
+        }
+      ],
+      "rationale": "review.title与snapshot/title可能重复，但INITIATOR无snapshot，列表使用title，删字段会破坏历史列表。",
+      "backgroundUses": [
+        "审核快照稳定标题、列表轻量返回、历史行兼容。"
+      ],
+      "openQuestion": "统一snapshot是否值得增加读取体积？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-PAYMENT-REVERSE-LINK",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；禁止据此删除",
+      "entities": [
+        "payment",
+        "registration"
+      ],
+      "fields": [
+        "registration.data.payment_id",
+        "payment.parent"
+      ],
+      "endpoints": [
+        "settlePayment",
+        "expiryInfo",
+        "read.registration"
+      ],
+      "requirementIds": [
+        "FE-R-registration",
+        "FE-P-reconcile"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 277,
+          "detail": "payment.parent登记"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 297,
+          "detail": "registration.payment_id"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 309,
+          "detail": "按parent找订单"
+        }
+      ],
+      "rationale": "双向引用可能冗余，但payment.parent用于支付到报名，registration.payment_id确认到账对象，历史重试订单可能不同。",
+      "backgroundUses": [
+        "支付回调、结算追溯和未来退款定位需要明确订单。"
+      ],
+      "openQuestion": "每报名是否严格单订单？重付/退款如何关联？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-COMMENT-RECOMMENDATION-ID",
+      "category": "redundant_field_candidate",
+      "status": "冗余候选；需确认历史用途",
+      "entities": [
+        "comment",
+        "recommendation"
+      ],
+      "fields": [
+        "comment.data.recommendation_id"
+      ],
+      "endpoints": [
+        "write.comment",
+        "read.comments",
+        "write.recommend"
+      ],
+      "requirementIds": [
+        "FE-W-comment",
+        "FE-R-event"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 77,
+          "detail": "徽章读字段"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 187,
+          "detail": "comment不写该字段"
+        }
+      ],
+      "rationale": "comments badge会读recommendation_id但write.comment未写；可能是遗留兼容字段或缺失关系，并不能认定可删。",
+      "backgroundUses": [
+        "历史管理员导入数据可能赋此字段；推荐徽章也可按owner+event派生但语义不同。"
+      ],
+      "openQuestion": "徽章表示该评论引用某次推荐，还是此人当前推荐过？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-EVENTS-CALENDAR-OVERLAP",
+      "category": "overlapping_interface_candidate",
+      "status": "接口重叠候选；不代表可合并",
+      "entities": [
+        "event",
+        "registration",
+        "profile"
+      ],
+      "fields": [
+        "DTO.items"
+      ],
+      "endpoints": [
+        "read.events",
+        "read.calendar"
+      ],
+      "requirementIds": [
+        "FE-R-calendar",
+        "FE-R-event-options"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 83,
+          "detail": "events paginate"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 84,
+          "detail": "calendar完整区间"
+        }
+      ],
+      "rationale": "共享events筛选核心，但events分页、calendar完整期间；可复用内部计算，不能直接删一公开op。",
+      "backgroundUses": [
+        "专题选择器分页与日历跨日计数/海报完整数据各有用途。"
+      ],
+      "openQuestion": "是否统一内部query而保留不同响应契约？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-MINE-DRAFT-OVERLAP",
+      "category": "overlapping_interface_candidate",
+      "status": "接口重叠候选；不代表可合并",
+      "entities": [
+        "event",
+        "campaign",
+        "eventSecret"
+      ],
+      "fields": [
+        "data.status",
+        "DTO.access"
+      ],
+      "endpoints": [
+        "read.mine",
+        "read.draft",
+        "read.event"
+      ],
+      "requirementIds": [
+        "FE-R-mine",
+        "FE-R-draft",
+        "FE-R-event"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 117,
+          "detail": "mine列表"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 118,
+          "detail": "draft解密access"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 76,
+          "detail": "event公开详情"
+        }
+      ],
+      "rationale": "同主体读路径重叠但权限与秘密数据不同：mine列表、draft编辑含access、event公开详情。",
+      "backgroundUses": [
+        "编辑ACL、私人群码解密与公开DTO边界明确，不能统一裸返回。"
+      ],
+      "openQuestion": "是否只统一内部基础加载？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-ME-MEMBER-OVERLAP",
+      "category": "overlapping_interface_candidate",
+      "status": "接口重叠候选；不代表可合并",
+      "entities": [
+        "profile",
+        "contact",
+        "role",
+        "notification"
+      ],
+      "fields": [
+        "DTO.profile",
+        "DTO.roles",
+        "DTO.frequent_entities"
+      ],
+      "endpoints": [
+        "read.me",
+        "read.member",
+        "read.selfContact",
+        "read.people"
+      ],
+      "requirementIds": [
+        "FE-R-me",
+        "FE-R-member",
+        "FE-R-self-contact"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 90,
+          "detail": "公开member"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 113,
+          "detail": "私密selfContact"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 114,
+          "detail": "本人me"
+        }
+      ],
+      "rationale": "都是人员资料但me含本人原始profile与roles/unread，member公开组装，selfContact加密敏感字段单独读取；不可合并为公开大DTO。",
+      "backgroundUses": [
+        "权限边界、推荐理由和计数join各不同。"
+      ],
+      "openQuestion": "只复用公开profile投影和派生计数，而保持授权入口？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-MEDIA-LAYER-OVERLAP",
+      "category": "overlapping_interface_candidate",
+      "status": "接口重叠候选；不代表可合并",
+      "entities": [
+        "media",
+        "$files",
+        "eventSecret"
+      ],
+      "fields": [
+        "media.parent",
+        "media.data.private"
+      ],
+      "endpoints": [
+        "mediaUpload",
+        "mediaFinish",
+        "registerMedia",
+        "mediaPreview",
+        "privateMediaPermission",
+        "privateMedia",
+        "publicMedia",
+        "media"
+      ],
+      "requirementIds": [
+        "FE-M-permit",
+        "FE-M-finish",
+        "FE-M-preview"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 332,
+          "detail": "upload capability"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 343,
+          "detail": "finish检查字节"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 355,
+          "detail": "公共internal+HTTP"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 394,
+          "detail": "preview签名"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 397,
+          "detail": "私有HTTP重检"
+        }
+      ],
+      "rationale": "函数名相近但action/internal/HTTP职责、上传验证和访问权限分离；仅共享内部ACL/metadata有复用机会。",
+      "backgroundUses": [
+        "HTTP匿名公共资源与HMAC私有读取、服务端签名存储地址都在实际链路。"
+      ],
+      "openQuestion": "可统一内部权限函数，不改变公开/私有授权边界吗？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-REVIEWS-PROGRESS-OVERLAP",
+      "category": "overlapping_interface_candidate",
+      "status": "接口重叠候选；不代表可合并",
+      "entities": [
+        "review",
+        "event",
+        "campaign",
+        "role"
+      ],
+      "fields": [
+        "review.parent",
+        "review.data.round"
+      ],
+      "endpoints": [
+        "read.reviews",
+        "read.review",
+        "read.progress"
+      ],
+      "requirementIds": [
+        "FE-R-reviews",
+        "FE-R-review",
+        "FE-R-progress"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 120,
+          "detail": "待办reviewAllowed"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 121,
+          "detail": "审核详情reviewAllowed"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 122,
+          "detail": "发起者progress canEdit"
+        }
+      ],
+      "rationale": "待办列表、审核者详情和发起者进度都读review，但授权主体不同；可共用按轮读取，不能把canEdit与reviewAllowed混成一个权限。",
+      "backgroundUses": [
+        "审核人scope与发起者编辑权限分离、历史轮次展示。"
+      ],
+      "openQuestion": "内部组装是否统一而保持独立入口？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-RUNTIME-CONFIG",
+      "category": "unassigned_requirement",
+      "status": "配置与运行未确认；非新增表需求",
+      "entities": [
+        "$users",
+        "wechatIdentity",
+        "payment",
+        "media",
+        "calendarShare"
+      ],
+      "fields": [
+        "environment.WX_*",
+        "environment.CONTACT_KEY",
+        "environment.MONTANA_*"
+      ],
+      "endpoints": [
+        "wechatLogin",
+        "payment",
+        "mediaUpload",
+        "calendarCode",
+        "runtime.send_phone_code",
+        "runtime.send_magic_code"
+      ],
+      "requirementIds": [
+        "FE-A-wechat",
+        "FE-A-phone-send",
+        "FE-A-email-send",
+        "FE-P-payment",
+        "FE-C-code"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 82,
+          "detail": "capabilities仅部分环境"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 282,
+          "detail": "支付环境"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 322,
+          "detail": "登录环境"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/config.js",
+          "line": 3,
+          "detail": "默认mock"
+        }
+      ],
+      "rationale": "真实配置、合法域名和生产账号初始化不是community706业务字段缺口。当前接口存在，未读密钥或调用生产，能力flag检查不代表完整配置。",
+      "backgroundUses": [
+        "CONTACT_KEY保护历史加密数据和签名；AppID/商户/短信服务由配置owner维护。"
+      ],
+      "openQuestion": "由谁确认配置与真实账号运行？",
+      "sourceGapIds": [
+        "GAP-AUTH-CONFIG",
+        "GAP-PAYMENT-CONFIG",
+        "GAP-OPERATOR-SEED",
+        "GAP-DEPLOYMENT-PROVENANCE"
+      ]
+    },
+    {
+      "id": "SF-POSTPONED-SCOPE",
+      "category": "unassigned_requirement",
+      "status": "后置/候选；不可自动实施",
+      "entities": [
+        "profile",
+        "membership",
+        "role",
+        "event",
+        "campaign"
+      ],
+      "fields": [],
+      "endpoints": [],
+      "requirementIds": [
+        "FE-G-relations-membership"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 20,
+          "detail": "角色未决"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 22,
+          "detail": "外部成员后置"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backlog.md",
+          "line": 23,
+          "detail": "自由动态后置"
+        }
+      ],
+      "rationale": "自由动态、外部成员导入/徽章、协办嘉宾、模板及节点归属仍后置/候选；147需求与81操作未给定完整正式契约。不得强配现有表后直接建字段。",
+      "backgroundUses": [
+        "已有clone/campaign/membership读取保留；注册不等于正式成员，不能自动提权。"
+      ],
+      "openQuestion": "哪些未来需求真正进入本期？",
+      "sourceGapIds": [
+        "GAP-POSTPONED-REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "SF-LEGAL-PRIVACY-SUBJECT",
+      "category": "unassigned_requirement",
+      "status": "运营输入待确认",
+      "entities": [
+        "profile",
+        "registration",
+        "contact"
+      ],
+      "fields": [
+        "configuration.privacyVersion",
+        "configuration.legal_entity",
+        "configuration.privacy_contact"
+      ],
+      "endpoints": [],
+      "requirementIds": [
+        "FE-G-privacy-subject"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/templates/screen.wxml",
+          "line": 125,
+          "detail": "隐私正文说明主体待补齐"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 177,
+          "detail": "profile同意版本时间"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 215,
+          "detail": "报名同意"
+        }
+      ],
+      "rationale": "已有consent_version/time，但正式隐私主体/联系方式未补齐；这是法律/运营输入，不是复制一份profile字段即可解决。",
+      "backgroundUses": [
+        "已有报名用途同意和加密联系方式的证据仍需保留。"
+      ],
+      "openQuestion": "正式主体及渠道由谁提供并批准？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-INTEREST-CONFIG",
+      "category": "unassigned_requirement",
+      "status": "候选配置需求",
+      "entities": [
+        "profile"
+      ],
+      "fields": [
+        "profile.data.interests",
+        "configuration.interest_options"
+      ],
+      "endpoints": [
+        "read.config",
+        "write.profile"
+      ],
+      "requirementIds": [
+        "FE-G-interest-config",
+        "FE-F-profile-interests"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/page.js",
+          "line": 132,
+          "detail": "固定中文interestOptions"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 104,
+          "detail": "config仅城市等"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 104,
+          "detail": "共同兴趣比较"
+        }
+      ],
+      "rationale": "兴趣选项固定中文，config仅城市；是否需要稳定interest ID/双语配置尚未定，不能直接迁移字符串历史资料。",
+      "backgroundUses": [
+        "已有兴趣字符串参与共同兴趣推荐，历史值与翻译一致性需考虑。"
+      ],
+      "openQuestion": "中文自由标签还是配置化多语言ID？",
+      "sourceGapIds": []
+    },
+    {
+      "id": "SF-ERROR-CONTRACT",
+      "category": "unassigned_requirement",
+      "status": "代码接入差异；非存储缺字段",
+      "entities": [],
+      "fields": [
+        "DTO.error.code",
+        "DTO.error.details"
+      ],
+      "endpoints": [
+        "runtime.socket"
+      ],
+      "requirementIds": [
+        "FE-L-errors",
+        "FE-T-call"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/i18n.js",
+          "line": 11,
+          "detail": "字典缺若干真实码"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/montana.js",
+          "line": 64,
+          "detail": "details已保留"
+        }
+      ],
+      "rationale": "错误映射未完整覆盖，涉及多操作但不归一业务表，不应按实体重复计缺字段。",
+      "backgroundUses": [
+        "版本冲突/状态冲突/幂等key保留，错误不应都改盲目重试。"
+      ],
+      "openQuestion": "统一错误字典与行动说明由哪个层维护？",
+      "sourceGapIds": [
+        "GAP-ERROR-COVERAGE"
+      ]
+    },
+    {
+      "id": "SF-FEED-PERSONALIZATION",
+      "category": "unassigned_requirement",
+      "status": "产品语义待讨论",
+      "entities": [
+        "follow",
+        "mute",
+        "recommendation",
+        "registration",
+        "profile",
+        "event"
+      ],
+      "fields": [],
+      "endpoints": [
+        "read.feed"
+      ],
+      "requirementIds": [
+        "FE-R-feed"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 108,
+          "detail": "同城聚合及mute"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/docs/backend-ai-agent-development-manual.md",
+          "line": 69,
+          "detail": "个性化概述"
+        }
+      ],
+      "rationale": "关注流与同城公共流排序要求未定；已有feed city/mute，不是缺feed字段，也不把演示固定推荐语升成数据。",
+      "backgroundUses": [
+        "follow和mute独立，推荐/参与公开许可必须保留。"
+      ],
+      "openQuestion": "关注应影响排序、过滤还是只解释关系？",
+      "sourceGapIds": [
+        "GAP-FEED-PERSONALIZATION"
+      ]
+    }
+  ],
+  "summary": {
+    "uniqueFindings": 44,
+    "byCategory": {
+      "field_gap": 10,
+      "interface_gap": 16,
+      "redundant_field_candidate": 7,
+      "overlapping_interface_candidate": 5,
+      "unassigned_requirement": 6
+    },
+    "countingRule": "按finding.id去重，一个跨实体差异计一次；实体分组仅引用相同id。category为主要性质，field_gap不等于必需新增数据库字段。",
+    "referencedRequirements": 63,
+    "sourceRequirements": 147,
+    "sourceEndpoints": 81,
+    "sourceGaps": 30
+  },
+  "preservedGapIds": [
+    "GAP-MEDIA-PREVIEW",
+    "GAP-MEDIA-DETAIL",
+    "GAP-NOTIFICATION-CONTENT",
+    "GAP-NOTIFICATION-EVENTS",
+    "GAP-NOTIFICATION-PREFERENCE",
+    "GAP-PAGINATION-SELECTORS",
+    "GAP-PAGINATION-NESTED",
+    "GAP-PAGINATION-STABILITY",
+    "GAP-MEMBER-FEATURED",
+    "GAP-PROFILE-VISIBILITY",
+    "GAP-ACTIVE-MEMBER-WINDOW",
+    "GAP-MEMBER-ACTIVITY-COUNT",
+    "GAP-EVENT-FORM-FIELDS",
+    "GAP-VENUE-ADDRESS",
+    "GAP-SPACE-REQUEST-POLICY",
+    "GAP-ENTITY-CONTACT",
+    "GAP-REVIEW-SNAPSHOT",
+    "GAP-CAMPAIGN-METADATA",
+    "GAP-AUTH-ACCOUNT-LINK",
+    "GAP-AUTH-CONFIG",
+    "GAP-OPERATOR-SEED",
+    "GAP-PAYMENT-CONFIG",
+    "GAP-PAYMENT-SETTLEMENT-UX",
+    "GAP-REFUND-LIFECYCLE",
+    "GAP-ERROR-COVERAGE",
+    "GAP-CALENDAR-PREFERENCES",
+    "GAP-POSTPONED-REQUIREMENTS",
+    "GAP-DEPLOYMENT-PROVENANCE",
+    "GAP-REVIEW-COMPLETED",
+    "GAP-FEED-PERSONALIZATION"
+  ],
+  "notes": [
+    "全部冗余/重叠为候选，未前端调用不是删除依据；已逐项注明任务/后台/历史兼容用途。",
+    "30 Gap中media两个合为同一接入差异；部分配置/运行Gap归非表输入，原索引保留。",
+    "未提出删除command.result/audit/guard/invitation.inviter/registration同意记录等后台必需字段；command记录幂等，audit追溯，guard并发，inviter重验权限，隐私同意用于证明授权。",
+    "纯本地draft/prefs/navigation/canvas不强行分配到数据库；由前端映射产物维护。",
+    "本次只写此JSON/Markdown，不改业务代码/schema/配置，不调用API，不运行测试/编译/GUI/截图，不部署。",
+    "接口字段以代码为准，示例reason_text/list_note/display_time等不是自动新增存储字段的理由。"
+  ]
+}
