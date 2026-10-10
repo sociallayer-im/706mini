@@ -1,0 +1,6338 @@
+{
+  "scope": {
+    "task": "SID-123",
+    "parent": "SID-95",
+    "mode": "read-only source and historical artifacts",
+    "backend": "/Users/shing/Projects/706-montana/apps/community706",
+    "date": "2026-10-10",
+    "runtimeRequests": 0,
+    "deploymentRecord": 6,
+    "codeCurrentDeploymentParity": "unconfirmed"
+  },
+  "endpoints": [
+    {
+      "id": "read.calendarShare",
+      "function": "community:read",
+      "op": "calendarShare",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "params"
+        ],
+        "note": "保存的公开日历筛选"
+      },
+      "relations": [
+        "calendarShare"
+      ],
+      "states": [],
+      "permissions": "匿名可读；按分享id读取参数",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 81,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.config",
+      "function": "community:read",
+      "op": "config",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "cities[{id,zh,en,timezone}]",
+          "privacy_version",
+          "capabilities{wechat_login,payment}"
+        ]
+      },
+      "relations": [
+        "经共享helper关联，见entities与源码"
+      ],
+      "states": [],
+      "permissions": "匿名可读",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 82,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名成功，未验证有数据结果",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.events",
+      "function": "community:read",
+      "op": "events",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "from",
+        "to",
+        "space_id",
+        "tag",
+        "free_only",
+        "q",
+        "has_capacity",
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "owner",
+          "title",
+          "summary",
+          "description",
+          "city",
+          "organization_id",
+          "space_id",
+          "venue_name",
+          "address",
+          "starts_at",
+          "ends_at",
+          "capacity",
+          "price_minor",
+          "approval_required",
+          "waitlist_enabled",
+          "tags",
+          "fit_description",
+          "cover_url",
+          "media",
+          "host_display",
+          "venue_display",
+          "status",
+          "version",
+          "visibility",
+          "updated_at",
+          "type",
+          "organization_name",
+          "participants(最多5公开且允许分享)",
+          "initiator",
+          "can_manage",
+          "pending_count(仅管理者)",
+          "recommended",
+          "registered",
+          "remaining",
+          "registration(当前身份记录或null)"
+        ]
+      },
+      "relations": [
+        "经共享helper关联，见entities与源码"
+      ],
+      "states": [],
+      "permissions": "匿名可读，仅PUBLISHED且非UNLISTED/MEMBERS",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 83,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 58,
+          "detail": "events AND筛选与公开状态"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名成功，未验证有数据结果",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.calendar",
+      "function": "community:read",
+      "op": "calendar",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "from",
+        "to",
+        "space_id",
+        "tag",
+        "free_only",
+        "q",
+        "has_capacity"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "generated_at"
+        ],
+        "itemFields": [
+          "id",
+          "owner",
+          "title",
+          "summary",
+          "description",
+          "city",
+          "organization_id",
+          "space_id",
+          "venue_name",
+          "address",
+          "starts_at",
+          "ends_at",
+          "capacity",
+          "price_minor",
+          "approval_required",
+          "waitlist_enabled",
+          "tags",
+          "fit_description",
+          "cover_url",
+          "media",
+          "host_display",
+          "venue_display",
+          "status",
+          "version",
+          "visibility",
+          "updated_at",
+          "type",
+          "organization_name",
+          "participants(最多5公开且允许分享)",
+          "initiator",
+          "can_manage",
+          "pending_count(仅管理者)",
+          "recommended",
+          "registered",
+          "remaining",
+          "registration(当前身份记录或null)"
+        ]
+      },
+      "relations": [
+        "经共享helper关联，见entities与源码"
+      ],
+      "states": [],
+      "permissions": "同events",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 84,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 58,
+          "detail": "events AND筛选与公开状态"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.event",
+      "function": "community:read",
+      "op": "event",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "owner",
+          "title",
+          "summary",
+          "description",
+          "city",
+          "organization_id",
+          "space_id",
+          "venue_name",
+          "address",
+          "starts_at",
+          "ends_at",
+          "capacity",
+          "price_minor",
+          "approval_required",
+          "waitlist_enabled",
+          "tags",
+          "fit_description",
+          "cover_url",
+          "media",
+          "host_display",
+          "venue_display",
+          "status",
+          "version",
+          "visibility",
+          "updated_at",
+          "type",
+          "organization_name",
+          "participants(最多5公开且允许分享)",
+          "initiator",
+          "can_manage",
+          "pending_count(仅管理者)",
+          "recommended",
+          "registered",
+          "remaining",
+          "registration(当前身份记录或null)",
+          "host_recent_count",
+          "can_edit",
+          "can_register",
+          "campaigns",
+          "comments"
+        ]
+      },
+      "relations": [
+        "经共享helper关联，见entities与源码"
+      ],
+      "states": [],
+      "permissions": "公开活动或当前可编辑者",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 85,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.campaigns",
+      "function": "community:read",
+      "op": "campaigns",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "title",
+          "kicker",
+          "introduction",
+          "cover_url",
+          "organization_id",
+          "event_ids",
+          "resource_links",
+          "media",
+          "visibility"
+        ]
+      },
+      "relations": [
+        "campaign"
+      ],
+      "states": [],
+      "permissions": "仅公开专题",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 86,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.campaign",
+      "function": "community:read",
+      "op": "campaign",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "title",
+          "kicker",
+          "introduction",
+          "cover_url",
+          "organization_id",
+          "event_ids",
+          "resource_links",
+          "media",
+          "visibility",
+          "items(public event cards)",
+          "can_edit"
+        ]
+      },
+      "relations": [
+        "campaign",
+        "event"
+      ],
+      "states": [],
+      "permissions": "公开专题或owner/platform；关联活动仅公开",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 87,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.entities",
+      "function": "community:read",
+      "op": "entities",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "cursor",
+        "directory",
+        "kind"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "kind",
+          "name",
+          "city",
+          "introduction",
+          "avatar_url",
+          "cover_url",
+          "address",
+          "opening_hours",
+          "public_links",
+          "allow_event_requests",
+          "event_count(directory)",
+          "active_member_count(directory)"
+        ]
+      },
+      "relations": [
+        "entity",
+        "event",
+        "registration"
+      ],
+      "states": [
+        "ACTIVE",
+        "CONFIRMED"
+      ],
+      "permissions": "ACTIVE实体，public_contact不公开",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 88,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.entity",
+      "function": "community:read",
+      "op": "entity",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "address",
+        "allow_event_requests",
+        "avatar_url",
+        "city",
+        "cover_url",
+        "introduction",
+        "name",
+        "opening_hours",
+        "public_contact",
+        "public_links"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "entity业务字段",
+          "public_contact(仅管理者)",
+          "following",
+          "can_manage",
+          "can_admin",
+          "items",
+          "members"
+        ]
+      },
+      "relations": [
+        "entity",
+        "follow",
+        "registration"
+      ],
+      "states": [
+        "ACTIVE",
+        "CONFIRMED"
+      ],
+      "permissions": "ACTIVE或管理者；public_contact仅管理者",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 89,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.member",
+      "function": "community:read",
+      "op": "member",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "owner",
+          "display_name",
+          "avatar_url",
+          "bio",
+          "introduction",
+          "city",
+          "interests",
+          "public_links",
+          "frequent_spaces",
+          "items",
+          "activity_count",
+          "following_count",
+          "followers_count",
+          "frequent_entities",
+          "following"
+        ]
+      },
+      "relations": [
+        "follow",
+        "registration"
+      ],
+      "states": [
+        "ACTIVE",
+        "CONFIRMED"
+      ],
+      "permissions": "ACTIVE PUBLIC profile；分享活动须share_activity",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 90,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.people",
+      "function": "community:read",
+      "op": "people",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "cursor",
+        "exclude"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "owner",
+          "display_name",
+          "avatar_url",
+          "bio",
+          "introduction",
+          "city",
+          "interests",
+          "public_links",
+          "frequent_spaces",
+          "reason",
+          "following"
+        ]
+      },
+      "relations": [
+        "entity",
+        "event",
+        "follow",
+        "profile",
+        "recommendation",
+        "registration"
+      ],
+      "states": [
+        "ACTIVE",
+        "COMMON_EVENT",
+        "COMMON_INTEREST",
+        "COMMON_RECOMMENDATION",
+        "COMMON_SPACE",
+        "CONFIRMED",
+        "FOLLOWS_YOU",
+        "PUBLIC",
+        "SAME_CITY",
+        "SPACE"
+      ],
+      "permissions": "ACTIVE PUBLIC非本人；共同报名理由须对方share_activity",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 91,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名成功，未验证有数据结果",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.search",
+      "function": "community:read",
+      "op": "search",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "q"
+      ],
+      "returns": {
+        "fields": [
+          "items"
+        ],
+        "itemFields": [
+          "event/card或entity或publicProfile",
+          "route",
+          "title"
+        ],
+        "note": "明确搜索跨城，当前城市优先，无cursor"
+      },
+      "relations": [
+        "entity",
+        "profile"
+      ],
+      "states": [
+        "ACTIVE",
+        "PUBLIC",
+        "SPACE"
+      ],
+      "permissions": "公开活动/ACTIVE实体/ACTIVE PUBLIC profile",
+      "errors": [
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 107,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.feed",
+      "function": "community:read",
+      "op": "feed",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "city",
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "recommendation记录+author+event",
+          "registrationRollup{id,type,author,actors,count,key,event,created_at}"
+        ]
+      },
+      "relations": [
+        "event",
+        "mute",
+        "recommendation"
+      ],
+      "states": [
+        "ACTIVE",
+        "CONFIRMED",
+        "REGISTRATION_ROLLUP"
+      ],
+      "permissions": "公开活动；参与人PUBLIC且share_activity；尊重mute",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 108,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.comments",
+      "function": "community:read",
+      "op": "comments",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "owner",
+          "text",
+          "reply_to",
+          "created_at",
+          "badge",
+          "author"
+        ]
+      },
+      "relations": [
+        "event"
+      ],
+      "states": [],
+      "permissions": "活动可见权限",
+      "errors": [
+        "CURSOR_INVALID",
+        "LOGIN_REQUIRED/FORBIDDEN(仅有失效auth时active检查)",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 109,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.selfContact",
+      "function": "community:read",
+      "op": "selfContact",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "wechat"
+        ]
+      },
+      "relations": [
+        "contact"
+      ],
+      "states": [],
+      "permissions": "本人加密联系信息",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 113,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名拒绝LOGIN_REQUIRED；未证实登录成功调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.me",
+      "function": "community:read",
+      "op": "me",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "profile(本人完整profile)",
+          "roles",
+          "following",
+          "followers",
+          "unread"
+        ]
+      },
+      "relations": [
+        "follow",
+        "notification"
+      ],
+      "states": [
+        "ACTIVE",
+        "UNREAD"
+      ],
+      "permissions": "本人",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 114,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名拒绝LOGIN_REQUIRED；未证实登录成功调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.notifications",
+      "function": "community:read",
+      "op": "notifications",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "category",
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "key",
+          "target{route,id}",
+          "category",
+          "actor_id",
+          "actor",
+          "read_at"
+        ]
+      },
+      "relations": [
+        "notification"
+      ],
+      "states": [],
+      "permissions": "仅本人",
+      "errors": [
+        "CURSOR_INVALID",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 115,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.relations",
+      "function": "community:read",
+      "op": "relations",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cursor",
+        "id",
+        "mode"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "publicProfile或entityDTO",
+          "id",
+          "route",
+          "title"
+        ]
+      },
+      "relations": [
+        "entity",
+        "follow"
+      ],
+      "states": [
+        "ACTIVE",
+        "SPACE"
+      ],
+      "permissions": "登录；关系对象仅公开profile/实体",
+      "errors": [
+        "CURSOR_INVALID",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 116,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.mine",
+      "function": "community:read",
+      "op": "mine",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cursor",
+        "kind",
+        "phase",
+        "status"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "campaign或registration+event或event/card+comment_count"
+        ]
+      },
+      "relations": [
+        "event"
+      ],
+      "states": [
+        "CONFIRMED",
+        "ENDED",
+        "PUBLISHED",
+        "UPCOMING"
+      ],
+      "permissions": "仅本人owner",
+      "errors": [
+        "CURSOR_INVALID",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 117,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.draft",
+      "function": "community:read",
+      "op": "draft",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "kind"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "event/campaign全部字段",
+          "access(解密，仅编辑者)"
+        ]
+      },
+      "relations": [
+        "eventSecret"
+      ],
+      "states": [],
+      "permissions": "当前canEdit；campaign使用同canEdit逻辑（owner/platform/organization管理）",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 118,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.managed",
+      "function": "community:read",
+      "op": "managed",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "items(entity完整记录)"
+        ]
+      },
+      "relations": [
+        "entity"
+      ],
+      "states": [
+        "ACTIVE",
+        "PLATFORM"
+      ],
+      "permissions": "当前active角色或platform",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 119,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.reviews",
+      "function": "community:read",
+      "op": "reviews",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cursor"
+      ],
+      "returns": {
+        "fields": [
+          "items",
+          "next_cursor",
+          "has_more",
+          "total"
+        ],
+        "pagination": "固定30项，cursor为上页最后id；缺失cursor从头；未知cursor CURSOR_INVALID；先读取/筛选全体逻辑记录，尚无规模性能结论",
+        "itemFields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "scope",
+          "entity_id",
+          "round",
+          "subject_type",
+          "snapshot",
+          "title",
+          "event_id"
+        ],
+        "note": "每个subject仅返回首个当前身份可处理待办"
+      },
+      "relations": [
+        "review"
+      ],
+      "states": [
+        "PENDING"
+      ],
+      "permissions": "同review逐条判断",
+      "errors": [
+        "CURSOR_INVALID",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 120,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.review",
+      "function": "community:read",
+      "op": "review",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "subject",
+          "reviews(相同轮次)",
+          "scope",
+          "entity_id",
+          "round",
+          "subject_type",
+          "snapshot",
+          "title",
+          "event_id"
+        ]
+      },
+      "relations": [
+        "review"
+      ],
+      "states": [],
+      "permissions": "scope PLATFORM/INITIATOR/实体当前角色",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 121,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.progress",
+      "function": "community:read",
+      "op": "progress",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "subject",
+          "items(全部历史轮review)"
+        ]
+      },
+      "relations": [
+        "review"
+      ],
+      "states": [],
+      "permissions": "当前canEdit",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 122,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.registration",
+      "function": "community:read",
+      "op": "registration",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "created_at",
+          "updated_at",
+          "data 中展开的业务字段（put 返回不保证时间字段）",
+          "display_name",
+          "motivation",
+          "approval_status",
+          "contact_share_consent",
+          "payment_expires_at",
+          "event(publicEvent)",
+          "can_manage"
+        ]
+      },
+      "relations": [
+        "event",
+        "registration"
+      ],
+      "states": [],
+      "permissions": "报名本人或活动canEdit",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 123,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.attendees",
+      "function": "community:read",
+      "op": "attendees",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "items"
+        ],
+        "itemFields": [
+          "id",
+          "owner",
+          "display_name",
+          "motivation",
+          "status",
+          "version",
+          "created_at",
+          "can_read_contact"
+        ]
+      },
+      "relations": [
+        "event"
+      ],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "CONFIRMED",
+        "PUBLISHED",
+        "REQUESTED"
+      ],
+      "permissions": "活动canEdit",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 124,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.admins",
+      "function": "community:read",
+      "op": "admins",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "items(role记录)"
+        ]
+      },
+      "relations": [
+        "role"
+      ],
+      "states": [],
+      "permissions": "平台或对应OWNER",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 125,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "read.invitations",
+      "function": "community:read",
+      "op": "invitations",
+      "kind": "query",
+      "requiredParams": {
+        "envelope": [
+          "op"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "items(invitation记录)"
+        ]
+      },
+      "relations": [
+        "invitation"
+      ],
+      "states": [
+        "PENDING"
+      ],
+      "permissions": "仅本人PENDING",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 126,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 78,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.profile",
+      "function": "community:write",
+      "op": "profile",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "avatar_url",
+        "bio",
+        "city",
+        "complete",
+        "display_name",
+        "follow_spaces",
+        "frequent_spaces",
+        "interests",
+        "introduction",
+        "locale",
+        "notification_preferences",
+        "privacy_consent",
+        "public_links",
+        "share_activity",
+        "visibility",
+        "wechat"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "display_name",
+          "avatar_url",
+          "bio",
+          "introduction",
+          "city",
+          "interests",
+          "public_links",
+          "frequent_spaces",
+          "locale",
+          "notification_preferences",
+          "visibility",
+          "share_activity",
+          "onboarded",
+          "consent_version",
+          "consented_at"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "contact",
+        "profile"
+      ],
+      "states": [
+        "ACTIVE",
+        "PUBLIC"
+      ],
+      "permissions": "仅本人；complete需privacy_consent；兴趣2–5；不授予角色",
+      "errors": [
+        "CONSENT_REQUIRED",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "INTERESTS_INVALID",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NAME_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 172,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.follow",
+      "function": "community:write",
+      "op": "follow",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "enabled truthy为ACTIVE，缺省/false为INACTIVE；如意图关注必须enabled=true。"
+      },
+      "optionalParams": [
+        "enabled"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "owner->$users",
+        "parent->$users/entity"
+      ],
+      "states": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "permissions": "禁止自己；目标profile存在或entity存在（未强制公开）",
+      "errors": [
+        "CANNOT_FOLLOW_SELF",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 183,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.mute",
+      "function": "community:write",
+      "op": "mute",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "owner->$users",
+        "parent->$users"
+      ],
+      "states": [
+        "ACTIVE"
+      ],
+      "permissions": "本人屏蔽；不检查目标存在",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 184,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.report",
+      "function": "community:write",
+      "op": "report",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "reason"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "id"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "reason"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "report"
+      ],
+      "states": [
+        "OPEN"
+      ],
+      "permissions": "本人；reason非空；id可缺省为空",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "REASON_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 185,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.recommend",
+      "function": "community:write",
+      "op": "recommend",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "enabled",
+        "text"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "text"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "owner->$users",
+        "parent->event"
+      ],
+      "states": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "permissions": "活动visible；enabled=false撤回",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 186,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.comment",
+      "function": "community:write",
+      "op": "comment",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "text"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "reply_to"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "text",
+          "reply_to"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "comment",
+        "event"
+      ],
+      "states": [
+        "COMMENTED",
+        "SOCIAL"
+      ],
+      "permissions": "活动visible；reply_to必须同活动",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "TEXT_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 187,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.deleteComment",
+      "function": "community:write",
+      "op": "deleteComment",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "text"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "comment"
+      ],
+      "states": [
+        "DELETED"
+      ],
+      "permissions": "评论owner或platform",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 188,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.read",
+      "function": "community:write",
+      "op": "read",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "id"
+      ],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [
+        "notification"
+      ],
+      "states": [
+        "READ",
+        "UNREAD"
+      ],
+      "permissions": "本人未读；id缺省全部",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 189,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.saveEvent",
+      "function": "community:write",
+      "op": "saveEvent",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "access",
+        "access{methods:[{type,value,expires_at}]}",
+        "address",
+        "approval_required",
+        "capacity",
+        "city",
+        "cover_url",
+        "description",
+        "ends_at",
+        "fit_description",
+        "host_display",
+        "id",
+        "media",
+        "organization_id",
+        "owner",
+        "price_minor",
+        "space_id",
+        "starts_at",
+        "status",
+        "summary",
+        "tags",
+        "title",
+        "updated_at",
+        "venue_display",
+        "venue_name",
+        "version",
+        "visibility",
+        "waitlist_enabled",
+        "id（有id时version必填）",
+        "version（更新必填）"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "title",
+          "summary",
+          "description",
+          "city",
+          "organization_id",
+          "space_id",
+          "venue_name",
+          "address",
+          "starts_at",
+          "ends_at",
+          "capacity",
+          "price_minor",
+          "approval_required",
+          "waitlist_enabled",
+          "tags",
+          "fit_description",
+          "cover_url",
+          "media",
+          "visibility"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "event",
+        "eventSecret",
+        "media",
+        "review"
+      ],
+      "states": [
+        "CHANGES_REQUESTED",
+        "DRAFT",
+        "GROUP_QR",
+        "IN_REVIEW",
+        "ORGANIZER_WECHAT",
+        "ORGANIZER_WILL_CONTACT",
+        "SUPERSEDED"
+      ],
+      "permissions": "新建本人；编辑canEdit+version；DRAFT/CHANGES_REQUESTED/IN_REVIEW；公开媒体验证；QR必须private媒体且有权",
+      "errors": [
+        "ACCESS_INVALID",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "MEDIA_INVALID",
+        "MEDIA_LIMIT",
+        "NOT_FOUND",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 190,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.clone",
+      "function": "community:write",
+      "op": "clone",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "title",
+          "summary",
+          "description",
+          "tags",
+          "fit_description",
+          "cover_url",
+          "visibility",
+          "capacity",
+          "price_minor",
+          "source_event_id"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "event"
+      ],
+      "states": [
+        "DRAFT",
+        "PUBLIC"
+      ],
+      "permissions": "源活动visible；新建本人DRAFT",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 194,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.submitEvent",
+      "function": "community:write",
+      "op": "submitEvent",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "event fields",
+          "round",
+          "host_display",
+          "venue_display",
+          "published_at(if previous)"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "event",
+        "review"
+      ],
+      "states": [
+        "CHANGES_REQUESTED",
+        "DRAFT",
+        "IN_REVIEW",
+        "ORGANIZATION",
+        "PENDING",
+        "PLATFORM",
+        "SPACE",
+        "SUBMIT"
+      ],
+      "permissions": "canEdit+version+草稿/退回；验证时间容量价格城市实体profile；生成所有审核方",
+      "errors": [
+        "CAPACITY_INVALID",
+        "EVENT_INVALID",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "PRICE_INVALID",
+        "PROFILE_REQUIRED",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VENUE_INVALID",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 195,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.saveCampaign",
+      "function": "community:write",
+      "op": "saveCampaign",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "cover_url",
+        "event_ids",
+        "id",
+        "introduction",
+        "kicker",
+        "media",
+        "organization_id",
+        "resource_links",
+        "title",
+        "version",
+        "id（有id时version必填）",
+        "version（更新必填）"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "title",
+          "kicker",
+          "introduction",
+          "cover_url",
+          "organization_id",
+          "event_ids",
+          "resource_links",
+          "media",
+          "visibility"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "campaign"
+      ],
+      "states": [
+        "CHANGES_REQUESTED",
+        "DRAFT",
+        "PUBLIC",
+        "PUBLISHED"
+      ],
+      "permissions": "owner+version，DRAFT/CHANGES_REQUESTED/PUBLISHED；媒体验证",
+      "errors": [
+        "ACCESS_INVALID",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "MEDIA_INVALID",
+        "MEDIA_LIMIT",
+        "NOT_FOUND",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 199,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.submitCampaign",
+      "function": "community:write",
+      "op": "submitCampaign",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "campaign fields",
+          "round"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "campaign",
+        "event",
+        "review"
+      ],
+      "states": [
+        "ADMIN",
+        "CHANGES_REQUESTED",
+        "DRAFT",
+        "INITIATOR",
+        "IN_REVIEW",
+        "ORGANIZATION",
+        "PENDING",
+        "PLATFORM",
+        "PUBLISHED",
+        "REVIEW_REQUESTED"
+      ],
+      "permissions": "owner+version；草稿/退回；组织管理权；关联活动PUBLISHED/IN_REVIEW",
+      "errors": [
+        "CAMPAIGN_INVALID",
+        "EVENT_INVALID",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 200,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.review",
+      "function": "community:write",
+      "op": "review",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version",
+          "approve"
+        ],
+        "conditional": "approve=false在review时note必填；approve字段无boolean schema，按truthiness分支。"
+      },
+      "optionalParams": [
+        "note"
+      ],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [
+        "event",
+        "review"
+      ],
+      "states": [
+        "APPROVED",
+        "CHANGES_REQUESTED",
+        "INITIATOR",
+        "IN_REVIEW",
+        "PENDING",
+        "PUBLISHED",
+        "REVIEW",
+        "REVIEW_APPROVED"
+      ],
+      "permissions": "当前reviewAllowed+version+PENDING+相同round IN_REVIEW；拒绝需note",
+      "errors": [
+        "CAPACITY_INVALID",
+        "EVENT_INVALID",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "PRICE_INVALID",
+        "PROFILE_REQUIRED",
+        "REASON_REQUIRED",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VENUE_INVALID",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 205,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.register",
+      "function": "community:write",
+      "op": "register",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "display_name",
+          "privacy_consent"
+        ],
+        "conditional": "privacy_consent需truthy；contact_share_consent只有===true才保存；params:any。"
+      },
+      "optionalParams": [
+        "contact_share_consent",
+        "motivation",
+        "privacy_consent"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "display_name",
+          "motivation",
+          "approval_status",
+          "contact_share_consent",
+          "consent_version",
+          "consented_at",
+          "payment_expires_at"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "event",
+        "registration"
+      ],
+      "states": [
+        "ADMIN",
+        "APPROVED",
+        "CANCELLED",
+        "EXPIRED",
+        "PENDING",
+        "REGISTRATION_REQUESTED",
+        "REJECTED",
+        "REQUESTED",
+        "WAITLISTED"
+      ],
+      "permissions": "公开活动且开始前>2h；姓名与隐私同意；满员需允许候补",
+      "errors": [
+        "CAPACITY_FULL",
+        "CONSENT_REQUIRED",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "REGISTRATION_CLOSED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 213,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.registrationDecision",
+      "function": "community:write",
+      "op": "registrationDecision",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version",
+          "approve"
+        ],
+        "conditional": "approve=false在review时note必填；approve字段无boolean schema，按truthiness分支。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "registration fields",
+          "approval_status",
+          "payment_expires_at"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "event",
+        "registration"
+      ],
+      "states": [
+        "APPROVED",
+        "REGISTRATION_DECISION",
+        "REJECTED",
+        "REQUESTED"
+      ],
+      "permissions": "活动canEdit+version，REQUESTED",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 217,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.cancelRegistration",
+      "function": "community:write",
+      "op": "cancelRegistration",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [
+        "event",
+        "registration"
+      ],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "CANCELLED",
+        "CONFIRMED"
+      ],
+      "permissions": "报名本人；未关闭外部订单/已付费确认禁止直接取消",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "PAYMENT_PENDING_CLOSE",
+        "REFUND_POLICY_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 218,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.registrationContact",
+      "function": "community:write",
+      "op": "registrationContact",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "wechat"
+        ]
+      },
+      "relations": [
+        "contact",
+        "event",
+        "registration"
+      ],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "CONFIRMED",
+        "PUBLISHED",
+        "REGISTRATION_CONTACT_READ",
+        "REQUESTED"
+      ],
+      "permissions": "canEdit+本次contact_share_consent+REQUESTED/APPROVED_AWAITING_PAYMENT/CONFIRMED+活动PUBLISHED；不缓存",
+      "errors": [
+        "ACCESS_NOT_GRANTED",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 219,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "历史匿名拒绝LOGIN_REQUIRED；未证实登录成功调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.access",
+      "function": "community:write",
+      "op": "access",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "type",
+          "value",
+          "expires_at",
+          "methods[{type,value,expires_at}]"
+        ],
+        "nullable": true
+      },
+      "relations": [
+        "event",
+        "eventSecret",
+        "registration"
+      ],
+      "states": [
+        "ACCESS_READ",
+        "CONFIRMED",
+        "PUBLISHED"
+      ],
+      "permissions": "报名本人或canEdit；CONFIRMED+PUBLISHED+未过期；每次解密，不缓存",
+      "errors": [
+        "ACCESS_EXPIRED",
+        "ACCESS_NOT_GRANTED",
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 220,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.cancelEvent",
+      "function": "community:write",
+      "op": "cancelEvent",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [
+        "event"
+      ],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "CANCELLED",
+        "CONFIRMED",
+        "EVENT_CANCEL",
+        "EVENT_CANCELLED"
+      ],
+      "permissions": "canEdit+version；付费确认需退款政策，未关闭订单拒绝",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "PAYMENT_PENDING_CLOSE",
+        "REFUND_POLICY_REQUIRED",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 221,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.entity",
+      "function": "community:write",
+      "op": "entity",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "version"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [
+        "address",
+        "allow_event_requests",
+        "avatar_url",
+        "city",
+        "cover_url",
+        "introduction",
+        "name",
+        "opening_hours",
+        "public_contact",
+        "public_links"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "name",
+          "introduction",
+          "cover_url",
+          "avatar_url",
+          "address",
+          "opening_hours",
+          "public_contact",
+          "public_links",
+          "city",
+          "allow_event_requests"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "entity"
+      ],
+      "states": [
+        "ENTITY_EDIT"
+      ],
+      "permissions": "manages+version；不提供普通创建实体接口",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED",
+        "VERSION_CONFLICT"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 222,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.invite",
+      "function": "community:write",
+      "op": "invite",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id",
+          "user_id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "inviter",
+          "role"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "invitation"
+      ],
+      "states": [
+        "ADMIN",
+        "PENDING",
+        "ROLE_INVITE",
+        "ROLE_INVITED"
+      ],
+      "permissions": "平台/实体OWNER；目标profile存在",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 223,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.acceptInvite",
+      "function": "community:write",
+      "op": "acceptInvite",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "type",
+          "owner",
+          "parent",
+          "status",
+          "version",
+          "inviter",
+          "role"
+        ],
+        "note": "put/save直接返回元数据与data展开；旧记录字段可能保留，参见对应实体字段与源码。"
+      },
+      "relations": [
+        "invitation",
+        "role"
+      ],
+      "states": [
+        "ACCEPTED",
+        "ACTIVE",
+        "ADMIN",
+        "ENTITY",
+        "OWNER",
+        "PENDING",
+        "PLATFORM"
+      ],
+      "permissions": "本人PENDING且邀请者仍platform/OWNER；不得覆盖OWNER",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "INVITATION_REVOKED",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "STATUS_CONFLICT",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 224,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "write.revokeRole",
+      "function": "community:write",
+      "op": "revokeRole",
+      "kind": "mutation",
+      "requiredParams": {
+        "envelope": [
+          "op",
+          "params",
+          "key:string（access/contact亦有validator要求）"
+        ],
+        "params": [
+          "id"
+        ],
+        "conditional": "仅按代码显式检查列出；params:any没有完整类型schema。缺失字段可能下游NOT_FOUND/类型错误。"
+      },
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [
+        "invitation",
+        "role"
+      ],
+      "states": [
+        "ACTIVE",
+        "OWNER",
+        "PENDING",
+        "PLATFORM",
+        "REVOKED",
+        "ROLE_REVOKE"
+      ],
+      "permissions": "平台/实体OWNER；不得撤销OWNER/PLATFORM；同步撤销pending邀请",
+      "errors": [
+        "FORBIDDEN",
+        "IDEMPOTENCY_CONFLICT",
+        "INPUT_TOO_LARGE",
+        "KEY_REQUIRED",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND",
+        "UNKNOWN_OPERATION",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 225,
+          "detail": "op处理分支，至下一case"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 229,
+          "detail": "公共参数与身份/幂等入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 48,
+          "detail": "分页30项与CURSOR_INVALID"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认；已有页面调用/Mock不等于真实调用",
+        "mock": "local_op_exists",
+        "detail": "部署记录2026-10-08T16:39:34Z；当前源码成员membership/30分钟等后续改动不可据此认定已部署；本次零运行请求"
+      }
+    },
+    {
+      "id": "expireHold",
+      "function": "community:expireHold",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "EXPIRED",
+        "GET",
+        "NOT_EXIST",
+        "ORDER_NOT_EXIST",
+        "WECHAT_PAY_CONFIGURATION_REQUIRED",
+        "WX_PAY_MCHID",
+        "WX_PAY_PRIVATE_KEY",
+        "WX_PAY_PUBLIC_KEY"
+      ],
+      "permissions": "internal；scheduler通过expire调用，guard串行；仅过期支付占位",
+      "errors": [
+        "PAYMENT_PROVIDER_ERROR",
+        "PAYMENT_SIGNATURE_INVALID",
+        "WX_PAY_CERT_SERIAL",
+        "WX_PAY_PUBLIC_KEY_ID"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 246,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "preparePayment",
+      "function": "community:preparePayment",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "order_id",
+          "amount_minor",
+          "title",
+          "openid(仅内部)",
+          "expires"
+        ]
+      },
+      "relations": [
+        "payment",
+        "wechatIdentity"
+      ],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "PENDING",
+        "PUBLISHED"
+      ],
+      "permissions": "internal；active本人报名、未过期待支付、活动PUBLISHED、微信identity",
+      "errors": [
+        "FORBIDDEN",
+        "STATUS_CONFLICT",
+        "WECHAT_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 271,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "payment",
+      "function": "community:payment",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "timeStamp",
+          "nonceStr",
+          "package",
+          "signType",
+          "paySign"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "CNY",
+        "POST",
+        "RSA",
+        "WX_APP_ID",
+        "WX_PAY_NOTIFY_URL"
+      ],
+      "permissions": "本人；微信商户配置必需；金额openid由internal派生",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "PAYMENT_PROVIDER_ERROR",
+        "PAYMENT_SIGNATURE_INVALID",
+        "STATUS_CONFLICT",
+        "WECHAT_LOGIN_REQUIRED",
+        "WECHAT_PAY_CONFIGURATION_REQUIRED",
+        "WX_PAY_MCHID"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 281,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "仅本地直接CONFIRMED，无微信订单/回调",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "settlePayment",
+      "function": "community:settlePayment",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "transaction"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "ADMIN",
+        "APPROVED_AWAITING_PAYMENT",
+        "CNY",
+        "CONFIRMED",
+        "PAYMENT_REVIEW_REQUIRED",
+        "PUBLISHED",
+        "SUCCEEDED",
+        "SUCCESS"
+      ],
+      "permissions": "internal；微信appid/mchid/金额币种trade_state/transaction_id匹配；重复成功幂等；晚支付requires_refund",
+      "errors": [
+        "PAYMENT_MISMATCH"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 288,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "paymentNotify",
+      "function": "community:paymentNotify",
+      "op": null,
+      "kind": "httpAction",
+      "requiredParams": [
+        "POST body{event_type,resource{algorithm,nonce,associated_data,ciphertext}}",
+        "Wechatpay-Timestamp/Nonce/Signature/Serial headers"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "HTTP204成功/非TRANSACTION.SUCCESS；HTTP400{code:FAIL,message}"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "FAIL",
+        "POST"
+      ],
+      "permissions": "公开HTTP；微信平台RSA验签+时间±300秒+AES-GCM；仅可信成功回调",
+      "errors": [
+        "PAYMENT_SIGNATURE_INVALID",
+        "WECHAT_PAY_CONFIGURATION_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 301,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "expiryInfo",
+      "function": "community:expiryInfo",
+      "op": null,
+      "kind": "internalQuery",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "registration",
+          "order"
+        ]
+      },
+      "relations": [
+        "payment"
+      ],
+      "states": [],
+      "permissions": "internal only",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 309,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "expire",
+      "function": "community:expire",
+      "op": null,
+      "kind": "internalAction",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "ok或retry"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "APPROVED_AWAITING_PAYMENT",
+        "CLOSED",
+        "GET",
+        "NOT_EXIST",
+        "POST",
+        "SUCCESS"
+      ],
+      "permissions": "internal scheduler；查/关闭远程订单后expireHold；失败60秒重排",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 310,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "wechatIdentity",
+      "function": "community:wechatIdentity",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "openid"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id"
+        ]
+      },
+      "relations": [
+        "wechatIdentity"
+      ],
+      "states": [],
+      "permissions": "internal；按app/openid digest身份去重，无自动管理员",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 316,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "wechatLogin",
+      "function": "community:wechatLogin",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "code"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "Montana refresh-token响应（不固定包装；由token.json透传）"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "GET",
+        "MONTANA_ADMIN_TOKEN",
+        "MONTANA_API_URI",
+        "MONTANA_APP_ID",
+        "POST",
+        "WX_APP_ID"
+      ],
+      "permissions": "公开action；微信code交换后内部建立身份、mint token；配置必需",
+      "errors": [
+        "STORAGE_UNAVAILABLE",
+        "WECHAT_LOGIN_CONFIGURATION_REQUIRED",
+        "WECHAT_LOGIN_FAILED",
+        "WX_APP_SECRET"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 321,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "仅切换demo-member，无身份交换",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "mediaUpload",
+      "function": "community:mediaUpload",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "extension"
+      ],
+      "optionalParams": [
+        "private"
+      ],
+      "returns": {
+        "fields": [
+          "path",
+          "upload_url"
+        ]
+      },
+      "relations": [],
+      "states": [],
+      "permissions": "已验证非guest登录；后缀jpg/jpeg/png/webp/mp4，private不允许mp4",
+      "errors": [
+        "MEDIA_TYPE_INVALID",
+        "VERIFIED_LOGIN_REQUIRED"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 332,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无同名mock action，页面localMedia直接保存本地文件",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "registerMedia",
+      "function": "community:registerMedia",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "path"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "url"
+        ]
+      },
+      "relations": [
+        "media"
+      ],
+      "states": [],
+      "permissions": "internal，active本人路径前缀；文件存在≤10MiB MIME合法",
+      "errors": [
+        "FORBIDDEN",
+        "MEDIA_INVALID"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 338,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "mediaFinish",
+      "function": "community:mediaFinish",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "path"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "id",
+          "url",
+          "preview_url"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "ACTIVE",
+        "RIFF",
+        "WEBP"
+      ],
+      "permissions": "本人路径；文件magic bytes验证后登记；返回私有预览能力",
+      "errors": [
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "MEDIA_INVALID",
+        "MEDIA_TYPE_INVALID",
+        "NOT_FOUND",
+        "STORAGE_UNAVAILABLE"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 343,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "同上",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "publicMedia",
+      "function": "community:publicMedia",
+      "op": null,
+      "kind": "internalQuery",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "path"
+        ]
+      },
+      "relations": [],
+      "states": [],
+      "permissions": "internal；非private且公开event/campaign/ACTIVE entity/PUBLIC profile实际引用",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 355,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "media",
+      "function": "community:media",
+      "op": null,
+      "kind": "httpAction",
+      "requiredParams": [
+        "GET path id"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "HTTP302签名存储下载地址；HTTP404"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "GET"
+      ],
+      "permissions": "公开HTTP，仅publicMedia允许则302",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 356,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "saveCalendarShare",
+      "function": "community:saveCalendarShare",
+      "op": null,
+      "kind": "internalMutation",
+      "requiredParams": [
+        "params.from",
+        "params.to"
+      ],
+      "optionalParams": [
+        "params.city",
+        "params.space_id",
+        "params.tag",
+        "params.free_only",
+        "params.has_capacity"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "items",
+          "params",
+          "generated_at"
+        ]
+      },
+      "relations": [
+        "calendarShare"
+      ],
+      "states": [],
+      "permissions": "internal登录；仅允许city/from/to/space_id/tag/free_only/has_capacity；合法正跨度≤32天",
+      "errors": [
+        "CALENDAR_RANGE_INVALID"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 359,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "calendarCode",
+      "function": "community:calendarCode",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "params.from",
+        "params.to"
+      ],
+      "optionalParams": [
+        "params.city",
+        "params.space_id",
+        "params.tag",
+        "params.free_only",
+        "params.has_capacity"
+      ],
+      "returns": {
+        "fields": [
+          "id",
+          "items",
+          "params",
+          "generated_at",
+          "code(base64真实微信码)"
+        ]
+      },
+      "relations": [
+        "campaign",
+        "entity",
+        "event",
+        "eventSecret"
+      ],
+      "states": [
+        "CONFIRMED",
+        "GROUP_QR",
+        "HMAC",
+        "POST",
+        "PUBLISHED",
+        "WX_APP_ID"
+      ],
+      "permissions": "登录+微信配置；保存筛选并生成真实pages/calendar/index小程序码",
+      "errors": [
+        "ACCESS_EXPIRED",
+        "ACCESS_NOT_GRANTED",
+        "CALENDAR_RANGE_INVALID",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "WECHAT_CODE_CONFIGURATION_REQUIRED",
+        "WECHAT_CODE_UNAVAILABLE",
+        "WX_APP_SECRET"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 365,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "本地items，code:null",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "privateMediaPermission",
+      "function": "community:privateMediaPermission",
+      "op": null,
+      "kind": "internalQuery",
+      "requiredParams": [
+        "id",
+        "user"
+      ],
+      "optionalParams": [
+        "registration"
+      ],
+      "returns": {
+        "fields": [
+          "path"
+        ]
+      },
+      "relations": [],
+      "states": [],
+      "permissions": "internal；代用户active，owner/当前编辑权限或有效已确认报名GROUP_QR绑定",
+      "errors": [],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 391,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "mediaPreview",
+      "function": "community:mediaPreview",
+      "op": null,
+      "kind": "action",
+      "requiredParams": [
+        "id"
+      ],
+      "optionalParams": [
+        "registration"
+      ],
+      "returns": {
+        "fields": [
+          "url(5分钟签名能力)"
+        ]
+      },
+      "relations": [],
+      "states": [],
+      "permissions": "登录；调用privateMediaPermission实时权限检查",
+      "errors": [
+        "ACCESS_EXPIRED",
+        "ACCESS_NOT_GRANTED",
+        "FORBIDDEN",
+        "LOGIN_REQUIRED",
+        "NOT_FOUND"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 394,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "本地路径，无HMAC网络回读",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "privateMedia",
+      "function": "community:privateMedia",
+      "op": null,
+      "kind": "httpAction",
+      "requiredParams": [
+        "GET query payload,signature"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "文件bytes，Content-Type，Cache-Control:private,no-store；错误404"
+        ]
+      },
+      "relations": [],
+      "states": [
+        "GET",
+        "HMAC"
+      ],
+      "permissions": "公开能力HTTP入口；HMAC/5分钟时限；每GET再查live ACL，内部存储URL60秒不外露",
+      "errors": [
+        "FORBIDDEN",
+        "NOT_FOUND"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 397,
+          "detail": "完整函数入口及主体；共享helper参见源码"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/functions.ex",
+          "line": 169,
+          "detail": "internal函数在运行层不可直接客户端调用"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "historical_v6_function_present_current_source_parity_unconfirmed",
+        "called": "未确认真实调用",
+        "mock": "无直接Mock；internal/HTTP能力不等同模拟器行为",
+        "detail": "本次零runtime请求；真实微信登录、付款、媒体、小程序码均未验证"
+      }
+    },
+    {
+      "id": "runtime.send_magic_code",
+      "function": "/runtime/auth/send_magic_code",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "email"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "sent"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "code validity configurable(default600s), max5 attempts",
+        "phone60s interval/5 per hour/20 per IP-hour"
+      ],
+      "permissions": "app存在；verify需有效code；signout需token",
+      "errors": [
+        "validation-failed",
+        "rate-limited(phone)",
+        "sms-failed(phone)",
+        "record-not-found(invalid app/token)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 9,
+          "detail": "参数、返回与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 19,
+          "detail": "code限制"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline历史存在，当前版本未确认",
+        "called": "未确认真实发送或验证",
+        "mock": "仅固定706000切换demo-member，无短信/邮件发送",
+        "detail": "本次不调用"
+      }
+    },
+    {
+      "id": "runtime.verify_magic_code",
+      "function": "/runtime/auth/verify_magic_code",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "email",
+        "code"
+      ],
+      "optionalParams": [
+        "refresh-token",
+        "extra-fields"
+      ],
+      "returns": {
+        "fields": [
+          "user",
+          "created"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "code validity configurable(default600s), max5 attempts",
+        "phone60s interval/5 per hour/20 per IP-hour"
+      ],
+      "permissions": "app存在；verify需有效code；signout需token",
+      "errors": [
+        "validation-failed",
+        "rate-limited(phone)",
+        "sms-failed(phone)",
+        "record-not-found(invalid app/token)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 18,
+          "detail": "参数、返回与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 19,
+          "detail": "code限制"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json响应字段，不收录具体身份值"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline历史存在，当前版本未确认",
+        "called": "未确认真实发送或验证",
+        "mock": "仅固定706000切换demo-member，无短信/邮件发送",
+        "detail": "本次不调用"
+      }
+    },
+    {
+      "id": "runtime.send_phone_code",
+      "function": "/runtime/auth/send_phone_code",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "phone"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "sent"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "code validity configurable(default600s), max5 attempts",
+        "phone60s interval/5 per hour/20 per IP-hour"
+      ],
+      "permissions": "app存在；verify需有效code；signout需token",
+      "errors": [
+        "validation-failed",
+        "rate-limited(phone)",
+        "sms-failed(phone)",
+        "record-not-found(invalid app/token)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 29,
+          "detail": "参数、返回与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 19,
+          "detail": "code限制"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline历史存在，当前版本未确认",
+        "called": "未确认真实发送或验证",
+        "mock": "仅固定706000切换demo-member，无短信/邮件发送",
+        "detail": "本次不调用"
+      }
+    },
+    {
+      "id": "runtime.verify_phone_code",
+      "function": "/runtime/auth/verify_phone_code",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "phone",
+        "code"
+      ],
+      "optionalParams": [
+        "refresh-token",
+        "extra-fields"
+      ],
+      "returns": {
+        "fields": [
+          "user",
+          "created"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "code validity configurable(default600s), max5 attempts",
+        "phone60s interval/5 per hour/20 per IP-hour"
+      ],
+      "permissions": "app存在；verify需有效code；signout需token",
+      "errors": [
+        "validation-failed",
+        "rate-limited(phone)",
+        "sms-failed(phone)",
+        "record-not-found(invalid app/token)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 38,
+          "detail": "参数、返回与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 19,
+          "detail": "code限制"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json响应字段，不收录具体身份值"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline历史存在，当前版本未确认",
+        "called": "未确认真实发送或验证",
+        "mock": "仅固定706000切换demo-member，无短信/邮件发送",
+        "detail": "本次不调用"
+      }
+    },
+    {
+      "id": "runtime.signout",
+      "function": "/runtime/signout",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "refresh-token"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": []
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "token revoked"
+      ],
+      "permissions": "app存在；verify需有效code；signout需token",
+      "errors": [
+        "validation-failed",
+        "rate-limited(phone)",
+        "sms-failed(phone)",
+        "record-not-found(invalid app/token)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 96,
+          "detail": "参数、返回与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 19,
+          "detail": "code限制"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline历史存在，当前版本未确认",
+        "called": "未确认真实发送或验证",
+        "mock": "仅固定706000切换demo-member，无短信/邮件发送",
+        "detail": "本次不调用"
+      }
+    },
+    {
+      "id": "runtime.socket",
+      "function": "/runtime/session",
+      "op": "init / call-function / subscribe-function / unsubscribe-function",
+      "kind": "WebSocket",
+      "requiredParams": [
+        "init:app-id",
+        "call-function:name"
+      ],
+      "optionalParams": [
+        "init:refresh-token",
+        "call-function:args,kind,client-event-id",
+        "subscribe-function:subscription-id,name,args"
+      ],
+      "returns": {
+        "fields": [
+          "init-ok{session-id,attrs,app-status,auth.user,client-event-id}",
+          "call-function-ok{result,client-event-id}",
+          "function-result(subscription)",
+          "error{status,type,message,original-event}"
+        ]
+      },
+      "relations": [
+        "trusted session auth → ctx.auth",
+        "function visibility and mutation transaction"
+      ],
+      "states": [
+        "must init first",
+        "connection limits running function calls/subscriptions"
+      ],
+      "permissions": "AppID校验、refresh-token lookup；internal visibility禁止；函数另做业务授权",
+      "errors": [
+        "validation-failed",
+        "record-not-found",
+        "rate-limited",
+        "function-error"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/session.ex",
+          "line": 109,
+          "detail": "init AppID/token/session"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/session.ex",
+          "line": 299,
+          "detail": "call-function与并发限制"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/session.ex",
+          "line": 803,
+          "detail": "响应与错误"
+        },
+        {
+          "file": "/Users/shing/Projects/706mini/miniprogram/lib/montana.js",
+          "line": 65,
+          "detail": "微信原生adapter call协议"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "历史runtime匿名socket证据",
+        "called": "2026-10-08历史init/config/events/people成功；me/selfContact拒绝；不代表当前连通",
+        "mock": "无socket，仅本地状态机",
+        "detail": "本次无连接；原生adapter只有call，没有订阅接入"
+      }
+    },
+    {
+      "id": "runtime.verify_refresh_token",
+      "function": "/runtime/auth/verify_refresh_token",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "refresh-token"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "user"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "runtime身份/验证状态"
+      ],
+      "permissions": "有效token对应用户",
+      "errors": [
+        "validation-failed",
+        "record-not-found"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 73,
+          "detail": "API参数与返回；非原生当前显式调用"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline，当前部署未确认",
+        "called": "未确认",
+        "mock": "无同名原生接入",
+        "detail": "原生montana.js只显式send/verify邮件手机及signout；其他为runtime可用代码能力，本次未调用"
+      }
+    },
+    {
+      "id": "runtime.sign_in_guest",
+      "function": "/runtime/auth/sign_in_guest",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id"
+      ],
+      "optionalParams": [
+        "extra-fields"
+      ],
+      "returns": {
+        "fields": [
+          "user"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "runtime身份/验证状态"
+      ],
+      "permissions": "App存在；guest不可community:write或mediaUpload",
+      "errors": [
+        "validation-failed",
+        "record-not-found"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 84,
+          "detail": "API参数与返回；非原生当前显式调用"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline，当前部署未确认",
+        "called": "未确认",
+        "mock": "无同名原生接入",
+        "detail": "原生montana.js只显式send/verify邮件手机及signout；其他为runtime可用代码能力，本次未调用"
+      }
+    },
+    {
+      "id": "runtime.link_email",
+      "function": "/runtime/auth/link_email",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "refresh-token",
+        "email",
+        "code"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "user"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "runtime身份/验证状态"
+      ],
+      "permissions": "有效登录token+邮件验证code绑定到本人",
+      "errors": [
+        "validation-failed",
+        "record-not-found"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 50,
+          "detail": "API参数与返回；非原生当前显式调用"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline，当前部署未确认",
+        "called": "未确认",
+        "mock": "无同名原生接入",
+        "detail": "原生montana.js只显式send/verify邮件手机及signout；其他为runtime可用代码能力，本次未调用"
+      }
+    },
+    {
+      "id": "runtime.link_phone",
+      "function": "/runtime/auth/link_phone",
+      "op": null,
+      "kind": "HTTP POST",
+      "requiredParams": [
+        "app-id",
+        "refresh-token",
+        "phone",
+        "code"
+      ],
+      "optionalParams": [],
+      "returns": {
+        "fields": [
+          "user"
+        ],
+        "userFields": [
+          "id",
+          "email",
+          "phone",
+          "imageURL",
+          "type",
+          "isGuest",
+          "refresh_token"
+        ]
+      },
+      "relations": [
+        "$users",
+        "hashed refresh tokens/codes"
+      ],
+      "states": [
+        "runtime身份/验证状态"
+      ],
+      "permissions": "有效登录token+手机验证code绑定到本人",
+      "errors": [
+        "validation-failed",
+        "record-not-found"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana_web/controllers/auth_controller.ex",
+          "line": 59,
+          "detail": "API参数与返回；非原生当前显式调用"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/server/lib/montana/auth.ex",
+          "line": 408,
+          "detail": "user_json"
+        }
+      ],
+      "availability": {
+        "code": "implemented",
+        "deployed": "runtime baseline，当前部署未确认",
+        "called": "未确认",
+        "mock": "无同名原生接入",
+        "detail": "原生montana.js只显式send/verify邮件手机及signout；其他为runtime可用代码能力，本次未调用"
+      }
+    }
+  ],
+  "entities": [
+    {
+      "type": "profile",
+      "table": "community706",
+      "relations": "owner->$users",
+      "states": "ACTIVE;visibility PUBLIC/private",
+      "fields": [
+        "display_name",
+        "avatar_url",
+        "bio",
+        "introduction",
+        "city",
+        "interests",
+        "public_links",
+        "frequent_spaces",
+        "featured_entities",
+        "locale",
+        "notification_preferences",
+        "share_activity",
+        "onboarded",
+        "consent_version",
+        "consented_at"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 30,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "contact",
+      "table": "community706",
+      "relations": "owner->$users",
+      "states": "ACTIVE",
+      "fields": [
+        "encrypted",
+        "AES-GCM{wechat}"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 113,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "entity",
+      "table": "community706",
+      "relations": "kind SPACE/ORGANIZATION；owner关系由role治理",
+      "states": "ACTIVE",
+      "fields": [
+        "kind",
+        "name",
+        "introduction",
+        "cover_url",
+        "avatar_url",
+        "address",
+        "opening_hours",
+        "public_contact",
+        "public_links",
+        "city",
+        "allow_event_requests"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 46,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "role",
+      "table": "community706",
+      "relations": "owner->$users,parent->entity或PLATFORM scope",
+      "states": "ACTIVE/REVOKED",
+      "fields": [
+        "scope",
+        "ENTITY/PLATFORM",
+        "role",
+        "OWNER/ADMIN"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 32,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "membership",
+      "table": "community706",
+      "relations": "owner->$users,parent->entity；不是role，不授予权限",
+      "states": "ACTIVE",
+      "fields": [
+        "contribution"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 68,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "event",
+      "table": "community706",
+      "relations": "owner->$users,organization_id/space_id->entity",
+      "states": "DRAFT/CHANGES_REQUESTED/IN_REVIEW/PUBLISHED/CANCELLED;visibility PUBLIC/UNLISTED/MEMBERS",
+      "fields": [
+        "id",
+        "owner",
+        "title",
+        "summary",
+        "description",
+        "city",
+        "organization_id",
+        "space_id",
+        "venue_name",
+        "address",
+        "starts_at",
+        "ends_at",
+        "capacity",
+        "price_minor",
+        "approval_required",
+        "waitlist_enabled",
+        "tags",
+        "fit_description",
+        "cover_url",
+        "media",
+        "host_display",
+        "venue_display",
+        "status",
+        "version",
+        "visibility",
+        "updated_at",
+        "round",
+        "published_at",
+        "source_event_id"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 46,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "eventSecret",
+      "table": "community706",
+      "relations": "parent->event",
+      "states": "ACTIVE",
+      "fields": [
+        "payload",
+        "AES-GCM{methods[{type",
+        "GROUP_QR/ORGANIZER_WECHAT/ORGANIZER_WILL_CONTACT,value,expires_at}]}"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 118,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "registration",
+      "table": "community706",
+      "relations": "owner->$users,parent->event,payment_id->payment",
+      "states": "PENDING/WAITLISTED/REQUESTED/APPROVED_AWAITING_PAYMENT/CONFIRMED/CANCELLED/REJECTED/EXPIRED/REFUNDED(终态识别，未实现退款动作)",
+      "fields": [
+        "display_name",
+        "motivation",
+        "approval_status",
+        "contact_share_consent",
+        "consent_version",
+        "consented_at",
+        "payment_expires_at",
+        "payment_order_created",
+        "payment_id"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 39,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "review",
+      "table": "community706",
+      "relations": "parent->event/campaign,entity_id->entity,event_id->event,owner->initiator",
+      "states": "PENDING/APPROVED/CHANGES_REQUESTED/SUPERSEDED",
+      "fields": [
+        "scope",
+        "PLATFORM/ORGANIZATION/SPACE/INITIATOR",
+        "round",
+        "subject_type",
+        "snapshot",
+        "title",
+        "note",
+        "decided_by",
+        "decided_at"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 120,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "campaign",
+      "table": "community706",
+      "relations": "owner->$users,organization_id->entity,event_ids[]->event",
+      "states": "DRAFT/CHANGES_REQUESTED/IN_REVIEW/PUBLISHED",
+      "fields": [
+        "title",
+        "kicker",
+        "introduction",
+        "cover_url",
+        "organization_id",
+        "event_ids",
+        "resource_links",
+        "media",
+        "visibility",
+        "round",
+        "published_at"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 76,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "notification",
+      "table": "community706",
+      "relations": "owner->$users,target{route,id}->业务对象，actor_id可选",
+      "states": "UNREAD/READ",
+      "fields": [
+        "key",
+        "category",
+        "EVENT/ADMIN/SOCIAL",
+        "target",
+        "actor_id",
+        "read_at"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 63,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "follow",
+      "table": "community706",
+      "relations": "owner->$users,parent->$users/entity",
+      "states": "ACTIVE/INACTIVE",
+      "fields": [
+        "关系"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 89,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "mute",
+      "table": "community706",
+      "relations": "owner->$users,parent->$users",
+      "states": "ACTIVE",
+      "fields": [
+        "屏蔽"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 108,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "report",
+      "table": "community706",
+      "relations": "owner->$users,parent->任意报告目标或空",
+      "states": "OPEN",
+      "fields": [
+        "reason"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 185,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "comment",
+      "table": "community706",
+      "relations": "owner->$users,parent->event,reply_to->comment",
+      "states": "ACTIVE/DELETED",
+      "fields": [
+        "text",
+        "reply_to",
+        "recommendation_id(读取badge用；当前comment写入未赋此字段)"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 77,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "recommendation",
+      "table": "community706",
+      "relations": "owner->$users,parent->event",
+      "states": "ACTIVE/INACTIVE",
+      "fields": [
+        "text"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 45,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "command",
+      "table": "community706",
+      "relations": "owner->$users,parent->key",
+      "states": "ACTIVE",
+      "fields": [
+        "operation",
+        "input(SHA256)",
+        "result；access/contact排除缓存"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 237,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "audit",
+      "table": "community706",
+      "relations": "owner->$users,parent->操作目标",
+      "states": "ACTIVE",
+      "fields": [
+        "action"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 65,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "payment",
+      "table": "community706",
+      "relations": "owner->$users,parent->registration",
+      "states": "PENDING/SUCCEEDED",
+      "fields": [
+        "amount_minor",
+        "appid",
+        "mchid",
+        "transaction_id",
+        "paid_at",
+        "requires_refund"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 277,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "wechatIdentity",
+      "table": "community706",
+      "relations": "owner->$users,parent->digest(appid,openid)",
+      "states": "ACTIVE",
+      "fields": [
+        "encrypted{openid}"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 275,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "media",
+      "table": "community706",
+      "relations": "owner->$users,parent->$files.path",
+      "states": "ACTIVE",
+      "fields": [
+        "private；metadata由$files大小/MIME提供"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 38,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "calendarShare",
+      "table": "community706",
+      "relations": "owner->$users",
+      "states": "ACTIVE",
+      "fields": [
+        "params",
+        "source_updated_at"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 81,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "invitation",
+      "table": "community706",
+      "relations": "owner->被邀请$user,parent->entity,inviter->$users",
+      "states": "PENDING/ACCEPTED/REVOKED",
+      "fields": [
+        "role",
+        "ADMIN"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 126,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "guard",
+      "table": "community706",
+      "relations": "固定初始化锁行",
+      "states": "ACTIVE",
+      "fields": [
+        "updated_at用于PostgreSQL行锁"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 1,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "单表type/owner/parent/status/data/version/created_at/updated_at；data非逐实体严格schema；系统表独立"
+    },
+    {
+      "type": "$users",
+      "table": "$users",
+      "relations": "runtime account",
+      "states": "SUSPENDED/DELETED拒绝active",
+      "fields": [
+        "runtime身份，不写入个人值"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 9,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "Montana runtime系统表"
+    },
+    {
+      "type": "$files",
+      "table": "$files",
+      "relations": "storage path与media.parent关联",
+      "states": "文件存在检查",
+      "fields": [
+        "path",
+        "size",
+        "content-type"
+      ],
+      "evidence": [
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 340,
+          "detail": "逻辑类型读写入口"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 16,
+          "detail": "common row/data展开"
+        },
+        {
+          "file": "/Users/shing/Projects/706-montana/apps/community706/functions/community.ts",
+          "line": 22,
+          "detail": "row元数据与version维护"
+        }
+      ],
+      "schema": "Montana runtime系统表"
+    }
+  ],
+  "notes": [
+    "范围为SID-123只读盘点；不执行接口、测试、编译、GUI、截图、部署或业务修改。JSON字段列出代码事实，未知运行状态不阻塞。",
+    "历史v6部署记录含21函数，2026-10-08T16:39:34Z；只确认函数名和当时部署，当前源码commit一致性未确认。runtime.json记录匿名config/events/people空结果及受保护调用拒绝，0业务写。",
+    "所有public read先active检查已有auth；匿名公开read允许；受保护read需uid。write validator需要op/params/key，即敏感读取也传key；active+非guest+guard行锁。普通op SHA256输入/幂等缓存；access/registrationContact绕过缓存并记录读取。",
+    "共有分页契约固定30条；未知cursor错误；events AND筛选(city/from/to/space_id/tag/free_only/q/has_capacity)；时间范围为ends_at>from且starts_at<to。calendar无分页。search无分页，跨城搜索同城优先。",
+    "全部client表访问/文件直读写/streams默认deny；$users仅本人view；attrs create deny；服务函数使用admin DB但业务权限另查。server/lib/montana/functions.ex:154、169限制internal；公共不等于匿名有权。",
+    "README付款默认15分钟为旧说明，实际源码community.ts:162默认30分钟。memberEntities:69读取membership/featured_entities是v6后续源码，不能推定已部署。",
+    "canEdit对event/campaign共用owner/platform/organization；saveCampaign/submitCampaign专门限制owner，draft/progress可读范围较宽。member publicProfile.id为profile记录id/owner为用户id，客户端成员跳转需使用owner。",
+    "真实配置历史wechat_login/payment false；微信资质、真实平台/实体owner与角色、隐私主体/退款政策未确认。没有真实支付/上传/验证码/登录/日历码调用证据。",
+    "没有独立公开创建entity、分配platform/owner、组织membership编辑接口；operator.py为外部确认manifest受控管理事务，不是小程序业务接口。普通profile写入不授予角色。",
+    "公开DTO移除private媒体引用/带token能力；private GET HMAC5分钟+实时权限+60秒内部storage，no-store。媒体限制event9image/1video/3link，campaign12image；≤10MiB文件与MIME/magic检查。",
+    "正式小程序socket adapter带20秒超时，错误保留type/message；API调用证明需独立运行证据。adapter只单次call，没有运行函数订阅；runtime支持subscribe-function但未在原生接入。",
+    "Mock源码仅本地存储状态机，不证明真实后端。支付直接CONFIRMED，微信登录仅persona切换，calendarCode code:null，localMedia保存本地路径；fixture source_bio/source_mine/source_review等原型特例后端不提供。",
+    "row所有实体仅逻辑关系，无数据库外键/逐字段validator断言；schema部署脚本读取现存community706表并补type/owner/parent/status/created_at索引，当前数据库schema未重新读取。",
+    "证据路径是本机私有Montana源码；此公开客户端文档仅记文件/行号与合同，不复制凭据、个人号、原始私有截图或生产业务数据。",
+    "Runtime还支持verify_refresh_token/sign_in_guest/link_email/link_phone，本清单列出，原生adapter当前未显式调用。runtime SSE/OAuth/通用数据库与streams不是本项目显式业务接入；$streams规则deny；不因底层存在就认定已接通。"
+  ]
+}
