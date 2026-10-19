@@ -1,0 +1,26 @@
+miniprogram/custom-tab-bar/index.js
+  h_b053bf74bef223 23
+miniprogram/custom-tab-bar/index.wxss
+  h_b053bf74bef223 1-4,6
+miniprogram/lib/page.js
+  h_b053bf74bef223 3-4,47,51-52,54,58,65,298
+miniprogram/lib/theme.js
+  h_b053bf74bef223 15
+miniprogram/styles/editorial.wxss
+  h_b053bf74bef223 1,8,104,127,130
+miniprogram/templates/screen.wxml
+  h_b053bf74bef223 194-202
+project.config.json
+  h_b053bf74bef223 5,8-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "46562452be81b91112186d81520d655395f97258",
+  "prompts": {},
+  "humans": {
+    "h_b053bf74bef223": {
+      "author": "jiangplus <jiang.plus.times@gmail.com>"
+    }
+  }
+}
