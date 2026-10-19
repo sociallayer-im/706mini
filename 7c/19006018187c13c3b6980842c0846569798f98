@@ -1,0 +1,1045 @@
+soon/.dockerignore
+  s_2f68ec41cd6d71::t_e669a3b900b34a 1-47
+soon/.env.example
+  s_2f68ec41cd6d71::t_0c29de562a76e3 1-57
+soon/.gitattributes
+  s_2f68ec41cd6d71::t_d3306e6a089e12 1-12
+soon/.gitignore
+  s_2f68ec41cd6d71::t_e0377dc3739657 1-46
+soon/.rubocop.yml
+  s_2f68ec41cd6d71::t_9b2485c3c7917e 1-8
+soon/.ruby-version
+  s_2f68ec41cd6d71::t_0d11d9035728e9 1
+soon/Dockerfile
+  s_2f68ec41cd6d71::t_7e76b59e15fb36 1-94
+soon/Gemfile
+  s_2f68ec41cd6d71::t_7243d04f631df7 1-96
+soon/Gemfile.lock
+  s_2f68ec41cd6d71::t_d00c70f1bbb356 1-684
+soon/Procfile.dev
+  s_2f68ec41cd6d71::t_b40661cd510f49 1-3
+soon/README.md
+  s_2f68ec41cd6d71::t_90d96318b983c9 1-24
+soon/Rakefile
+  s_2f68ec41cd6d71::t_a106dbd5542be5 1-6
+soon/app/assets/stylesheets/application.tailwind.css
+  s_2f68ec41cd6d71::t_ee3e9c5d984ace 1
+soon/app/blueprints/activity_blueprint.rb
+  s_2f68ec41cd6d71::t_4badb2e8fe3885 1-7
+soon/app/blueprints/availability_blueprint.rb
+  s_2f68ec41cd6d71::t_d9c2533ca1b715 1-5
+soon/app/blueprints/badge_blueprint.rb
+  s_2f68ec41cd6d71::t_97a3d420388b8a 1-10
+soon/app/blueprints/badge_class_blueprint.rb
+  s_2f68ec41cd6d71::t_9ae4071811e0d2 1-9
+soon/app/blueprints/category_blueprint.rb
+  s_2f68ec41cd6d71::t_d880272f9aab50 1-11
+soon/app/blueprints/category_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_61c5b3bbe95ed3 1-7
+soon/app/blueprints/comment_blueprint.rb
+  s_2f68ec41cd6d71::t_b780b47183eb83 1-8
+soon/app/blueprints/coupon_blueprint.rb
+  s_2f68ec41cd6d71::t_b03ceb6c8bb38a 1-10
+soon/app/blueprints/event_blueprint.rb
+  s_2f68ec41cd6d71::t_e712d89c845438 1-60
+soon/app/blueprints/event_role_blueprint.rb
+  s_2f68ec41cd6d71::t_a3290ae7f483bf 1-5
+soon/app/blueprints/form_blueprint.rb
+  s_2f68ec41cd6d71::t_f6458f42163821 1-50
+soon/app/blueprints/form_submission_blueprint.rb
+  s_2f68ec41cd6d71::t_5587e92ee59ff4 1-19
+soon/app/blueprints/group_blueprint.rb
+  s_2f68ec41cd6d71::t_ea0a2b3a04c89b 1-52
+soon/app/blueprints/group_invite_blueprint.rb
+  s_2f68ec41cd6d71::t_3b73be2e7347e4 1-9
+soon/app/blueprints/hackathon_blueprint.rb
+  s_2f68ec41cd6d71::t_5163647a1bc9e5 1-40
+soon/app/blueprints/hackathon_project_blueprint.rb
+  s_2f68ec41cd6d71::t_e30cd872447f2e 1-60
+soon/app/blueprints/marker_blueprint.rb
+  s_2f68ec41cd6d71::t_30cef7026dbd8d 1-10
+soon/app/blueprints/membership_blueprint.rb
+  s_2f68ec41cd6d71::t_b977c8d3186b02 1-38
+soon/app/blueprints/oauth_application_blueprint.rb
+  s_2f68ec41cd6d71::t_50860a936300f2 1-32
+soon/app/blueprints/oauth_grant_blueprint.rb
+  s_2f68ec41cd6d71::t_38f3e455f19848 1-28
+soon/app/blueprints/participant_blueprint.rb
+  s_2f68ec41cd6d71::t_d558885ae1fca7 1-8
+soon/app/blueprints/payment_method_blueprint.rb
+  s_2f68ec41cd6d71::t_8b3d7a9b26264d 1-13
+soon/app/blueprints/place_blueprint.rb
+  s_2f68ec41cd6d71::t_c19bacfb38f806 1-5
+soon/app/blueprints/poll_blueprint.rb
+  s_2f68ec41cd6d71::t_7729aef6200cad 1-90
+soon/app/blueprints/recurring_blueprint.rb
+  s_2f68ec41cd6d71::t_4cf4a5460dcc4a 1-14
+soon/app/blueprints/refund_blueprint.rb
+  s_2f68ec41cd6d71::t_a6a5b258ca7455 1-23
+soon/app/blueprints/reply_blueprint.rb
+  s_2f68ec41cd6d71::t_1ba88f9854c43a 1-35
+soon/app/blueprints/reply_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_0cb449c6a8eee7 1-18
+soon/app/blueprints/stripe_setting_blueprint.rb
+  s_2f68ec41cd6d71::t_98890444c4df9b 1-13
+soon/app/blueprints/team_blueprint.rb
+  s_2f68ec41cd6d71::t_8f82c8f8282d03 1-10
+soon/app/blueprints/team_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_5b76593f30380d 1-15
+soon/app/blueprints/ticket_blueprint.rb
+  s_2f68ec41cd6d71::t_8461a19497dbc5 1-11
+soon/app/blueprints/ticket_item_blueprint.rb
+  s_2f68ec41cd6d71::t_0b8ca516432f8b 1-46
+soon/app/blueprints/ticket_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_cf37c3c2a48f1c 1-11
+soon/app/blueprints/ticketing_activity_blueprint.rb
+  s_2f68ec41cd6d71::t_cbe2b8fbd0af6d 1-23
+soon/app/blueprints/topic_blueprint.rb
+  s_2f68ec41cd6d71::t_026904d4a65a58 1-46
+soon/app/blueprints/track_blueprint.rb
+  s_2f68ec41cd6d71::t_9cb21a6ff84e70 1-11
+soon/app/blueprints/track_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_ba6b45bd46b989 1-10
+soon/app/blueprints/track_role_blueprint.rb
+  s_2f68ec41cd6d71::t_5f9ab8f11c79fc 1-6
+soon/app/blueprints/user_blueprint.rb
+  s_2f68ec41cd6d71::t_c286398bc79ed9 1-36
+soon/app/blueprints/venue_blueprint.rb
+  s_2f68ec41cd6d71::t_e7e07e32ca5f61 1-12
+soon/app/blueprints/venue_ref_blueprint.rb
+  s_2f68ec41cd6d71::t_d36cbc00436c18 1-10
+soon/app/blueprints/voucher_blueprint.rb
+  s_2f68ec41cd6d71::t_903c9255461f75 1-17
+soon/app/blueprints/withdrawal_blueprint.rb
+  s_2f68ec41cd6d71::t_37299b1ea0cd68 1-17
+soon/app/controllers/api/base_controller.rb
+  s_2f68ec41cd6d71::t_83183a62803062 1-159
+soon/app/controllers/api/v1/activities_controller.rb
+  s_2f68ec41cd6d71::t_93460e26a6ebe1 1-17
+soon/app/controllers/api/v1/admin_withdrawals_controller.rb
+  s_2f68ec41cd6d71::t_81063b6f398e24 1-45
+soon/app/controllers/api/v1/auth_controller.rb
+  s_2f68ec41cd6d71::t_452e6069b22dd1 1-508
+soon/app/controllers/api/v1/badge_classes_controller.rb
+  s_2f68ec41cd6d71::t_21d79678343a09 1-70
+soon/app/controllers/api/v1/badges_controller.rb
+  s_2f68ec41cd6d71::t_c51b56d64c0716 1-101
+soon/app/controllers/api/v1/calendars_controller.rb
+  s_2f68ec41cd6d71::t_673c86cdf72d5c 1-77
+soon/app/controllers/api/v1/categories_controller.rb
+  s_2f68ec41cd6d71::t_0dd960e5a9723d 1-95
+soon/app/controllers/api/v1/comments_controller.rb
+  s_2f68ec41cd6d71::t_319205ac505f66 1-79
+soon/app/controllers/api/v1/discover_controller.rb
+  s_2f68ec41cd6d71::t_48ecb389d3b57c 1-76
+soon/app/controllers/api/v1/event_roles_controller.rb
+  s_2f68ec41cd6d71::t_3bd510892e4a10 1-77
+soon/app/controllers/api/v1/events_controller.rb
+  s_2f68ec41cd6d71::t_ac8714924f99ac 1-423
+soon/app/controllers/api/v1/forms_controller.rb
+  s_2f68ec41cd6d71::t_0cc1a6172dbec7 1-149
+soon/app/controllers/api/v1/group_invites_controller.rb
+  s_2f68ec41cd6d71::t_6955fdad58dde6 1-208
+soon/app/controllers/api/v1/groups_controller.rb
+  s_2f68ec41cd6d71::t_0401a8609c3531 1-141
+soon/app/controllers/api/v1/hackathon_projects_controller.rb
+  s_2f68ec41cd6d71::t_6462c2ed8b0264 1-214
+soon/app/controllers/api/v1/hackathons_controller.rb
+  s_2f68ec41cd6d71::t_1b680ab7fb1100 1-176
+soon/app/controllers/api/v1/markers_controller.rb
+  s_2f68ec41cd6d71::t_9191777e5bc9e4 1-72
+soon/app/controllers/api/v1/memberships_controller.rb
+  s_2f68ec41cd6d71::t_18b0a254490547 1-134
+soon/app/controllers/api/v1/oauth_admin_applications_controller.rb
+  s_2f68ec41cd6d71::t_ffee0c53b136ee 1-50
+soon/app/controllers/api/v1/oauth_applications_controller.rb
+  s_2f68ec41cd6d71::t_589aa4f725b615 1-82
+soon/app/controllers/api/v1/oauth_controller.rb
+  s_2f68ec41cd6d71::t_b56a956fd12d0d 1-340
+soon/app/controllers/api/v1/oauth_grants_controller.rb
+  s_2f68ec41cd6d71::t_917360b6a3c3a1 1-18
+soon/app/controllers/api/v1/participants_controller.rb
+  s_2f68ec41cd6d71::t_97c8edfc73ddf1 1-270
+soon/app/controllers/api/v1/places_controller.rb
+  s_2f68ec41cd6d71::t_9165b789ad96b7 1-49
+soon/app/controllers/api/v1/polls_controller.rb
+  s_2f68ec41cd6d71::t_9e2ee8e9c90680 1-245
+soon/app/controllers/api/v1/recurring_controller.rb
+  s_2f68ec41cd6d71::t_a61d3559ace1d8 1-218
+soon/app/controllers/api/v1/remember_controller.rb
+  s_2f68ec41cd6d71::t_7542a70c69a42d 1-140
+soon/app/controllers/api/v1/replies_controller.rb
+  s_2f68ec41cd6d71::t_fc3840dc5730ef 1-104
+soon/app/controllers/api/v1/standalone_forms_controller.rb
+  s_2f68ec41cd6d71::t_90968bb176df77 1-223
+soon/app/controllers/api/v1/stripe_settings_controller.rb
+  s_2f68ec41cd6d71::t_ac98a909a36f3f 1-103
+soon/app/controllers/api/v1/stripe_webhooks_controller.rb
+  s_2f68ec41cd6d71::t_0e43867dafb742 1-32
+soon/app/controllers/api/v1/teams_controller.rb
+  s_2f68ec41cd6d71::t_bd81a2844bd1d8 1-83
+soon/app/controllers/api/v1/tickets_controller.rb
+  s_2f68ec41cd6d71::t_d48c1e6eca287c 1-911
+soon/app/controllers/api/v1/topics_controller.rb
+  s_2f68ec41cd6d71::t_db5b7705873662 1-227
+soon/app/controllers/api/v1/tracks_controller.rb
+  s_2f68ec41cd6d71::t_a814409befc1bd 1-90
+soon/app/controllers/api/v1/uploads_controller.rb
+  s_2f68ec41cd6d71::t_db6f3805d0cc8e 1-72
+soon/app/controllers/api/v1/users_controller.rb
+  s_2f68ec41cd6d71::t_9348fe47586841 1-116
+soon/app/controllers/api/v1/venues_controller.rb
+  s_2f68ec41cd6d71::t_b50348a9a27b78 1-97
+soon/app/controllers/api/v1/vouchers_controller.rb
+  s_2f68ec41cd6d71::t_50ec65a38f50c3 1-205
+soon/app/controllers/api/v1/wechat_pay_webhooks_controller.rb
+  s_2f68ec41cd6d71::t_4d8ddf5b2829cd 1-65
+soon/app/controllers/api/v1/withdrawals_controller.rb
+  s_2f68ec41cd6d71::t_403cc7203baf76 1-90
+soon/app/controllers/application_controller.rb
+  s_2f68ec41cd6d71::t_065ee976b4cc17 1-2
+soon/app/controllers/concerns/discussion_gate.rb
+  s_2f68ec41cd6d71::t_1dd2acfc734eee 1-21
+soon/app/controllers/concerns/discussion_rate_limit.rb
+  s_2f68ec41cd6d71::t_f10ae7a00ffd57 1-56
+soon/app/controllers/concerns/hackathon_gate.rb
+  s_2f68ec41cd6d71::t_c08121ac2486de 1-19
+soon/app/controllers/concerns/poll_gate.rb
+  s_2f68ec41cd6d71::t_75b21b8f019a14 1-20
+soon/app/controllers/concerns/slug_generator.rb
+  s_2f68ec41cd6d71::t_253369d5926733 1-27
+soon/app/controllers/well_known_controller.rb
+  s_2f68ec41cd6d71::t_470568002295e0 1-50
+soon/app/helpers/application_helper.rb
+  s_2f68ec41cd6d71::t_b03d4f40b4365d 1-2
+soon/app/helpers/mailer_helper.rb
+  s_2f68ec41cd6d71::t_447b07f7e64416 1-24
+soon/app/javascript/application.js
+  s_2f68ec41cd6d71::t_11cc1904dea8b6 1-2
+soon/app/javascript/controllers/application.js
+  s_2f68ec41cd6d71::t_9452648d53767a 1-9
+soon/app/javascript/controllers/hello_controller.js
+  s_2f68ec41cd6d71::t_98c501fe588c1b 1-7
+soon/app/javascript/controllers/index.js
+  s_2f68ec41cd6d71::t_d68cd17368078e 1-8
+soon/app/jobs/application_job.rb
+  s_2f68ec41cd6d71::t_8e61456b92b385 1-11
+soon/app/jobs/event_attendee_mail_job.rb
+  s_2f68ec41cd6d71::t_3964a4dc02fb26 1-29
+soon/app/jobs/event_submitted_mail_job.rb
+  s_2f68ec41cd6d71::t_2524a33af30c24 1-21
+soon/app/jobs/group_broadcast_mail_job.rb
+  s_2f68ec41cd6d71::t_95918b733f7131 1-19
+soon/app/jobs/group_registered_mail_job.rb
+  s_2f68ec41cd6d71::t_5b4c323fb82f05 1-17
+soon/app/jobs/mail_delivery_job.rb
+  s_2f68ec41cd6d71::t_172debd8ec5179 1-32
+soon/app/jobs/poll_auto_close_job.rb
+  s_2f68ec41cd6d71::t_0484476ffdb9ad 1-29
+soon/app/jobs/stripe_reconciliation_job.rb
+  s_2f68ec41cd6d71::t_222488f3f0e41c 1-78
+soon/app/jobs/stripe_webhook_job.rb
+  s_2f68ec41cd6d71::t_fb61deefa861cb 1-142
+soon/app/jobs/ticketing_sweeper_job.rb
+  s_2f68ec41cd6d71::t_fb40ff7a47902d 1-84
+soon/app/jobs/wechat_pay_webhook_job.rb
+  s_2f68ec41cd6d71::t_251c4563df2005 1-129
+soon/app/jobs/withdrawal_requested_mail_job.rb
+  s_2f68ec41cd6d71::t_49fa0b6b5d94e8 1-16
+soon/app/mailers/application_mailer.rb
+  s_2f68ec41cd6d71::t_3e95a7cca868eb 1-21
+soon/app/mailers/auth_mailer.rb
+  s_2f68ec41cd6d71::t_145aec2bea336e 1-9
+soon/app/mailers/comment_mailer.rb
+  s_2f68ec41cd6d71::t_2838df2f27e57c 1-19
+soon/app/mailers/event_mailer.rb
+  s_2f68ec41cd6d71::t_682efc45c5b28f 1-80
+soon/app/mailers/group_mailer.rb
+  s_2f68ec41cd6d71::t_155ae150bed978 1-47
+soon/app/mailers/poll_mailer.rb
+  s_2f68ec41cd6d71::t_4fea757c602f57 1-10
+soon/app/models/activity.rb
+  s_2f68ec41cd6d71::t_07ac43c8610d36 1-10
+soon/app/models/application_record.rb
+  s_2f68ec41cd6d71::t_fcc576acc9174b 1-35
+soon/app/models/auth_code.rb
+  s_2f68ec41cd6d71::t_3c7bc8de79a1d1 1-39
+soon/app/models/availability.rb
+  s_2f68ec41cd6d71::t_e33698c7728a41 1-20
+soon/app/models/badge.rb
+  s_2f68ec41cd6d71::t_b020bdc1a60307 1-27
+soon/app/models/badge_class.rb
+  s_2f68ec41cd6d71::t_d445f1635982ef 1-12
+soon/app/models/category.rb
+  s_2f68ec41cd6d71::t_25c598362a2ac7 1-81
+soon/app/models/category_team.rb
+  s_2f68ec41cd6d71::t_da3d3ff8685e44 1-17
+soon/app/models/comment.rb
+  s_2f68ec41cd6d71::t_da2f03c60bdb1e 1-27
+soon/app/models/concerns/flaggable.rb
+  s_2f68ec41cd6d71::t_c634e076c3cd56 1-39
+soon/app/models/concerns/handle_name.rb
+  s_2f68ec41cd6d71::t_2b043630b90726 1-119
+soon/app/models/concerns/oauth_digestible.rb
+  s_2f68ec41cd6d71::t_2dcf77f24747b5 1-31
+soon/app/models/concerns/soft_delete.rb
+  s_2f68ec41cd6d71::t_525ac2cb0d9571 1-54
+soon/app/models/concerns/starrable.rb
+  s_2f68ec41cd6d71::t_d2677044bc4875 1-25
+soon/app/models/coupon.rb
+  s_2f68ec41cd6d71::t_5bd1cd55e9c7de 1-69
+soon/app/models/domain.rb
+  s_2f68ec41cd6d71::t_0e77d81e1fb589 1-6
+soon/app/models/event.rb
+  s_2f68ec41cd6d71::t_a183ac189fed1b 1-110
+soon/app/models/event_role.rb
+  s_2f68ec41cd6d71::t_aad9fb2c2d1953 1-26
+soon/app/models/form.rb
+  s_2f68ec41cd6d71::t_ab0842ec0e583d 1-18
+soon/app/models/form_answer.rb
+  s_2f68ec41cd6d71::t_68df192db35580 1-4
+soon/app/models/form_field.rb
+  s_2f68ec41cd6d71::t_d61f75d82b4df5 1-32
+soon/app/models/form_submission.rb
+  s_2f68ec41cd6d71::t_c6b99106d3feab 1-5
+soon/app/models/group.rb
+  s_2f68ec41cd6d71::t_02a2a006a61bfb 1-150
+soon/app/models/group_invite.rb
+  s_2f68ec41cd6d71::t_52789f5c47441a 1-88
+soon/app/models/hackathon.rb
+  s_2f68ec41cd6d71::t_eccccb10c95d1a 1-149
+soon/app/models/hackathon_project.rb
+  s_2f68ec41cd6d71::t_a4ea69d5342e7a 1-110
+soon/app/models/hackathon_project_member.rb
+  s_2f68ec41cd6d71::t_491d05db87924f 1-27
+soon/app/models/hackathon_project_star.rb
+  s_2f68ec41cd6d71::t_5eee728486b68c 1-14
+soon/app/models/marker.rb
+  s_2f68ec41cd6d71::t_d4de1ec3e04d13 1-8
+soon/app/models/membership.rb
+  s_2f68ec41cd6d71::t_78a3df7faff0f2 1-39
+soon/app/models/oauth_access_token.rb
+  s_2f68ec41cd6d71::t_6be06934dee93d 1-32
+soon/app/models/oauth_application.rb
+  s_2f68ec41cd6d71::t_77f52b77c9bc12 1-140
+soon/app/models/oauth_authorization_code.rb
+  s_2f68ec41cd6d71::t_3477671fcb81c4 1-48
+soon/app/models/oauth_grant.rb
+  s_2f68ec41cd6d71::t_8633c5b1234ea3 1-33
+soon/app/models/oauth_refresh_token.rb
+  s_2f68ec41cd6d71::t_a8a50b2fdd125c 1-66
+soon/app/models/participant.rb
+  s_2f68ec41cd6d71::t_0d1094923c42c5 1-129
+soon/app/models/payment_method.rb
+  s_2f68ec41cd6d71::t_2c34c4d6531f64 1-163
+soon/app/models/place.rb
+  s_2f68ec41cd6d71::t_a5970f4464a69d 1-20
+soon/app/models/poll.rb
+  s_2f68ec41cd6d71::t_1f5a6d3003a65b 1-132
+soon/app/models/poll_option.rb
+  s_2f68ec41cd6d71::t_45b5eb11e4a01f 1-6
+soon/app/models/poll_vote.rb
+  s_2f68ec41cd6d71::t_ac28eb77009265 1-29
+soon/app/models/recurring.rb
+  s_2f68ec41cd6d71::t_f809361bda2a91 1-19
+soon/app/models/refund.rb
+  s_2f68ec41cd6d71::t_aaaf4042bea0b7 1-12
+soon/app/models/reply.rb
+  s_2f68ec41cd6d71::t_5ae82c839550bf 1-54
+soon/app/models/stripe_event.rb
+  s_2f68ec41cd6d71::t_6a5f498faafc9c 1-11
+soon/app/models/stripe_setting.rb
+  s_2f68ec41cd6d71::t_4140aef143ef11 1-47
+soon/app/models/team.rb
+  s_2f68ec41cd6d71::t_cc59a71a8bfc62 1-37
+soon/app/models/team_membership.rb
+  s_2f68ec41cd6d71::t_5d7fc0c0ceba0d 1-33
+soon/app/models/ticket.rb
+  s_2f68ec41cd6d71::t_79a050853646f9 1-69
+soon/app/models/ticket_item.rb
+  s_2f68ec41cd6d71::t_cf487b53ecf4f9 1-237
+soon/app/models/ticketing.rb
+  s_2f68ec41cd6d71::t_078b3ad4002a92 1-8
+soon/app/models/ticketing/activity.rb
+  s_2f68ec41cd6d71::t_3171b09d248bab 1-90
+soon/app/models/topic.rb
+  s_2f68ec41cd6d71::t_74970f1285d2cf 1-117
+soon/app/models/track.rb
+  s_2f68ec41cd6d71::t_b5d464384d0f9b 1-8
+soon/app/models/track_role.rb
+  s_2f68ec41cd6d71::t_3d80977b8ca860 1-7
+soon/app/models/user.rb
+  s_2f68ec41cd6d71::t_a93ccea63117c3 1-97
+soon/app/models/venue.rb
+  s_2f68ec41cd6d71::t_040ea3e331dfec 1-75
+soon/app/models/voucher.rb
+  s_2f68ec41cd6d71::t_bca85087dd9eec 1-35
+soon/app/models/wechat_pay_event.rb
+  s_2f68ec41cd6d71::t_8dd2f5da1c5fe8 1-18
+soon/app/models/wechat_pay_setting.rb
+  s_2f68ec41cd6d71::t_54cf4bbdf9a89d 1-71
+soon/app/models/withdrawal.rb
+  s_2f68ec41cd6d71::t_3d968307245923 1-93
+soon/app/policies/application_policy.rb
+  s_2f68ec41cd6d71::t_e18afe3a93cdba 1-48
+soon/app/policies/badge_class_policy.rb
+  s_2f68ec41cd6d71::t_8fd380793cf81c 1-14
+soon/app/policies/badge_policy.rb
+  s_2f68ec41cd6d71::t_dca6a5d9aeac7e 1-12
+soon/app/policies/category_policy.rb
+  s_2f68ec41cd6d71::t_894cc3d11f2d92 1-18
+soon/app/policies/coupon_policy.rb
+  s_2f68ec41cd6d71::t_63b0a754a8d57f 1-7
+soon/app/policies/event_policy.rb
+  s_2f68ec41cd6d71::t_095d4c068187ae 1-69
+soon/app/policies/group_invite_policy.rb
+  s_2f68ec41cd6d71::t_a936c93e696031 1-25
+soon/app/policies/group_policy.rb
+  s_2f68ec41cd6d71::t_6d4a9419fbf36e 1-47
+soon/app/policies/hackathon_policy.rb
+  s_2f68ec41cd6d71::t_cadd6fd255356f 1-56
+soon/app/policies/hackathon_project_policy.rb
+  s_2f68ec41cd6d71::t_a1eb1c77296df8 1-41
+soon/app/policies/marker_policy.rb
+  s_2f68ec41cd6d71::t_2305923422224a 1-7
+soon/app/policies/poll_policy.rb
+  s_2f68ec41cd6d71::t_64ca884ff8963a 1-77
+soon/app/policies/reply_policy.rb
+  s_2f68ec41cd6d71::t_dd2b03515c6af1 1-33
+soon/app/policies/team_policy.rb
+  s_2f68ec41cd6d71::t_1164b3131d1231 1-20
+soon/app/policies/ticket_item_policy.rb
+  s_2f68ec41cd6d71::t_ae574d60fe5275 1-17
+soon/app/policies/ticket_policy.rb
+  s_2f68ec41cd6d71::t_d5940201a14aab 1-7
+soon/app/policies/topic_policy.rb
+  s_2f68ec41cd6d71::t_31b128cf95129e 1-52
+soon/app/policies/voucher_policy.rb
+  s_2f68ec41cd6d71::t_e07205718ba867 1-4
+soon/app/services/event_calendar.rb
+  s_2f68ec41cd6d71::t_cf564500c9a5db 1-148
+soon/app/services/form_builder.rb
+  s_2f68ec41cd6d71::t_0eaa586184acc2 1-97
+soon/app/services/google_auth.rb
+  s_2f68ec41cd6d71::t_3a6f4b17dfefb5 1-33
+soon/app/services/jwt_service.rb
+  s_2f68ec41cd6d71::t_6cb44ebebb0944 1-18
+soon/app/services/oauth_claims.rb
+  s_2f68ec41cd6d71::t_b06ecc50a01d44 1-133
+soon/app/services/oauth_config.rb
+  s_2f68ec41cd6d71::t_9e2f9f3d236f32 1-102
+soon/app/services/oauth_id_token.rb
+  s_2f68ec41cd6d71::t_93425e2398037e 1-32
+soon/app/services/object_store.rb
+  s_2f68ec41cd6d71::t_cb0be0f7e16932 1-114
+soon/app/services/phone_number.rb
+  s_2f68ec41cd6d71::t_9505aeaef1630e 1-34
+soon/app/services/sms_sender.rb
+  s_2f68ec41cd6d71::t_ede368db0a9902 1-145
+soon/app/services/stripe_gateway.rb
+  s_2f68ec41cd6d71::t_b37f86a80a88d9 1-140
+soon/app/services/ticketing/designate_group_ticket_event.rb
+  s_2f68ec41cd6d71::t_9eb1642ce4fc15 1-32
+soon/app/services/ticketing/quote.rb
+  s_2f68ec41cd6d71::t_3ee06813fd2d34 1-80
+soon/app/services/user_merger.rb
+  s_2f68ec41cd6d71::t_d956d31cd49cd1 1-153
+soon/app/services/wechat_pay_gateway.rb
+  s_2f68ec41cd6d71::t_93fba572318ced 1-295
+soon/app/views/auth_mailer/login_code.html.erb
+  s_2f68ec41cd6d71::t_fabff3f3641086 1-11
+soon/app/views/auth_mailer/login_code.text.erb
+  s_2f68ec41cd6d71::t_303f0e0b3c163e 1-5
+soon/app/views/comment_mailer/feedback.html.erb
+  s_2f68ec41cd6d71::t_b05cd59f64d98c 1-10
+soon/app/views/comment_mailer/feedback.text.erb
+  s_2f68ec41cd6d71::t_20945223115820 1-5
+soon/app/views/event_mailer/cancelled.html.erb
+  s_2f68ec41cd6d71::t_1fc940fd6e0fb3 1-7
+soon/app/views/event_mailer/cancelled.text.erb
+  s_2f68ec41cd6d71::t_86620e019746fc 1-5
+soon/app/views/event_mailer/participant_approved.html.erb
+  s_2f68ec41cd6d71::t_95927eaf05a4c5 1-20
+soon/app/views/event_mailer/participant_approved.text.erb
+  s_2f68ec41cd6d71::t_1c176462d82fba 1-8
+soon/app/views/event_mailer/participant_rejected.html.erb
+  s_2f68ec41cd6d71::t_011dfd4cb2e248 1-6
+soon/app/views/event_mailer/participant_rejected.text.erb
+  s_2f68ec41cd6d71::t_6d4b7b753bd97a 1-5
+soon/app/views/event_mailer/submitted.html.erb
+  s_2f68ec41cd6d71::t_7128b205b237a8 1-32
+soon/app/views/event_mailer/submitted.text.erb
+  s_2f68ec41cd6d71::t_1de1a1154ff83b 1-12
+soon/app/views/event_mailer/ticket_purchased.html.erb
+  s_2f68ec41cd6d71::t_eb2879183cc541 1-20
+soon/app/views/event_mailer/ticket_purchased.text.erb
+  s_2f68ec41cd6d71::t_d1514f3571d3de 1-8
+soon/app/views/event_mailer/updated.html.erb
+  s_2f68ec41cd6d71::t_bec2bdcec1500f 1-20
+soon/app/views/event_mailer/updated.text.erb
+  s_2f68ec41cd6d71::t_df8b16ac6a538d 1-8
+soon/app/views/group_mailer/invite.html.erb
+  s_2f68ec41cd6d71::t_67a1be8fbe8424 1-17
+soon/app/views/group_mailer/invite.text.erb
+  s_2f68ec41cd6d71::t_866bb701b3ede7 1-7
+soon/app/views/group_mailer/member_broadcast.html.erb
+  s_2f68ec41cd6d71::t_6905535501b1a4 1-4
+soon/app/views/group_mailer/member_broadcast.text.erb
+  s_2f68ec41cd6d71::t_a73f162365c365 1-3
+soon/app/views/group_mailer/registered.html.erb
+  s_2f68ec41cd6d71::t_654afa58297709 1-39
+soon/app/views/group_mailer/registered.text.erb
+  s_2f68ec41cd6d71::t_904af4b0288a04 1-14
+soon/app/views/group_mailer/ticket_purchased.html.erb
+  s_2f68ec41cd6d71::t_fe6b3336a3caff 1-23
+soon/app/views/group_mailer/ticket_purchased.text.erb
+  s_2f68ec41cd6d71::t_9a7597f0e9c774 1-7
+soon/app/views/group_mailer/withdrawal_requested.html.erb
+  s_2f68ec41cd6d71::t_17bea189b1ba1d 1-27
+soon/app/views/group_mailer/withdrawal_requested.text.erb
+  s_2f68ec41cd6d71::t_3d2fc1be29a547 1-10
+soon/app/views/layouts/application.html.erb
+  s_2f68ec41cd6d71::t_d819203dcc6747 1-29
+soon/app/views/layouts/mailer.html.erb
+  s_2f68ec41cd6d71::t_76359d4c4073f1 1-39
+soon/app/views/layouts/mailer.text.erb
+  s_2f68ec41cd6d71::t_ba7299ec5b3e42 1-5
+soon/app/views/poll_mailer/closed.html.erb
+  s_2f68ec41cd6d71::t_dcb98aa5953e9e 1-6
+soon/app/views/poll_mailer/closed.text.erb
+  s_2f68ec41cd6d71::t_bd2a7997719ebd 1-3
+soon/app/views/pwa/manifest.json.erb
+  s_2f68ec41cd6d71::t_80e19b311c88ea 1-22
+soon/app/views/pwa/service-worker.js
+  s_2f68ec41cd6d71::t_3d795a8682c08b 1-26
+soon/bin/brakeman
+  s_2f68ec41cd6d71::t_43abd800184e08 1-7
+soon/bin/bundler-audit
+  s_2f68ec41cd6d71::t_8b6279f059e5ac 1-6
+soon/bin/ci
+  s_2f68ec41cd6d71::t_4ee70900080da9 1-6
+soon/bin/dev
+  s_2f68ec41cd6d71::t_bf6189c0069940 1-11
+soon/bin/docker-entrypoint
+  s_2f68ec41cd6d71::t_2decfd5a7eed78 1-8
+soon/bin/rails
+  s_2f68ec41cd6d71::t_57fda3d0b38704 1-4
+soon/bin/rake
+  s_2f68ec41cd6d71::t_746fa5795c60e6 1-4
+soon/bin/rubocop
+  s_2f68ec41cd6d71::t_5b45474e09d9e3 1-8
+soon/bin/setup
+  s_2f68ec41cd6d71::t_492712be95fd42 1-38
+soon/bin/thrust
+  s_2f68ec41cd6d71::t_4b03b8c7d29cc7 1-5
+soon/bun.config.js
+  s_2f68ec41cd6d71::t_aa6d62583ec957 1-37
+soon/bun.lock
+  s_2f68ec41cd6d71::t_10e6189770133a 1-161
+soon/config.ru
+  s_2f68ec41cd6d71::t_86cbf503d34d76 1-6
+soon/config/application.rb
+  s_2f68ec41cd6d71::t_67aeca6af62dd1 1-37
+soon/config/boot.rb
+  s_2f68ec41cd6d71::t_6d0d8e69b98ad8 1-4
+soon/config/bundler-audit.yml
+  s_2f68ec41cd6d71::t_57674d47d5b5fa 1-5
+soon/config/cable.yml
+  s_2f68ec41cd6d71::t_5c5818422758c0 1-10
+soon/config/ci.rb
+  s_2f68ec41cd6d71::t_a87ea08041c18e 1-23
+soon/config/credentials.yml.enc
+  s_2f68ec41cd6d71::t_22c7a453005fc9 1
+soon/config/database.yml
+  s_2f68ec41cd6d71::t_7bb74fdc9c77a6 1-94
+soon/config/environment.rb
+  s_2f68ec41cd6d71::t_ea9cfdfb7efb5a 1-5
+soon/config/environments/development.rb
+  s_2f68ec41cd6d71::t_9cd0bd8ff4e111 1-78
+soon/config/environments/production.rb
+  s_2f68ec41cd6d71::t_0bf7f078a2a5ee 1-83
+soon/config/environments/test.rb
+  s_2f68ec41cd6d71::t_b495d5c6c02d57 1-76
+soon/config/initializers/assets.rb
+  s_2f68ec41cd6d71::t_053d15e4402fd9 1-7
+soon/config/initializers/blueprinter.rb
+  s_2f68ec41cd6d71::t_9b30f22c7cf78d 1-7
+soon/config/initializers/content_security_policy.rb
+  s_2f68ec41cd6d71::t_32fff798ad021e 1-29
+soon/config/initializers/cors.rb
+  s_2f68ec41cd6d71::t_44779bb0966084 1-9
+soon/config/initializers/filter_parameter_logging.rb
+  s_2f68ec41cd6d71::t_19f09402b0eaab 1-8
+soon/config/initializers/good_job.rb
+  s_2f68ec41cd6d71::t_69ed7b3b4a97d1 1-63
+soon/config/initializers/inflections.rb
+  s_2f68ec41cd6d71::t_a394cb6a6326a9 1-16
+soon/config/initializers/resend.rb
+  s_2f68ec41cd6d71::t_31dc85bcb03bbd 1-6
+soon/config/initializers/stripe.rb
+  s_2f68ec41cd6d71::t_f0a9619ccf83c2 1
+soon/config/initializers/tsid.rb
+  s_2f68ec41cd6d71::t_e3e0a844ec01d7 1-6
+soon/config/locales/en.yml
+  s_2f68ec41cd6d71::t_c20bb66798e1cb 1-31
+soon/config/puma.rb
+  s_2f68ec41cd6d71::t_9f1e1cd69601a3 1-39
+soon/config/routes.rb
+  s_2f68ec41cd6d71::t_348dc0ce6b866f 1-377
+soon/config/storage.yml
+  s_2f68ec41cd6d71::t_5239b016536006 1-27
+soon/db/migrate/20260310134612_create_users.rb
+  s_2f68ec41cd6d71::t_1dd7b6a45cf68d 1-24
+soon/db/migrate/20260310134649_create_auth_codes.rb
+  s_2f68ec41cd6d71::t_5bca0efba174e9 1-12
+soon/db/migrate/20260310135646_create_groups.rb
+  s_2f68ec41cd6d71::t_1ca3aa5fd0d895 1-53
+soon/db/migrate/20260310142522_create_memberships.rb
+  s_2f68ec41cd6d71::t_b037899b5dadb0 1-14
+soon/db/migrate/20260310142525_create_events.rb
+  s_2f68ec41cd6d71::t_8c4006ca6f9eb5 1-44
+soon/db/migrate/20260310144020_create_participants.rb
+  s_2f68ec41cd6d71::t_2fc0f2e191db8e 1-12
+soon/db/migrate/20260310144021_create_places.rb
+  s_2f68ec41cd6d71::t_b7cf1a48d7d4a7 1-14
+soon/db/migrate/20260310144645_create_venues.rb
+  s_2f68ec41cd6d71::t_0a3241e641c18c 1-23
+soon/db/migrate/20260310144650_create_availabilities.rb
+  s_2f68ec41cd6d71::t_acd901c8e35713 1-15
+soon/db/migrate/20260310145055_create_tracks.rb
+  s_2f68ec41cd6d71::t_4dc28b164f1d98 1-15
+soon/db/migrate/20260311181820_create_markers.rb
+  s_2f68ec41cd6d71::t_8f54e7ffd9ceb6 1-19
+soon/db/migrate/20260311182717_create_track_roles.rb
+  s_2f68ec41cd6d71::t_c7a4d81ddf66bb 1-11
+soon/db/migrate/20260311183514_create_event_roles.rb
+  s_2f68ec41cd6d71::t_0970e570eaa3ea 1-16
+soon/db/migrate/20260311191202_create_domains.rb
+  s_2f68ec41cd6d71::t_16bb9833b9ee6f 1-13
+soon/db/migrate/20260311193550_create_recurrings.rb
+  s_2f68ec41cd6d71::t_432ab67d65a098 1-13
+soon/db/migrate/20260311193613_fix_recurring_id_in_events.rb
+  s_2f68ec41cd6d71::t_d7a081f2f291f0 1-5
+soon/db/migrate/20260311193614_add_foreign_keys_to_events.rb
+  s_2f68ec41cd6d71::t_08800a650d5a78 1-7
+soon/db/migrate/20260312000000_add_handle_to_users.rb
+  s_2f68ec41cd6d71::t_43bb02f7e83044 1-6
+soon/db/migrate/20260312000001_create_group_invites.rb
+  s_2f68ec41cd6d71::t_40077556095278 1-24
+soon/db/migrate/20260312000002_create_badge_classes.rb
+  s_2f68ec41cd6d71::t_40150fb3f4c4aa 1-27
+soon/db/migrate/20260312000003_create_badges.rb
+  s_2f68ec41cd6d71::t_40c437973eed0f 1-26
+soon/db/migrate/20260312000004_add_badge_foreign_keys_to_group_invites.rb
+  s_2f68ec41cd6d71::t_d68e40a97bdb4e 1-6
+soon/db/migrate/20260312000005_create_forms.rb
+  s_2f68ec41cd6d71::t_386e673d751e96 1-16
+soon/db/migrate/20260312000006_create_form_fields.rb
+  s_2f68ec41cd6d71::t_8ec6ff30101d27 1-16
+soon/db/migrate/20260312000007_create_form_submissions.rb
+  s_2f68ec41cd6d71::t_525c1948668bae 1-16
+soon/db/migrate/20260312000008_create_form_answers.rb
+  s_2f68ec41cd6d71::t_1b08442368281c 1-11
+soon/db/migrate/20260312000009_add_form_id_to_events.rb
+  s_2f68ec41cd6d71::t_311e059572042c 1-5
+soon/db/migrate/20260312000010_create_vouchers.rb
+  s_2f68ec41cd6d71::t_26aa4915274e88 1-24
+soon/db/migrate/20260312000011_add_voucher_foreign_key_to_badges.rb
+  s_2f68ec41cd6d71::t_76584f28906fcf 1-5
+soon/db/migrate/20260312000012_create_tickets.rb
+  s_2f68ec41cd6d71::t_61bf555b72e862 1-26
+soon/db/migrate/20260312000013_create_coupons.rb
+  s_2f68ec41cd6d71::t_481459179c16ce 1-21
+soon/db/migrate/20260312000014_create_payment_methods.rb
+  s_2f68ec41cd6d71::t_c2064db49c63f3 1-20
+soon/db/migrate/20260312000015_create_ticket_items.rb
+  s_2f68ec41cd6d71::t_3c25c197740a80 1-32
+soon/db/migrate/20260312000016_add_ticket_foreign_key_to_group_invites.rb
+  s_2f68ec41cd6d71::t_064fad51c9ddf0 1-5
+soon/db/migrate/20260312000017_add_ticket_fields_to_participants.rb
+  s_2f68ec41cd6d71::t_1cf943330db976 1-14
+soon/db/migrate/20260312000018_create_activities.rb
+  s_2f68ec41cd6d71::t_ade193fa8093c6 1-20
+soon/db/migrate/20260312000019_create_comments.rb
+  s_2f68ec41cd6d71::t_e755fb548a1b1e 1-25
+soon/db/migrate/20260316000000_add_unique_index_to_tracks_name.rb
+  s_2f68ec41cd6d71::t_d5db044cee61f7 1-5
+soon/db/migrate/20260316000001_add_quantity_check_constraint_to_tickets.rb
+  s_2f68ec41cd6d71::t_e834e610e03b18 1-5
+soon/db/migrate/20260316000002_add_txhash_uniqueness_and_coupon_code_index.rb
+  s_2f68ec41cd6d71::t_f5b26f0992555f 1-13
+soon/db/migrate/20260316000003_add_archived_to_venues.rb
+  s_2f68ec41cd6d71::t_a4dfd1fdc782f9 1-6
+soon/db/migrate/20260316000004_drop_redundant_badge_voucher_columns.rb
+  s_2f68ec41cd6d71::t_be02bdae50e5cf 1-17
+soon/db/migrate/20260316000005_add_attempts_to_auth_codes.rb
+  s_2f68ec41cd6d71::t_dafdfc186e4c63 1-6
+soon/db/migrate/20260316000006_remove_handle_from_users.rb
+  s_2f68ec41cd6d71::t_deef643a5272ae 1-6
+soon/db/migrate/20260716000001_add_unique_index_to_group_names.rb
+  s_2f68ec41cd6d71::t_cf39412b253946 1-5
+soon/db/migrate/20260716000002_add_data_to_places.rb
+  s_2f68ec41cd6d71::t_ec5fe6b38fc36b 1-5
+soon/db/migrate/20260716000003_add_sol_to_users.rb
+  s_2f68ec41cd6d71::t_d966e08462760f 1-6
+soon/db/migrate/20260718000000_add_ref_id_for_sails_migration.rb
+  s_2f68ec41cd6d71::t_8c0998cf137b3e 1-12
+soon/db/migrate/20260729000000_add_booking_window_to_venues.rb
+  s_2f68ec41cd6d71::t_1d441923fcf287 1-9
+soon/db/migrate/20260729111650_add_featured_image_url_to_groups.rb
+  s_2f68ec41cd6d71::t_decaa065f4943c 1-5
+soon/db/migrate/20260729113156_remove_unique_index_on_places_name.rb
+  s_2f68ec41cd6d71::t_297f409f52e778 1-12
+soon/db/migrate/20260729151139_create_good_jobs.rb
+  s_2f68ec41cd6d71::t_abf3dacc09c25d 1-126
+soon/db/migrate/20260730120000_create_stripe_settings.rb
+  s_2f68ec41cd6d71::t_8cfad73271a0af 1-21
+soon/db/migrate/20260730120001_create_stripe_events.rb
+  s_2f68ec41cd6d71::t_f99bfadc062fd3 1-17
+soon/db/migrate/20260730120002_create_refunds.rb
+  s_2f68ec41cd6d71::t_2a75267f799572 1-26
+soon/db/migrate/20260730120003_payments_and_participant_state.rb
+  s_2f68ec41cd6d71::t_192fcfac459602 1-129
+soon/db/migrate/20260731083140_add_wechat_identity_to_users.rb
+  s_2f68ec41cd6d71::t_06dfe033d6d104 1-21
+soon/db/migrate/20260807101500_remove_venue_name_uniqueness.rb
+  s_2f68ec41cd6d71::t_f17e9c641ccf97 1-17
+soon/db/migrate/20260808120000_create_wechat_pay_settings.rb
+  s_2f68ec41cd6d71::t_73492ef0d7e9cd 1-45
+soon/db/migrate/20260808120001_create_wechat_pay_events.rb
+  s_2f68ec41cd6d71::t_077d7d55b15d2c 1-22
+soon/db/migrate/20260808180000_create_ticketing_activities.rb
+  s_2f68ec41cd6d71::t_deb2499ef4bbe7 1-53
+soon/db/migrate/20260809120000_add_admin_to_users.rb
+  s_2f68ec41cd6d71::t_fea2fec1f3c455 1-16
+soon/db/migrate/20260809120001_add_admin_notification_to_memberships.rb
+  s_2f68ec41cd6d71::t_8656fcb094eb74 1-16
+soon/db/migrate/20260812120000_add_image_note_to_events.rb
+  s_2f68ec41cd6d71::t_3e03d09eca8bf6 1-7
+soon/db/migrate/20260814100000_add_check_group_ids_to_tickets.rb
+  s_2f68ec41cd6d71::t_0abb2fb9d1caa3 1-7
+soon/db/migrate/20260815120000_create_oauth_applications.rb
+  s_2f68ec41cd6d71::t_7d5d98926d62b8 1-33
+soon/db/migrate/20260815120001_create_oauth_authorization_codes.rb
+  s_2f68ec41cd6d71::t_c93fdeb74d4c7b 1-29
+soon/db/migrate/20260815120002_create_oauth_access_tokens.rb
+  s_2f68ec41cd6d71::t_8885c25619683a 1-19
+soon/db/migrate/20260815120003_create_oauth_refresh_tokens.rb
+  s_2f68ec41cd6d71::t_878965acf8725a 1-24
+soon/db/migrate/20260815120004_create_oauth_grants.rb
+  s_2f68ec41cd6d71::t_11c4f3b6c85810 1-14
+soon/db/migrate/20260816120000_add_public_submissions_to_forms.rb
+  s_2f68ec41cd6d71::t_48ef6040e2b058 1-9
+soon/db/migrate/20260817120000_add_discussion_to_groups.rb
+  s_2f68ec41cd6d71::t_ceb2462711cee6 1-13
+soon/db/migrate/20260817120001_create_categories.rb
+  s_2f68ec41cd6d71::t_05b2088369776e 1-22
+soon/db/migrate/20260817120002_create_category_members.rb
+  s_2f68ec41cd6d71::t_5d66d0d5a97e60 1-15
+soon/db/migrate/20260817120003_create_topics.rb
+  s_2f68ec41cd6d71::t_86cd3e7cbcf6d0 1-53
+soon/db/migrate/20260817120004_create_replies.rb
+  s_2f68ec41cd6d71::t_f0d0027f9ebdf2 1-32
+soon/db/migrate/20260817130000_add_stars_count_to_replies.rb
+  s_2f68ec41cd6d71::t_623b5bcff2ed1c 1-8
+soon/db/migrate/20260817140000_create_teams.rb
+  s_2f68ec41cd6d71::t_50203515eb9862 1-33
+soon/db/migrate/20260817140001_replace_category_members_with_teams.rb
+  s_2f68ec41cd6d71::t_f615016348a54f 1-37
+soon/db/migrate/20260817150000_add_is_public_to_teams.rb
+  s_2f68ec41cd6d71::t_ebf93a63994a20 1-12
+soon/db/migrate/20260821120000_rename_event_visibility_values.rb
+  s_2f68ec41cd6d71::t_c3686fd03c28b4 1-25
+soon/db/migrate/20260821130000_create_withdrawals.rb
+  s_2f68ec41cd6d71::t_f543db8cc921d2 1-27
+soon/db/migrate/20260822010000_add_group_to_withdrawals.rb
+  s_2f68ec41cd6d71::t_0e71c623811537 1-12
+soon/db/migrate/20260822010001_add_require_event_approval_to_groups.rb
+  s_2f68ec41cd6d71::t_6efe34e8bc74a1 1-5
+soon/db/migrate/20260822020000_add_expires_at_to_memberships.rb
+  s_2f68ec41cd6d71::t_1c44ba67030e14 1-6
+soon/db/migrate/20260822030000_add_membership_duration_days_to_tickets.rb
+  s_2f68ec41cd6d71::t_b17aca36c7ec73 1-5
+soon/db/migrate/20260830010000_add_map_enabled_to_groups.rb
+  s_2f68ec41cd6d71::t_839726af81d274 1-10
+soon/db/migrate/20260909010000_create_polls.rb
+  s_2f68ec41cd6d71::t_ce4f05bef19165 1-78
+soon/db/migrate/20260909020000_add_eligibility_to_polls.rb
+  s_2f68ec41cd6d71::t_51f75c91b19988 1-11
+soon/db/migrate/20260909030000_create_hackathons.rb
+  s_2f68ec41cd6d71::t_e871551f370abd 1-122
+soon/db/schema.rb
+  s_2f68ec41cd6d71::t_e41963ad419398 1-1727
+soon/db/seeds.rb
+  s_2f68ec41cd6d71::t_070e65077563ab 1-9
+soon/design/ARCHITECTURE.md
+  s_2f68ec41cd6d71::t_578733fb82a240 1-791
+soon/design/BEHAVIOR_COMPARISON.md
+  s_2f68ec41cd6d71::t_ff96dd0ff40f4b 1-172
+soon/design/CHANGELOG.md
+  s_2f68ec41cd6d71::t_e34b877943f0c9 1-2298
+soon/design/DISCUSSION_PLAN.md
+  s_2f68ec41cd6d71::t_586d3006da0b74 1-960
+soon/design/FEDERATION_INTEROP_VERIFICATION.md
+  s_2f68ec41cd6d71::t_b8132fba2c986e 1-230
+soon/design/FEDERATION_PLAN.md
+  s_2f68ec41cd6d71::t_953d86eb6e6fe2 1-657
+soon/design/FEDERATION_TEST_PLAN.md
+  s_2f68ec41cd6d71::t_fd938814b4cfbf 1-324
+soon/design/HACKATHON_MODULE.md
+  s_2f68ec41cd6d71::t_b4fd8644857fc9 1-462
+soon/design/MEMBERSHIP_CARD.md
+  s_2f68ec41cd6d71::t_ef9afa04137eaa 1-107
+soon/design/MIGRATION_PLAN.md
+  s_2f68ec41cd6d71::t_05a58d3199a2b7 1-649
+soon/design/MIGRATION_REPORT.md
+  s_2f68ec41cd6d71::t_08dca4e4bd8fdf 1-437
+soon/design/OAUTH_PROVIDER_PLAN.md
+  s_2f68ec41cd6d71::t_d81b392e1d1fa3 1-398
+soon/design/PAYMENTS_PLAN.md
+  s_2f68ec41cd6d71::t_a743f90b57db62 1-773
+soon/design/PERMISSIONS.md
+  s_2f68ec41cd6d71::t_3654032ffb1402 1-224
+soon/design/POLL_MODULE.md
+  s_2f68ec41cd6d71::t_19b0514126dc6f 1-331
+soon/design/SAILS_COMPARISON.md
+  s_2f68ec41cd6d71::t_99de59029a5739 1-150
+soon/design/TEAM_PLAN.md
+  s_2f68ec41cd6d71::t_e26e555f9b23ba 1-201
+soon/design/WECHAT_INTEGRATION.md
+  s_2f68ec41cd6d71::t_c5507000812d98 1-821
+soon/design/migration_report_2026-07-29.md
+  s_2f68ec41cd6d71::t_c538f2eb55375f 1-146
+soon/ginger.cn.yml
+  s_2f68ec41cd6d71::t_3cc19045ae79b3 1-120
+soon/ginger.yml
+  s_2f68ec41cd6d71::t_cd6edfe0ac816c 1-132
+soon/lib/evm_payment_verifier.rb
+  s_2f68ec41cd6d71::t_8ae75496c451de 1-146
+soon/lib/tasks/handles.rake
+  s_2f68ec41cd6d71::t_8f96bbfcef6dca 1-179
+soon/lib/tasks/ticketing_activities.rake
+  s_2f68ec41cd6d71::t_9f522221c85642 1-86
+soon/lib/tasks/wechat_pay.rake
+  s_2f68ec41cd6d71::t_3f5406c6ec97cc 1-77
+soon/lib/tsid.rb
+  s_2f68ec41cd6d71::t_300f9ee91a2fe6 1-103
+soon/package.json
+  s_2f68ec41cd6d71::t_236f4cf8586cd8 1-13
+soon/public/400.html
+  s_2f68ec41cd6d71::t_6e4025ddbc2c53 1-135
+soon/public/404.html
+  s_2f68ec41cd6d71::t_9d103b21459272 1-135
+soon/public/406-unsupported-browser.html
+  s_2f68ec41cd6d71::t_76d01b0b37e986 1-135
+soon/public/422.html
+  s_2f68ec41cd6d71::t_81d8851192e836 1-135
+soon/public/500.html
+  s_2f68ec41cd6d71::t_5483499579c842 1-135
+soon/public/icon.svg
+  s_2f68ec41cd6d71::t_8beaf6178f64a2 1-3
+soon/public/robots.txt
+  s_2f68ec41cd6d71::t_5f13d3f59ba5ce 1
+soon/script/migrate_from_sails.rb
+  s_2f68ec41cd6d71::t_6794ff88ab91e4 1-567
+soon/script/verify_migration.rb
+  s_2f68ec41cd6d71::t_b4518bbbee6b5e 1-364
+soon/test/controllers/api/legacy_icalendar_test.rb
+  s_2f68ec41cd6d71::t_a08f74198894dd 1-80
+soon/test/controllers/api/legacy_id_test.rb
+  s_2f68ec41cd6d71::t_7a3b0e3d9d879d 1-86
+soon/test/controllers/api/legacy_token_test.rb
+  s_2f68ec41cd6d71::t_5d264af03151fa 1-123
+soon/test/controllers/api/v1/activities_controller_test.rb
+  s_2f68ec41cd6d71::t_1bceb53126fa92 1-89
+soon/test/controllers/api/v1/admin_withdrawals_controller_test.rb
+  s_2f68ec41cd6d71::t_422e542b372a2f 1-98
+soon/test/controllers/api/v1/auth_controller_test.rb
+  s_2f68ec41cd6d71::t_34bcb3883d22f6 1-423
+soon/test/controllers/api/v1/badge_classes_controller_test.rb
+  s_2f68ec41cd6d71::t_c5796f1f92f10a 1-169
+soon/test/controllers/api/v1/badges_controller_test.rb
+  s_2f68ec41cd6d71::t_2c7bbc5ff3659c 1-301
+soon/test/controllers/api/v1/calendars_controller_test.rb
+  s_2f68ec41cd6d71::t_a613e5a9df764e 1-75
+soon/test/controllers/api/v1/comments_controller_test.rb
+  s_2f68ec41cd6d71::t_0c0fb70d114607 1-167
+soon/test/controllers/api/v1/discover_test.rb
+  s_2f68ec41cd6d71::t_ea8536c178ccc8 1-159
+soon/test/controllers/api/v1/discussion_controller_test.rb
+  s_2f68ec41cd6d71::t_0281ce883cf70c 1-560
+soon/test/controllers/api/v1/event_browse_test.rb
+  s_2f68ec41cd6d71::t_2ba163114bb94e 1-175
+soon/test/controllers/api/v1/event_roles_controller_test.rb
+  s_2f68ec41cd6d71::t_ef208af1aefc78 1-164
+soon/test/controllers/api/v1/events_controller_test.rb
+  s_2f68ec41cd6d71::t_0589a6a44ff493 1-1169
+soon/test/controllers/api/v1/forms_controller_test.rb
+  s_2f68ec41cd6d71::t_b1c93f3d4918a0 1-461
+soon/test/controllers/api/v1/group_invites_controller_test.rb
+  s_2f68ec41cd6d71::t_21db615d73166e 1-498
+soon/test/controllers/api/v1/groups_controller_test.rb
+  s_2f68ec41cd6d71::t_88c1e872ef777a 1-255
+soon/test/controllers/api/v1/hackathons_controller_test.rb
+  s_2f68ec41cd6d71::t_4305dabff110a4 1-368
+soon/test/controllers/api/v1/map_and_profile_tabs_test.rb
+  s_2f68ec41cd6d71::t_7db3a9ff2e1d62 1-143
+soon/test/controllers/api/v1/markers_controller_test.rb
+  s_2f68ec41cd6d71::t_6958f08f4f1f45 1-143
+soon/test/controllers/api/v1/memberships_controller_test.rb
+  s_2f68ec41cd6d71::t_3e075fa900ff72 1-489
+soon/test/controllers/api/v1/oauth_admin_applications_controller_test.rb
+  s_2f68ec41cd6d71::t_57f8d383360b49 1-66
+soon/test/controllers/api/v1/oauth_applications_controller_test.rb
+  s_2f68ec41cd6d71::t_eb69e35a4f6d9a 1-177
+soon/test/controllers/api/v1/oauth_controller_test.rb
+  s_2f68ec41cd6d71::t_0a399580ab5041 1-558
+soon/test/controllers/api/v1/oauth_grants_controller_test.rb
+  s_2f68ec41cd6d71::t_83aa7c370ca155 1-45
+soon/test/controllers/api/v1/participants_controller_test.rb
+  s_2f68ec41cd6d71::t_a37f759f64071f 1-776
+soon/test/controllers/api/v1/phone_auth_test.rb
+  s_2f68ec41cd6d71::t_0a8c81f9f6a80c 1-417
+soon/test/controllers/api/v1/places_controller_test.rb
+  s_2f68ec41cd6d71::t_b3b0229467161d 1-65
+soon/test/controllers/api/v1/places_tracks_test.rb
+  s_2f68ec41cd6d71::t_054fa092835b96 1-107
+soon/test/controllers/api/v1/polls_controller_test.rb
+  s_2f68ec41cd6d71::t_6865b880ebcbfe 1-387
+soon/test/controllers/api/v1/public_reads_test.rb
+  s_2f68ec41cd6d71::t_fc8ff918ddf63e 1-137
+soon/test/controllers/api/v1/recurring_controller_test.rb
+  s_2f68ec41cd6d71::t_da379b1aaa8cbb 1-483
+soon/test/controllers/api/v1/remember_test.rb
+  s_2f68ec41cd6d71::t_d0c06ff5ce815b 1-100
+soon/test/controllers/api/v1/standalone_forms_controller_test.rb
+  s_2f68ec41cd6d71::t_19dec2e651b7e5 1-536
+soon/test/controllers/api/v1/stripe_settings_controller_test.rb
+  s_2f68ec41cd6d71::t_0e647c71551e69 1-150
+soon/test/controllers/api/v1/stripe_webhooks_controller_test.rb
+  s_2f68ec41cd6d71::t_ade57e68fcdea7 1-63
+soon/test/controllers/api/v1/teams_controller_test.rb
+  s_2f68ec41cd6d71::t_9e3540b3b12132 1-283
+soon/test/controllers/api/v1/tickets_controller_test.rb
+  s_2f68ec41cd6d71::t_2a70800fb747f5 1-1325
+soon/test/controllers/api/v1/tickets_stripe_flow_test.rb
+  s_2f68ec41cd6d71::t_88ce6c79a4a042 1-183
+soon/test/controllers/api/v1/tickets_wechat_flow_test.rb
+  s_2f68ec41cd6d71::t_870d780c14c8ed 1-346
+soon/test/controllers/api/v1/tracks_controller_test.rb
+  s_2f68ec41cd6d71::t_a175cd79623a31 1-65
+soon/test/controllers/api/v1/uploads_controller_test.rb
+  s_2f68ec41cd6d71::t_c6b4c36967e665 1-104
+soon/test/controllers/api/v1/users_controller_test.rb
+  s_2f68ec41cd6d71::t_399bd8027ac514 1-274
+soon/test/controllers/api/v1/venues_controller_test.rb
+  s_2f68ec41cd6d71::t_f8c1580163cb6c 1-396
+soon/test/controllers/api/v1/vouchers_controller_test.rb
+  s_2f68ec41cd6d71::t_f1ad789898fcec 1-608
+soon/test/controllers/api/v1/wallet_auth_test.rb
+  s_2f68ec41cd6d71::t_aa7ae19159cf85 1-413
+soon/test/controllers/api/v1/wechat_purchase_journey_test.rb
+  s_2f68ec41cd6d71::t_bb1760016dab74 1-156
+soon/test/controllers/api/v1/withdrawals_controller_test.rb
+  s_2f68ec41cd6d71::t_0f9d585b6907eb 1-110
+soon/test/fixtures/files/cv.pdf
+  s_2f68ec41cd6d71::t_d610924c0857f3 1-4
+soon/test/integration/email_notifications_test.rb
+  s_2f68ec41cd6d71::t_154edb137fcf53 1-245
+soon/test/jobs/mail_jobs_test.rb
+  s_2f68ec41cd6d71::t_1fb85e36c86cb1 1-166
+soon/test/jobs/poll_auto_close_job_test.rb
+  s_2f68ec41cd6d71::t_4409cefd0ccd07 1-31
+soon/test/jobs/stripe_reconciliation_job_test.rb
+  s_2f68ec41cd6d71::t_13b52632e0e291 1-88
+soon/test/jobs/stripe_webhook_job_test.rb
+  s_2f68ec41cd6d71::t_122abcdcac7c2c 1-231
+soon/test/jobs/ticketing_sweeper_job_test.rb
+  s_2f68ec41cd6d71::t_19295ca08588f7 1-140
+soon/test/jobs/wechat_pay_webhook_job_test.rb
+  s_2f68ec41cd6d71::t_f6c63c6d094480 1-159
+soon/test/mailers/auth_mailer_test.rb
+  s_2f68ec41cd6d71::t_0f321bd0089463 1-17
+soon/test/mailers/comment_mailer_test.rb
+  s_2f68ec41cd6d71::t_b45d74980a9afc 1-29
+soon/test/mailers/event_mailer_test.rb
+  s_2f68ec41cd6d71::t_225446e39a44f3 1-76
+soon/test/mailers/group_mailer_test.rb
+  s_2f68ec41cd6d71::t_9c09bd5816a32d 1-57
+soon/test/models/badge_test.rb
+  s_2f68ec41cd6d71::t_dd3de918839d23 1-66
+soon/test/models/coupon_test.rb
+  s_2f68ec41cd6d71::t_d01ee587885a98 1-143
+soon/test/models/discussion_test.rb
+  s_2f68ec41cd6d71::t_d54aeccd0140ed 1-172
+soon/test/models/group_invite_test.rb
+  s_2f68ec41cd6d71::t_dec3ac95d375bd 1-18
+soon/test/models/group_test.rb
+  s_2f68ec41cd6d71::t_7c3ca52f990b49 1-74
+soon/test/models/handle_name_test.rb
+  s_2f68ec41cd6d71::t_bfecb2c642cc1a 1-120
+soon/test/models/membership_test.rb
+  s_2f68ec41cd6d71::t_2a27a9f5919394 1-60
+soon/test/models/oauth_application_test.rb
+  s_2f68ec41cd6d71::t_ba9a306e194406 1-48
+soon/test/models/oauth_cascade_test.rb
+  s_2f68ec41cd6d71::t_f1d8427f8b4780 1-50
+soon/test/models/participant_test.rb
+  s_2f68ec41cd6d71::t_f53ee76cd54906 1-72
+soon/test/models/payment_method_test.rb
+  s_2f68ec41cd6d71::t_de7625bdb4ca94 1-147
+soon/test/models/refund_test.rb
+  s_2f68ec41cd6d71::t_706f3c48ad4088 1-35
+soon/test/models/stripe_setting_test.rb
+  s_2f68ec41cd6d71::t_4b0b97d9d50d76 1-43
+soon/test/models/ticket_item_test.rb
+  s_2f68ec41cd6d71::t_2495fa1e2d79e5 1-184
+soon/test/models/ticket_test.rb
+  s_2f68ec41cd6d71::t_67043ec6aa9cdc 1-86
+soon/test/models/ticketing_activity_test.rb
+  s_2f68ec41cd6d71::t_5a6277c09040f4 1-115
+soon/test/models/track_test.rb
+  s_2f68ec41cd6d71::t_11dc35d8df7008 1-34
+soon/test/models/user_test.rb
+  s_2f68ec41cd6d71::t_995f831a4747d2 1-25
+soon/test/models/voucher_test.rb
+  s_2f68ec41cd6d71::t_ddf3c5f8e8b43d 1-45
+soon/test/models/wechat_pay_setting_test.rb
+  s_2f68ec41cd6d71::t_70b84ca2e90542 1-56
+soon/test/models/withdrawal_test.rb
+  s_2f68ec41cd6d71::t_35b2de0602b06a 1-113
+soon/test/services/event_calendar_test.rb
+  s_2f68ec41cd6d71::t_71a030fe35896a 1-145
+soon/test/services/oauth_config_test.rb
+  s_2f68ec41cd6d71::t_96bd9675dbed0d 1-46
+soon/test/services/object_store_test.rb
+  s_2f68ec41cd6d71::t_30d8e77c77dc85 1-85
+soon/test/services/stripe_gateway_test.rb
+  s_2f68ec41cd6d71::t_59b0ff2f5e4510 1-45
+soon/test/services/user_merger_team_test.rb
+  s_2f68ec41cd6d71::t_2acf4718eac73e 1-61
+soon/test/services/wechat_pay_gateway_test.rb
+  s_2f68ec41cd6d71::t_58f8b63da362e8 1-296
+soon/test/support/auth_helper.rb
+  s_2f68ec41cd6d71::t_d462710ee73924 1-9
+soon/test/support/factory_helpers.rb
+  s_2f68ec41cd6d71::t_be31dd988f00ac 1-246
+soon/test/test_helper.rb
+  s_2f68ec41cd6d71::t_b170d6c610a862 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7c19006018187c13c3b6980842c0846569798f98",
+  "prompts": {},
+  "sessions": {
+    "s_2f68ec41cd6d71": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "aaa349d1-6ae8-47f7-92fd-5a5c7d5c2822",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "jiangplus <jiang.plus.times@gmail.com>"
+    }
+  }
+}
