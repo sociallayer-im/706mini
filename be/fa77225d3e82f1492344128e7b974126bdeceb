@@ -1,0 +1,72 @@
+docs/data-integration/README.md
+  h_b053bf74bef223 15-17
+docs/data-integration/design-schema.md
+  h_b053bf74bef223 1-471
+docs/data-integration/rest-api.md
+  h_b053bf74bef223 1-505
+docs/data-integration/soon-call.md
+  h_b053bf74bef223 1-1024
+miniprogram/app.json
+  h_b053bf74bef223 7-8
+miniprogram/config.js
+  h_b053bf74bef223 2-4
+miniprogram/lib/api.js
+  h_b053bf74bef223 1-19
+miniprogram/lib/calendar-poster.js
+  h_b053bf74bef223 8
+miniprogram/lib/content-validation.js
+  h_b053bf74bef223 1
+miniprogram/lib/dates.js
+  h_b053bf74bef223 11-20
+miniprogram/lib/forms.js
+  h_b053bf74bef223 5-6,21
+miniprogram/lib/i18n.js
+  h_b053bf74bef223 6,10,17,20
+miniprogram/lib/icons.js
+  h_b053bf74bef223 8
+miniprogram/lib/mock/index.js
+  h_b053bf74bef223 34,68,73,94,108,119,121,127
+miniprogram/lib/page.js
+  h_b053bf74bef223 34,46-49,51-52,55-58,76-78,84,90,95-109,139-141,145,149-157,172-176,239,288-289,298-301,325,329,338-339
+miniprogram/lib/preferences.js
+  h_b053bf74bef223 8
+miniprogram/lib/soon-map.js
+  h_b053bf74bef223 1-358
+miniprogram/lib/soon.js
+  h_b053bf74bef223 1-703
+miniprogram/pages/create-space/index.js
+  h_b053bf74bef223 1
+miniprogram/pages/create-space/index.json
+  h_b053bf74bef223 1
+miniprogram/pages/create-space/index.wxml
+  h_b053bf74bef223 1
+miniprogram/pages/manage/index.js
+  h_b053bf74bef223 1
+miniprogram/pages/manage/index.json
+  h_b053bf74bef223 1
+miniprogram/pages/manage/index.wxml
+  h_b053bf74bef223 1
+miniprogram/templates/screen.wxml
+  h_b053bf74bef223 55-60,83,94,142,144,158,168,187,190,195
+miniprogram/templates/sheets.wxml
+  h_b053bf74bef223 12
+project.config.json
+  h_b053bf74bef223 5
+scripts/verify-editorial-round.cjs
+  h_b053bf74bef223 14
+scripts/verify-native-review.cjs
+  h_b053bf74bef223 33
+test/soon-map.test.js
+  h_b053bf74bef223 1-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "befa77225d3e82f1492344128e7b974126bdeceb",
+  "prompts": {},
+  "humans": {
+    "h_b053bf74bef223": {
+      "author": "jiangplus <jiang.plus.times@gmail.com>"
+    }
+  }
+}
