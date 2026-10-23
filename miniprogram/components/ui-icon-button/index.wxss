@@ -3,6 +3,7 @@
 .ui-icon-button::after{border:0}
 .ui-icon-button-face{display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box;border:0;border-radius:50%;overflow:hidden;transition:opacity var(--pressDuration) ease-out}
 .surface-surface{background:var(--surface)}
+.surface-plain{background:transparent}
 .surface-glass{background:var(--navigationSurface);-webkit-backdrop-filter:blur(var(--navigationBlur));backdrop-filter:blur(var(--navigationBlur))}
 .ui-icon-button-glyph{display:block;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}
 .is-pressed .ui-icon-button-face{opacity:var(--pressOpacity)}

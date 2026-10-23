@@ -54,6 +54,14 @@
   "style": "v2",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
+    "ui-status-summary": "/components/ui-status-summary/index",
+    "ui-filter-chip": "/components/ui-filter-chip/index",
+    "ui-personal-campaign": "/components/ui-personal-campaign/index",
+    "ui-review-history": "/components/ui-review-history/index",
+    "ui-button": "/components/ui-button/index",
+    "ui-personal-event": "/components/ui-personal-event/index",
+    "ui-access-step": "/components/ui-access-step/index",
+    "ui-action-row": "/components/ui-action-row/index",
     "ui-icon-button": "/components/ui-icon-button/index"
   }
 }

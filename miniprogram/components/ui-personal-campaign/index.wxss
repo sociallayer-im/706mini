@@ -1,0 +1,6 @@
+.campaign-item{box-sizing:border-box;padding:var(--panelInset);margin-bottom:var(--itemGap);border-radius:var(--radius);background:var(--surface);color:var(--ink)}
+.state{display:block;color:var(--muted);font-size:var(--typeMeta);line-height:1.5}
+.title{margin-top:var(--actionGap);font-size:var(--typeBody);font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+.summary{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);color:var(--muted);line-height:1.7}
+.actions{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:var(--actionGap);margin-top:var(--actionGap)}
+.is-pressed{opacity:var(--pressOpacity)}

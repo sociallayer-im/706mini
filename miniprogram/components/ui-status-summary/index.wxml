@@ -1,0 +1,1 @@
+<view class="status-summary" style="{{theme}}"><view class="heading"><image wx:if="{{icon}}" class="status-icon" src="{{icon}}" aria-hidden="true"/><text class="title">{{title}}</text></view><view class="context"><slot/></view></view>

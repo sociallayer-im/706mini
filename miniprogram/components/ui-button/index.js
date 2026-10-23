@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated'},data:{theme:theme.style()},properties:{label:String,variant:{type:String,value:'secondary'},context:{type:String,value:'surface'},compact:Boolean,block:Boolean,selected:Boolean,disabled:Boolean,loading:Boolean},methods:{press(){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press');}}});

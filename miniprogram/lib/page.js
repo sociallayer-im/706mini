@@ -70,7 +70,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  onShareAppMessage(){return {title:this.data.record?.title||'706',path:'/pages/'+route+'/index'+(this.options.id?'?id='+encodeURIComponent(this.options.id):'')};},
  refreshPeople(){return this.run(async()=>{this.peopleOffset=(this.peopleOffset||0)+2;const r=await this.read('people',api.isMock()?{prototype:true,offset:this.peopleOffset}:{city:this.data.city,exclude:[this.data.currentUser,...this.data.people.map(x=>x.owner)]});this.setData({people:editorial.people(r.items,this.data.currentUser)});});},
  refreshLanguage(){const p=prefs.get(),t=i18n.dictionary(p.locale);this.setData({t,sheetCopy:require('./sheet-copy')(p.locale),locale:p.locale,city:p.city,title:t[route]||'706',demo:api.isMock(),mode:api.mode(),demoName:api.isMock()?api.mock.personas.find(x=>x.id===api.session()?.id)?.label||'游客':'',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});if(!tabs.includes(route))wx.setNavigationBarTitle({title:t[route]||'706',demo:api.isMock(),mode:api.mode(),demoName:api.isMock()?api.mock.personas.find(x=>x.id===api.session()?.id)?.label||'游客':'',currentUser:api.session()?.id||'',cityName:this.config?.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']||t.city});this.setData(tabState(p.locale,route));},
- tabVisibility(visible){visible=visible&&!presentation.isTask(route)&&!['event','activity-preview'].includes(route);const bar=this.getTabBar?.();if(bar)bar.setData({hidden:!visible});},
+ tabVisibility(visible){visible=visible&&tabs.includes(route);const bar=this.getTabBar?.();if(bar)bar.setData({hidden:!visible});},
  draftKey(){return '706.draft.'+api.mode()+'.'+(api.isMock()?api.mock.state().version+'.':'')+route+'.'+(this.options.id||'new')+'.'+(api.session()?.id||'anonymous');},
  read(op,params={}){return api.call('read',{op,params});},
  async allMine(kind){let items=[],cursor;do{const r=await this.read('mine',{kind,cursor});items.push(...r.items);cursor=r.has_more?r.next_cursor:null;}while(cursor);return items;},
@@ -188,6 +188,8 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  menuEntry(e){if(e.currentTarget.dataset.kind)return this.sheet(e);return this.navigate(e);},
  openItem(e){if(['attendees','admins','invitations','approval-progress','campaign-review-progress'].includes(route))return;const item=this.data.items[Number(e.currentTarget.dataset.index)];if(route==='messages'){this.run(async()=>{await this.write('read',{id:item.id});if(item.target?.route)go(item.target.route,item.target.id);});}else if(route==='approvals')go(item.subject_type==='campaign'?'campaign-approval-detail':'approval-detail',item.id);else go(item.route,item.route==='member'?(item.owner||item.id):item.id);},
  openEvent(e){const d=e.currentTarget.dataset;go(d.route==='activity-preview'?'activity-preview':'event',d.id);},
+ personalNavigate(e){if(e.detail.route)go(e.detail.route,e.detail.id);},
+ personalAction(e){this.action({currentTarget:{dataset:e.detail}});},
  mineFilter(e){this.setData({minePhase:e.currentTarget.dataset.phase});this.load();},
  bannerChange(e){this.setData({bannerIndex:e.detail.current});},
  nodeChange(e){this.setData({nodeIndex:e.detail.current});},
@@ -241,7 +243,15 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   this.closeSheet();if(kind==='report'){this.setData({sheetForm:{}});wx.showToast({title:this.data.t.saved,icon:'success'});}if(kind==='register')go('event-access',result.id);else await this.load();});},
  action(e){const {op,id,approve,version,userId,enabled,blockId}=e.currentTarget.dataset;this.run(async()=>{const p={id:id||this.options.id,version:version||this.data.record?.version,...(approve===undefined?{}:{approve}),...(userId?{user_id:userId}:{}),...(enabled===undefined?{}:{enabled:enabled!==false&&enabled!=='false'&&enabled!=='0'&&enabled!==0}),...(blockId?{block_id:blockId}:{})};
   if(op==='review'&&!approve){if(!this.data.sheetForm.note){this.setData({error:this.data.t.REASON_REQUIRED});return;}p.note=this.data.sheetForm.note;}
-  if(['cancelEvent','cancelRegistration','revokeRole'].includes(op)){const yes=await new Promise(resolve=>wx.showModal({title:this.data.t[op]||this.data.t.confirm,success:r=>resolve(r.confirm)}));if(!yes)return;}
+  if(['cancelEvent','cancelRegistration','revokeRole'].includes(op)){
+   const en=this.data.locale==='en';
+   const confirmation=op==='cancelEvent'?{
+    title:en?'Cancel this event?':'确认取消活动？',
+    content:en?'Registration will close and existing registrations will be cancelled. Please coordinate the next steps with participants.':'取消后将停止报名，已有报名也将被取消。请与参与者沟通后续安排。',
+    confirmText:this.data.t.cancelEvent,cancelText:en?'Keep event':'保留活动',confirmColor:theme.tokens.danger
+   }:{title:this.data.t[op]||this.data.t.confirm};
+   const yes=await new Promise(resolve=>wx.showModal({...confirmation,success:r=>resolve(r.confirm),fail:()=>resolve(false)}));if(!yes)return;
+  }
   if(op==='payment'){this.closeSheet();if(api.isMock()){const choice=await new Promise(resolve=>wx.showModal({title:'模拟支付',content:'仅改变本地演示状态，不会扣款。',success:r=>resolve(r.confirm)}));if(choice){await api.call('payment',p);await this.load();}return;}const r=await api.call('payment',p);await new Promise((resolve,reject)=>wx.requestPayment({...r,success:resolve,fail:reject}));await this.load();return;}
   if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
   if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}

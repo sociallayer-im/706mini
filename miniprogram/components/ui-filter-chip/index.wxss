@@ -1,0 +1,1 @@
+.chip-slot{display:inline-flex;vertical-align:middle;margin-right:var(--actionGap);white-space:normal}

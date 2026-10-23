@@ -9,6 +9,8 @@ const tokens={
  touchTarget:'44px',iconControlFallback:'32px',iconControlGlyph:'32rpx',pressDuration:'140ms',pressOpacity:'.7',navigationBlur:'18px',
  stroke:'1px',radius:'32rpx',radiusImage:'24rpx',radiusInput:'24rpx',radiusSheet:'48rpx',pill:'999rpx',
  spaceUnit:'8rpx',pageGutter:'32rpx',sectionGap:'56rpx',headingGap:'24rpx',
+ personalArtWidth:'144rpx',personalArtHeight:'192rpx',actionWeight:'500',
+ controlCompactHeight:'56rpx',controlCompactInset:'24rpx',controlStandardInset:'32rpx',actionGap:'16rpx',actionCopyMin:'240rpx',loadingDuration:'800ms',
  itemGap:'32rpx',panelInset:'32rpx',sectionInset:'40rpx',controlHeight:'88rpx',
  eventRadius:'44rpx',eventArtRadius:'38rpx',eventRim:'6rpx',eventArtWidth:'264rpx',eventArtHeight:'352rpx',
  eventArtSize:'264rpx',eventInset:'6rpx',stickerWidth:'500rpx',stickerHeight:'200rpx',stickerAvatar:'84rpx',

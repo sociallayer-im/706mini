@@ -1,0 +1,12 @@
+.action-row-shell{position:relative;background:var(--surface)}
+.action-row{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:var(--headingGap);width:100%;min-height:var(--touchTarget);margin:0;padding:var(--headingGap) var(--panelInset);border:0;border-radius:0;background:var(--surface);color:var(--ink);font-size:var(--typeBody);font-weight:500;line-height:1.5;text-align:left;white-space:normal;transition:background var(--pressDuration) ease-out}
+.action-row::after{border:0}
+.action-row-copy{flex:1;min-width:0}
+.action-row-label{display:block;overflow-wrap:anywhere}
+.action-row-description{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);color:var(--muted);font-weight:400;line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}
+.context-canvas,.context-canvas .action-row{background:transparent}
+.action-row-chevron{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph);transform:rotate(180deg)}
+.tone-danger{color:var(--danger)}
+.has-divider::after{content:"";position:absolute;bottom:0;left:var(--panelInset);right:var(--panelInset);height:var(--stroke);background:var(--line);pointer-events:none}
+.action-row.is-pressed{background:var(--control)}
+.action-row.is-disabled{background:var(--surface);color:var(--muted)}

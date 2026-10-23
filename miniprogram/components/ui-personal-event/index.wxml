@@ -1,0 +1,16 @@
+<view class="personal-event" style="{{theme}}">
+ <view class="personal-state"><text>{{view.state}}</text></view>
+ <view class="summary" role="button" aria-label="{{view.event.title}}" bindtap="open" hover-class="is-pressed">
+  <view class="summary-copy"><text class="title">{{view.event.title}}</text>
+   <view class="fact"><image class="fact-icon" src="{{icons.calendar}}" aria-hidden="true"/><text class="fact-copy">{{view.date}}</text></view>
+   <view class="fact"><image class="fact-icon" src="{{icons.location}}" aria-hidden="true"/><text class="fact-copy">{{view.venue}}</text></view>
+   <view wx:if="{{view.host}}" class="fact"><image class="fact-icon" src="{{icons.group}}" aria-hidden="true"/><text class="fact-copy">{{view.host}}</text></view>
+   <text wx:if="{{view.fee}}" class="fee">{{view.fee}}</text>
+  </view>
+  <image wx:if="{{view.event.cover_url}}" class="art" src="{{view.event.cover_url}}" mode="aspectFill" catchtap="preview" binderror="coverError"/>
+ </view>
+ <view class="footer">
+  <view class="footer-copy"><text wx:if="{{view.note}}" class="note">{{view.note}}</text><text wx:if="{{view.stamp}}" class="note">{{view.stamp}}</text></view>
+  <view class="actions"><ui-button wx:for="{{view.actions}}" wx:key="label" label="{{item.label}}" variant="{{item.variant}}" compact disabled="{{busy}}" data-index="{{index}}" bind:press="act"/></view>
+ </view>
+</view>
