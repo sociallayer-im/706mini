@@ -80,6 +80,25 @@ test('server errors map onto the words the screens already translate', () => {
   assert.equal(map.knownCode(422, 'user is not a participant of this event'), 'NOT_FOUND');
 });
 
+test('group QR is the uploaded image and a missing city is not labeled same-city data', () => {
+  assert.equal(map.imageNote({ access: { methods: [{ type: 'GROUP_QR', value: 'https://assets.example/qr.png' }, { type: 'ORGANIZER_WECHAT', value: 'secret' }] } }), 'https://assets.example/qr.png');
+  assert.equal(map.imageNote({ access: { methods: [{ type: 'GROUP_QR', value: '706-media:private' }] } }), '');
+  assert.equal(map.imageNote({}), '');
+  const access = map.accessMethods('https://assets.example/qr.png');
+  assert.deepEqual(access.methods.map(item => item.type), ['GROUP_QR', 'ORGANIZER_WILL_CONTACT']);
+  assert.deepEqual(map.accessMethods('').methods.map(item => item.type), ['ORGANIZER_WILL_CONTACT']);
+  const pending = map.eventReview({ id: 'evt', status: 'pending', title: '共读' });
+  assert.equal(pending.status, 'PENDING');
+  assert.equal(pending.reviews.length, 1);
+  assert.equal(pending.reviews[0].status, 'PENDING');
+  assert.equal(pending.reviews[0].scope, 'ORGANIZATION');
+  const published = map.eventReview({ id: 'evt', status: 'published', title: '共读', start_time: '2099-01-01T00:00:00Z', end_time: '2099-01-01T02:00:00Z' });
+  assert.equal(published.reviews[0].status, 'APPROVED');
+  const cancelled = map.eventReview({ id: 'evt', status: 'cancelled', title: '共读', start_time: '2099-01-01T00:00:00Z', end_time: '2099-01-01T02:00:00Z' });
+  assert.equal(cancelled.reviews[0].status, 'CANCELLED');
+  assert.notEqual(cancelled.reviews[0].status, 'APPROVED');
+});
+
 test('event gallery survives the soon content round trip without losing prose or signed URLs', () => {
   const description = '第一段\n\n![作者原有图片](https://example.org/original.jpg)\n保留正文';
   const media = [{ type: 'image', url: 'https://example.org/a.jpg?key=a%2Fb&x=1' }, { type: 'image', url: 'https://example.org/b(2).jpg' }, { type: 'link', url: 'https://example.org/info' }];

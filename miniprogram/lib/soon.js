@@ -107,7 +107,7 @@ function eventBody(form, groupId, placeId) {
       title: form.title, content: map.encodeEventContent(form), notes: form.summary || '', image_url: form.cover_url || '',
       start_time: form.starts_at, end_time: form.ends_at, timezone: 'Asia/Shanghai', city: form.city || '',
       status: 'draft', visibility: 'normal', group_id: groupId, place_id: placeId, max_participant: form.capacity,
-      require_approval: !!form.approval_required, tags: form.tags || []
+      require_approval: !!form.approval_required, tags: form.tags || [], image_note: map.imageNote(form)
     }
   };
 }
@@ -284,7 +284,7 @@ async function people(params) {
     request({ path: '/users/suggestions', query: { city: params.city, exclude: params.exclude || [], page: params.cursor || 1, limit: 8 }, auth: !!session() }),
     followedIds()
   ]);
-  return map.pageResult(body, user => ({ ...map.person(user), reason: 'SAME_CITY', following: followed.has(user.id) }));
+  return map.pageResult(body, user => ({ ...map.person(user), reason: params.city ? 'SAME_CITY' : '', following: followed.has(user.id) }));
 }
 async function search(params) {
   const body = await request({ path: '/search', query: { keyword: params.q || '' }, auth: false });
@@ -542,7 +542,7 @@ async function saveCampaign(params) {
 async function cloneEvent(id) {
   const event = await request({ path: '/events/' + id, query: { include_participants: false } });
   const group = await personalGroup();
-  const saved = await request({ method: 'POST', path: '/events', body: { event: { title: event.title, content: event.content || '', notes: event.notes || '', image_url: event.image_url || '', city: event.city, timezone: 'Asia/Shanghai', visibility: 'normal', status: 'draft', group_id: group.id, tags: event.tags || [] } } });
+  const saved = await request({ method: 'POST', path: '/events', body: { event: { title: event.title, content: event.content || '', notes: event.notes || '', image_url: event.image_url || '', image_note: event.image_note || '', city: event.city, timezone: 'Asia/Shanghai', visibility: 'normal', status: 'draft', group_id: group.id, tags: event.tags || [] } } });
   return eventDetail(saved.id);
 }
 async function submitEvent(id) {

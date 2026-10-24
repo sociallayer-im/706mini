@@ -296,13 +296,21 @@ function reviewTask(review) {
   };
 }
 
+function eventStepStatus(status) {
+  if (status === 'IN_REVIEW') return 'PENDING';
+  if (status === 'PUBLISHED') return 'APPROVED';
+  if (status === 'CANCELLED') return 'CANCELLED';
+  return status || 'PENDING';
+}
+
+// One group approval. The step status follows the event; it is not a second review round.
 function eventReview(event) {
   const card = event.starts_at ? event : eventCard(event);
-  const pending = card.status === 'IN_REVIEW';
+  const step = eventStepStatus(card.status);
   return {
     id: 'event-' + card.id,
     type: 'review',
-    status: pending ? 'PENDING' : card.status === 'PUBLISHED' ? 'APPROVED' : card.status,
+    status: step === 'APPROVED' ? 'APPROVED' : step === 'PENDING' ? 'PENDING' : card.status,
     subject_type: 'event',
     scope: 'ORGANIZATION',
     title: card.title,
@@ -310,8 +318,15 @@ function eventReview(event) {
     round: 1,
     version: 1,
     subject: card,
-    reviews: [{ id: 'event-' + card.id, scope: 'ORGANIZATION', status: pending ? 'PENDING' : 'APPROVED', note: '', round: 1 }]
+    reviews: [{ id: 'event-' + card.id, scope: 'ORGANIZATION', status: step, note: '', round: 1 }]
   };
+}
+
+function imageNote(form) {
+  const methods = form?.access?.methods || (form?.access ? [form.access] : []);
+  const qr = methods.find(item => item && item.type === 'GROUP_QR');
+  const value = String(qr?.value || '');
+  return /^https?:\/\//.test(value) ? value : '';
 }
 
 function applyEventFilters(items, params = {}) {
@@ -375,5 +390,5 @@ function accessMethods(imageNote) {
 module.exports = {
   eventContent, encodeEventContent, CITIES, eventStatus, campaignStatus, priceMinor, person, entity, groupKind, eventCard, registrationFrom,
   registrationStatus, campaignCard, cursorPage, pageResult, comment, feedItem, notification, reviewTask,
-  eventReview, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, reportType
+  eventReview, imageNote, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, reportType
 };
