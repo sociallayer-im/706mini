@@ -528,3 +528,10 @@ page{background:#F5F5F2;color:#232323}
 
 /* Child-page chrome floats over content; only controls have a surface. */
 .main-navigation.subpage-navigation{background:transparent}
+
+/* Event auxiliary actions share compact geometry; native sharing keeps open-type. */
+.screen.page-event .event-secondary-actions{gap:var(--actionGap);align-items:center}
+.screen.page-event .event-share-control{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:auto;max-width:100%;min-width:var(--touchTarget);min-height:var(--touchTarget);margin:0;padding:0;border:0;background:transparent;color:var(--ink);font-size:var(--typeFact);font-weight:var(--actionWeight);line-height:1.5;white-space:normal}
+.screen.page-event .event-share-control::after{border:0}
+.event-share-face{box-sizing:border-box;min-height:var(--controlCompactHeight);padding:var(--spaceUnit) var(--controlCompactInset);border-radius:var(--pill);transition:opacity var(--pressDuration) ease-out;overflow-wrap:anywhere}
+.event-share-control.is-pressed .event-share-face{opacity:var(--pressOpacity)}
