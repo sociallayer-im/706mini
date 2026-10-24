@@ -1,0 +1,28 @@
+miniprogram/components/ui-review-history/index.wxml
+  h_b053bf74bef223 3,5
+miniprogram/lib/forms.js
+  h_b053bf74bef223 9
+miniprogram/lib/page.js
+  h_b053bf74bef223 45-46,167-168,265-266,268,270,272,319,329
+miniprogram/lib/soon-map.js
+  h_b053bf74bef223 299-306,309,313,321,325-331,393
+miniprogram/lib/soon.js
+  h_b053bf74bef223 110,287,545
+miniprogram/templates/screen.wxml
+  h_b053bf74bef223 80,154-155,159,177
+miniprogram/templates/sheets.wxml
+  h_b053bf74bef223 19
+test/soon-map.test.js
+  h_b053bf74bef223 83-101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8c609d922671c64c42119ef5013d3a261109f72f",
+  "prompts": {},
+  "humans": {
+    "h_b053bf74bef223": {
+      "author": "jiangplus <jiang.plus.times@gmail.com>"
+    }
+  }
+}
