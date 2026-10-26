@@ -1,0 +1,36 @@
+{
+  "scope": "actual Web component DOM; native GUI separate",
+  "filterInputs": 0,
+  "selected": [
+    "false",
+    "true"
+  ],
+  "multiple": [
+    "true",
+    "true"
+  ],
+  "formCheckboxes": 1,
+  "geometry": [
+    {
+      "height": 44,
+      "visibleHeight": 28,
+      "font": "12px",
+      "padding": "4px 12px",
+      "borderRadius": "499.5px"
+    },
+    {
+      "height": 44,
+      "visibleHeight": 28,
+      "font": "12px",
+      "padding": "4px 12px",
+      "borderRadius": "499.5px"
+    },
+    {
+      "height": 44,
+      "visibleHeight": 28,
+      "font": "12px",
+      "padding": "4px 12px",
+      "borderRadius": "499.5px"
+    }
+  ]
+}

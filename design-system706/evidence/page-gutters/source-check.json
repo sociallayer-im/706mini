@@ -1,0 +1,10 @@
+{
+  "scope": "source layout contracts; GUI and browser geometry recorded separately",
+  "pages": 42,
+  "horizontalRails": 5,
+  "pageRails": 4,
+  "containedHeaderRails": 1,
+  "sourceChecks": "pass",
+  "networkCalls": 0,
+  "productionWrites": 0
+}

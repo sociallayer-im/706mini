@@ -6,3 +6,4 @@
 .button.align-start{justify-content:flex-start}.button.align-start .face{padding-inline:0;justify-content:flex-start;text-align:left}
 /* Normalize native choice geometry: no UA margin is added to the declared gap or inset. */
 .choice>input[type=checkbox],.choice>input[type=radio]{display:block;box-sizing:border-box;width:var(--choiceIndicator);height:var(--choiceIndicator);flex:0 0 var(--choiceIndicator);margin:0;padding:0;align-self:center}
+.filter-choices{display:flex;flex-wrap:wrap;align-items:center;gap:var(--actionGap)}

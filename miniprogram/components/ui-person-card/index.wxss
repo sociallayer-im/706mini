@@ -6,3 +6,5 @@
 .person-name{display:block;font-size:var(--typeBody);line-height:1.4;font-weight:600;white-space:normal;overflow-wrap:anywhere}
 .person-bio{display:block;margin-top:6rpx;font-size:var(--typeMeta);line-height:1.5;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
 .person-action{flex:none;align-self:center;max-width:140rpx}
+
+.in-rail{flex:none;margin:0}

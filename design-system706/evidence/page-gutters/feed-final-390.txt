@@ -1,0 +1,242 @@
+Window: "706-community", App: 微信开发者工具.
+0 标准窗口 706-community, Secondary Actions: Raise
+	1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0
+		2 container
+			3 文本 微信开发者工具 Stable 2.02.2608080
+			4 container
+				5 text 小程序模式
+			6 文本 预览
+			7 文本 真机调试
+			8 文本 上传
+			9 未加标签的图片 要获取缺失的图片说明，请打开上下文菜单。
+			10 container
+				11 container
+					12 container
+						13 text 预览 编辑
+					14 container
+						15 text 普通编译
+					16 container
+						17 container
+							18 text 11 : 02
+						19 container
+							20 链接
+							21 链接
+						22 HTML 内容 Webview: pages/feed/index, URL: 127.0.0.1:45417/__pageframe__/pages/feed/index
+							23 按钮 上海
+								24 文本 上海
+							25 列表框 城市与已关注节点
+								26 container 城市与已关注节点
+									27 container
+										28 图像
+										29 文本 同城探索
+										30 文本 上海706
+										31 文本 杨浦的一间客厅。放映、共读、飞盘和陌生人晚餐都从这里出发。
+							32 文本 发现有意思的人
+							33 按钮 换几个
+								34 文本 换几个
+							35 container
+								36 文本 同城成员
+								37 图像
+								38 text 星桥 组织运营 · 专题
+								39 按钮 关注
+									40 文本 关注
+								41 文本 同城成员
+								42 图像
+								43 text 林叶 城市观察 · 桌游
+								44 按钮 关注
+									45 文本 关注
+								46 文本 同城成员
+								47 图像
+								48 text 禾舟 空间主理 · 社区放映
+								49 按钮 关注
+									50 文本 关注
+								51 文本 同城成员
+								52 图像
+								53 文本 ciao
+								54 按钮 关注
+									55 文本 关注
+							56 文本 暂时没有内容
+							57 按钮 发布活动
+							58 container
+								59 按钮 关注
+									60 文本 关注
+								61 按钮 发现
+									62 文本 发现
+								63 按钮 消息
+									64 文本 消息
+								65 按钮 我的
+									66 文本 我的
+						67 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/s1/_sessionId/simulator-app-session-s1/mainframe?load
+							68 container
+								69 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792983634180&autoload#id_1
+								70 HTML 内容 127.0.0.1:45417/appservice/appContext?contextName=app&id=ifr-1_2#id_1
+								71 HTML 内容 127.0.0.1:45417/appservice/app_xrframe_renderContext?contextName=app_xrframe_render&id=ifr-1_3&empty=true#id_1
+								72 HTML 内容 127.0.0.1:45417/appservice/app_sub_debugContext?contextName=app_sub_debug&id=ifr-1_4&empty=true#id_1
+								73 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792983634180#id_2
+						74 container
+							75 链接
+							76 链接
+					77 container
+						78 文本 iPhone 12/13 (Pro) 102% 16
+					79 container
+						80 文本 页面路径
+					81 文本 pages/feed/index
+					82 链接 复制
+				83 container
+					84 container
+						85 container
+							86 文本 706mini
+							87 工具栏
+								88 按钮 Toggle Primary Side Bar (⌘K ⌘B)
+									89 文本 
+								90 按钮 切换面板 (⌘J)
+									91 文本 
+								92 按钮 Toggle Secondary Side Bar (⌥⌘B)
+									93 文本 
+						94 container
+							95 container
+								96 container
+									97 container 第 1 组 (空)
+										98 container
+											99 定义列表
+												100 container 显示所有命令
+													101 文本 显示所有命令
+												102 container Command+K Command+P
+													103 text ⌘ K ⌘ P
+											104 定义列表
+												105 container Go to File
+													106 文本 Go to File
+												107 container Command+P
+													108 text ⌘ P
+											109 定义列表
+												110 container 在文件中查找
+													111 文本 在文件中查找
+												112 container Shift+Command+F
+													113 text ⇧ ⌘ F
+											114 定义列表
+												115 container 开始调试
+													116 文本 开始调试
+												117 文本 F5
+											118 定义列表
+												119 container 切换终端
+													120 文本 切换终端
+												121 container Control+`
+													122 text ⌃ `
+								123 container
+									124 标签组 活动视图切换器
+										125 标签 (settable, integer) Description: 构建 - Logs: 89, Value: 0
+											126 container 构建 - Logs: 89
+												127 文本 构建
+											128 container 构建 - Logs: 89
+												129 文本 89
+										130 标签 (selected) Description: 调试器 - Errors: 0, Warnings: 3, Value: 1
+											131 文本 调试器
+											132 文本 3
+										133 标签 (settable, integer) Description: 问题 (⌘K ⇧⌘M) - 总计 0 个问题, Value: 0
+											134 文本 问题
+										135 标签 (settable, integer) Description: 输出, Value: 0
+											136 文本 输出
+										137 标签 (settable, integer) Description: 调试控制台 (⇧⌘Y), Value: 0
+											138 文本 调试控制台
+										139 标签 (settable, integer) 终端 (⌃`), Value: 0
+											140 container 终端 (⌃`)
+												141 文本 终端
+										142 标签 (settable, integer) 代码质量, Value: 0
+											143 container 代码质量
+												144 文本 代码质量
+									145 工具栏 调试器操作
+									146 工具栏
+										147 按钮 最大化面板大小
+											148 文本 
+										149 按钮 关闭面板
+											150 文本 
+									151 container
+										152 container
+											153 HTML 内容 devtools://devtools/bundled/devtools_app.html?remoteBase=https://chrome-devtools-frontend.appspot.com/serve_file/@61dafe6541432a46304ba3c84a0a6135b7cddd69/&can_dock=&toolbarColor=rgba(223,223,223,1)&textColor=rgba(0,0,0,1)&experiments=true
+												154 container
+													155 container
+														156 切换按钮 Description: Select an element in the page to inspect it, Value: 0
+														157 标签组 Panels
+															158 标签 (selected) Description: Wxml, Value: 1
+															159 标签 (settable, integer) Description: Console, Value: 0
+															160 标签 (settable, integer) Description: Sources, Value: 0
+															161 标签 (settable, integer) Description: Network, Value: 0
+															162 标签 (settable, integer) Description: Performance, Value: 0
+															163 标签 (settable, integer) Description: Memory, Value: 0
+															164 标签 (settable, integer) Description: AppData, Value: 0
+															165 标签 (settable, integer) Description: Storage, Value: 0
+															166 标签 (settable, integer) Description: Security, Value: 0
+															167 标签 (settable, integer) Description: Sensor, Value: 0
+															168 标签 (settable, integer) Description: Mock, Value: 0
+															169 标签 (settable, integer) Description: Audits, Value: 0
+															170 标签 (settable, integer) Description: Vulnerability, Value: 0
+														171 container
+															172 container 3 warnings
+														173 按钮 Settings
+														174 弹出式按钮 Customize and control DevTools
+														175 container Undock into separate window
+														176 container Wxml panel
+															177 container elements
+																178 container
+																	179 container
+																		180 复选框 Description: Composed, Value: 0
+																		181 文本 Composed
+																		182 外框 Page DOM
+																			183 row < pages/feed/index >​
+																				184 文本 <
+																				185 container pages/feed/index
+																					186 文本 pages/feed/index
+																				187 text >
+																			188 container
+																				189 row    #shadow-root
+																					190 文本 #shadow-root
+																				191 row < pages/feed/index >​
+																					192 文本 <
+																					193 container pages/feed/index
+																						194 文本 /pages/feed/index
+																					195 text >
+																	196 container
+																		197 标签组
+																			198 标签 (selected) Description: Styles, Value: 1
+																			199 标签 (settable, integer) Description: Computed, Value: 0
+																			200 标签 (settable, integer) Description: Dataset, Value: 0
+																			201 标签 (settable, integer) Description: Component Data, Value: 0
+																		202 container Styles panel
+																			203 container
+																				204 container
+																					205 搜索文本字段 (settable) Description: Filter Styles, Placeholder: Filter
+																					206 切换按钮 Description: Element Classes, Value: 0
+																						207 文本 .cls
+																					208 按钮 (disabled) New Style Rule
+						209 container
+							210 container 706mini (Git) - main*, Checkout Branch/Tag...
+								211 按钮 706mini (Git) - main*, Checkout Branch/Tag...
+									212 文本 
+									213 文本  main*
+							214 container 706mini (Git) - Synchronize Changes
+								215 按钮 706mini (Git) - Synchronize Changes
+							216 container 没有问题
+								217 按钮 没有问题
+									218 文本 
+									219 文本  0 
+									220 文本 
+									221 文本  0
+							222 container 进度和简要通知
+							223 container undefined
+	224 关闭按钮
+	225 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	226 最小化按钮
+227 menu bar
+	228 微信开发者工具
+	229 项目
+	230 文件
+	231 编辑
+	232 工具
+	233 跳转
+	234 选择
+	235 界面
+	236 设置
+	237 插件
+	238 帮助
+
+The focused UI element is 1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0

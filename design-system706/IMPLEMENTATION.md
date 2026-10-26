@@ -24,7 +24,7 @@ Web bundle有实际DOM、交互与嵌套：单多选/上限、关注与取消确
 
 独立网页的浏览器验证结果保存在 `evidence/validation.json`；截图在同目录。源码盘点、Web组件验证、原生开发工具访问、真机与真实用户验收各自独立。详见最终交付计数，不以演示成功冒充生产成功。
 
-## 用户反馈修复：评论与分段单选
+## 历史反馈：评论与分段单选（筛选圆点规则已由最新反馈取代）
 
 评论回复原来使用compact文字按钮，face左右12px内边距导致比正文缩进；DOM没有图标或图标占位。共享Button增加align:start语义变体，CommentThread用它保留44px点击区、文字与正文对齐。
 
@@ -53,3 +53,9 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 迁移后编译、离线回归见`evidence/native-migration-audit.md`与`native-migration-compile.json`；实际GUI检查见`evidence/native-migration/`，与上述迁移前39/42记录分开。
 
 最终源代码检查：44个已注册原生组件均被共享模板或其他原生组件组合使用；43个语义家族对应完整，含42路由及20弹层映射。直接编译90份WXML、49份WXSS均exit0；18项单元测试、26项原生契约检查、原有8组业务回归全部通过，完整输出保存在`evidence/native-migration-regression.json`。样式清理从约96KB降至约23.5KB，移除跨组件的全局控件视觉规则；业务排版与slot布局保留。
+
+## 最新反馈：统一留白与无bullet筛选
+
+人物轨道遗留负margin/加宽但首尾卡片补偿已被移除，造成首卡贴屏。改为统一horizontal-rail/horizontal-track，所有5个横向scroll-view均显式使用轨道，4个page级轨道拥有内容内pageGutter，1个header contained轨道复用标题栏已有inset；清除旧discovery-people局部宽度规则，轨道子组件取消margin。42个路由继续共用唯一screen页面padding；弹层和固定壳按同一token核对，全出血gallery保留。
+
+最新用户决定取代前述筛选圆点修补：筛选全部纯文字Badge/Chip，时间/空间互斥与独立组合布尔筛选不变；表单Radio/Checkbox不变。Web和原生筛选都复用FilterChip/Button compact，新增appearance=filter明确用途。实测Web三类筛选点击区44px、可见面28px、字体12px、padding4px 12px相同，筛选DOM输入控件0，表单checkbox仍存在。选择切换及组合结果见evidence/page-gutters/filter-web.json。

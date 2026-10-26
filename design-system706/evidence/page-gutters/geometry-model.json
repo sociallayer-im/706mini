@@ -1,0 +1,41 @@
+{
+  "scope": "browser model of current native CSS; native GUI separate",
+  "results": [
+    {
+      "width": 320,
+      "expected": 13.653333333333334,
+      "firstInset": 13.6484375,
+      "titleInset": 13.6484375,
+      "lastInset": 13.7265625,
+      "documentWidth": 320,
+      "railScrollWidth": 681
+    },
+    {
+      "width": 375,
+      "expected": 16,
+      "firstInset": 16,
+      "titleInset": 16,
+      "lastInset": 16,
+      "documentWidth": 375,
+      "railScrollWidth": 798
+    },
+    {
+      "width": 390,
+      "expected": 16.64,
+      "firstInset": 16.6328125,
+      "titleInset": 16.6328125,
+      "lastInset": 16.7421875,
+      "documentWidth": 390,
+      "railScrollWidth": 830
+    },
+    {
+      "width": 430,
+      "expected": 18.346666666666668,
+      "firstInset": 18.34375,
+      "titleInset": 18.34375,
+      "lastInset": 18.3203125,
+      "documentWidth": 430,
+      "railScrollWidth": 915
+    }
+  ]
+}

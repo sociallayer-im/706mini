@@ -1,6 +1,6 @@
 export type NodeComponent<P> = (props?: P) => HTMLElement;
 export interface ButtonProps {label?:string;variant?:'primary'|'secondary'|'text'|'danger'|'selected';compact?:boolean;block?:boolean;align?:'center'|'start';disabled?:boolean;loading?:boolean;onPress?:()=>void}
-export interface ChoiceGroupProps {options?:{value:string;label:string;description?:string;disabled?:boolean}[];value?:string[];mode?:'single'|'multiple';layout?:'tags'|'list';max?:number;disabled?:boolean;onChange?:(value:string[])=>void}
+export interface ChoiceGroupProps {options?:{value:string;label:string;description?:string;disabled?:boolean}[];value?:string[];mode?:'single'|'multiple';appearance?:'form'|'filter';layout?:'tags'|'list';max?:number;disabled?:boolean;onChange?:(value:string[])=>void}
 export interface SheetProps {title?:string;content?:Node;actions?:ButtonProps[];loading?:boolean;error?:string}
 export interface DS706Library {Button:NodeComponent<ButtonProps>;ChoiceGroup:NodeComponent<ChoiceGroupProps>;Sheet:(props?:SheetProps)=>HTMLDialogElement;mount:(target:HTMLElement,name:string,props?:Record<string,unknown>)=>HTMLElement;
 /** icon:string; label:string; size:number; surface:surface|plain|glass; disabled:boolean; onPress:()=>void */

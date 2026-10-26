@@ -1921,5 +1921,11 @@
     "ui-select-field",
     "ui-fab",
     "ui-record-card"
-  ]
+  ],
+  "layoutPolicy": {
+    "pageGutter": "miniprogram/lib/theme.js -> pageGutter",
+    "horizontalRails": "all 5 scroll-x surfaces use horizontal-track; 4 page / 1 contained header",
+    "filterAppearance": "pure text Chip; single/multiple semantics retained; form controls unaffected",
+    "checklist": "PAGE-MIGRATION-CHECKLIST.md"
+  }
 }

@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T02:28:42.168756+00:00",
-    "via": "Codex · native mini-program integration",
-    "note": "43 semantic families mapped to 44 native components; 42 routes and 20 sheets share native templates; identity/reply/choice rules retained; regression and GUI evidence separated; migration GUI sampled 6 routes / 2 sheets; Montana and Hezhou restored"
+    "at": "2026-10-26T03:11:09.695027+00:00",
+    "via": "Codex · shared gutters and filter badges",
+    "note": "42 route roots and 5 horizontal rails use shared gutters; all page filters use pure text chips in native and Web; forms retain radio/checkbox; native sampled 3 routes and 1 sheet at 320/390 widths; maximum-scroll native tail remains unverified; all regression and compilation checks passed"
   },
   "localAssets": [
     {

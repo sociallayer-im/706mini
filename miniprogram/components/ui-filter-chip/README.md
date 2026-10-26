@@ -1,0 +1,2 @@
+
+页面筛选统一纯文字Badge/Chip视觉，内部唯一复用ui-button的selection/compact；不带bullet、圆点、选择框或勾。selectionMode=single传递互斥选择语义，其他独立筛选用pressed状态；实际业务值仍由页面控制。rail=true时取消自身margin，由horizontal-track负责gap和首尾padding。

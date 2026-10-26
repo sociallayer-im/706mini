@@ -1,5 +1,6 @@
 <import src="./option.wxml"/>
 <view style="{{theme}}">
- <radio-group wx:if="{{mode === 'single'}}" class="choices layout-{{layout}}" bindchange="change" aria-label="{{(label) || ''}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></radio-group>
+ <view wx:if="{{appearance === 'filter'}}" class="choices layout-tags filter-choices" aria-role="{{mode === 'single' ? 'radiogroup' : 'group'}}" role="{{mode === 'single' ? 'radiogroup' : 'group'}}" aria-label="{{label || ''}}"><ui-filter-chip wx:for="{{items}}" wx:key="value" rail label="{{item.label}}" selected="{{item.checked}}" disabled="{{item.unavailable}}" selection-mode="{{mode}}" data-value="{{item.value}}" bind:press="filterPress"/></view>
+ <radio-group wx:elif="{{mode === 'single'}}" class="choices layout-{{layout}}" bindchange="change" aria-label="{{(label) || ''}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></radio-group>
  <checkbox-group wx:else class="choices layout-{{layout}}" bindchange="change" aria-label="{{(label) || ''}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></checkbox-group>
 </view>

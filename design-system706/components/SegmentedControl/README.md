@@ -1,4 +1,4 @@
-分段单选。固定单选tags变体，用于本周/本月等互斥视角。radio零margin，20px指示符、8px文字间隔、左右12px对称内边距。
+分段单选。筛选专用纯文字Badge/Chip，与FilterChip复用同一按钮几何，不显示bullet、圆点或勾；保留互斥单选、radiogroup/aria-checked和键盘方向键。表单ChoiceGroup仍保留真实Radio/Checkbox。
 
 ## 调用参数
 

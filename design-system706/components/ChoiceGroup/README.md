@@ -2,7 +2,7 @@
 
 ## 调用参数
 
-`options:{value,label,description?,disabled?}[]; value:string[]; mode:multiple|single; layout:list|tags; max:number; disabled:boolean; onChange:(value)=>void`
+`options:{value,label,description?,disabled?}[]; value:string[]; mode:multiple|single; layout:list|tags; appearance:form|filter; max:number; disabled:boolean; onChange:(value)=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"ChoiceGroup",props)`。所有数据为textContent，不接受任意HTML。
 

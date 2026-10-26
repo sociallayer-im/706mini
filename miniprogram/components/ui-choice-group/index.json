@@ -1,1 +1,6 @@
-{"component":true}
+{
+  "component": true,
+  "usingComponents": {
+    "ui-filter-chip": "/components/ui-filter-chip/index"
+  }
+}

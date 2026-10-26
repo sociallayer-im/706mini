@@ -67,3 +67,11 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 用户已批准将系统应用到小程序。`native-mapping.json`提供43个语义家族的原生路径或组合；原生调用以各`miniprogram/components/ui-*/README.md`为准。Web示范保留DOM API，原生组件通过共享模板使用，不把Web节点移入WXML。42路由与20弹层已接入共享模板。迁移后的GUI证据见`evidence/native-migration/README.md`，迁移前覆盖仅为历史记录。
 
 `evidence/page-inventory.json`保留最初提炼时的行号与源码快照。当前原生对应以`native-mapping.json`为准，包含42页和20弹层的接入映射；条件仍由共享模板与控制器决定。
+
+## 当前规则：页面留白与纯文字筛选
+
+全部页面通过共享screen使用pageGutter；标题、正文、卡片外边界以同一页面边线对齐。横向滚动用horizontal-rail与horizontal-track：轨道提供真实首尾padding，组件在rail中取消外边距，gap由轨道统一维护；禁止只对首末卡逐页补margin。已存在父级inset的标题栏轨道使用contained变体，避免双重padding。弹层、导航、固定操作条分别在其独立容器使用同一pageGutter。画廊的全出血阅读图及内部装饰几何不机械追加padding。见`PAGE-MIGRATION-CHECKLIST.md`。
+
+用户最新决定覆盖早期SegmentedControl圆点间距修补：页面筛选一律为纯文字Badge/Chip视觉，不显示bullet、radio圆点、checkbox框或选中勾。FilterChip与筛选版SegmentedControl共享Button compact几何；时间、空间、状态等互斥选项仍单选，免费/有名额仍独立可组合。无障碍状态随选择更新，不用纯文本span替代动作。Badge组件本身仍用于只读状态；“筛选Badge”描述外观，不取消交互语义。
+
+表单默认ChoiceGroup保留真实Radio/Checkbox，兴趣、隐私、参与方式等不能套用筛选外观。原生显式appearance="filter"才进入无bullet样式；Web SegmentedControl默认筛选样式，表单ChoiceGroup默认保持输入控件。旧20px指示器规则仅用于仍有指示器的表单用途。

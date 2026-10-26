@@ -1,0 +1,9 @@
+{
+  "scope": "actual WeChat DevTools AX state;320px",
+  "selected": {
+    "本月": true,
+    "免费": true,
+    "有名额": true
+  },
+  "evidence": "filters-combined-320.txt"
+}

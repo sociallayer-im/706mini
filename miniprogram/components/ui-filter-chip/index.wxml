@@ -1,1 +1,1 @@
-<view class="chip-slot" style="{{theme}}"><ui-button label="{{(label) || ''}}" variant="selection" context="canvas" compact selected="{{selected}}" bind:press="press"/></view>
+<view class="{{rail ? 'in-rail' : ''}} chip-slot" style="{{theme}}"><ui-button label="{{(label) || ''}}" variant="selection" role="{{selectionMode === 'single' ? 'radio' : 'button'}}" disabled="{{disabled}}" loading="{{loading}}" context="canvas" compact selected="{{selected}}" bind:press="press"/></view>

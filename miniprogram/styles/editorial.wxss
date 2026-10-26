@@ -1,6 +1,6 @@
 /* 706 shared page and slot layout. Native ui-* components own controls, cards,
    navigation, forms, media editing, comments and their interaction states. */
-.screen{padding-top:32rpx;padding-left:var(--pageGutter);padding-right:var(--pageGutter);padding-bottom:calc(var(--tabBarSpace) + env(safe-area-inset-bottom));font-size:var(--typeBody)}
+
 .screen .chip{border:1px solid transparent;border-radius:var(--pill);background:var(--surface);color:var(--ink);font-size:var(--typeFact);padding:10rpx 18rpx}
 .screen .section-heading{font-size:var(--typeSection);font-weight:600;margin:var(--sectionGap) 0 var(--headingGap);gap:20rpx;line-height:1.6}
 .screen .section-title{font-size:var(--typeSection);font-weight:600;line-height:1.45}
@@ -10,7 +10,7 @@
 .screen .list-card{border:0;border-radius:var(--radius);box-shadow:none;padding:var(--panelInset);margin-bottom:var(--itemGap)}
 .screen .self-profile{border:0;border-radius:var(--radius);box-shadow:none;margin-bottom:var(--itemGap)}
 .screen .people-heading{margin-top:16rpx;margin-bottom:16rpx}
-.discovery-people{width:calc(100% + var(--pageGutter) + var(--pageGutter));margin:0 calc(0rpx - var(--pageGutter)) var(--sectionGap)}
+
 .screen .status{display:inline-block;padding:3rpx 10rpx;border:0;border-radius:var(--pill);font-size:var(--typeLabel);line-height:1.4}
 .screen .filters{margin:32rpx 0 36rpx}
 .screen .chips{margin:20rpx 0}
@@ -164,4 +164,4 @@
 .main-navigation.subpage-navigation{background:transparent}
 .screen.page-event .event-secondary-actions{gap:var(--actionGap);align-items:center}
 /* Horizontal public member strip composes the shared identity primitive. */
-.entity-member-item{display:inline-block;vertical-align:top;min-width:160rpx;max-width:300rpx;margin-right:var(--headingGap);white-space:normal}
+.entity-member-item{display:inline-block;vertical-align:top;min-width:160rpx;max-width:300rpx;white-space:normal;flex:none}

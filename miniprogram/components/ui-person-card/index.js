@@ -1,7 +1,7 @@
 const theme=require('../../lib/theme');
 Component({
  options:{virtualHost:true,styleIsolation:'isolated'},data:{theme:theme.style()},
- properties:{person:{type:Object,value:{}},t:{type:Object,value:{}},locale:String,reason:String,disabled:Boolean},
+ properties:{person:{type:Object,value:{}},t:{type:Object,value:{}},locale:String,reason:String,disabled:Boolean,rail:Boolean},
  methods:{
   stop(){},
   open(){this.triggerEvent('interaction',{handler:'navigate',dataset:{route:'member',id:this.properties.person.owner},detail:{}});},

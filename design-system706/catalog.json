@@ -630,7 +630,7 @@
   {
     "name": "ChoiceGroup",
     "title": "选择组",
-    "props": "options:{value,label,description?,disabled?}[]; value:string[]; mode:multiple|single; layout:list|tags; max:number; disabled:boolean; onChange:(value)=>void",
+    "props": "options:{value,label,description?,disabled?}[]; value:string[]; mode:multiple|single; layout:list|tags; appearance:form|filter; max:number; disabled:boolean; onChange:(value)=>void",
     "guide": "选择与提交分开；单选仍用数组接口，达到max只禁用未选项。",
     "examples": [
       {
@@ -764,7 +764,7 @@
     "name": "FilterChip",
     "title": "筛选项",
     "props": "label:string; selected,disabled:boolean; onChange:(selected)=>void",
-    "guide": "可切换状态，不用作只读标签。",
+    "guide": "纯文字Badge/Chip筛选，不显示bullet或勾；使用共享compact按钮几何并保留选择状态，不用作只读标签。",
     "examples": [
       {
         "label": "未筛选",
@@ -4026,7 +4026,7 @@
     "name": "SegmentedControl",
     "title": "分段单选",
     "props": "ChoiceGroup参数",
-    "guide": "固定单选tags变体，用于本周/本月等互斥视角。radio零margin，20px指示符、8px文字间隔、左右12px对称内边距。",
+    "guide": "筛选专用纯文字Badge/Chip，与FilterChip复用同一按钮几何，不显示bullet、圆点或勾；保留互斥单选、radiogroup/aria-checked和键盘方向键。表单ChoiceGroup仍保留真实Radio/Checkbox。",
     "examples": [
       {
         "label": "默认",

@@ -1,0 +1,338 @@
+[
+  {
+    "id": "feed",
+    "route": "pages/feed/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "人物推荐轨道",
+    "galleryException": false,
+    "gui": "390/320 first inset + title/card alignment; native tail not confirmed"
+  },
+  {
+    "id": "discover",
+    "route": "pages/discover/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "空间筛选轨道",
+    "galleryException": false,
+    "gui": "390 layout +320 final Badge filters; single/multiple state confirmed"
+  },
+  {
+    "id": "messages",
+    "route": "pages/messages/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "标题栏消息类别 contained轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "me",
+    "route": "pages/me/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "manage",
+    "route": "pages/manage/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "create-space",
+    "route": "pages/create-space/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "event",
+    "route": "pages/event/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": true,
+    "gui": "390 detail body + floating bar + participants sheet checked"
+  },
+  {
+    "id": "member",
+    "route": "pages/member/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "space",
+    "route": "pages/space/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "空间公开成员轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "org",
+    "route": "pages/org/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "组织公开成员轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "entity-events",
+    "route": "pages/entity-events/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "entity-members",
+    "route": "pages/entity-members/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "edit-entity",
+    "route": "pages/edit-entity/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "admins",
+    "route": "pages/admins/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "edit-profile",
+    "route": "pages/edit-profile/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "relations",
+    "route": "pages/relations/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "onboarding",
+    "route": "pages/onboarding/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "calendar",
+    "route": "pages/calendar/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "空间筛选轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "spaces",
+    "route": "pages/spaces/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "campaign",
+    "route": "pages/campaign/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "campaign-edit",
+    "route": "pages/campaign-edit/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "campaign-create",
+    "route": "pages/campaign-create/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "campaign-approval-detail",
+    "route": "pages/campaign-approval-detail/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "campaign-review-progress",
+    "route": "pages/campaign-review-progress/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "event-access",
+    "route": "pages/event-access/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "activity-preview",
+    "route": "pages/activity-preview/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": true,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "publish",
+    "route": "pages/publish/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "approvals",
+    "route": "pages/approvals/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "approval-detail",
+    "route": "pages/approval-detail/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "approval-progress",
+    "route": "pages/approval-progress/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "registrations",
+    "route": "pages/registrations/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "报名阶段轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "my-events",
+    "route": "pages/my-events/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "发起阶段轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "drafts",
+    "route": "pages/drafts/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "following",
+    "route": "pages/following/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "more",
+    "route": "pages/more/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "login",
+    "route": "pages/login/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "attendees",
+    "route": "pages/attendees/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "invitations",
+    "route": "pages/invitations/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "my-campaigns",
+    "route": "pages/my-campaigns/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "privacy",
+    "route": "pages/privacy/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "feedback",
+    "route": "pages/feedback/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  },
+  {
+    "id": "review-lab",
+    "route": "pages/review-lab/index",
+    "pageGutter": "shared screen source checked",
+    "rail": "无横向轨道",
+    "galleryException": false,
+    "gui": "pending individual page verification"
+  }
+]
