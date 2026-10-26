@@ -59,3 +59,5 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 人物轨道遗留负margin/加宽但首尾卡片补偿已被移除，造成首卡贴屏。改为统一horizontal-rail/horizontal-track，所有5个横向scroll-view均显式使用轨道，4个page级轨道拥有内容内pageGutter，1个header contained轨道复用标题栏已有inset；清除旧discovery-people局部宽度规则，轨道子组件取消margin。42个路由继续共用唯一screen页面padding；弹层和固定壳按同一token核对，全出血gallery保留。
 
 最新用户决定取代前述筛选圆点修补：筛选全部纯文字Badge/Chip，时间/空间互斥与独立组合布尔筛选不变；表单Radio/Checkbox不变。Web和原生筛选都复用FilterChip/Button compact，新增appearance=filter明确用途。实测Web三类筛选点击区44px、可见面28px、字体12px、padding4px 12px相同，筛选DOM输入控件0，表单checkbox仍存在。选择切换及组合结果见evidence/page-gutters/filter-web.json。
+
+消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。

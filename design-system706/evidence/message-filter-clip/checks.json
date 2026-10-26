@@ -1,0 +1,17 @@
+{
+  "verify-native-system.cjs": {
+    "exit": 0,
+    "stdout": "{\n  \"scope\": \"offline native component and page interaction contracts; not GUI/device acceptance\",\n  \"checks\": 27,\n  \"passed\": 27,\n  \"failed\": [],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "stderr": ""
+  },
+  "verify-paper-layout.cjs": {
+    "exit": 0,
+    "stdout": "Paper layout contracts: native header 320/375/430, fallback, bilingual capacity/host states, compact card and developer entry passed; networkCalls=0.\n",
+    "stderr": ""
+  },
+  "verify-page-gutters.cjs": {
+    "exit": 0,
+    "stdout": "{\n  scope: 'source layout contracts; GUI and browser geometry recorded separately',\n  pages: 42,\n  horizontalRails: 5,\n  pageRails: 4,\n  containedHeaderRails: 1,\n  sourceChecks: 'pass',\n  networkCalls: 0,\n  productionWrites: 0\n}\n",
+    "stderr": ""
+  }
+}

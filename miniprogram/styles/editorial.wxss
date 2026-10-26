@@ -59,8 +59,8 @@
 .screen .calendar-results-title{margin-top:40rpx}
 .screen .detail-series-links{padding:16rpx 0;border-bottom:var(--stroke) solid var(--line)}
 .screen .event-secondary-actions{flex-wrap:wrap;justify-content:flex-start;padding:16rpx 0 24rpx;gap:24rpx}
-.main-navigation-content>.header-message-filters{pointer-events:auto;flex:1;min-width:0;height:100%;white-space:nowrap}
-.screen .header-message-filters .chip{vertical-align:middle;font-size:var(--typeMeta);line-height:1.4;padding:6rpx 14rpx;margin:0 8rpx 0 0!important}
+.main-navigation-content>.header-message-filters{pointer-events:auto;flex:1;min-width:0;height:auto;min-height:var(--touchTarget);line-height:normal;white-space:nowrap}
+.header-message-filters .horizontal-track{display:flex;min-height:var(--touchTarget);line-height:normal}
 .menu-group-title{display:block;font-size:var(--typeFact);font-weight:500;line-height:1.5;margin:36rpx 0 20rpx;color:var(--muted)}
 .screen.page-me .settings-row{min-height:104rpx;padding:24rpx!important;margin:0!important}
 .screen .settings-label{min-width:0;line-height:1.5}

@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T03:11:09.695027+00:00",
-    "via": "Codex · shared gutters and filter badges",
-    "note": "42 route roots and 5 horizontal rails use shared gutters; all page filters use pure text chips in native and Web; forms retain radio/checkbox; native sampled 3 routes and 1 sheet at 320/390 widths; maximum-scroll native tail remains unverified; all regression and compilation checks passed"
+    "at": "2026-10-26T05:05:40.546895+00:00",
+    "via": "Codex · message filter viewport fix",
+    "note": "Message filter viewport follows full touch area; shared navigation reserves max(capsule,touchTarget); native 390/320 and simulator font26 screenshots, 27 contracts, layout checks and 90WXML/49WXSS compilation passed; no real-device edge-touch claim"
   },
   "localAssets": [
     {

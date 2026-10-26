@@ -75,3 +75,5 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 用户最新决定覆盖早期SegmentedControl圆点间距修补：页面筛选一律为纯文字Badge/Chip视觉，不显示bullet、radio圆点、checkbox框或选中勾。FilterChip与筛选版SegmentedControl共享Button compact几何；时间、空间、状态等互斥选项仍单选，免费/有名额仍独立可组合。无障碍状态随选择更新，不用纯文本span替代动作。Badge组件本身仍用于只读状态；“筛选Badge”描述外观，不取消交互语义。
 
 表单默认ChoiceGroup保留真实Radio/Checkbox，兴趣、隐私、参与方式等不能套用筛选外观。原生显式appearance="filter"才进入无bullet样式；Web SegmentedControl默认筛选样式，表单ChoiceGroup默认保持输入控件。旧20px指示器规则仅用于仍有指示器的表单用途。
+
+消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。

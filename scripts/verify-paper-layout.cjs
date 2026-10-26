@@ -34,6 +34,15 @@ async function event(record, locale) {
 
 (async () => {
   mock.reset();
+  for(const height of [24,32,44,56]) {
+    const n=layout({getWindowInfo:()=>({windowWidth:320,statusBarHeight:20}),getMenuButtonBoundingClientRect:()=>({top:28,height,left:226})});
+    assert(n.navigationHeight>=44&&n.navigationHeight>=height);
+    assert(n.headerHeight>=n.navigationTop+n.navigationHeight+24);
+  }
+  const headerMarkup=fs.readFileSync(path.join(__dirname,'../miniprogram/templates/screen.wxml'),'utf8');
+  const rail=headerMarkup.match(/<scroll-view[^>]*header-message-filters[^>]*>/)[0];
+  assert(!/height:|line-height:/.test(rail),'message viewport must size to its content');
+
   for (const width of [320, 375, 430]) {
     const actual = layout({
       getWindowInfo: () => ({windowWidth:width,statusBarHeight:47}),
@@ -42,7 +51,9 @@ async function event(record, locale) {
     assert.equal(actual.menuTop,55);
     assert.equal(actual.menuHeight,32);
     assert.equal(actual.menuRightInset,106);
-    assert.equal(actual.headerHeight,111);
+    assert.equal(actual.navigationHeight,44);
+    assert.equal(actual.navigationTop,49);
+    assert.equal(actual.headerHeight,117);
   }
   assert.equal(layout({}).menuHeight,32);
   assert.equal(layout({getMenuButtonBoundingClientRect(){throw Error('unavailable');}}).menuRightInset,116);
