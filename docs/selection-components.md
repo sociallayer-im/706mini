@@ -39,3 +39,7 @@
 - Vant Weapp：https://github.com/youzan/vant-weapp/blob/dev/packages/checkbox/README.md
 
 参考其 Checkbox + Group、单多选、禁用和 max 的成熟组织方式，未引入 UI 库。已完成代码替换与源文件复查；本轮未运行测试、原生编译或模拟器/真机视觉验证，不将 CSS 修改称为已取得截图验证。
+
+## 选中态修正
+
+用户截图指出选中框右侧出现额外白条：原生 Checkbox 外层包含其内部留白，不能给整个 choice-control 添加选中背景。已删除该规则，白色框面交由原生控件绘制。后续同类控件不在原生输入宿主上涂背景；本轮未运行模拟器或测试。
