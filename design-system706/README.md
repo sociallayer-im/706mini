@@ -17,7 +17,7 @@
 
 ## 身份组合布局
 
-左侧圆形头像或圆形身份标记搭配右侧文本时，使用共享 `identity-layout`：头像与完整文本块顶部对齐，不因简介或评论增高而垂直居中。PersonCard、IdentityRow、CommentThread共用，FeedItem与参与者弹层通过组合继承。独立操作按钮单独决定对齐：PersonCard关注按钮保持居中；不跟随头像强制顶齐。多头像统计行、上下堆叠结果图标及普通功能图标行不是此类身份布局，不机械套用。
+左侧圆形头像或圆形身份标记搭配右侧文本时，使用共享 `identity-layout`：头像与完整文本块顶部对齐，不因简介或评论增高而垂直居中。PersonCard、IdentityRow、CommentThread共用，FeedItem与参与者弹层通过组合继承。独立操作按钮单独决定对齐：PersonCard关注按钮靠右上，与身份内容顶部对齐。多头像统计行、上下堆叠结果图标及普通功能图标行不是此类身份布局，不机械套用。
 
 ## 图标与字体
 
@@ -79,3 +79,5 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
 
 日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。
+
+本轮卡片Header/右上操作、管理动作列、语义状态Badge与活动介绍消重统一：见[evidence/card-content/CODE-REVIEW.md](evidence/card-content/CODE-REVIEW.md)。按用户最新要求停止新增截图检查，以代码调用覆盖与必要编译交付。

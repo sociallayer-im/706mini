@@ -12,3 +12,5 @@
 .note{display:block;margin-top:var(--actionGap);font-size:var(--typeFact);line-height:1.7}
 .entry .meta{margin-top:var(--spaceUnit)}
 .actions{display:flex;margin-top:var(--actionGap)}
+
+.intro{display:flex;align-items:flex-start;gap:var(--actionGap)}.intro-copy{flex:1;min-width:0}.intro>.actions{flex:none;max-width:40%;min-width:0;margin-left:auto;margin-top:0;align-self:flex-start}

@@ -40,7 +40,7 @@ SegmentedControl复用ChoiceGroup；原生radio默认margin叠加了定义的gap
 
 ## 用户反馈修复：身份头像顶部对齐
 
-PersonCard与IdentityRow原先align-items:center导致头像随多行文本整体居中。统一为identity-layout共享布局，PersonCard、IdentityRow、CommentThread均显式使用顶部对齐；FeedItem和参与者身份列表通过组合继承。PersonCard独立关注按钮使用align-self:center，不因头像顶对齐改变其操作位置。多头像统计行、上下堆叠结果图标、普通功能图标行不机械套用。规则写入README与对应组件指南，并由build.cjs生成保持可继承。
+PersonCard与IdentityRow原先align-items:center导致头像随多行文本整体居中。统一为identity-layout共享布局，PersonCard、IdentityRow、CommentThread均显式使用顶部对齐；FeedItem和参与者身份列表通过组合继承。该阶段PersonCard关注按钮使用align-self:center；已被本轮卡片级辅助动作右上规则替代。多头像统计行、上下堆叠结果图标、普通功能图标行不机械套用。规则写入README与对应组件指南，并由build.cjs生成保持可继承。
 
 浏览器24个默认/长文、320/375/768px组合：头像与文本块顶部差均0px，无溢出；关注按钮中心误差小于0.004px。回复文字左缘仍为0px差，分段单选仍为零margin、8px gap、12px左右内边距。截图person-top-375.png及person-top-long-320.png。
 
@@ -48,7 +48,7 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 
 43个Web语义家族对应原生组件或组合，精确路径见`native-mapping.json`。42个页面共用screen模板，20类弹层共用sheets模板。原生使用interaction事件桥接handler、dataset、detail与媒体触点/坐标；页面保持校验、草稿、排序、权限与请求。错误定位field-*锚点仍在页面作用域。
 
-评论回复使用Button align:start；身份头像与文本顶部对齐，独立操作按钮单独居中；选择组真实radio/checkbox保持语义，指示器统一40rpx，间距16rpx，左右24rpx。原生日期/输入/开关/share保留平台能力。
+评论回复使用Button align:start；身份头像与文本顶部对齐，卡片级辅助操作按最新规则靠右上；选择组真实radio/checkbox保持语义，指示器统一40rpx，间距16rpx，左右24rpx。原生日期/输入/开关/share保留平台能力。
 
 迁移后编译、离线回归见`evidence/native-migration-audit.md`与`native-migration-compile.json`；实际GUI检查见`evidence/native-migration/`，与上述迁移前39/42记录分开。
 
@@ -63,3 +63,5 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
 
 日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。
+
+本轮卡片Header/右上操作、管理动作列、语义状态Badge与活动介绍消重统一：见[evidence/card-content/CODE-REVIEW.md](evidence/card-content/CODE-REVIEW.md)。按用户最新要求停止新增截图检查，以代码调用覆盖与必要编译交付。

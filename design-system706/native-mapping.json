@@ -1,5 +1,5 @@
 {
-  "scope": "迁移后源码接入；不代表42页GUI、真机或业务验收",
+  "scope": "迁移后44路由源码接入；不代表GUI、真机或业务验收",
   "source": "miniprogram/templates/screen.wxml + sheets.wxml",
   "families": [
     {
@@ -478,7 +478,7 @@
       "note": "原生组件；业务处理由页面控制器承担。"
     }
   ],
-  "pages": 42,
+  "pages": 44,
   "sheets": 20,
   "guiEvidence": "evidence/native-migration/",
   "pageMappings": [
@@ -1717,6 +1717,44 @@
         "ui-sheet"
       ],
       "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/blocks/index",
+      "entry": "miniprogram/pages/blocks/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Button",
+        "Badge",
+        "IconButton",
+        "Notice"
+      ],
+      "nativeComponents": [
+        "ui-record-card",
+        "ui-button",
+        "ui-badge",
+        "ui-icon-button",
+        "ui-notice"
+      ],
+      "evidence": "source integration inherited from remote a5f6f90; no GUI acceptance"
+    },
+    {
+      "route": "pages/platform-admins/index",
+      "entry": "miniprogram/pages/platform-admins/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Button",
+        "Badge",
+        "IconButton",
+        "Notice"
+      ],
+      "nativeComponents": [
+        "ui-record-card",
+        "ui-button",
+        "ui-badge",
+        "ui-icon-button",
+        "ui-notice"
+      ],
+      "evidence": "source integration inherited from remote a5f6f90; no GUI acceptance"
     }
   ],
   "sheetMappings": [
@@ -1917,15 +1955,23 @@
     }
   ],
   "compositionSupport": [
-    "ui-panel",
-    "ui-select-field",
+    "ui-compact-member-list",
     "ui-fab",
-    "ui-record-card"
+    "ui-panel",
+    "ui-record-card",
+    "ui-select-field"
   ],
   "layoutPolicy": {
     "pageGutter": "miniprogram/lib/theme.js -> pageGutter",
     "horizontalRails": "all 5 scroll-x surfaces use horizontal-track; 4 page / 1 contained header",
     "filterAppearance": "pure text Chip; single/multiple semantics retained; form controls unaffected",
-    "checklist": "PAGE-MIGRATION-CHECKLIST.md"
+    "checklist": "PAGE-MIGRATION-CHECKLIST.md",
+    "cardContent": {
+      "cardHeader": "MenuGroup.title or Section context=card owns one panelInset; ActionRow icon alignment; page headings stay outside",
+      "auxiliaryActions": "IdentityRow and PersonCard top-right; management RecordCard actionRail and personal/review action columns; preserve reply/form/footer semantic exceptions",
+      "status": "status-tone.js enum mapping + theme semantic tokens; labels retained",
+      "eventText": "event-content.js derives display fields only; suppress complete opening summary while retaining original body and raw fields",
+      "validation": "latest operator instruction: no new screenshots; code and compile review"
+    }
   }
 }

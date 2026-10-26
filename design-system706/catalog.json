@@ -1365,7 +1365,7 @@
     "name": "PersonCard",
     "title": "人物推荐卡",
     "props": "name,bio:string; following:boolean",
-    "guide": "头像与右侧身份/简介文本块顶部对齐；关注按钮独立居中。取消关注需确认，整卡不抢独立操作。",
+    "guide": "头像与右侧身份/简介文本块顶部对齐；卡片级关注操作位于右上，主体flex占余宽，长文换行。取消关注需确认，整卡不抢独立操作。",
     "examples": [
       {
         "label": "默认",
@@ -3719,8 +3719,8 @@
   {
     "name": "Section",
     "title": "内容区块",
-    "props": "title,action:string; children:Node; onPress:()=>void",
-    "guide": "区块留白与标题统一，嵌套正文不机械多层套卡。",
+    "props": "title,action,summary,description:string; context:page|card; children:Node; onPress:()=>void",
+    "guide": "区块留白与标题统一，嵌套正文不机械多层套卡。summary/description展示仅抑制正文完整开头摘要，不删正文任意相似句。",
     "examples": [
       {
         "label": "默认",
@@ -4082,7 +4082,7 @@
   {
     "name": "IdentityRow",
     "title": "身份行",
-    "props": "name,description,src:string; size:number",
+    "props": "name,description,src,action:string; size:number",
     "guide": "组合Avatar与文字，头像与右侧文本块顶部对齐，不随多行简介垂直居中；不附加无依据的身份或活跃程度。",
     "examples": [
       {
@@ -4196,8 +4196,8 @@
   {
     "name": "MenuGroup",
     "title": "分组菜单",
-    "props": "items:ActionRowProps[]",
-    "guide": "同组共享白面，整行点击与分隔；展示站设置只在本机示例内。",
+    "props": "title,action:string; items:ActionRowProps[]",
+    "guide": "title为卡片内Header，由容器施加panelInset，与行icon左缘一致，禁止slot裸标题或双重padding。卡片级辅助动作右上，正文操作/footer保留原层级。同组共享白面，整行点击与分隔；展示站设置只在本机示例内。",
     "examples": [
       {
         "label": "默认",
@@ -4310,8 +4310,8 @@
   {
     "name": "Badge",
     "title": "只读状态标签",
-    "props": "label:string",
-    "guide": "不绑定点击；必须有状态文字，不与FilterChip混用。",
+    "props": "label,statusCode:string; tone:neutral|success|pending|danger|waiting",
+    "guide": "不绑定点击；保留状态文字，statusCode按共享真实枚举映射success/pending/danger/waiting/neutral语义色。主操作黄色不作为状态色，不与FilterChip混用。",
     "examples": [
       {
         "label": "默认",

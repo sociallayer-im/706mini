@@ -4,6 +4,7 @@ const tokens={
  canvas:'#F5F5F2',surface:'#FFFFFF',ink:'#232323',muted:'#6B6B66',
  accent:'#FFE568',accentText:'#232323',accentSoft:'#FFF7CC',
  line:'#DDDDD7',outline:'#232323',control:'#EFEFEB',danger:'#A34035',
+ statusSuccessInk:'#2F6545',statusSuccessSurface:'#E6F2E9',statusPendingInk:'#795719',statusPendingSurface:'#F7EBCF',statusDangerSurface:'#F7E7E3',statusWaitingInk:'#425A82',statusWaitingSurface:'#EAF0F8',
  info:'#656560',infoSoft:'#F0F0EC',sage:'#F0F0EC',sageInk:'#454541',lavender:'#F0F0EC',
  invitation:'#FFFFFF',peopleSurface:'#FFFFFF',
  chromeClear:'rgba(245,245,242,0)',chromeSoft:'rgba(245,245,242,.94)',

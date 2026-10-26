@@ -1,1 +1,3 @@
 .badge{display:inline-block;padding:var(--spaceUnit) var(--headingGap);background:var(--control);color:var(--ink);font-size:var(--typeLabel);line-height:1.5;border-radius:var(--pill)}.tone-danger{color:var(--danger)}
+
+.tone-success{color:var(--statusSuccessInk);background:var(--statusSuccessSurface)}.tone-pending{color:var(--statusPendingInk);background:var(--statusPendingSurface)}.tone-danger{background:var(--statusDangerSurface)}.tone-waiting{color:var(--statusWaitingInk);background:var(--statusWaitingSurface)}

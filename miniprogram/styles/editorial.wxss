@@ -24,7 +24,7 @@
 .screen .section>.section-title{margin-bottom:var(--headingGap)}
 .screen .section>.section-title + .body-text{margin-top:0}
 .screen .section>.section-heading{margin-top:0}
-.screen .member-hero{padding:36rpx;border:0;border-radius:var(--radius);margin-bottom:var(--sectionGap)}
+.screen .member-hero{padding:var(--panelInset);border:0;border-radius:var(--radius);margin-bottom:var(--sectionGap)}
 .account-welcome,.account-fields,.account-guest{display:flex;flex-direction:column;gap:24rpx;align-items:stretch}
 .account-welcome{padding:24rpx 0}
 .account-setup{padding-bottom:32rpx}
@@ -50,7 +50,7 @@
 .account-login-content,.account-welcome-content{padding-top:48rpx}
 .account-success-icon{width:96rpx;height:96rpx}
 .screen .member-signature{display:block;font-size:var(--typeBody);margin-top:24rpx}
-.screen .member-identity{display:flex;align-items:center;gap:24rpx;margin-bottom:24rpx}
+.screen .member-identity{display:flex;align-items:flex-start;gap:24rpx;margin-bottom:24rpx}
 .screen .member-avatar{flex:none;width:120rpx;height:120rpx}
 .screen .member-name{flex:1;min-width:0;font-size:var(--typeTitle);line-height:1.5;margin:0;overflow-wrap:anywhere}
 .screen .member-city{line-height:1.8;gap:12rpx}
@@ -68,7 +68,7 @@
 .screen .label{margin-bottom:16rpx;line-height:1.6}
 .screen .settings-row{background:var(--surface)!important;border:0;border-radius:0!important;min-height:104rpx;padding:24rpx!important;margin:0!important;font-size:var(--typeBody);font-weight:400}
 .screen .settings-icon{border-radius:50%}
-.screen .self-profile{padding:36rpx}
+.screen .self-profile{padding:var(--panelInset)}
 .main-navigation{position:fixed;top:0;left:0;right:0;z-index:9;box-sizing:border-box;background:linear-gradient(to bottom,var(--canvas) 0,var(--canvas) calc(100% - 48rpx),var(--chromeClear) 100%);pointer-events:none}
 .main-navigation-content{display:flex;align-items:center;gap:12rpx;box-sizing:border-box;width:100%;padding-left:var(--pageGutter)}
 .subpage-title{flex:1;min-width:0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--typeBody);font-weight:500;line-height:1.4}
@@ -171,11 +171,11 @@
 .screen.page-event .section>.section-title{display:block;margin:0 0 24rpx;font-size:var(--typeSection);line-height:1.4}
 .screen.page-activity-preview .section>.section-title{display:block;margin:0 0 24rpx;font-size:var(--typeSection);line-height:1.4}
 .screen.page-event .detail-fact{padding:16rpx 0}
-.screen.page-event .event-person-card{padding:28rpx;background:var(--surface);border-radius:var(--radius);margin:0 0 24rpx}
-.screen.page-event .detail-series-links{margin:0 0 32rpx;padding:28rpx;background:var(--surface);border-radius:var(--radius)}
+.screen.page-event .event-person-card{padding:var(--panelInset);background:var(--surface);border-radius:var(--radius);margin:0 0 24rpx}
+.screen.page-event .detail-series-links{margin:0 0 32rpx;padding:var(--panelInset);background:var(--surface);border-radius:var(--radius)}
 .screen.page-event .detail-series-links>.section-title{display:block;margin-bottom:16rpx;font-size:var(--typeBody)}
 .screen.page-event .event-secondary-actions{display:flex;flex-wrap:wrap;padding:0;margin:0 0 48rpx}
-.screen.page-event .event-discussion{padding:28rpx;background:var(--surface);border-radius:var(--radius);margin-bottom:32rpx}
+.screen.page-event .event-discussion{padding:var(--panelInset);background:var(--surface);border-radius:var(--radius);margin-bottom:32rpx}
 .screen.page-event .event-discussion .section-heading{font-size:var(--typeSection);font-weight:600}
 .screen .event-overview{display:flex;align-items:flex-start;gap:28rpx;padding:16rpx 0 24rpx}
 .screen .event-overview-copy{flex:1;min-width:0}
@@ -190,3 +190,6 @@
 .main-navigation.subpage-navigation{background:transparent}
 .screen.page-event .event-secondary-actions{gap:var(--actionGap);align-items:center}
 /* Horizontal public member strip composes the shared identity primitive. */
+
+.section-heading>text:first-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.screen .series-copy{padding:var(--panelInset)}

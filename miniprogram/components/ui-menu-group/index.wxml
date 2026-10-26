@@ -1,1 +1,1 @@
-<view style="{{theme}}" class="group"><text wx:if="{{title}}" class="title">{{title}}</text><view class="surface"><slot/></view></view>
+<view style="{{theme}}" class="group"><view class="surface"><view wx:if="{{title}}" class="card-header"><text class="title">{{title}}</text><view class="header-actions"><slot name="header-actions"/></view></view><slot/></view></view>

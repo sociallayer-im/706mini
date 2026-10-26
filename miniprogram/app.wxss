@@ -110,3 +110,6 @@ text{overflow-wrap:anywhere}
 .screen .horizontal-rail.rail-page{flex:none;width:calc(100% + var(--pageGutter) + var(--pageGutter));margin-left:calc(0rpx - var(--pageGutter));margin-right:calc(0rpx - var(--pageGutter))}
 .horizontal-track{box-sizing:border-box;display:inline-flex;align-items:flex-start;gap:var(--actionGap);min-width:100%;width:max-content;padding-left:var(--pageGutter);padding-right:var(--pageGutter);vertical-align:top;white-space:nowrap}
 .rail-contained .horizontal-track{padding-left:0;padding-right:0;align-items:center}
+
+/* Management actions are right-aligned independently from the record copy. */
+.record-side-actions{display:flex;flex-direction:column;align-items:flex-end;gap:var(--actionGap);max-width:100%;min-width:0}.record-side-actions>.row{justify-content:flex-end;flex-wrap:wrap;max-width:100%}

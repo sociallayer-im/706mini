@@ -13,3 +13,5 @@
 .note{display:block;color:var(--muted);font-size:var(--typeMeta);line-height:1.7;overflow-wrap:anywhere}
 .actions{display:flex;flex:0 0 auto;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:var(--actionGap);max-width:100%;margin-left:auto}
 .footer-copy{flex:1;min-width:0}
+
+.personal-layout{display:flex;align-items:flex-start;gap:var(--actionGap)}.personal-copy{flex:1;min-width:0}.personal-layout>.actions{align-self:flex-start;flex-direction:column;align-items:flex-end;max-width:40%;min-width:0}.art{max-width:35%}

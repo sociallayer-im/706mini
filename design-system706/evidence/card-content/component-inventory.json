@@ -1,0 +1,369 @@
+[
+  {
+    "file": "miniprogram/components/ui-access-step/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view class=\"access-step {{divider ? 'has-divider' : ''}}\" style=\"{{theme}}\"><text class=\"number\">{{number}}</text><view class=\"step-main\"><view class=\"copy\"><text class=\"title\">{{title}}</text><text class=\"description\">{{description}}</text></view><view class=\"action\"><ui-button label=\"{{(label) || ''}}\" variant=\"{{primary ? 'primary' : 'secondary'}}\" compact disabled=\"{{disabled}}\" bind:press=\"press\"/></view></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-action-row/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-avatar/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-badge/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-button/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-calendar/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-checkbox/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-choice-group/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-comment-thread/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 2,
+        "markup": "<view class=\"comment-heading\"><text class=\"comment-author\" bindtap=\"{{surface === 'sheet' ? '' : 'member'}}\">{{item.author.display_name}}</text><text wx:if=\"{{surface === 'sheet'}}\" class=\"meta\">{{item.display_time}}</text><text wx:if=\"{{surface !== 'sheet' && item.badge}}\" class=\"comment-badge\">{{item.badge}}</text></view>"
+      },
+      {
+        "line": 4,
+        "markup": "<view wx:for=\"{{item.replies}}\" wx:for-item=\"reply\" wx:key=\"id\" class=\"comment-reply\"><text class=\"reply-author\">{{reply.author.display_name}}：</text><text>{{reply.text}}</text><ui-button wx:if=\"{{surface !== 'sheet' && reply.owner === currentUser}}\" label=\"{{t.delete}}\" variant=\"text\" align=\"start\" compact data-id=\"{{reply.id}}\" bind:press=\"removeReply\" disabled=\"{{busy}}\"/></view>"
+      },
+      {
+        "line": 5,
+        "markup": "<view class=\"comment-actions\"><ui-button label=\"{{t.reply}}\" variant=\"text\" align=\"start\" compact data-kind=\"comment\" data-reply=\"{{item.id}}\" bind:press=\"reply\"/><ui-button wx:if=\"{{surface !== 'sheet' && item.owner === currentUser}}\" label=\"{{t.delete}}\" variant=\"danger\" align=\"start\" compact bind:press=\"remove\" disabled=\"{{busy}}\" loading=\"{{busy}}\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-compact-member-list/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-date-time-picker/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-empty-state/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"empty\"><image wx:if=\"{{icon}}\" class=\"icon\" src=\"{{icon}}\" aria-hidden=\"true\"/><text class=\"title\">{{title}}</text><text wx:if=\"{{description}}\" class=\"description\">{{description}}</text><slot/><ui-button wx:if=\"{{action}}\" label=\"{{action}}\" disabled=\"{{disabled}}\" bind:press=\"press\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-entity-card/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 3,
+        "markup": "<view class=\"entity-body\"><block wx:if=\"{{!custom}}\"><text wx:if=\"{{item.cityLabel || item.city}}\" class=\"entity-meta\">{{item.cityLabel || item.city}}{{item.district ? ' · ' + item.district : ''}}</text><text class=\"entity-title\">{{item.name || item.title}}</text><text wx:if=\"{{item.introduction}}\" class=\"entity-description\">{{item.introduction}}</text><text wx:if=\"{{item.event_count !== undefined && item.event_count !== null}}\" class=\"entity-count\">{{item.event_count}} {{locale === 'en' ? 'events' : '场活动'}}</text></block><view class=\"entity-custom\" catchtap=\"stop\"><slot/></view><view class=\"entity-actions\" catchtap=\"stop\"><slot name=\"actions\"/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-event-card/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 2,
+        "markup": "<view wx:if=\"{{large}}\" class=\"large-card-art\"><image class=\"large-cover\" src=\"{{e.cover_url}}\" mode=\"aspectFill\"/><view class=\"large-card-shade\"/><text class=\"large-card-title\">{{e.title}}</text></view>"
+      },
+      {
+        "line": 4,
+        "markup": "<button wx:if=\"{{interactiveTitle}}\" size=\"mini\" class=\"event-title event-title-link\" catchtap=\"titleOpen\">{{e.title}}</button><text wx:else class=\"event-title\">{{e.title}}</text>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-fab/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-feature-carousel/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 2,
+        "markup": "<swiper-item wx:for=\"{{cards}}\" wx:key=\"id\"><view class=\"campaign-slide\" data-route=\"{{isNodes ? 'space' : 'campaign'}}\" data-id=\"{{item.id}}\" bindtap=\"open\"><image wx:if=\"{{item.cover_url && !demo}}\" src=\"{{item.cover_url}}\" class=\"campaign-background\" mode=\"aspectFill\"/><view wx:else class=\"feature-geometry geometry-{{index % 2}}\" aria-hidden=\"true\"><view class=\"geometry-disc\"/><view class=\"geometry-arch\"/><view class=\"geometry-table\"/></view><view class=\"campaign-copy\"><text class=\"banner-kicker\">{{isNodes ? item.context + (item.city !== city ? ' · ' + item.cityLabel : '') : item.kicker}}</text><text class=\"banner-title\">{{item.title}}</text><text class=\"banner-description\">{{isNodes ? item.summary : item.banner_description || item.introduction}}</text></view></view></swiper-item>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-feed-item/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-filter-chip/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view class=\"{{rail ? 'in-rail' : ''}} chip-slot\" style=\"{{theme}}\"><ui-button label=\"{{(label) || ''}}\" variant=\"selection\" role=\"{{selectionMode === 'single' ? 'radio' : 'button'}}\" disabled=\"{{disabled}}\" loading=\"{{loading}}\" context=\"canvas\" compact selected=\"{{selected}}\" bind:press=\"press\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-floating-bar/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-follow-control/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\"><ui-button label=\"{{(label) || ''}}\" variant=\"{{following ? 'text' : primary ? 'primary' : 'secondary'}}\" compact disabled=\"{{disabled}}\" loading=\"{{loading}}\" bind:press=\"press\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-form-field/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-gallery/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-icon-button/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-identity-row/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"identity {{stacked ? 'is-stacked' : ''}} {{flush ? 'is-flush' : ''}}\" role=\"{{interactive ? 'button' : ''}}\" bindtap=\"press\"><ui-avatar src=\"{{(src) || ''}}\" name=\"{{(name) || ''}}\" size=\"{{size}}\"/><view class=\"copy\"><block wx:if=\"{{!custom}}\"><text class=\"name\">{{name}}</text><text wx:if=\"{{description}}\" class=\"description\">{{description}}</text></block><slot/></view><view class=\"actions\"><slot name=\"actions\"/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-loading-state/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"loading\" role=\"status\" aria-label=\"{{(label) || ''}}\"><text class=\"label\">{{label}}</text><block wx:if=\"{{!refresh}}\"><view class=\"skeleton heading\"/><view class=\"skeleton copy\"/><view class=\"skeleton card\"/></block></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-media-uploader/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 9,
+        "markup": "<ui-button wx:if=\"{{route === 'campaign-edit'}}\" label=\"{{locale === 'en' ? 'Change series cover' : '更换系列封面'}}\" data-key=\"media\" data-type=\"image\" data-replace=\"{{true}}\" data-handler=\"upload\" bind:press=\"dispatch\" disabled=\"{{busy}}\" loading=\"{{busy}}\"/>"
+      },
+      {
+        "line": 10,
+        "markup": "<view class=\"actions\"><ui-button compact label=\"{{locale === 'en' ? 'Select images' : '多选图片'}}\" data-key=\"media\" data-type=\"image\" data-handler=\"upload\" bind:press=\"dispatch\" disabled=\"{{busy}}\" loading=\"{{busy}}\"/><ui-button wx:if=\"{{formKind === 'event'}}\" compact label=\"{{locale === 'en' ? 'Link' : '链接'}}\" data-handler=\"mediaLink\" bind:press=\"dispatch\" disabled=\"{{busy}}\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-menu-group/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"group\"><view class=\"surface\"><view wx:if=\"{{title}}\" class=\"card-header\"><text class=\"title\">{{title}}</text><view class=\"header-actions\"><slot name=\"header-actions\"/></view></view><slot/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-navigation/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-notice/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"notice state-{{state}}\" role=\"{{state === 'error' ? 'alert' : 'status'}}\"><text class=\"copy\">{{text}}</text><slot/><ui-button wx:if=\"{{action}}\" label=\"{{action}}\" compact variant=\"text\" disabled=\"{{disabled}}\" bind:press=\"press\"/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-notification-item/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\"><text wx:if=\"{{item.notificationGroup}}\" class=\"group\">{{item.notificationGroup}}</text><view class=\"notification {{item.needsAttention ? 'attention' : 'quiet'}} {{item.status === 'READ' ? 'read' : ''}}\" role=\"button\" bindtap=\"press\"><view class=\"heading\"><ui-avatar wx:if=\"{{item.actor.avatar_url}}\" src=\"{{item.actor.avatar_url}}\" name=\"{{item.actor.display_name}}\" size=\"24\"/><text class=\"source\">{{item.actor.display_name || t[item.category]}}</text><text class=\"time\">{{item.notificationTime}}</text><text wx:if=\"{{item.status === 'UNREAD'}}\" class=\"unread\" aria-label=\"{{locale === 'en' ? 'Unread' : '未读'}}\">●</text></view><text class=\"title\">{{item.title || t[item.key]}}</text><text wx:if=\"{{item.notificationParts}}\" class=\"body\">{{item.notificationParts[0]}}<text class=\"link\">{{item.notificationParts[1]}}</text>{{item.notificationParts[2]}}</text><text wx:else class=\"body\">{{item.description}}</text><text wx:if=\"{{item.needsAttention}}\" class=\"cta\">{{locale === 'en' ? 'View details' : '查看详情'}} ›</text></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-panel/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-participant-summary/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-person-card/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 3,
+        "markup": "<view class=\"person-content\" bindtap=\"open\"><image class=\"avatar\" src=\"{{person.avatar_url}}\"/><view class=\"person-copy\"><text class=\"person-name\">{{person.display_name}}</text><text class=\"person-bio\">{{person.bio}}</text></view><view class=\"person-action\" catchtap=\"stop\"><ui-follow-control primary following=\"{{person.following}}\" label=\"{{(person.following ? (locale === 'en' ? 'Following' : '已关注') : t.follow) || ''}}\" disabled=\"{{disabled}}\" bind:press=\"follow\"/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-personal-campaign/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view class=\"campaign-item\" style=\"{{theme}}\"><view class=\"campaign-layout\"><view class=\"campaign-copy\"><ui-badge label=\"{{item.statusLabel}}\" tone=\"{{item.statusTone}}\"/><view class=\"title\" role=\"button\" bindtap=\"open\" hover-class=\"is-pressed\">{{item.title}}</view><text wx:if=\"{{item.summary}}\" class=\"summary\">{{item.summary}}</text></view><view class=\"actions\"><ui-button wx:if=\"{{item.status === 'DRAFT' || item.status === 'CHANGES_REQUESTED'}}\" label=\"{{t.edit}}\" variant=\"primary\" compact bind:press=\"edit\"/><ui-button wx:if=\"{{item.status === 'PUBLISHED'}}\" label=\"{{locale === 'en' ? 'Manage' : '管理'}}\" variant=\"primary\" compact bind:press=\"edit\"/><ui-button label=\"{{t.progress}}\" compact bind:press=\"progress\"/><ui-button label=\"{{t.deleteCampaign}}\" variant=\"text\" compact bind:press=\"remove\" disabled=\"{{busy}}\"/></view></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-personal-event/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 4,
+        "markup": "<view class=\"summary-copy\"><text class=\"title\">{{view.event.title}}</text>"
+      },
+      {
+        "line": 16,
+        "markup": "</view>  <view class=\"actions\"><ui-button wx:for=\"{{view.actions}}\" wx:key=\"label\" label=\"{{item.label}}\" variant=\"{{item.variant}}\" compact disabled=\"{{busy}}\" data-index=\"{{index}}\" bind:press=\"act\"/></view></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-record-card/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 2,
+        "markup": "<view class=\"record-layout\"><view class=\"record-copy\"><block wx:if=\"{{!custom}}\"><ui-badge wx:if=\"{{status}}\" label=\"{{status}}\" tone=\"{{tone}}\"/><text wx:if=\"{{title}}\" class=\"record-title\">{{title}}</text><text wx:if=\"{{description}}\" class=\"record-description\">{{description}}</text><text wx:if=\"{{meta}}\" class=\"record-meta\">{{meta}}</text></block>"
+      },
+      {
+        "line": 3,
+        "markup": "<view class=\"record-content\" catchtap=\"stop\"><slot/></view></view><view class=\"record-actions\" catchtap=\"stop\"><slot name=\"actions\"/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-review-history/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 2,
+        "markup": "<view class=\"intro\"><view class=\"intro-copy\"><ui-badge label=\"{{subject.statusLabel}}\" tone=\"{{subject.statusTone}}\"/><text class=\"title\">{{subject.title}}</text><text wx:if=\"{{subject.submitted_display}}\" class=\"meta\">{{subject.submitted_display}}</text><text class=\"guidance\">{{subject.reviewGuidance}}</text></view><view wx:if=\"{{subject.status === 'CHANGES_REQUESTED' || subject.status === 'DRAFT'}}\" class=\"actions\"><ui-button label=\"{{locale === 'en' ? 'Edit and resubmit' : '修改并重新提交'}}\" variant=\"primary\" compact bind:press=\"edit\"/></view></view>"
+      },
+      {
+        "line": 3,
+        "markup": "<text class=\"section-title\">{{campaign ? (locale === 'en' ? 'Review records' : '审核记录') : (locale === 'en' ? 'Group review' : '小组审核')}}</text>"
+      },
+      {
+        "line": 4,
+        "markup": "<view wx:if=\"{{entries.length}}\" class=\"records\"><view wx:for=\"{{entries}}\" wx:key=\"id\" class=\"entry {{index ? 'has-divider' : ''}}\"><view class=\"record-heading\"><text class=\"scope\">{{item.label}}</text><ui-badge label=\"{{item.statusLabel}}\" tone=\"{{item.tone}}\"/></view><text wx:if=\"{{item.note}}\" class=\"note\">{{item.note}}</text><text wx:if=\"{{item.date}}\" class=\"meta\">{{item.date}}</text></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-search-field/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-section/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"section context-{{context}}\"><view wx:if=\"{{title || action}}\" class=\"heading\"><text class=\"title\">{{title}}</text><ui-button wx:if=\"{{action}}\" label=\"{{action}}\" variant=\"text\" compact bind:press=\"press\"/></view><slot/></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-select-field/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-sheet/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view style=\"{{theme}}\" class=\"overlay\"><view class=\"scrim\" bindtap=\"close\"/><view class=\"sheet {{poster ? 'poster' : ''}}\" role=\"dialog\" aria-modal=\"true\" aria-label=\"{{title}}\"><view class=\"handle\"/><view class=\"heading\"><text class=\"title\">{{title}}</text><ui-icon-button icon=\"/assets/community-icons/close.png\" label=\"{{closeLabel || '关闭'}}\" surface=\"plain\" disabled=\"{{busy}}\" bind:press=\"close\"/></view><text wx:if=\"{{description}}\" class=\"description\">{{description}}</text><ui-notice wx:if=\"{{error}}\" state=\"error\" text=\"{{error}}\"/><slot/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-stat-link/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-status-summary/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": [
+      {
+        "line": 1,
+        "markup": "<view class=\"status-summary\" style=\"{{theme}}\"><view class=\"heading\"><image wx:if=\"{{icon}}\" class=\"status-icon\" src=\"{{icon}}\" aria-hidden=\"true\"/><text class=\"title\">{{title}}</text></view><view class=\"context\"><slot/></view></view>"
+      }
+    ]
+  },
+  {
+    "file": "miniprogram/components/ui-stepper/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  },
+  {
+    "file": "miniprogram/components/ui-switch/index.wxml",
+    "review": "markup inventory; relevant card/header/action disposition recorded in CODE-REVIEW.md",
+    "matches": []
+  }
+]

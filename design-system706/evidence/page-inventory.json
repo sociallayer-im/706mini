@@ -5,7 +5,7 @@
   "generatedAt": "2026-10-26",
   "evidencePolicy": "源码推导与真实工具访问分开。本文件不声称真实递归访问。页面包装复用模板与控制器，逐页按路由分支追溯；未知动态链接保留表达式。",
   "counts": {
-    "registeredPages": 42,
+    "registeredPages": 44,
     "unregisteredPageCandidates": 0,
     "componentFamilies": 43,
     "sheetKinds": 20,
@@ -13231,6 +13231,46 @@
           ]
         }
       ]
+    },
+    {
+      "id": "blocks",
+      "route": "pages/blocks/index",
+      "title": "屏蔽管理",
+      "registered": true,
+      "evidenceLevel": "source",
+      "componentNames": [
+        "Button",
+        "Badge",
+        "IconButton",
+        "Notice"
+      ],
+      "components": [],
+      "states": [],
+      "overlays": [],
+      "links": [],
+      "gaps": [
+        "远端a5f6f90新增路由，本轮仅代码检查，无GUI验收。"
+      ]
+    },
+    {
+      "id": "platform-admins",
+      "route": "pages/platform-admins/index",
+      "title": "平台管理员",
+      "registered": true,
+      "evidenceLevel": "source",
+      "componentNames": [
+        "Button",
+        "Badge",
+        "IconButton",
+        "Notice"
+      ],
+      "components": [],
+      "states": [],
+      "overlays": [],
+      "links": [],
+      "gaps": [
+        "远端a5f6f90新增路由，本轮仅代码检查，无GUI验收。"
+      ]
     }
   ],
   "components": [
@@ -19838,5 +19878,6 @@
     "create-space",
     "manage",
     "review-lab"
-  ]
+  ],
+  "integrationNote": "Inherited two registered routes from remote a5f6f90 during card-content rebase; previous per-page evidence remains historical."
 }
