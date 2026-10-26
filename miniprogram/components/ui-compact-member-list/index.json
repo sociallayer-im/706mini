@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui-identity-row": "/components/ui-identity-row/index"
+  }
+}

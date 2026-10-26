@@ -99,7 +99,6 @@
 .screen .entity-stories .section-heading{margin-top:32rpx;margin-bottom:16rpx}
 .screen .entity-events-heading{margin-top:40rpx}
 .entity-members-section{margin-top:48rpx}
-.entity-member-strip{white-space:nowrap;margin-top:24rpx}
 .external-preview-cover{display:block;width:100%;height:240rpx;border-radius:24rpx;margin:24rpx 0}
 .external-preview-note{display:block;margin:20rpx 0;font-size:var(--typeFact);line-height:1.7;color:var(--muted)}
 .screen.task-page{padding-bottom:calc(176rpx + env(safe-area-inset-bottom))}
@@ -164,4 +163,3 @@
 .main-navigation.subpage-navigation{background:transparent}
 .screen.page-event .event-secondary-actions{gap:var(--actionGap);align-items:center}
 /* Horizontal public member strip composes the shared identity primitive. */
-.entity-member-item{display:inline-block;vertical-align:top;min-width:160rpx;max-width:300rpx;white-space:normal;flex:none}

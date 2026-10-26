@@ -1,0 +1,7 @@
+<scroll-view style="{{theme}}" scroll-x class="strip" show-scrollbar="{{false}}">
+ <view class="track">
+  <view wx:for="{{people}}" wx:key="owner" class="item" role="button" aria-label="{{item.display_name || item.name}}" data-id="{{item.owner || item.id}}" bindtap="open">
+   <ui-identity-row src="{{(item.avatar_url) || ''}}" name="{{item.display_name || item.name}}" size="48" stacked="{{true}}"/>
+  </view>
+ </view>
+</scroll-view>

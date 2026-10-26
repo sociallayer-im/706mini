@@ -1,2 +1,2 @@
 const theme=require('../../lib/theme');
-Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{src:String,name:String,description:String,size:{type:Number,value:36},interactive:Boolean,custom:Boolean,disabled:Boolean,},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},}});
+Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{src:String,name:String,description:String,size:{type:Number,value:36},interactive:Boolean,custom:Boolean,disabled:Boolean,stacked:Boolean,},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},}});

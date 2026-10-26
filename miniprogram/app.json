@@ -55,6 +55,9 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "lazyCodeLoading": "requiredComponents",
+  "componentPlaceholder": {
+    "ui-compact-member-list": "view"
+  },
   "usingComponents": {
     "ui-access-step": "/components/ui-access-step/index",
     "ui-action-row": "/components/ui-action-row/index",
@@ -81,6 +84,7 @@
     "ui-identity-row": "/components/ui-identity-row/index",
     "ui-loading-state": "/components/ui-loading-state/index",
     "ui-media-uploader": "/components/ui-media-uploader/index",
+    "ui-compact-member-list": "/components/ui-compact-member-list/index",
     "ui-menu-group": "/components/ui-menu-group/index",
     "ui-navigation": "/components/ui-navigation/index",
     "ui-notice": "/components/ui-notice/index",
