@@ -1,0 +1,9 @@
+.fab-position{position:fixed;right:var(--fabInset);bottom:calc(var(--fabBottom) + env(safe-area-inset-bottom));width:var(--fabSize);height:var(--fabSize);z-index:8}
+.fab-hit{box-sizing:border-box;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:var(--fabSize);height:var(--fabSize);min-width:var(--touchTarget);min-height:var(--touchTarget);margin:0;padding:0;border:0;border-radius:50%;background:transparent;overflow:visible;line-height:1}
+.fab-hit::after{border:0}
+.fab-face{box-sizing:border-box;display:flex;align-items:center;justify-content:center;flex:none;width:var(--fabSize);height:var(--fabSize);border:0;border-radius:50%;background:var(--accent);color:var(--accentText);transition:opacity var(--pressDuration) ease-out}
+.fab-icon{display:block;width:var(--fabGlyph);height:var(--fabGlyph)}
+.is-pressed .fab-face{opacity:var(--pressOpacity)}
+.is-disabled .fab-face{background:var(--control);color:var(--muted)}
+.spinner{box-sizing:border-box;width:var(--typeFact);height:var(--typeFact);border:var(--stroke) solid var(--ink);border-right-color:transparent;border-radius:50%;animation:fab-spin var(--loadingDuration) linear infinite}
+@keyframes fab-spin{to{transform:rotate(360deg)}}

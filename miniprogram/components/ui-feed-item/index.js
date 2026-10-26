@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{item:Object,locale:String,cityName:String,t:Object,illustrations:Object,},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},author(){this.triggerEvent('interaction',{handler:'navigate',dataset:{route:'member',id:this.data.item.author.owner||this.data.item.author.id},detail:{}});},forward(e){this.triggerEvent('interaction',e.detail);},}});

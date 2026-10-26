@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated'},data:{theme:theme.style()},properties:{label:String,optional:Boolean,optionalLabel:{type:String,value:'选填'},error:String,hint:String,custom:Boolean,type:{type:String,value:'text'},value:String,placeholder:String,maxlength:{type:Number,value:500},disabled:Boolean,autoHeight:{type:Boolean,value:true},cursorSpacing:{type:Number,value:24}},methods:{input(e){this.triggerEvent('input',e.detail);},keyboard(e){this.triggerEvent('keyboardheightchange',e.detail);}}});

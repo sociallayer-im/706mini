@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T01:45:13.165610+00:00",
-    "via": "Codex · standalone Web adaptation",
-    "note": "Shared identity layout top-aligns avatars and text; independent PersonCard actions remain centered; prior reply and choice fixes retained"
+    "at": "2026-10-26T02:28:42.168756+00:00",
+    "via": "Codex · native mini-program integration",
+    "note": "43 semantic families mapped to 44 native components; 42 routes and 20 sheets share native templates; identity/reply/choice rules retained; regression and GUI evidence separated; migration GUI sampled 6 routes / 2 sheets; Montana and Hezhou restored"
   },
   "localAssets": [
     {

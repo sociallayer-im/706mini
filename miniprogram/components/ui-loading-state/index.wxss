@@ -1,0 +1,1 @@
+.loading{padding:var(--headingGap) 0}.label{font-size:var(--typeFact);color:var(--muted)}.skeleton{border-radius:var(--radiusInput);background:var(--control);margin:var(--headingGap) 0}.heading{height:var(--typeTitle);width:60%}.copy{height:var(--typeBody);width:80%}.card{height:var(--eventArtHeight)}

@@ -2,12 +2,15 @@
   "assetCount": 36,
   "sourceAssetsByteEqual": true,
   "sourceCommit": "a74168a",
-  "checkedAt": "2026-10-26T01:41:18.750Z",
+  "checkedAt": "2026-10-26T02:19:27.520Z",
   "components": 43,
   "pages": 42,
   "overlays": 20,
-  "tokens": 87,
+  "tokens": 91,
   "bidirectionalMapping": true,
+  "nativeFamilies": 43,
+  "nativeComponents": 44,
+  "nativeSourceIntegrated": true,
   "colorContrast": [
     {
       "fg": "ink",

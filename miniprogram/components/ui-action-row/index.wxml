@@ -1,6 +1,7 @@
 <view style="{{theme}}" class="action-row-shell context-{{context}} {{divider ? 'has-divider' : ''}}">
- <button size="mini" style="display:flex;width:100%;min-height:var(--touchTarget);margin:0;padding:{{context === 'canvas' ? '0' : 'var(--headingGap) var(--panelInset)'}};font-size:var(--typeBody);line-height:1.5" class="action-row tone-{{tone}} {{disabled || loading ? 'is-disabled' : ''}}" aria-label="{{label}}" disabled="{{disabled || loading}}" loading="{{loading}}" hover-class="is-pressed" bindtap="onPress">
-  <view class="action-row-copy"><text class="action-row-label">{{label}}</text><text wx:if="{{description}}" class="action-row-description">{{description}}</text><text wx:if="{{detail}}" class="action-row-description">{{detail}}</text></view>
-  <image wx:if="{{navigation}}" class="action-row-chevron" src="{{chevron}}" aria-hidden="true"/>
+ <button size="mini" style="display:flex;width:100%;min-height:var(--touchTarget);margin:0;padding:{{context === 'canvas' ? '0' : 'var(--headingGap) var(--panelInset)'}};font-size:var(--typeBody);line-height:1.5" class="action-row tone-{{tone}} {{disabled || loading ? 'is-disabled' : ''}}" aria-label="{{(label) || ''}}" disabled="{{disabled || loading}}" loading="{{loading}}" hover-class="is-pressed" catchtap="onPress">
+  <image wx:if="{{icon}}" class="action-row-icon" src="{{icon}}" aria-hidden="true"/><view class="action-row-copy"><text class="action-row-label">{{label}}</text><text wx:if="{{description}}" class="action-row-description">{{description}}</text><text wx:if="{{detail}}" class="action-row-description">{{detail}}</text></view>
+  <text wx:if="{{value}}" class="action-row-value">{{value}}</text><image wx:if="{{selection && selected}}" class="action-row-icon" src="/assets/community-icons/check.png" aria-hidden="true"/>
+  <image wx:if="{{navigation && !selection}}" class="action-row-chevron" src="{{chevron}}" aria-hidden="true"/>
  </button>
 </view>

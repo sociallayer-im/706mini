@@ -61,3 +61,9 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 ## Not synced
 
 这是从源码语义提炼、按用户要求手写的独立Web实现，不是小程序组件直接编译，也没有向小程序回写。源值在 `tokens.json` 中保留原rpx；网页按375px基准换算 rpx/2，响应式变化由容器处理。原生安全区、支付、授权、微信分享、相册、扫码及服务端业务状态机没有模拟成真实能力。BaoCut专用check/import不可用，未假称运行。素材按用户要求保留为本地文件，无上传记录。实际访问和验证见 `IMPLEMENTATION.md` 与 `evidence/`。
+
+## 小程序原生接入
+
+用户已批准将系统应用到小程序。`native-mapping.json`提供43个语义家族的原生路径或组合；原生调用以各`miniprogram/components/ui-*/README.md`为准。Web示范保留DOM API，原生组件通过共享模板使用，不把Web节点移入WXML。42路由与20弹层已接入共享模板。迁移后的GUI证据见`evidence/native-migration/README.md`，迁移前覆盖仅为历史记录。
+
+`evidence/page-inventory.json`保留最初提炼时的行号与源码快照。当前原生对应以`native-mapping.json`为准，包含42页和20弹层的接入映射；条件仍由共享模板与控制器决定。

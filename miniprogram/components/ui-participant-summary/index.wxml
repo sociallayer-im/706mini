@@ -1,0 +1,1 @@
+<view style="{{theme}}" class="summary" role="button" bindtap="press"><view class="avatars"><view wx:for="{{participants}}" wx:key="owner" class="avatar"><ui-avatar src="{{(item.avatar_url) || ''}}" name="{{item.display_name}}" size="24"/></view></view><text class="label">{{label}}</text><image class="chevron" src="/assets/community-icons/back.png" aria-hidden="true"/></view>

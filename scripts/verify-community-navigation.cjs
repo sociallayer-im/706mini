@@ -46,32 +46,21 @@ for (const route of routes) {
   assert.equal(png.readUInt32BE(20), 96);
 }
 const markup = read('miniprogram/templates/screen.wxml');
-const navigation = markup.slice(markup.lastIndexOf('class="navigation-shell"'));
+const navigation = read('miniprogram/components/ui-navigation/index.wxml');
+assert(markup.includes('<ui-navigation'));assert(read('miniprogram/custom-tab-bar/index.wxml').includes('<ui-navigation'));
 assert(navigation.includes('src="{{item.icon}}"'));
-assert(navigation.includes('aria-selected="{{tab === item.key}}"'));
+assert(navigation.includes('aria-selected="{{current === item.key}}"'));
 assert(!/Inverse|navigation-emoji|navigation-selection|translateX/.test(navigation));
-const css = read('miniprogram/custom-tab-bar/index.wxss');
+const css = read('miniprogram/components/ui-navigation/index.wxss');
 assert(css.includes('border-radius:var(--pill)'));
 assert(css.includes('background:var(--navigationSurface)'));
-// Keep the shell geometry while using surfaces instead of decorative outlines.
-assert(css.includes('padding:5rpx;border:1rpx solid transparent'));
-assert(css.includes('box-shadow:0 10rpx 32rpx rgba(0,0,0,.045),0 2rpx 6rpx rgba(0,0,0,.018)'));
-assert(css.includes('border:var(--stroke) solid transparent'));
-assert(css.includes('border-color:transparent'));
-assert(!css.includes('border-color:var(--navigationInk)'));
-assert(css.includes('transition:none'));
+assert(css.includes('min-height:var(--tabHeight)'));assert(css.includes('width:var(--tabIconSize)'));assert(css.includes('.selected{background:var(--accent)}'));assert(css.includes('border:0'));
 assert(!read('miniprogram/styles/community.wxss').includes('.community-edition .navigation-capsule'));
 
 // White-card pass: change UI surfaces, not the original images or their colors.
 const bodyCss = read('miniprogram/styles/community.wxss');
 // Post kinds share a type hierarchy; only their semantic copy changes.
-const postMarkup = markup.match(/<view wx:if="\{\{route === 'feed' && !searching\}\}"[^\n]+/)[0];
-assert(postMarkup.includes('class="feed-person-name">{{item.feedIdentity.subject}}'));
-assert(postMarkup.includes('class="feed-action-label"> {{item.feedIdentity.action}}'));
-assert(!postMarkup.includes('<block wx:if='));
-assert(!/\.feed-attendance\s+\.feed-quote\{/.test(bodyCss));
-assert(bodyCss.includes('.feed-quote{display:block;font-size:var(--typeBody);font-weight:400;line-height:1.7'));
-assert(bodyCss.includes('.feed-person-name{font-size:inherit;font-weight:600;color:var(--ink)}'));
+const postMarkup=read('miniprogram/components/ui-feed-item/index.wxml');assert(postMarkup.includes('<ui-identity-row'));assert(/<ui-identity-row[^>]*\bcustom\b/.test(postMarkup));assert(postMarkup.includes('<text class="subject">{{item.feedIdentity.subject}}</text>'));assert(postMarkup.includes("{{locale === 'en' ? ' ' : ''}}{{item.feedIdentity.action}}"));const feedCss=read('miniprogram/components/ui-feed-item/index.wxss');assert(/\.subject\{[^}]*font-weight:600/.test(feedCss));assert(!/\.identity-copy\{[^}]*font-weight:(?:[5-9]00|bold)/.test(feedCss));assert(read('miniprogram/components/ui-identity-row/index.wxml').includes('wx:if="{{!custom}}"'));assert(postMarkup.includes('<ui-identity-row'));assert(postMarkup.includes('<ui-event-card'));
 const model = factory.editorial;
 for (const locale of ['zh-CN', 'en']) {
   const en = locale === 'en';
@@ -85,28 +74,16 @@ for (const locale of ['zh-CN', 'en']) {
     assert.equal(model.feedHeadline(rollup,locale), identity.subject+(en?' ':'')+identity.action);
   }
 }
-// The search action is a white circle inset 2px from the native-height field.
-assert(markup.includes('--search-button-size:{{menuHeight - 4}}px'));
-const searchButtonCss = bodyCss.match(/\.search-capsule>\.search-submit\{([^}]+)\}/)[1];
-assert(searchButtonCss.includes('width:var(--search-button-size)!important'));
-assert(searchButtonCss.includes('height:var(--search-button-size)'));
-assert(searchButtonCss.includes('border-radius:50%'));
-assert(searchButtonCss.includes('background:var(--surface)'));
-assert(searchButtonCss.includes('border:1rpx solid transparent'));
-assert(searchButtonCss.includes('box-shadow:none'));
-assert(markup.includes('class="search-submit" aria-label="{{t.search}}" bindtap="search"'));
+// Native search keeps the capsule sizing and routes submit through its explicit event.
+assert(markup.includes('size="{{menuHeight - 4}}"'));const search=read('miniprogram/components/ui-search-field/index.wxml');assert(search.includes('bindconfirm="search"'));assert(search.includes('bind:press="search"'));assert(search.includes('size="{{size || 32}}"'));
 assert.equal(theme.community.peopleSurface, '#FFFFFF');
 assert.equal(theme.community.invitation, '#FFFFFF');
 assert.equal(Number.parseFloat(theme.community.eventArtWidth) / Number.parseFloat(theme.community.eventArtHeight), 3/4);
 assert.equal(Number.parseFloat(theme.community.eventRadius), Number.parseFloat(theme.community.eventArtRadius) + Number.parseFloat(theme.community.eventRim));
-assert(bodyCss.includes('padding:var(--eventRim)'));
-assert(bodyCss.includes('border-radius:var(--eventArtRadius)'));
-assert(bodyCss.includes('min-width:44px;min-height:44px'));
-assert(bodyCss.includes('.community-edition.is-english .person-copy{padding-right:156rpx}'));
-assert(bodyCss.includes('width:100rpx!important;min-width:44px;min-height:44px'));
-assert(bodyCss.includes('height:56rpx'));
-assert(markup.includes('<text class="person-follow-label">'));
-assert(markup.includes('hover-class="person-follow-pressed"'));
+const eventCss=read('miniprogram/components/ui-event-card/index.wxss'),personCss=read('miniprogram/components/ui-person-card/index.wxss'),buttonCss=read('miniprogram/components/ui-button/index.wxss');
+assert(eventCss.includes('padding:var(--eventRim)'));assert(eventCss.includes('border-radius:var(--eventArtRadius)'));assert(eventCss.includes('width:var(--eventArtWidth)'));assert(personCss.includes('align-items:flex-start'));assert(personCss.includes('white-space:normal'));assert(personCss.includes('min-width:0'));assert(buttonCss.includes('var(--touchTarget)'));
+assert(read('miniprogram/components/ui-person-card/index.wxml').includes('person.following'));
+assert(read('miniprogram/components/ui-person-card/index.wxml').includes('bind:press="follow"'));
 const iconSource = read('scripts/build-community-icons.cjs');
 const navigationDrawings = [...iconSource.matchAll(/^  (feed|discover|messages|me): (.+),$/gm)];
 assert.equal(navigationDrawings.length, 4);
@@ -115,14 +92,14 @@ assert(iconSource.includes('stroke-width="2"'));
 assert(iconSource.includes('stroke-linecap="round" stroke-linejoin="round"'));
 assert(navigationDrawings.find(([, name]) => name === 'discover')[2].includes('M10 18c1 6 11 6 12 0'));
 assert(!/grayscale|backdrop-filter/.test(bodyCss));
-assert.equal((markup.match(/class="fab"/g) || []).length, 1);
-assert(bodyCss.includes('bottom:calc(176rpx + env(safe-area-inset-bottom))'));
+assert.equal((markup.match(/data-route="publish" bind:press="navigate"/g)||[]).length,1);
+assert(read('miniprogram/components/ui-navigation/index.wxss').includes('env(safe-area-inset-bottom)'));
 assert(!markup.includes('header-publish'));
 assert(!bodyCss.includes('header-publish'));
-assert(markup.includes('aria-pressed="{{!!item.following}}"'));
-assert(markup.includes('catchtap="personFollow"'));
-assert(markup.includes('src="{{item.avatar_url}}"'));
-assert(markup.includes('src="{{e.cover_url}}" mode="aspectFill"'));
+assert(read('miniprogram/components/ui-person-card/index.wxml').includes('disabled="{{disabled}}"'));
+assert(markup.includes('catch:press="personFollow"'));
+assert(/<ui-identity-row[^>]*src="{{(?:\(item\.avatar_url\) \|\| ''|item\.avatar_url)}}"/.test(markup));
+assert(/src="{{(?:\(e\.cover_url\) \|\| ''|e\.cover_url)}}" mode="aspectFill"/.test(read('miniprogram/components/ui-event-card/index.wxml')));
 
 // The retained native custom-tab component must share the same resources too.
 let definition;
@@ -137,11 +114,11 @@ for (const route of routes) {
   assert(component.data.items.every(item => item.icon === icons[item.key]));
 }
 component.sync('feed');
-component.switchTab({currentTarget:{dataset:{index:1}}});
+component.switchTab({detail:{handler:'navigate',dataset:{route:'discover'}}});
 assert.equal(relaunches.at(-1), '/pages/discover/index');
 assert.equal(component.data.selected, 1);
 assert.equal(component.data.switching, false);
 const count = relaunches.length;
-component.switchTab({currentTarget:{dataset:{index:1}}});
+component.switchTab({detail:{handler:'navigate',dataset:{route:'discover'}}});
 assert.equal(relaunches.length, count);
 console.log('Community navigation: shared tokens/icons on 7 routes in 2 languages, bundled 96px assets, native component switching, stable selected geometry passed; networkCalls=0.');

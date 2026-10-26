@@ -1,0 +1,1 @@
+<text style="{{theme}}" class="badge tone-{{tone}}">{{label}}</text>

@@ -1,12 +1,13 @@
 // One community system for pages, overlays, navigation and exported posters.
 const tokens={
+ fabSize:'76rpx',fabInset:'32rpx',fabBottom:'176rpx',fabGlyph:'36rpx',
  canvas:'#F5F5F2',surface:'#FFFFFF',ink:'#232323',muted:'#6B6B66',
  accent:'#FFE568',accentText:'#232323',accentSoft:'#FFF7CC',
  line:'#DDDDD7',outline:'#232323',control:'#EFEFEB',danger:'#A34035',
  info:'#656560',infoSoft:'#F0F0EC',sage:'#F0F0EC',sageInk:'#454541',lavender:'#F0F0EC',
  invitation:'#FFFFFF',peopleSurface:'#FFFFFF',
  chromeClear:'rgba(245,245,242,0)',chromeSoft:'rgba(245,245,242,.94)',
- touchTarget:'44px',iconControlFallback:'32px',iconControlGlyph:'32rpx',pressDuration:'140ms',pressOpacity:'.7',navigationBlur:'18px',
+ choiceIndicator:'40rpx',choiceGap:'16rpx',choiceInset:'24rpx',touchTarget:'44px',iconControlFallback:'32px',iconControlGlyph:'32rpx',pressDuration:'140ms',pressOpacity:'.7',navigationBlur:'18px',
  stroke:'1px',radius:'32rpx',radiusImage:'24rpx',radiusInput:'24rpx',radiusSheet:'48rpx',pill:'999rpx',
  spaceUnit:'8rpx',pageGutter:'32rpx',sectionGap:'56rpx',headingGap:'24rpx',
  personalArtWidth:'144rpx',personalArtHeight:'192rpx',actionWeight:'500',

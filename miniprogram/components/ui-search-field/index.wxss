@@ -1,0 +1,2 @@
+.search{display:flex;flex:1;align-items:center;gap:var(--spaceUnit);background:var(--surface);border-radius:var(--pill);padding:0 var(--headingGap);min-width:0}.input{flex:1;min-width:0;font-size:var(--typeBody);height:var(--touchTarget)}
+.input{box-sizing:border-box;border:0;border-radius:0;background:transparent;padding:0;color:var(--ink);line-height:1.4}.search{box-sizing:border-box}

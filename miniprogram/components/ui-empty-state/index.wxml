@@ -1,0 +1,1 @@
+<view style="{{theme}}" class="empty"><image wx:if="{{icon}}" class="icon" src="{{icon}}" aria-hidden="true"/><text class="title">{{title}}</text><text wx:if="{{description}}" class="description">{{description}}</text><slot/><ui-button wx:if="{{action}}" label="{{action}}" disabled="{{disabled}}" bind:press="press"/></view>

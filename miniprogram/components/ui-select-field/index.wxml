@@ -1,0 +1,1 @@
+<picker style="{{theme}}" range="{{range}}" range-key="{{rangeKey}}" disabled="{{disabled}}" bindchange="change"><view class="select"><text class="label">{{label}}</text><image class="chevron" src="/assets/community-icons/back.png" aria-hidden="true"/></view></picker>

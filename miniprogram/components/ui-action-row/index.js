@@ -5,6 +5,7 @@ Component({
   data: { theme: theme.style(), chevron: icons.back },
   properties: {
     label: String,
+    icon:String,value:String,selection:Boolean,selected:Boolean,
     description: String,
     detail: String,
     context: { type: String, value: 'surface' },

@@ -1,0 +1,1 @@
+<view class="datetime" style="{{theme}}"><picker class="part" mode="date" disabled="{{disabled}}" data-part="date" bindchange="change"><view class="picker">{{dateLabel || choose}}</view></picker><picker class="part" mode="time" disabled="{{disabled}}" data-part="time" bindchange="change"><view class="picker">{{timeLabel || choose}}</view></picker></view>

@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated'},data:{theme:theme.style(),accent:theme.tokens.accent},properties:{urls:{type:Array,value:[]},current:{type:Number,value:0},locale:String},methods:{change(e){this.triggerEvent('interaction',{handler:'galleryChange',dataset:{},detail:e.detail});},preview(e){const index=e.currentTarget.dataset.index;this.triggerEvent('interaction',{handler:'previewImage',dataset:{gallery:true,index,url:this.properties.urls[index]},detail:e.detail});}}});

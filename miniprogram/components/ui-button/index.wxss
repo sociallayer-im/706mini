@@ -16,3 +16,7 @@
 .is-disabled .control-face{background:var(--control)}
 .spinner{box-sizing:border-box;flex:none;width:var(--typeFact);height:var(--typeFact);border:var(--stroke) solid currentColor;border-right-color:transparent;border-radius:50%;animation:button-spin var(--loadingDuration) linear infinite}
 @keyframes button-spin{to{transform:rotate(360deg)}}
+
+.align-start{justify-content:flex-start}.align-start .control-face{padding-left:0;padding-right:0;justify-content:flex-start;text-align:left}.control-icon{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}
+
+.is-grow{flex:1 1 0%;min-width:var(--touchTarget)}

@@ -1,0 +1,2 @@
+.feed{margin-bottom:var(--sectionGap)}.text{display:block;font-size:var(--typeBody);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere;margin:var(--headingGap) 0 var(--itemGap)}
+.identity-copy{display:block;font-size:var(--typeBody);line-height:1.4}.subject{font-weight:600}.identity-time{display:block;color:var(--muted);font-size:var(--typeFact);line-height:1.7}

@@ -1,0 +1,1 @@
+<view class="switch-row" style="{{theme}}"><text wx:if="{{label}}" class="label">{{label}}</text><switch checked="{{checked}}" disabled="{{disabled}}" color="{{color || accent}}" aria-label="{{(label) || ''}}" bindchange="change"/></view>

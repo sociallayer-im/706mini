@@ -10,3 +10,5 @@
 .has-divider::after{content:"";position:absolute;bottom:0;left:var(--panelInset);right:var(--panelInset);height:var(--stroke);background:var(--line);pointer-events:none}
 .action-row.is-pressed{background:var(--control)}
 .action-row.is-disabled{background:var(--surface);color:var(--muted)}
+
+.action-row-icon{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}.action-row-value{flex:none;color:var(--muted);font-size:var(--typeFact)}

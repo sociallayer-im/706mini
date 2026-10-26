@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{value:String,placeholder:String,size:Number,disabled:Boolean,},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},input(e){this.triggerEvent('input',e.detail);},search(e){this.triggerEvent('search',e.detail);},keyboard(e){this.triggerEvent('keyboardheightchange',e.detail);},}});

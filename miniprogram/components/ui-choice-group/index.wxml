@@ -1,5 +1,5 @@
 <import src="./option.wxml"/>
 <view style="{{theme}}">
- <radio-group wx:if="{{mode === 'single'}}" class="choices layout-{{layout}}" bindchange="change" aria-label="{{label}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></radio-group>
- <checkbox-group wx:else class="choices layout-{{layout}}" bindchange="change" aria-label="{{label}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></checkbox-group>
+ <radio-group wx:if="{{mode === 'single'}}" class="choices layout-{{layout}}" bindchange="change" aria-label="{{(label) || ''}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></radio-group>
+ <checkbox-group wx:else class="choices layout-{{layout}}" bindchange="change" aria-label="{{(label) || ''}}"><block wx:for="{{items}}" wx:key="value"><template is="option" data="{{item,mode,layout,ink,eventDetails}}"/></block></checkbox-group>
 </view>

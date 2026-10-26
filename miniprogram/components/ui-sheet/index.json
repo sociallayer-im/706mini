@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui-icon-button": "/components/ui-icon-button/index",
+    "ui-notice": "/components/ui-notice/index"
+  }
+}

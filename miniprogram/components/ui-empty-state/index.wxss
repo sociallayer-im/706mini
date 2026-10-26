@@ -1,0 +1,2 @@
+.empty{padding:var(--sectionGap) var(--panelInset);text-align:center}.icon{width:112rpx;height:112rpx;margin-bottom:var(--headingGap)}.title{display:block;font-size:var(--typeSection);font-weight:600}.description{display:block;color:var(--muted);font-size:var(--typeBody);line-height:1.7;margin:var(--headingGap) 0}
+.icon{display:block;margin-left:auto;margin-right:auto}

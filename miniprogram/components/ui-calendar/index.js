@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{locale:String,weekdays:Array,days:Array,month:Boolean,hidden:Boolean,},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},select(e){this.triggerEvent('interaction',{handler:'selectDay',dataset:e.currentTarget.dataset,detail:e.detail});},}});

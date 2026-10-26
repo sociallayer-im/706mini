@@ -1,0 +1,7 @@
+<view class="field {{error ? 'invalid' : ''}}" style="{{theme}}">
+ <text wx:if="{{label}}" class="label">{{label}}<text wx:if="{{optional}}" class="optional">{{optionalLabel}}</text></text>
+ <slot wx:if="{{custom}}"/>
+ <textarea wx:elif="{{type === 'area' || type === 'textarea'}}" class="input textarea" value="{{value}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" disabled="{{disabled}}" auto-height="{{autoHeight}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
+ <input wx:else class="input" type="{{type}}" value="{{value}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" disabled="{{disabled}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
+ <text wx:if="{{hint}}" class="hint">{{hint}}</text><text wx:if="{{error}}" class="error" role="alert">{{error}}</text>
+</view>

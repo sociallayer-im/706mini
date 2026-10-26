@@ -1,0 +1,10 @@
+<view style="{{theme}}" aria-hidden="{{modalOpen}}" class="event-card {{large ? 'event-card-large' : ''}} state-{{e.bookingState}}" bindtap="open">
+ <view wx:if="{{large}}" class="large-card-art"><image class="large-cover" src="{{e.cover_url}}" mode="aspectFill"/><view class="large-card-shade"/><text class="large-card-title">{{e.title}}</text></view>
+ <view class="event-main"><view class="event-info">
+  <button wx:if="{{interactiveTitle}}" size="mini" class="event-title event-title-link" catchtap="titleOpen">{{e.title}}</button><text wx:else class="event-title">{{e.title}}</text>
+  <view class="event-badges"><text class="event-capacity" aria-label="{{e.bookingLabel + ' · ' + e.capacityLabel}}">{{e.bookingLabel}} {{e.capacityDisplay}}</text></view>
+  <view class="card-fact"><image class="fact-illustration" src="{{illustrations.calendar}}" aria-hidden="true"/><text class="fact-copy">{{e.dateLine}}</text></view>
+  <view class="card-fact"><image class="fact-illustration" src="{{illustrations.location}}" aria-hidden="true"/><text class="fact-copy">{{e.venue_display || e.venue_name}}</text></view>
+  <view class="card-fact"><image class="fact-illustration" src="{{illustrations.group}}" aria-hidden="true"/><text class="fact-copy">{{e.hostLine || e.host_display}}</text></view><text class="card-fee">{{e.feeLabel}}</text>
+ </view><view class="event-side"><view wx:if="{{e.cover_url}}" class="event-art" role="button" aria-label="{{t.preview}}" catchtap="preview"><image class="event-cover" src="{{e.cover_url}}" mode="aspectFill" binderror="coverError"/></view><view wx:else class="event-cover placeholder"><text>706</text><text class="meta">{{t.event}}</text></view></view></view>
+</view>

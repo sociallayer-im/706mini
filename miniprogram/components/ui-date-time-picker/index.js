@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated'},data:{theme:theme.style()},properties:{dateLabel:String,timeLabel:String,choose:{type:String,value:'请选择'},key:String,fieldKey:String,disabled:Boolean},methods:{change(e){this.triggerEvent('interaction',{handler:'dateInput',dataset:{key:this.properties.fieldKey||this.properties.key,part:e.currentTarget.dataset.part},detail:e.detail});}}});

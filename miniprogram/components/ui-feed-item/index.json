@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui-identity-row": "/components/ui-identity-row/index",
+    "ui-event-card": "/components/ui-event-card/index"
+  }
+}

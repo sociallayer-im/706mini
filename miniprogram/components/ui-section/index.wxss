@@ -1,0 +1,1 @@
+.section{padding:var(--sectionGap) 0 0}.heading{display:flex;align-items:center;gap:var(--actionGap);margin-bottom:var(--headingGap)}.title{flex:1;min-width:0;font-size:var(--typeSection);font-weight:600;line-height:1.4}

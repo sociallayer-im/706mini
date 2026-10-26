@@ -1,0 +1,2 @@
+const theme=require('../../lib/theme');
+Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{src:String,name:String,size:{type:Number,value:36},},observers:{'name,src':function(name){this.setData({initial:(name||'').slice(0,1),failed:false});}},methods:{press(e){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},fail(){this.setData({failed:true});},}});

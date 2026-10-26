@@ -46,8 +46,8 @@ async function event(record, locale) {
   }
   assert.equal(layout({}).menuHeight,32);
   assert.equal(layout({getMenuButtonBoundingClientRect(){throw Error('unavailable');}}).menuRightInset,116);
-  assert.equal(theme.tokens.stickerWidth,'368rpx');
-  assert.equal(theme.tokens.eventArtSize,'216rpx');
+  assert.equal(theme.tokens.stickerWidth,'500rpx');
+  assert.equal(theme.tokens.eventArtSize,'264rpx');
   const base = {id:'layout-fixture',type:'event',status:'PUBLISHED',starts_at:'2099-10-17T11:30:00Z',ends_at:'2099-10-17T14:00:00Z',registered:12,capacity:20,remaining:8,price_minor:3000,initiator:{display_name:'阿乔'},organization_name:'Sola 放映组'};
   for (const locale of ['zh-CN','en']) {
     const normalized = await event(base,locale);
@@ -66,12 +66,12 @@ async function event(record, locale) {
   assert.equal((await event({...base,organization_name:'个人发起'},'zh-CN')).hostLine,'阿乔');
   assert.equal((await event({...base,initiator:{display_name:'Sola 放映组'}},'zh-CN')).hostLine,'Sola 放映组');
   const markup = fs.readFileSync(path.join(__dirname,'../miniprogram/templates/screen.wxml'),'utf8');
-  const card = markup.slice(0,markup.indexOf('</template>'));
+  const card = fs.readFileSync(path.join(__dirname,'../miniprogram/components/ui-event-card/index.wxml'),'utf8');
   assert.equal((card.match(/class="event-capacity"/g)||[]).length,1);
   assert(!card.includes('<button class="event-capacity'));
   assert(!/participant|cover-time|attendance-status|event-card-footer/.test(card));
   assert(!/demo-banner|合并动态|➡️|↗️/.test(markup));
-  assert(markup.includes('settings-menu developer-entry'));
+  assert(markup.includes('data-route="review-lab"'));
   assert(markup.includes('class="event-management"'));
   assert(!markup.includes('main-page-label'));
   assert(!markup.includes('bindtap="markRead"'));
@@ -81,10 +81,10 @@ async function event(record, locale) {
   assert.equal(app.window.navigationStyle,'custom');
   let backCalls=0,home;
   wx.navigateBack = options => {backCalls++; options.fail();};
-  wx.switchTab = options => {home=options.url;};
+  wx.switchTab = wx.reLaunch = options => {home=options.url;};
   factory('event').back();
   assert.equal(backCalls,1);
   assert.equal(home,'/pages/feed/index');
-  assert.equal(theme.tokens.chromeClear,'rgba(250,249,245,0)');
+  assert.equal(theme.tokens.chromeClear,'rgba(245,245,242,0)');
   console.log('Paper layout contracts: native header 320/375/430, fallback, bilingual capacity/host states, compact card and developer entry passed; networkCalls=0.');
 })().catch(error => {console.error(error);process.exitCode=1;});

@@ -1,0 +1,1 @@
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:var(--actionGap);min-height:var(--touchTarget);color:var(--ink)}.label{flex:1;min-width:0;font-size:var(--typeBody);line-height:1.7;overflow-wrap:anywhere}

@@ -1,0 +1,1 @@
+.notice{display:flex;align-items:center;gap:var(--actionGap);padding:var(--panelInset);border-radius:var(--radiusInput);background:var(--control);color:var(--muted);font-size:var(--typeFact);line-height:1.7;margin:var(--headingGap) 0}.copy{flex:1;min-width:0;white-space:pre-line;overflow-wrap:anywhere}.state-error{color:var(--danger)}

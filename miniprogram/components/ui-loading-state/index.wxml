@@ -1,0 +1,1 @@
+<view style="{{theme}}" class="loading" role="status" aria-label="{{(label) || ''}}"><text class="label">{{label}}</text><block wx:if="{{!refresh}}"><view class="skeleton heading"/><view class="skeleton copy"/><view class="skeleton card"/></block></view>

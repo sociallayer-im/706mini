@@ -1,0 +1,34 @@
+{
+  "phase": "native migration GUI sampling; separate from historical native-review",
+  "validRoutes": [
+    "pages/feed/index",
+    "pages/me/index",
+    "pages/event/index",
+    "pages/publish/index",
+    "pages/discover/index",
+    "pages/review-lab/index"
+  ],
+  "validSheets": [
+    "comment",
+    "language"
+  ],
+  "checks": [
+    "PersonCard and FeedItem avatars top-align full text; independent follow action centered",
+    "CommentThread reply text aligns with body left edge",
+    "Publish step1 -> step2; native date/select/switch and multi-choice visible; selected white check retained",
+    "Discover single period changes week -> month and loads 4 records; one selected radio",
+    "FAB and Navigation visible; native action rows and language sheet visible",
+    "Final review-lab Montana restored; demo persona Hezhou restored before service switch"
+  ],
+  "excluded": [
+    "comments-detail.png/txt: captured across hot reload; not counted",
+    "console-during-migration.png/txt: transient compilation errors; not final runtime acceptance"
+  ],
+  "boundary": "6 route samples and 2 sheets only; not 42-route/20-sheet GUI acceptance, not real-device, server delivery or user acceptance",
+  "restored": {
+    "mode": "Montana",
+    "demoPersona": "禾舟"
+  },
+  "runtime": "Final visible debugger Errors:0; accumulated warnings retained, not claimed zero",
+  "at": "2026-10-26T02:28:22.636421+00:00"
+}

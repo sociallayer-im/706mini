@@ -1,0 +1,1 @@
+<view style="{{theme}};width:{{size}}px;height:{{size}}px" class="avatar"><image wx:if="{{src && !failed}}" class="image" src="{{(src) || ''}}" mode="aspectFill" binderror="fail"/><text wx:else class="initial">{{initial}}</text></view>

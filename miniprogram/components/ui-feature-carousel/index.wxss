@@ -1,0 +1,15 @@
+.banner-pages{margin-bottom:var(--itemGap);color:var(--ink)}
+.campaign-swiper{height:288rpx;border:0;border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.campaign-slide{position:relative;height:288rpx;border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.campaign-background{position:absolute;right:0;top:0;width:33.333%;height:100%;border:0}
+.campaign-copy{box-sizing:border-box;position:relative;width:66.667%;padding:28rpx 28rpx 36rpx;color:var(--ink)}
+.banner-kicker{display:block;width:100%;margin:0;padding:0;font-size:var(--typeLabel);font-weight:500;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.banner-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:var(--typeTitle);line-height:1.2;font-weight:700;letter-spacing:-.8rpx;margin:14rpx 0}
+.banner-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:var(--typeMeta);line-height:1.5;max-width:100%;color:var(--ink)}
+.feature-geometry{position:absolute;right:0;top:0;width:33.333%;height:100%;overflow:hidden;background:var(--control);border:0}
+.geometry-disc{position:absolute;width:150rpx;height:150rpx;top:-50rpx;right:-20rpx;border-radius:50%;background:var(--accent)}
+.geometry-arch{position:absolute;left:26rpx;bottom:0;width:118rpx;height:180rpx;border-radius:60rpx 60rpx 0 0;background:var(--ink)}
+.geometry-table{position:absolute;left:0;bottom:44rpx;width:100%;height:40rpx;background:var(--surface)}
+.geometry-1 .geometry-disc{top:24rpx;right:34rpx;width:120rpx;height:120rpx}
+.geometry-1 .geometry-arch{left:auto;right:-30rpx;bottom:-35rpx;width:180rpx;height:170rpx;border-radius:0}
+.geometry-1 .geometry-table{bottom:55rpx;width:66.667%;height:40rpx}

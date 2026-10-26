@@ -1,0 +1,52 @@
+{
+  "native-review": {
+    "exit": 0,
+    "output": "{\n  \"catalog\": 118,\n  \"checks\": [\n    \"film detail and sheet examples stay independent; record-backed host/social/badges; original body/fit/tags and registration state\",\n    \"self dashboard 1/3/2/1 counts, 2 event + 1 campaign tasks, authorized entity links, persistent preferences\",\n    \"source feed copy, two banners, combined free/capacity filters, all six notification bodies/categories; backend read-all compatibility only\",\n    \"all eight member totals 18/42/16 or 32/128/23; cancellation, deduplication, visibility and consent\",\n    \"all catalog states and sheets load\",\n    \"18/42 relations and directory 4/36 + 2/12 derived from records\",\n    \"directory/relations totals change after state mutation\",\n    \"published campaign changes require a new review\",\n    \"more city and registration titles\",\n    \"source feed has two posts; recommendation windows exclude self and reach seven peers\",\n    \"four personal-list states with working phase filters; review edits supersede previous decisions\",\n    \"cold-storage and in-memory old fixture upgrades; versioned draft isolation\",\n    \"public avatar consent and manager-only pending counts\",\n    \"no public entity contact\",\n    \"calendar range retains carry-in events\",\n    \"midnight split and overlap placement\",\n    \"multi-method save/read\",\n    \"media limit rollback\",\n    \"payment-gated private access\",\n    \"private media revoked after cancellation\",\n    \"free waitlist promotion\"\n  ],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "error": ""
+  },
+  "global-design": {
+    "exit": 0,
+    "output": "Global design: 42 routes × 2 languages; shared palette/icons, task chrome, public-only preview, duplicate-submit guard, preserved failure input passed; networkCalls=0.\n",
+    "error": ""
+  },
+  "community-navigation": {
+    "exit": 0,
+    "output": "Community navigation: shared tokens/icons on 7 routes in 2 languages, bundled 96px assets, native component switching, stable selected geometry passed; networkCalls=0.\n",
+    "error": ""
+  },
+  "event-gallery": {
+    "exit": 0,
+    "output": "Event gallery: multi-select capacity/order, oversize rejection, partial-failure draft retention, preview, swipe, cross-row reorder/cover and cancelled-drag rollback passed; no network.\n",
+    "error": ""
+  },
+  "editorial-round": {
+    "exit": 0,
+    "output": "Editorial round: bilingual feed/filter/calendar/Me/messages/onboarding controllers, validation, state/CTA roles, release visibility and 20-event poster layout passed; networkCalls=0.\n",
+    "error": ""
+  },
+  "node-editorial": {
+    "exit": 0,
+    "output": "Node editorial: bilingual city/followed scope, dedupe/order, pagination/partial failure, public hosts, optional links, safe native open/fallback, preserved demo content, guest privacy, reduced outlines and header placement passed; networkCalls=0.\n",
+    "error": ""
+  },
+  "member-profiles": {
+    "exit": 0,
+    "output": "Member profiles: 8 record-derived affiliations/counts; migration preservation, privacy/cancellation/deduplication, first links, visitor navigation/share passed; networkCalls=0\n",
+    "error": ""
+  },
+  "paper-layout": {
+    "exit": 0,
+    "output": "Paper layout contracts: native header 320/375/430, fallback, bilingual capacity/host states, compact card and developer entry passed; networkCalls=0.\n",
+    "error": ""
+  },
+  "native-system": {
+    "exit": 0,
+    "output": "{\n  \"scope\": \"offline native component and page interaction contracts; not GUI/device acceptance\",\n  \"checks\": 26,\n  \"passed\": 26,\n  \"failed\": [],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "error": ""
+  },
+  "unit": {
+    "exit": 0,
+    "output": "✔ shared action control forwards one press and blocks disabled or pending actions (4.349458ms)\n✔ campaign card destinations distinguish draft editing, review progress and public details (14.665125ms)\n✔ review history formats actual update timestamps and retains reviewer notes in both languages (24.023333ms)\n✔ the icon control forwards one action and suppresses disabled actions (3.59975ms)\n✔ drafts show editing progress and readable saved time independently of old public dates (13.020125ms)\n✔ personal registration IDs never substitute for event IDs (2.431667ms)\n✔ review and published list actions retain their destinations and unknown capacity stays unknown (1.742917ms)\n✔ closing a sheet never restores the main tab bar on any child route (46.865166ms)\n✔ a WeChat ticket price stays in fen and a free event is zero (1.097875ms)\n✔ event and registration words match the screens (1.021708ms)\n✔ inbox copy keeps the title the message row splits on (9.140666ms)\n✔ the follow feed rollup uses the headline key (0.551875ms)\n✔ public event lists do not send the bearer token (0.14775ms)\n✔ calendar dates use the Shanghai day of an exclusive end (8.350292ms)\n✔ reports follow the page that opened the sheet (0.457625ms)\n✔ server errors map onto the words the screens already translate (0.4525ms)\n✔ group QR is the uploaded image and a missing city is not labeled same-city data (5.264833ms)\n✔ event gallery survives the soon content round trip without losing prose or signed URLs (1.428792ms)\nℹ tests 18\nℹ suites 0\nℹ pass 18\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 319.974\n",
+    "error": ""
+  }
+}

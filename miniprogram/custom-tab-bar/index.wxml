@@ -1,8 +1,1 @@
-<view wx:if="{{!hidden}}" class="navigation-shell" style="{{theme}}">
- <view class="navigation-capsule" role="tablist">
-  <button wx:for="{{items}}" wx:key="key" class="navigation-tab {{selected === index ? 'is-current' : ''}}" role="tab" aria-selected="{{selected === index}}" aria-label="{{item.label}}" data-index="{{index}}" bindtap="switchTab" hover-class="navigation-pressed">
-   <image class="navigation-illustration" src="{{item.icon}}" aria-hidden="true"/>
-   <text>{{item.label}}</text>
-  </button>
- </view>
-</view>
+<ui-navigation wx:if="{{!hidden}}" items="{{items}}" current="{{items[selected].key}}" bind:interaction="switchTab"/>

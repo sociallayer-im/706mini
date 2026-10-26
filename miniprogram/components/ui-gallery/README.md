@@ -1,0 +1,2 @@
+# 原生活动图集
+保留swiper手动翻页、单图隐藏计数、aspectFit完整海报和点击微信原图预览。urls/current为页面受控输入；interaction转发galleryChange及previewImage，携带gallery/index/url。组件不读活动权限或改变媒体顺序。背景遮罩rgba值保留既有源样式。

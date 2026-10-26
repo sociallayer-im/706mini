@@ -1,0 +1,470 @@
+Window: "706-community", App: 微信开发者工具.
+0 标准窗口 706-community, Secondary Actions: Raise
+	1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0
+		2 container
+			3 文本 微信开发者工具 Stable 2.02.2608080
+			4 container
+				5 text 小程序模式
+			6 文本 预览
+			7 文本 真机调试
+			8 文本 上传
+			9 未加标签的图片 要获取缺失的图片说明，请打开上下文菜单。
+			10 container
+				11 container
+					12 container
+						13 text 预览 编辑
+					14 container
+						15 text 普通编译
+					16 container
+						17 container
+							18 text 10 : 09
+						19 container
+							20 链接
+							21 链接
+						22 HTML 内容 Webview: pages/feed/index, URL: 127.0.0.1:45417/__pageframe__/pages/feed/index
+							23 按钮 上海
+								24 文本 上海
+							25 列表框 城市与已关注节点
+								26 container
+									27 container
+										28 text 同城探索 706 青年空间 一个欢迎活动、讨论和偶遇发生的共享空间。
+									29 container
+										30 text 同城探索 Sola 共创空间 社区共创与交流
+							31 文本 发现有意思的人
+							32 按钮 换几个
+								33 文本 换几个
+							34 container
+								35 文本 你们共同参加过 2 场活动
+								36 图像
+								37 文本 林叶
+								38 文本 城市研究 · 桌游发起人
+								39 按钮 已关注
+									40 文本 已关注
+								41 文本 你们都关注 706 青年空间
+								42 图像
+								43 文本 星桥
+								44 文本 开发者 · 关心公共空间
+								45 按钮 关注
+									46 文本 关注
+								47 文本 你们推荐过同一场活动
+								48 图像
+								49 文本 云汀
+								50 文本 自由写作者 · 徒步爱好者
+								51 按钮 关注
+									52 文本 关注
+							53 图像
+							54 container
+								55 text 禾舟 推荐了一场活动
+							56 文本 18 分钟前 · 上海
+							57 文本 “周六晚上一起看一部关于城市与漂泊的电影，映后想聊聊我们为什么留在这里。”
+							58 container
+								59 文本 秋日放映：城市游牧者
+								60 container 已结束 · 已报名 12 人，共 20 个名额
+									61 文本 已结束 12/20
+								62 text 10月10日（周六） 19:30–22:00 706 青年空间 禾舟 & Sola 放映组 ¥30.00
+								63 container 预览
+									64 图像
+							65 图像
+							66 container
+								67 text 林叶、星桥 等 8 位成员报名了
+							68 文本 今天 09:12 · 上海
+							69 文本 大家正在一起设计 706 小程序的下一步。
+							70 container
+								71 文本 社区功能许愿工作坊
+								72 container 已结束 · 已报名 8 人，共 20 个名额
+									73 文本 已结束 8/20
+								74 text 10月14日（周三） 19:00–21:30 706 青年空间 林叶 & 706 产品小组 免费
+								75 container 预览
+									76 图像
+							77 按钮
+							78 container
+								79 按钮 关注
+									80 文本 关注
+								81 按钮 发现
+									82 文本 发现
+								83 按钮 消息
+									84 文本 消息
+								85 按钮 我的
+									86 文本 我的
+						87 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/s1/_sessionId/simulator-app-session-s1/mainframe?load
+							88 container
+								89 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792980606829&autoload#id_1
+								90 HTML 内容 127.0.0.1:45417/appservice/appContext?contextName=app&id=ifr-1_2#id_1
+								91 HTML 内容 127.0.0.1:45417/appservice/app_xrframe_renderContext?contextName=app_xrframe_render&id=ifr-1_3&empty=true#id_1
+								92 HTML 内容 127.0.0.1:45417/appservice/app_sub_debugContext?contextName=app_sub_debug&id=ifr-1_4&empty=true#id_1
+								93 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792980606829#id_2
+						94 container
+							95 链接
+							96 链接
+					97 container
+						98 文本 iPhone 12/13 (Pro) 102% 16
+					99 container
+						100 文本 页面路径
+					101 文本 pages/feed/index
+					102 链接 复制
+				103 container
+					104 container
+						105 container
+							106 文本 706mini
+							107 工具栏
+								108 按钮 Toggle Primary Side Bar (⌘K ⌘B)
+									109 文本 
+								110 按钮 切换面板 (⌘J)
+									111 文本 
+								112 按钮 Toggle Secondary Side Bar (⌥⌘B)
+									113 文本 
+						114 container
+							115 container
+								116 标签组 活动视图切换器
+									117 标签 (selected) Description: 资源管理器 (⌘K ⇧⌘E), Value: 1
+										118 container 资源管理器 (⌘K ⇧⌘E)
+											119 文本 
+									120 标签 (settable, integer) Search (⇧⌘F), Value: 0
+										121 container Search (⇧⌘F)
+											122 文本 
+									123 标签 (settable, integer) Description: 源代码管理 (⌃⇧G) - 247 个挂起的更改, Value: 0
+										124 文本 
+									125 标签 (settable, integer) 扩展 (⇧⌘X), Value: 0
+										126 container 扩展 (⇧⌘X)
+											127 文本 
+									128 弹出式按钮 其他视图
+										129 文本 
+								130 container
+									131 标题 资源管理器, Help: 资源管理器 (⌘K ⇧⌘E), Value: 2
+										132 文本 资源管理器
+									133 内容列表 资源管理器操作
+										134 弹出式按钮 Views and More Actions...
+									135 container
+										136 container
+											137 按钮 文件资源管理器部分
+												138 文本 
+												139 标题 Description: 文件资源管理器部分, Help: 706mini, Value: 3
+													140 文本 706MINI
+											141 外框 树
+												142 container
+													143 row .openai
+														144 container
+															145 文本 
+															146 文本 .openai
+													147 row data-integration-review
+														148 container
+															149 文本 
+															150 文本 data-integration-review
+													151 row design-system706
+														152 container
+															153 文本 
+															154 container ~/Projects/706mini/design-system706 • 包含强调项
+																155 文本 design-system706
+																156 文本 
+													157 row dist
+														158 container
+															159 文本 
+															160 文本 dist
+													161 row docs
+														162 container
+															163 文本 
+															164 文本 docs
+													165 row miniprogram
+														166 container
+															167 文本 
+															168 container ~/Projects/706mini/miniprogram • 包含强调项
+																169 文本 miniprogram
+																170 文本 
+													171 row scripts
+														172 container
+															173 文本 
+															174 container ~/Projects/706mini/scripts • 包含强调项
+																175 文本 scripts
+																176 文本 
+													177 row test
+														178 container
+															179 文本 
+															180 文本 test
+													181 row .gitignore
+														182 container
+															183 文本 .gitignore
+													184 row AGENTS.md
+														185 container
+															186 文本 AGENTS.md
+													187 row project.config.json
+														188 container
+															189 文本 project.config.json
+													190 row project.private.config.json
+														191 container
+															192 文本 project.private.config.json
+													193 row README.md
+														194 container
+															195 文本 README.md
+										196 按钮 大纲 Section
+											197 文本 
+											198 标题 大纲, Value: 3
+												199 文本 大纲
+										200 按钮 时间线 Section
+											201 文本 
+											202 标题 时间线, Value: 3
+												203 文本 时间线
+							204 container
+								205 container
+									206 container 第 1 组 (空)
+										207 container
+											208 定义列表
+												209 container 显示所有命令
+													210 文本 显示所有命令
+												211 container Command+K Command+P
+													212 text ⌘ K ⌘ P
+											213 定义列表
+												214 container Go to File
+													215 文本 Go to File
+												216 container Command+P
+													217 text ⌘ P
+											218 定义列表
+												219 container 在文件中查找
+													220 文本 在文件中查找
+												221 container Shift+Command+F
+													222 text ⇧ ⌘ F
+											223 定义列表
+												224 container 开始调试
+													225 文本 开始调试
+												226 文本 F5
+											227 定义列表
+												228 container 切换终端
+													229 文本 切换终端
+												230 container Control+`
+													231 text ⌃ `
+								232 container
+									233 标签组 活动视图切换器
+										234 标签 (settable, integer) Description: 构建 - Logs: 100, Value: 0
+											235 container 构建 - Logs: 100
+												236 文本 构建
+											237 container 构建 - Logs: 100
+												238 文本 100
+										239 标签 (selected) Description: 调试器 - Errors: 2, Warnings: 26, Value: 1
+											240 文本 调试器
+											241 文本 2, 26
+										242 标签 (settable, integer) Description: 问题 (⌘K ⇧⌘M) - 总计 0 个问题, Value: 0
+											243 文本 问题
+										244 标签 (settable, integer) Description: 输出, Value: 0
+											245 文本 输出
+										246 标签 (settable, integer) Description: 调试控制台 (⇧⌘Y), Value: 0
+											247 文本 调试控制台
+										248 标签 (settable, integer) 终端 (⌃`), Value: 0
+											249 container 终端 (⌃`)
+												250 文本 终端
+										251 标签 (settable, integer) 代码质量, Value: 0
+											252 container 代码质量
+												253 文本 代码质量
+									254 工具栏 调试器操作
+									255 工具栏
+										256 按钮 最大化面板大小
+											257 文本 
+										258 按钮 关闭面板
+											259 文本 
+									260 container
+										261 container
+											262 HTML 内容 devtools://devtools/bundled/devtools_app.html?remoteBase=https://chrome-devtools-frontend.appspot.com/serve_file/@61dafe6541432a46304ba3c84a0a6135b7cddd69/&can_dock=&toolbarColor=rgba(223,223,223,1)&textColor=rgba(0,0,0,1)&experiments=true
+												263 container
+													264 container
+														265 切换按钮 Description: Select an element in the page to inspect it, Value: 0
+														266 标签组 Panels
+															267 标签 (settable, integer) Description: Wxml, Value: 0
+															268 标签 (selected) Description: Console, Value: 1
+															269 标签 (settable, integer) Description: Sources, Value: 0
+															270 标签 (settable, integer) Description: Network, Value: 0
+															271 标签 (settable, integer) Description: Performance, Value: 0
+															272 标签 (settable, integer) Description: Memory, Value: 0
+															273 标签 (settable, integer) Description: AppData, Value: 0
+															274 标签 (settable, integer) Description: Storage, Value: 0
+															275 标签 (settable, integer) Description: Security, Value: 0
+															276 标签 (settable, integer) Description: Sensor, Value: 0
+															277 标签 (settable, integer) Description: Mock, Value: 0
+														278 弹出式按钮 More tabs
+														279 container
+															280 container 2 errors, 26 warnings
+														281 按钮 Settings
+														282 弹出式按钮 Customize and control DevTools
+														283 container Undock into separate window
+														284 container Console panel
+															285 container console
+																286 container
+																	287 按钮 Show console sidebar
+																	288 按钮 Clear console
+																	289 按钮 JavaScript context: top
+																	290 按钮 Create live expression
+																	291 弹出式按钮 Log level: Default levels
+																		292 文本 Default levels
+																	293 切换按钮 Description: Console settings, Value: 0
+																	294 container
+																		295 container
+																			296 row Warning Repeat 2 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				297 container Warning Repeat 2
+																					298 文本 2
+																				299 container
+																					300 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						301 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					302 文本 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			303 container
+																				304 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																					305 文本 WAServiceMainContext
+																					306 文本 …
+																					307 文本 t=wechat&v=3.17.4:1
+																				308 文本 Mon Oct 26 2026 10:10:10 GMT+0800 (中国标准时间) Page route 错误(system error)
+																			309 row Error WASubContext.js?t=wechat&v=3.17.4:1 appLaunch with non-empty page stack
+																				310 container
+																					311 container Error
+																					312 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						313 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					314 text appLaunch with non-empty page stack
+																			315 row Error WAServiceMainContext…t=wechat&v=3.17.4:1 Error: SystemError (appServiceSDKScriptError) "[Page route 错误(system error)] appLaunch with non-empty page stack" at errorReport (WAServiceMainContext…t=wechat&v=3.17.4:1) at Object.<anonymous> (WAServiceMainContext…t=wechat&v=3.17.4:1) at WASubContext.js?t=wechat&v=3.17.4:1 at WASubContext.js?t=wechat&v=3.17.4:1 at WASubContext.js?t=wechat&v=3.17.4:1 at WASubContext.js?t=wechat&v=3.17.4:1 at Ar (WASubContext.js?t=wechat&v=3.17.4:1) at l.<anonymous> (WASubConte
+																				316 container
+																					317 container Error
+																					318 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						319 文本 WAServiceMainContext
+																						320 文本 …
+																						321 文本 t=wechat&v=3.17.4:1
+																					322 text Error: SystemError (appServiceSDKScriptError)
+"[Page route 错误(system error)] appLaunch with non-empty page stack"
+    at errorReport (
+																					323 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						324 文本 WAServiceMainContext
+																						325 文本 …
+																						326 文本 t=wechat&v=3.17.4:1
+																					327 文本 )
+    at Object.<anonymous> (
+																					328 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						329 文本 WAServiceMainContext
+																						330 文本 …
+																						331 文本 t=wechat&v=3.17.4:1
+																					332 文本 )
+    at 
+																					333 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						334 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					335 文本 
+    at 
+																					336 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						337 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					338 文本 
+    at 
+																					339 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						340 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					341 文本 
+    at 
+																					342 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						343 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					344 文本 
+    at Ar (
+																					345 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						346 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					347 文本 )
+    at l.<anonymous> (
+																					348 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						349 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					350 文本 )
+    at l.emit (
+																					351 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						352 文本 WAServiceMainContext
+																						353 文本 …
+																						354 文本 t=wechat&v=3.17.4:1
+																					355 文本 )
+    at Object.emitInternal (
+																					356 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						357 文本 WAServiceMainContext
+																						358 文本 …
+																						359 文本 t=wechat&v=3.17.4:1
+																					360 文本 )
+																			361 row Warning Repeat 3 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				362 container Warning Repeat 3
+																					363 文本 3
+																				364 container
+																					365 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						366 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					367 文本 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			368 row Warning Repeat 2 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				369 container Warning Repeat 2
+																					370 文本 2
+																				371 container
+																					372 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						373 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					374 文本 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			375 row Warning WAServiceMainContext…t=wechat&v=3.17.4:1 [Perf][pages/feed/index] Page.onShow took 118ms
+																				376 container
+																					377 container Warning
+																					378 链接 WAServiceMainContext…t=wechat&v=3.17.4:1
+																						379 文本 WAServiceMainContext
+																						380 文本 …
+																						381 文本 t=wechat&v=3.17.4:1
+																					382 text [Perf][pages/feed/index] Page.onShow  took 118ms
+																			383 container
+																				384 container Warning
+																				385 文本 The resource 
+																				386 链接 http://127.0.0.1:45417/__dev__/WAServiceMainContext.js?t=wechat&v=3.17.4
+																					387 文本 http://127.0.0.1:45417/__dev__/WAServiceMainContext.js?t=wechat&v=3.17.4
+																				388 文本  was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+																			389 container
+																				390 container Warning
+																				391 文本 The resource 
+																				392 链接 http://127.0.0.1:45417/__dev__/WAAutoService.js?t=wechat&v=3.17.4
+																					393 文本 http://127.0.0.1:45417/__dev__/WAAutoService.js?t=wechat&v=3.17.4
+																				394 文本  was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+																			395 row Warning Repeat 3 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				396 container Warning Repeat 3
+																					397 文本 3
+																				398 container
+																					399 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						400 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					401 文本 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			402 row Warning Repeat 2 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				403 container Warning Repeat 2
+																					404 文本 2
+																				405 container
+																					406 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						407 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					408 文本 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			409 row Warning Repeat 3 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				410 container Warning Repeat 3
+																					411 文本 3
+																				412 container
+																					413 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						414 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					415 文本 [Component] property "label" of "components/ui-follow-control/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																			416 row Warning Repeat 2 WASubContext.js?t=wechat&v=3.17.4:1 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																				417 container Warning Repeat 2
+																					418 文本 2
+																				419 container
+																					420 链接 WASubContext.js?t=wechat&v=3.17.4:1
+																						421 文本 WASubContext.js?t=wechat&v=3.17.4:1
+																					422 文本 [Component] property "src" of "components/ui-identity-row/index" received type-uncompatible value: expected <String> but get null value. Use empty string instead.
+																		423 container
+																			424 container
+																				425 文本输入区 (settable) Console prompt
+						426 container
+							427 container 706mini (Git) - main*, Checkout Branch/Tag...
+								428 按钮 706mini (Git) - main*, Checkout Branch/Tag...
+									429 文本 
+									430 文本  main*
+							431 container 706mini (Git) - Synchronize Changes
+								432 按钮 706mini (Git) - Synchronize Changes
+							433 container 没有问题
+								434 按钮 没有问题
+									435 文本 
+									436 文本  0 
+									437 文本 
+									438 文本  0
+							439 container 进度和简要通知
+							440 container undefined
+	441 关闭按钮
+	442 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	443 最小化按钮
+444 menu bar
+	445 微信开发者工具
+	446 项目
+	447 文件
+	448 编辑
+	449 工具
+	450 跳转
+	451 选择
+	452 界面
+	453 设置
+	454 插件
+	455 帮助
+
+The focused UI element is 425 文本输入区 (settable) Console prompt

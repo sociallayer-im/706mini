@@ -1,0 +1,5 @@
+.record-card{box-sizing:border-box;padding:var(--panelInset);margin-bottom:var(--itemGap);border:0;border-radius:var(--radius);background:var(--surface);color:var(--ink)}
+.record-title{display:block;margin-top:var(--spaceUnit);font-size:var(--typeSection);font-weight:600;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
+.record-description,.record-meta{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);line-height:1.7;color:var(--muted);white-space:pre-line;overflow-wrap:anywhere}
+.record-actions{display:flex;align-items:center;flex-wrap:wrap;gap:var(--actionGap)}
+.is-interactive.is-pressed{background:var(--control)}

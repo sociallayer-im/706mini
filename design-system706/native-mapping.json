@@ -1,0 +1,1925 @@
+{
+  "scope": "迁移后源码接入；不代表42页GUI、真机或业务验收",
+  "source": "miniprogram/templates/screen.wxml + sheets.wxml",
+  "families": [
+    {
+      "family": "Button",
+      "components": [
+        "ui-button"
+      ],
+      "sources": [
+        "miniprogram/components/ui-button/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "IconButton",
+      "components": [
+        "ui-icon-button"
+      ],
+      "sources": [
+        "miniprogram/components/ui-icon-button/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "ChoiceGroup",
+      "components": [
+        "ui-choice-group"
+      ],
+      "sources": [
+        "miniprogram/components/ui-choice-group/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Checkbox",
+      "components": [
+        "ui-checkbox"
+      ],
+      "sources": [
+        "miniprogram/components/ui-checkbox/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FilterChip",
+      "components": [
+        "ui-filter-chip"
+      ],
+      "sources": [
+        "miniprogram/components/ui-filter-chip/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "ActionRow",
+      "components": [
+        "ui-action-row"
+      ],
+      "sources": [
+        "miniprogram/components/ui-action-row/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FormField",
+      "components": [
+        "ui-form-field"
+      ],
+      "sources": [
+        "miniprogram/components/ui-form-field/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Switch",
+      "components": [
+        "ui-switch"
+      ],
+      "sources": [
+        "miniprogram/components/ui-switch/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "DateTimePicker",
+      "components": [
+        "ui-date-time-picker"
+      ],
+      "sources": [
+        "miniprogram/components/ui-date-time-picker/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "MediaUploader",
+      "components": [
+        "ui-media-uploader"
+      ],
+      "sources": [
+        "miniprogram/components/ui-media-uploader/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Gallery",
+      "components": [
+        "ui-gallery"
+      ],
+      "sources": [
+        "miniprogram/components/ui-gallery/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Avatar",
+      "components": [
+        "ui-avatar"
+      ],
+      "sources": [
+        "miniprogram/components/ui-avatar/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "PersonCard",
+      "components": [
+        "ui-person-card"
+      ],
+      "sources": [
+        "miniprogram/components/ui-person-card/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "EventCard",
+      "components": [
+        "ui-event-card"
+      ],
+      "sources": [
+        "miniprogram/components/ui-event-card/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "PersonalEvent",
+      "components": [
+        "ui-personal-event"
+      ],
+      "sources": [
+        "miniprogram/components/ui-personal-event/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "PersonalCampaign",
+      "components": [
+        "ui-personal-campaign"
+      ],
+      "sources": [
+        "miniprogram/components/ui-personal-campaign/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FeatureCarousel",
+      "components": [
+        "ui-feature-carousel"
+      ],
+      "sources": [
+        "miniprogram/components/ui-feature-carousel/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FeedItem",
+      "components": [
+        "ui-feed-item"
+      ],
+      "sources": [
+        "miniprogram/components/ui-feed-item/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "NotificationItem",
+      "components": [
+        "ui-notification-item"
+      ],
+      "sources": [
+        "miniprogram/components/ui-notification-item/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Calendar",
+      "components": [
+        "ui-calendar"
+      ],
+      "sources": [
+        "miniprogram/components/ui-calendar/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "StatusSummary",
+      "components": [
+        "ui-status-summary"
+      ],
+      "sources": [
+        "miniprogram/components/ui-status-summary/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "AccessStep",
+      "components": [
+        "ui-access-step"
+      ],
+      "sources": [
+        "miniprogram/components/ui-access-step/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "ReviewHistory",
+      "components": [
+        "ui-review-history"
+      ],
+      "sources": [
+        "miniprogram/components/ui-review-history/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Sheet",
+      "components": [
+        "ui-sheet"
+      ],
+      "sources": [
+        "miniprogram/components/ui-sheet/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Navigation",
+      "components": [
+        "ui-navigation"
+      ],
+      "sources": [
+        "miniprogram/components/ui-navigation/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Stepper",
+      "components": [
+        "ui-stepper"
+      ],
+      "sources": [
+        "miniprogram/components/ui-stepper/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "EmptyState",
+      "components": [
+        "ui-empty-state"
+      ],
+      "sources": [
+        "miniprogram/components/ui-empty-state/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "LoadingState",
+      "components": [
+        "ui-loading-state"
+      ],
+      "sources": [
+        "miniprogram/components/ui-loading-state/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Notice",
+      "components": [
+        "ui-notice"
+      ],
+      "sources": [
+        "miniprogram/components/ui-notice/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "Section",
+      "components": [
+        "ui-section"
+      ],
+      "sources": [
+        "miniprogram/components/ui-section/index"
+      ],
+      "status": "source-integrated",
+      "note": "组合复用；页面保留业务数据、权限和事件处理。"
+    },
+    {
+      "family": "EntityCard",
+      "components": [
+        "ui-entity-card"
+      ],
+      "sources": [
+        "miniprogram/components/ui-entity-card/index"
+      ],
+      "status": "source-integrated",
+      "note": "组合复用；页面保留业务数据、权限和事件处理。"
+    },
+    {
+      "family": "CommentThread",
+      "components": [
+        "ui-comment-thread"
+      ],
+      "sources": [
+        "miniprogram/components/ui-comment-thread/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "LinkList",
+      "components": [
+        "ui-menu-group",
+        "ui-action-row"
+      ],
+      "sources": [
+        "miniprogram/components/ui-menu-group/index",
+        "miniprogram/components/ui-action-row/index"
+      ],
+      "status": "source-integrated",
+      "note": "组合复用；页面保留业务数据、权限和事件处理。"
+    },
+    {
+      "family": "SearchField",
+      "components": [
+        "ui-search-field"
+      ],
+      "sources": [
+        "miniprogram/components/ui-search-field/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "SegmentedControl",
+      "components": [
+        "ui-choice-group"
+      ],
+      "sources": [
+        "miniprogram/components/ui-choice-group/index"
+      ],
+      "status": "source-integrated",
+      "note": "组合复用；页面保留业务数据、权限和事件处理。"
+    },
+    {
+      "family": "IdentityRow",
+      "components": [
+        "ui-identity-row"
+      ],
+      "sources": [
+        "miniprogram/components/ui-identity-row/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "StatLink",
+      "components": [
+        "ui-stat-link"
+      ],
+      "sources": [
+        "miniprogram/components/ui-stat-link/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "MenuGroup",
+      "components": [
+        "ui-menu-group"
+      ],
+      "sources": [
+        "miniprogram/components/ui-menu-group/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "PermissionState",
+      "components": [
+        "ui-notice"
+      ],
+      "sources": [
+        "miniprogram/components/ui-notice/index"
+      ],
+      "status": "source-integrated",
+      "note": "组合复用；页面保留业务数据、权限和事件处理。"
+    },
+    {
+      "family": "Badge",
+      "components": [
+        "ui-badge"
+      ],
+      "sources": [
+        "miniprogram/components/ui-badge/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FloatingBar",
+      "components": [
+        "ui-floating-bar"
+      ],
+      "sources": [
+        "miniprogram/components/ui-floating-bar/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "FollowControl",
+      "components": [
+        "ui-follow-control"
+      ],
+      "sources": [
+        "miniprogram/components/ui-follow-control/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    },
+    {
+      "family": "ParticipantSummary",
+      "components": [
+        "ui-participant-summary"
+      ],
+      "sources": [
+        "miniprogram/components/ui-participant-summary/index"
+      ],
+      "status": "source-integrated",
+      "note": "原生组件；业务处理由页面控制器承担。"
+    }
+  ],
+  "pages": 42,
+  "sheets": 20,
+  "guiEvidence": "evidence/native-migration/",
+  "pageMappings": [
+    {
+      "route": "pages/feed/index",
+      "entry": "miniprogram/pages/feed/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FeatureCarousel",
+        "PersonCard",
+        "FeedItem",
+        "EventCard",
+        "Avatar",
+        "Button",
+        "IconButton",
+        "Navigation",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet",
+        "CommentThread"
+      ],
+      "nativeComponents": [
+        "ui-avatar",
+        "ui-button",
+        "ui-comment-thread",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-feature-carousel",
+        "ui-feed-item",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-navigation",
+        "ui-notice",
+        "ui-person-card",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/discover/index",
+      "entry": "miniprogram/pages/discover/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FeatureCarousel",
+        "SearchField",
+        "FilterChip",
+        "ActionRow",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "Navigation",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-feature-carousel",
+        "ui-filter-chip",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-navigation",
+        "ui-notice",
+        "ui-search-field",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/messages/index",
+      "entry": "miniprogram/pages/messages/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "SegmentedControl",
+        "NotificationItem",
+        "Avatar",
+        "Navigation",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-avatar",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-navigation",
+        "ui-notice",
+        "ui-notification-item",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/me/index",
+      "entry": "miniprogram/pages/me/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "IdentityRow",
+        "StatLink",
+        "MenuGroup",
+        "ActionRow",
+        "Avatar",
+        "Button",
+        "Navigation",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-navigation",
+        "ui-notice",
+        "ui-sheet",
+        "ui-stat-link"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/manage/index",
+      "entry": "miniprogram/pages/manage/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "MenuGroup",
+        "ActionRow",
+        "EntityCard",
+        "PermissionState",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-empty-state",
+        "ui-entity-card",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/create-space/index",
+      "entry": "miniprogram/pages/create-space/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "DateTimePicker",
+        "MediaUploader",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-date-time-picker",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/event/index",
+      "entry": "miniprogram/pages/event/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Gallery",
+        "Section",
+        "Avatar",
+        "IdentityRow",
+        "ParticipantSummary",
+        "CommentThread",
+        "EventCard",
+        "ActionRow",
+        "Button",
+        "Badge",
+        "FloatingBar",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-badge",
+        "ui-button",
+        "ui-comment-thread",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-floating-bar",
+        "ui-gallery",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-participant-summary",
+        "ui-section",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/member/index",
+      "entry": "miniprogram/pages/member/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Avatar",
+        "IdentityRow",
+        "FollowControl",
+        "StatLink",
+        "LinkList",
+        "EventCard",
+        "Button",
+        "Badge",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-badge",
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet",
+        "ui-stat-link"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/space/index",
+      "entry": "miniprogram/pages/space/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "EntityCard",
+        "IdentityRow",
+        "FollowControl",
+        "ActionRow",
+        "LinkList",
+        "EventCard",
+        "Avatar",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-button",
+        "ui-empty-state",
+        "ui-entity-card",
+        "ui-event-card",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/org/index",
+      "entry": "miniprogram/pages/org/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "EntityCard",
+        "IdentityRow",
+        "FollowControl",
+        "ActionRow",
+        "LinkList",
+        "EventCard",
+        "Avatar",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-button",
+        "ui-empty-state",
+        "ui-entity-card",
+        "ui-event-card",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/entity-events/index",
+      "entry": "miniprogram/pages/entity-events/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "EventCard",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/entity-members/index",
+      "entry": "miniprogram/pages/entity-members/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "IdentityRow",
+        "Avatar",
+        "FollowControl",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-avatar",
+        "ui-empty-state",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/edit-entity/index",
+      "entry": "miniprogram/pages/edit-entity/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "MediaUploader",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/admins/index",
+      "entry": "miniprogram/pages/admins/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "IdentityRow",
+        "Badge",
+        "Button",
+        "ActionRow",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-badge",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/edit-profile/index",
+      "entry": "miniprogram/pages/edit-profile/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "Avatar",
+        "MediaUploader",
+        "ChoiceGroup",
+        "LinkList",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-avatar",
+        "ui-button",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/relations/index",
+      "entry": "miniprogram/pages/relations/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "SegmentedControl",
+        "IdentityRow",
+        "Avatar",
+        "FollowControl",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-avatar",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/onboarding/index",
+      "entry": "miniprogram/pages/onboarding/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Stepper",
+        "FormField",
+        "ChoiceGroup",
+        "Checkbox",
+        "Button",
+        "StatusSummary",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-checkbox",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet",
+        "ui-status-summary",
+        "ui-stepper"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/calendar/index",
+      "entry": "miniprogram/pages/calendar/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Calendar",
+        "SegmentedControl",
+        "FilterChip",
+        "IconButton",
+        "EventCard",
+        "Button",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-calendar",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-filter-chip",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/spaces/index",
+      "entry": "miniprogram/pages/spaces/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "SegmentedControl",
+        "EntityCard",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-entity-card",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/campaign/index",
+      "entry": "miniprogram/pages/campaign/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "EntityCard",
+        "Section",
+        "LinkList",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-button",
+        "ui-empty-state",
+        "ui-entity-card",
+        "ui-event-card",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-section",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/campaign-edit/index",
+      "entry": "miniprogram/pages/campaign-edit/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "MediaUploader",
+        "ChoiceGroup",
+        "LinkList",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-button",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/campaign-create/index",
+      "entry": "miniprogram/pages/campaign-create/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Stepper",
+        "FormField",
+        "MediaUploader",
+        "ChoiceGroup",
+        "LinkList",
+        "Button",
+        "EventCard",
+        "StatusSummary",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-button",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet",
+        "ui-status-summary",
+        "ui-stepper"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/campaign-approval-detail/index",
+      "entry": "miniprogram/pages/campaign-approval-detail/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "StatusSummary",
+        "Gallery",
+        "ReviewHistory",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-gallery",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-review-history",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/campaign-review-progress/index",
+      "entry": "miniprogram/pages/campaign-review-progress/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "ReviewHistory",
+        "StatusSummary",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-review-history",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/event-access/index",
+      "entry": "miniprogram/pages/event-access/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "StatusSummary",
+        "ActionRow",
+        "AccessStep",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-access-step",
+        "ui-action-row",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/activity-preview/index",
+      "entry": "miniprogram/pages/activity-preview/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Gallery",
+        "Section",
+        "EventCard",
+        "Badge",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-badge",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-gallery",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-section",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/publish/index",
+      "entry": "miniprogram/pages/publish/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Stepper",
+        "FormField",
+        "Switch",
+        "DateTimePicker",
+        "MediaUploader",
+        "ChoiceGroup",
+        "Button",
+        "EventCard",
+        "StatusSummary",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-choice-group",
+        "ui-date-time-picker",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-media-uploader",
+        "ui-notice",
+        "ui-sheet",
+        "ui-status-summary",
+        "ui-stepper",
+        "ui-switch"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/approvals/index",
+      "entry": "miniprogram/pages/approvals/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "SegmentedControl",
+        "ActionRow",
+        "Badge",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-badge",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/approval-detail/index",
+      "entry": "miniprogram/pages/approval-detail/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "StatusSummary",
+        "Gallery",
+        "ReviewHistory",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-gallery",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-review-history",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/approval-progress/index",
+      "entry": "miniprogram/pages/approval-progress/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "ReviewHistory",
+        "StatusSummary",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-review-history",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/registrations/index",
+      "entry": "miniprogram/pages/registrations/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FilterChip",
+        "PersonalEvent",
+        "EventCard",
+        "StatusSummary",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-filter-chip",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-personal-event",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/my-events/index",
+      "entry": "miniprogram/pages/my-events/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FilterChip",
+        "PersonalEvent",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-filter-chip",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-personal-event",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/drafts/index",
+      "entry": "miniprogram/pages/drafts/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "PersonalEvent",
+        "EventCard",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-event-card",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-personal-event",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/following/index",
+      "entry": "miniprogram/pages/following/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "SegmentedControl",
+        "IdentityRow",
+        "Avatar",
+        "FollowControl",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-avatar",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-follow-control",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/more/index",
+      "entry": "miniprogram/pages/more/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "MenuGroup",
+        "ActionRow",
+        "Switch",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet",
+        "ui-switch"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/login/index",
+      "entry": "miniprogram/pages/login/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/attendees/index",
+      "entry": "miniprogram/pages/attendees/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "IdentityRow",
+        "Badge",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-badge",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-identity-row",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/invitations/index",
+      "entry": "miniprogram/pages/invitations/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "ActionRow",
+        "Badge",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-action-row",
+        "ui-badge",
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/my-campaigns/index",
+      "entry": "miniprogram/pages/my-campaigns/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "PersonalCampaign",
+        "StatusSummary",
+        "Button",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-personal-campaign",
+        "ui-sheet",
+        "ui-status-summary"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/privacy/index",
+      "entry": "miniprogram/pages/privacy/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Switch",
+        "MenuGroup",
+        "Section",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Notice",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-section",
+        "ui-sheet",
+        "ui-switch"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/feedback/index",
+      "entry": "miniprogram/pages/feedback/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "FormField",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-empty-state",
+        "ui-form-field",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    },
+    {
+      "route": "pages/review-lab/index",
+      "entry": "miniprogram/pages/review-lab/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "MenuGroup",
+        "ChoiceGroup",
+        "Button",
+        "Notice",
+        "IconButton",
+        "LoadingState",
+        "EmptyState",
+        "Sheet"
+      ],
+      "nativeComponents": [
+        "ui-button",
+        "ui-choice-group",
+        "ui-empty-state",
+        "ui-icon-button",
+        "ui-loading-state",
+        "ui-menu-group",
+        "ui-notice",
+        "ui-sheet"
+      ],
+      "evidence": "source-based; conditional rendering remains in shared template"
+    }
+  ],
+  "sheetMappings": [
+    {
+      "id": "register",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "recommend",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event",
+        "feed"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "comment",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event",
+        "feed"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "participants",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "payment",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event-access"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "group",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "event-access"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "return",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "approval-detail",
+        "campaign-approval-detail"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "city",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "feed",
+        "discover",
+        "me",
+        "more"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "language",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "me",
+        "more"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "notifications",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "me",
+        "more"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "mini",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "feed",
+        "discover",
+        "messages",
+        "me"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "about",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "more"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "manage",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "space",
+        "org"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "member",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "member"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "why",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "feed"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "poster",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "calendar"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "official",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "space",
+        "org"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "recap",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "space",
+        "org"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "invite",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "admins"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "report",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "member",
+        "feedback"
+      ],
+      "evidence": "source-based; transitions require separate GUI/business verification"
+    }
+  ],
+  "compositionSupport": [
+    "ui-panel",
+    "ui-select-field",
+    "ui-fab",
+    "ui-record-card"
+  ]
+}

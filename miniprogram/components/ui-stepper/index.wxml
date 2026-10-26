@@ -1,0 +1,1 @@
+<view style="{{theme}}" class="steps"><view wx:for="{{items}}" wx:key="number" class="step {{current === item.number ? 'current' : current > item.number ? 'complete' : ''}}"><text class="number">{{item.number}}</text><text class="label">{{item.title}}</text></view></view>

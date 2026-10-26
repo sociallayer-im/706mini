@@ -1,0 +1,1 @@
+<view style="{{theme}};{{keyboardHeight ? 'position:static' : ''}}" class="bar"><view class="surface"><slot/></view></view>

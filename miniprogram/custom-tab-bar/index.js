@@ -18,7 +18,7 @@ Component({
    this.setData({selected: selected < 0 ? 0 : selected, hidden: !!page?.data?.sheet || !routes.includes(path), items: routes.map(key => ({key, label: t[key], icon: illustrations[key]}))});
   },
   switchTab(e) {
-   const index = Number(e.currentTarget.dataset.index);
+   const index = routes.indexOf(e.detail.dataset.route);
    if (index === this.data.selected || this.data.switching || !routes[index]) return;
    this.setData({switching: true});
    wx.reLaunch({

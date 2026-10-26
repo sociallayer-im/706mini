@@ -1,0 +1,1 @@
+<button wx:if="{{interactive}}" size="mini" style="{{theme}}" class="stat" bindtap="press"><text class="value">{{value}}</text><text class="label">{{label}}</text></button><view wx:else style="{{theme}}" class="stat"><text class="value">{{value}}</text><text class="label">{{label}}</text></view>

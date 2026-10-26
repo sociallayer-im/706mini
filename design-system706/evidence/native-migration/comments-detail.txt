@@ -1,0 +1,262 @@
+Window: "706-community", App: 微信开发者工具.
+0 标准窗口 706-community, Secondary Actions: Raise
+	1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0
+		2 container
+			3 文本 微信开发者工具 Stable 2.02.2608080
+			4 container
+				5 text 小程序模式
+			6 文本 预览
+			7 文本 真机调试
+			8 文本 上传
+			9 未加标签的图片 要获取缺失的图片说明，请打开上下文菜单。
+			10 container
+				11 container
+					12 container
+						13 text 预览 编辑
+					14 container
+						15 text 普通编译
+					16 container
+						17 container
+							18 text 10 : 12
+						19 container
+							20 链接
+							21 链接
+						22 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/s1/_sessionId/simulator-app-session-s1/mainframe?load
+							23 container
+								24 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792980652295&autoload#id_1
+								25 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792980652295#id_2
+						26 container
+							27 链接
+							28 链接
+					29 container
+						30 文本 iPhone 12/13 (Pro) 102% 16
+					31 container
+						32 文本 页面路径
+					33 文本 pages/feed/index
+					34 链接 复制
+				35 container
+					36 container
+						37 container
+							38 文本 706mini
+							39 工具栏
+								40 按钮 Toggle Primary Side Bar (⌘K ⌘B)
+									41 文本 
+								42 按钮 切换面板 (⌘J)
+									43 文本 
+								44 按钮 Toggle Secondary Side Bar (⌥⌘B)
+									45 文本 
+						46 container
+							47 container
+								48 标签组 活动视图切换器
+									49 标签 (selected) Description: 资源管理器 (⌘K ⇧⌘E), Value: 1
+										50 container 资源管理器 (⌘K ⇧⌘E)
+											51 文本 
+									52 标签 (settable, integer) Search (⇧⌘F), Value: 0
+										53 container Search (⇧⌘F)
+											54 文本 
+									55 标签 (settable, integer) Description: 源代码管理 (⌃⇧G) - 254 个挂起的更改, Value: 0
+										56 文本 
+									57 标签 (settable, integer) 扩展 (⇧⌘X), Value: 0
+										58 container 扩展 (⇧⌘X)
+											59 文本 
+									60 弹出式按钮 其他视图
+										61 文本 
+								62 container
+									63 标题 资源管理器, Help: 资源管理器 (⌘K ⇧⌘E), Value: 2
+										64 文本 资源管理器
+									65 内容列表 资源管理器操作
+										66 弹出式按钮 Views and More Actions...
+									67 container
+										68 container
+											69 按钮 文件资源管理器部分
+												70 文本 
+												71 标题 Description: 文件资源管理器部分, Help: 706mini, Value: 3
+													72 文本 706MINI
+											73 外框 树
+												74 container
+													75 row .openai
+														76 container
+															77 文本 
+															78 文本 .openai
+													79 row data-integration-review
+														80 container
+															81 文本 
+															82 文本 data-integration-review
+													83 row design-system706
+														84 container
+															85 文本 
+															86 container ~/Projects/706mini/design-system706 • 包含强调项
+																87 文本 design-system706
+																88 文本 
+													89 row dist
+														90 container
+															91 文本 
+															92 文本 dist
+													93 row docs
+														94 container
+															95 文本 
+															96 文本 docs
+													97 row miniprogram
+														98 container
+															99 文本 
+															100 container ~/Projects/706mini/miniprogram • 包含强调项
+																101 文本 miniprogram
+																102 文本 
+													103 row scripts
+														104 container
+															105 文本 
+															106 container ~/Projects/706mini/scripts • 包含强调项
+																107 文本 scripts
+																108 文本 
+													109 row test
+														110 container
+															111 文本 
+															112 文本 test
+													113 row .gitignore
+														114 container
+															115 文本 .gitignore
+													116 row AGENTS.md
+														117 container
+															118 文本 AGENTS.md
+													119 row project.config.json
+														120 container
+															121 文本 project.config.json
+													122 row project.private.config.json
+														123 container
+															124 文本 project.private.config.json
+													125 row README.md
+														126 container
+															127 文本 README.md
+										128 按钮 大纲 Section
+											129 文本 
+											130 标题 大纲, Value: 3
+												131 文本 大纲
+										132 按钮 时间线 Section
+											133 文本 
+											134 标题 时间线, Value: 3
+												135 文本 时间线
+							136 container
+								137 container
+									138 container 第 1 组 (空)
+										139 container
+											140 定义列表
+												141 container 显示所有命令
+													142 文本 显示所有命令
+												143 container Command+K Command+P
+													144 text ⌘ K ⌘ P
+											145 定义列表
+												146 container Go to File
+													147 文本 Go to File
+												148 container Command+P
+													149 text ⌘ P
+											150 定义列表
+												151 container 在文件中查找
+													152 文本 在文件中查找
+												153 container Shift+Command+F
+													154 text ⇧ ⌘ F
+											155 定义列表
+												156 container 开始调试
+													157 文本 开始调试
+												158 文本 F5
+											159 定义列表
+												160 container 切换终端
+													161 文本 切换终端
+												162 container Control+`
+													163 text ⌃ `
+								164 container
+									165 标签组 活动视图切换器
+										166 标签 (settable, integer) Description: 构建 - Logs: 100, Value: 0
+											167 container 构建 - Logs: 100
+												168 文本 构建
+											169 container 构建 - Logs: 100
+												170 文本 100
+										171 标签 (selected) Description: 调试器 - Errors: 0, Warnings: 22, Value: 1
+											172 文本 调试器
+											173 文本 22
+										174 标签 (settable, integer) Description: 问题 (⌘K ⇧⌘M) - 总计 0 个问题, Value: 0
+											175 文本 问题
+										176 标签 (settable, integer) Description: 输出, Value: 0
+											177 文本 输出
+										178 标签 (settable, integer) Description: 调试控制台 (⇧⌘Y), Value: 0
+											179 文本 调试控制台
+										180 标签 (settable, integer) 终端 (⌃`), Value: 0
+											181 container 终端 (⌃`)
+												182 文本 终端
+										183 标签 (settable, integer) 代码质量, Value: 0
+											184 container 代码质量
+												185 文本 代码质量
+									186 工具栏 调试器操作
+									187 工具栏
+										188 按钮 最大化面板大小
+											189 文本 
+										190 按钮 关闭面板
+											191 文本 
+									192 container
+										193 container
+											194 HTML 内容 devtools://devtools/bundled/devtools_app.html?remoteBase=https://chrome-devtools-frontend.appspot.com/serve_file/@61dafe6541432a46304ba3c84a0a6135b7cddd69/&can_dock=&toolbarColor=rgba(223,223,223,1)&textColor=rgba(0,0,0,1)&experiments=true
+												195 container
+													196 container
+														197 切换按钮 Description: Select an element in the page to inspect it, Value: 0
+														198 标签组 Panels
+															199 标签 (settable, integer) Description: Wxml, Value: 0
+															200 标签 (selected) Description: Console, Value: 1
+															201 标签 (settable, integer) Description: Sources, Value: 0
+															202 标签 (settable, integer) Description: Network, Value: 0
+															203 标签 (settable, integer) Description: Performance, Value: 0
+															204 标签 (settable, integer) Description: Memory, Value: 0
+															205 标签 (settable, integer) Description: AppData, Value: 0
+															206 标签 (settable, integer) Description: Storage, Value: 0
+															207 标签 (settable, integer) Description: Security, Value: 0
+															208 标签 (settable, integer) Description: Sensor, Value: 0
+															209 标签 (settable, integer) Description: Mock, Value: 0
+															210 标签 (settable, integer) Description: Audits, Value: 0
+														211 弹出式按钮 More tabs
+														212 按钮 Settings
+														213 弹出式按钮 Customize and control DevTools
+														214 container Undock into separate window
+														215 container Console panel
+															216 container console
+																217 container
+																	218 按钮 Show console sidebar
+																	219 按钮 Clear console
+																	220 按钮 JavaScript context: top
+																	221 按钮 Create live expression
+																	222 弹出式按钮 Log level: Default levels
+																		223 文本 Default levels
+																	224 切换按钮 Description: Console settings, Value: 0
+																	225 container
+																		226 container
+																			227 container
+																				228 文本输入区 (settable) Console prompt
+						229 container
+							230 container 706mini (Git) - main*, Checkout Branch/Tag...
+								231 按钮 706mini (Git) - main*, Checkout Branch/Tag...
+									232 文本 
+									233 文本  main*
+							234 container 706mini (Git) - Synchronize Changes
+								235 按钮 706mini (Git) - Synchronize Changes
+							236 container 没有问题
+								237 按钮 没有问题
+									238 文本 
+									239 文本  0 
+									240 文本 
+									241 文本  0
+							242 container 进度和简要通知
+							243 container undefined
+	244 关闭按钮
+	245 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	246 最小化按钮
+247 menu bar
+	248 微信开发者工具
+	249 项目
+	250 文件
+	251 编辑
+	252 工具
+	253 跳转
+	254 选择
+	255 界面
+	256 设置
+	257 插件
+	258 帮助
+
+The focused UI element is 1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0

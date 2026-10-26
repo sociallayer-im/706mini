@@ -1,0 +1,1 @@
+<view class="panel context-{{context}} inset-{{inset}}" style="{{theme}}"><slot/></view>
