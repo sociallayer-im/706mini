@@ -62,6 +62,8 @@
     "ui-personal-event": "/components/ui-personal-event/index",
     "ui-access-step": "/components/ui-access-step/index",
     "ui-action-row": "/components/ui-action-row/index",
-    "ui-icon-button": "/components/ui-icon-button/index"
+    "ui-icon-button": "/components/ui-icon-button/index",
+    "ui-choice-group": "/components/ui-choice-group/index",
+    "ui-checkbox": "/components/ui-checkbox/index"
   }
 }

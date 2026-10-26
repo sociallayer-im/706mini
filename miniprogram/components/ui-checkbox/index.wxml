@@ -1,0 +1,1 @@
+<ui-choice-group options="{{options}}" value="{{value}}" disabled="{{disabled}}" layout="{{layout}}" label="{{label}}" bindchange="change"/>

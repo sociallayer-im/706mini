@@ -162,8 +162,6 @@ page{background:#F5F5F2;color:#232323}
 .screen input{height:96rpx;min-height:44px;font-size:var(--typeBody)}
 .screen textarea{min-height:192rpx;line-height:1.8}
 .screen .sheet .choice-row{padding:24rpx 28rpx;margin-bottom:20rpx}
-.screen .interest-choice{border:var(--stroke) solid var(--outline);background:var(--surface);border-radius:var(--pill);padding:12rpx 20rpx}
-.screen .interest-choice.is-selected{background:var(--accent)}
 .screen .settings-menu{margin:40rpx 0;background:var(--surface);border-radius:var(--radius);overflow:hidden}
 .screen .settings-row{background:var(--surface)!important;border:0;border-radius:0!important;min-height:104rpx;padding:24rpx!important;margin:0!important;font-size:var(--typeBody);font-weight:400}
 .screen .settings-icon{background:var(--accentSoft);border-radius:50%}
@@ -381,9 +379,6 @@ page{background:#F5F5F2;color:#232323}
 .screen .picker{min-height:44px}
 .screen .form .field>input,.screen .form .field>textarea,.screen .form .picker{border-width:1rpx}
 .screen .form .field-invalid>input,.screen .form .field-invalid>textarea,.screen .form .field-invalid .picker{border-color:var(--danger)}
-.screen .checkbox-row{min-height:44px;font-size:var(--typeFact);line-height:1.7}
-.screen .interest-choice{min-height:44px;border:1rpx solid var(--line);background:var(--surface)}
-.screen .interest-choice.is-selected{background:var(--ink);color:var(--surface)}
 .screen .stage-number{border:0;background:var(--control)}
 .screen .is-current .stage-number{background:var(--accent);color:var(--ink)}
 .screen .is-complete .stage-number{background:var(--ink);color:var(--surface)}

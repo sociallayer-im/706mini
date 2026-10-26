@@ -1,0 +1,8 @@
+<template name="option">
+ <label class="choice {{layout === 'tags' ? 'choice-tag' : 'choice-row'}} {{item.checked ? 'is-selected' : ''}} {{item.unavailable ? 'is-disabled' : ''}}">
+  <radio wx:if="{{mode === 'single'}}" class="choice-control" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.unavailable}}" color="{{ink}}"/>
+  <checkbox wx:else class="choice-control" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.unavailable}}" color="{{ink}}"/>
+  <image wx:if="{{eventDetails && item.cover_url}}" class="choice-cover" src="{{item.cover_url}}" mode="aspectFill"/>
+  <view class="choice-copy"><text class="choice-label">{{item.label}}</text><block wx:if="{{eventDetails}}"><text class="choice-description">{{item.dateLabel}} · {{item.cityLabel || item.city}} · {{item.venue_display}}</text><text class="choice-description">{{item.host_display}}</text></block><text wx:elif="{{item.description}}" class="choice-description">{{item.description}}</text></view>
+ </label>
+</template>
