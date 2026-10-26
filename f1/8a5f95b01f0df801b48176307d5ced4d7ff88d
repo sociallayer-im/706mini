@@ -1,0 +1,29 @@
+miniprogram/pages/platform-admins/index.js
+  s_9b8405720596ad::t_5011d2803a1ee4 1
+miniprogram/pages/blocks/index.wxml
+  s_9b8405720596ad::t_540b27f99ceb79 1
+miniprogram/pages/platform-admins/index.json
+  s_9b8405720596ad::t_1fb3cc825cc1b2 1
+miniprogram/pages/platform-admins/index.wxml
+  s_9b8405720596ad::t_6d201f4e282d99 1
+miniprogram/pages/blocks/index.js
+  s_9b8405720596ad::t_451701c6103ece 1
+miniprogram/pages/blocks/index.json
+  s_9b8405720596ad::t_eeb46fb5dba1cf 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f18a5f95b01f0df801b48176307d5ced4d7ff88d",
+  "prompts": {},
+  "sessions": {
+    "s_9b8405720596ad": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a15884-e5c9-7272-9786-3982e3564450",
+        "model": "unknown"
+      },
+      "human_author": "jiangplus <jiang.plus.times@gmail.com>"
+    }
+  }
+}
