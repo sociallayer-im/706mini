@@ -43,7 +43,7 @@ const editorial={
  developerVisible(runtime,demo){if(demo)return true;try{return ['develop','trial'].includes(runtime.getAccountInfoSync().miniProgram.envVersion);}catch{return false;}},
  registrationAction(status,locale){const labels={CONFIRMED:['查看参与方式','How to participate'],APPROVED_AWAITING_PAYMENT:['去付款 · 保留名额','Pay to secure your place'],REQUESTED:['查看报名进度','View application'],WAITLISTED:['查看候补进度','View waitlist']};return labels[status]?.[locale==='en'?1:0]||(locale==='en'?'View registration':'查看报名详情');},
  reviewGuidance(status,locale){const copy={IN_REVIEW:['正在等待必要审核方处理。你可以在下面查看每一方的进度。','Waiting for the required reviewers. Check each review below.'],CHANGES_REQUESTED:['有内容需要修改。查看审核意见，修改后重新提交。','Changes requested. Read the notes, edit and resubmit.'],PUBLISHED:['已通过必要审核，内容已公开。','All required reviews passed. This is now public.'],DRAFT:['这是草稿，尚未提交审核。','This is a draft and has not been submitted.'],CANCELLED:['已取消，不再接受报名。','Cancelled. Registration is no longer available.']};return (copy[status]||['查看下面的审核记录与意见。','See the review records and notes below.'])[locale==='en'?1:0];},
- eventReviewGuidance(status,locale){const copy={IN_REVIEW:['正在等待所在小组审核。通过后活动会公开。','Waiting for the hosting group. The event becomes public after they approve.'],PUBLISHED:['小组已通过，活动已公开。','The hosting group approved this. It is now public.'],DRAFT:['这是草稿，尚未提交小组审核。','This is a draft and has not been sent to the hosting group.'],CANCELLED:['已取消，不再接受报名。','Cancelled. Registration is no longer available.']};return (copy[status]||['查看下面的小组审核结果。','See the group review below.'])[locale==='en'?1:0];}
+ eventReviewGuidance(status,locale){const copy={IN_REVIEW:['正在等待所在小组审核。通过后活动会公开。','Waiting for the hosting group. The event becomes public after they approve.'],PUBLISHED:['活动已公开。','This event is public.'],DRAFT:['这是草稿，尚未提交。','This is a draft and has not been submitted.'],CANCELLED:['已取消，不再接受报名。','Cancelled. Registration is no longer available.']};return (copy[status]||['查看下面的小组审核结果。','See the group review below.'])[locale==='en'?1:0];}
 };
 function normalize(item,t,locale){const result=normalizeBase(item,t,locale),event=item.event||item;const galleryUrls=[...new Set([...(event.cover_url?[event.cover_url]:[]),...(event.media||[]).filter(x=>x.type==='image'&&x.url).map(x=>x.url)])];return {...result,galleryUrls,...editorial.eventState(event,t,locale),dateLine:editorial.eventDate(event,locale),feedIdentity:editorial.feedIdentity(item,locale),feedHeadline:editorial.feedHeadline(item,locale),registrationAction:editorial.registrationAction(item.registration?.status||item.status,locale),reviewGuidance:editorial.reviewGuidance(item.status,locale),event:result.event};}
 let pendingTabPreview=null; // One navigation only; tabBar URLs cannot carry query parameters.
@@ -53,11 +53,13 @@ function rememberHome(payload){const key=homeKey();const previous=homeCache.key=
 function restoreHome(page){if(homeCache.key!==homeKey()||!homeCache.payload||Date.now()-homeCache.at>120000)return;page.setData({...homeCache.payload,loading:false,error:''});}
 function go(route,id='',extra={}){const query=Object.entries({...extra,...(id?{id}:{})}).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');const url='/pages/'+route+'/index'+(query?'?'+query:'');if(!tabs.includes(route))return wx.navigateTo({url});activeTab=route;const stack=typeof getCurrentPages==='function'?getCurrentPages():[];const current=stack[stack.length-1];if(stack.length===1&&current&&current.route==='pages/'+route+'/index'&&!query)return;return wx.reLaunch({url});}
 const formKinds={publish:'event','campaign-create':'campaign','campaign-edit':'campaign','edit-profile':'profile',onboarding:'profile','edit-entity':'entity','create-space':'space'};
-function canManageCommunity(roles){return (roles||[]).some(role=>role.scope==='PLATFORM'||(role.scope==='ENTITY'&&role.parent&&(role.role==='OWNER'||role.role==='ADMIN')));}
+function isPlatformAdmin(roles){return (roles||[]).some(role=>role.scope==='PLATFORM');}
+function canManageGroups(roles){return isPlatformAdmin(roles)||(roles||[]).some(role=>role.scope==='ENTITY'&&role.parent&&(role.role==='OWNER'||role.role==='ADMIN'));}
+function canReviewTasks(roles){return canManageGroups(roles)||(roles||[]).some(role=>role.scope==='CAMPAIGN');}
 function eventHost(e){const person=e.initiator?.display_name||e.host_display||'',org=e.organization_name||'';return org&&!['个人发起','Personal','Independent'].includes(org)&&!person.includes(org)?[person,org].filter(Boolean).join(' & '):person||org;}
 function normalizeBase(item,t,locale){const e=item.event||item,phase=require('./mine-phase')(item);const notificationMatch=String(item.description||'').match(/^(.*?)(「[^」]+」)(.*)$/);const registered=Number(e.registered)||0,total=e.capacity==null?null:Number(e.capacity),known=Number.isFinite(total);return {...item,hostLine:eventHost(e),capacityDisplay:known?registered+'/'+total:registered+(locale==='en'?' going':' 人参加'),capacityLabel:known?(locale==='en'?registered+' registered out of '+total+' places':'已报名 '+registered+' 人，共 '+total+' 个名额'):(locale==='en'?registered+' registered, unlimited capacity':'已报名 '+registered+' 人，不限名额'),notificationTime:item.display_time||dates.format(item.created_at,locale),notificationParts:notificationMatch?notificationMatch.slice(1):null,notificationIcon:item.category==='ADMIN'?'review':item.category==='SOCIAL'?'new':'ticket',phase,phaseLabel:phase==='ENDED'?(locale==='en'?'Ended':'已结束'):phase==='UPCOMING'?(locale==='en'?'Upcoming':'即将开始'):t[phase]||phase,cityLabel:locale==='en'?item.city:({shanghai:'上海',beijing:'北京',guangzhou:'广州',shenzhen:'深圳',hangzhou:'杭州',chengdu:'成都'}[item.city]||item.city),activeRegistration:item.registration&&!['CANCELLED','REJECTED','EXPIRED','REFUNDED'].includes(item.registration.status),title:item.title||item.event?.title||item.display_name||item.name||t[item.key]||'',statusLabel:t[item.status]||item.status||'',dateLabel:dates.format(e.starts_at,locale),dateOnly:dates.format(e.starts_at,locale).slice(0,10),timeOnly:dates.format(e.starts_at,locale).slice(11,16),endTime:dates.format(e.ends_at,locale).slice(11,16),participantNames:(e.participants||[]).slice().sort((a,b)=>Number(b.owner===e.owner)-Number(a.owner===e.owner)).slice(0,2).map(x=>x.display_name).join(locale==='en'?' and ':'和 '),detailParticipants:(e.participants||[]).slice().sort((a,b)=>Number(b.owner===e.owner)-Number(a.owner===e.owner)).slice(0,3),participantOverflow:Math.max(0,(e.registered||0)-(e.participants||[]).length),feeLabel:e.price_minor===0?t.free:e.price_minor!=null?'¥'+(e.price_minor/100).toFixed(2):'',route:item.route||(['event','campaign'].includes(item.type)?item.type:item.type==='registration'?'event-access':item.type==='review'?(item.subject_type==='campaign'?'campaign-approval-detail':'approval-detail'):item.type==='entity'?(item.kind==='SPACE'?'space':'org'):'member'),event:item.event?normalize(item.event,t,locale):null};}
 module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dictionary(boot.locale),cachedHome=route==='feed'&&homeCache.key===homeKey()&&homeCache.payload&&Date.now()-homeCache.at<120000?homeCache.payload:null;return {
- data:{route,...tabState(boot.locale,route),illustrations,themeAccent:theme.tokens.accent,themeInk:theme.tokens.ink,isTask:presentation.isTask(route),keyboardHeight:0,galleryIndex:0,dragIndex:-1,dragTarget:-1,dragX:0,dragY:0,nodeCards:cachedHome?.nodeCards||[],nodeIndex:0,entityContent:{hosts:[],recaps:[],account:null},externalContent:null,isMainTab:tabs.includes(route),headerHeight:110,navigationTop:42,navigationHeight:44,menuTop:48,menuHeight:32,menuRightInset:116,theme:theme.style(),icons,t:bootT,locale:boot.locale,city:boot.city,sheetCopy:{},loading:!cachedHome,busy:false,error:'',items:cachedHome?.items||[],people:cachedHome?.people||[],campaigns:[],spaces:[],organizations:[],form:{},fields:[],step:1,formKind:route==='create-space'?'':(formKinds[route]||''),sheet:'',sheetForm:{},filters:{},offset:0,calendarMode:'week',days:[],record:null,cityName:'',selectedDate:'',hasMore:!!cachedHome?.hasMore,nextCursor:cachedHome?.nextCursor||null,consent:false,shareContact:false},
+ data:{route,...tabState(boot.locale,route),illustrations,themeAccent:theme.tokens.accent,themeInk:theme.tokens.ink,isTask:presentation.isTask(route),keyboardHeight:0,galleryIndex:0,dragIndex:-1,dragTarget:-1,dragX:0,dragY:0,nodeCards:cachedHome?.nodeCards||[],nodeIndex:0,entityContent:{hosts:[],recaps:[],account:null},externalContent:null,isMainTab:tabs.includes(route),headerHeight:110,navigationTop:42,navigationHeight:44,menuTop:48,menuHeight:32,menuRightInset:116,theme:theme.style(),icons,t:bootT,locale:boot.locale,city:boot.city,sheetCopy:{},loading:!cachedHome,busy:false,error:'',items:cachedHome?.items||[],people:cachedHome?.people||[],campaigns:[],spaces:[],organizations:[],form:{},fields:[],step:1,formKind:route==='create-space'?'':(formKinds[route]||''),sheet:'',sheetForm:{},filters:{},offset:0,calendarMode:'week',days:[],record:null,cityName:'',selectedDate:'',hasMore:!!cachedHome?.hasMore,nextCursor:cachedHome?.nextCursor||null,consent:false,shareContact:false,editingPublished:false,submittedReview:false,category:''},
  onLoad(options){this.options=options||{};this.updateNavigationLayout();if(pendingTabPreview?.route===route){this.options=pendingTabPreview.options;pendingTabPreview=null;}this.setData({optionsId:this.options.id||'',reviewIndex:api.isMock()&&this.options.reviewIndex!==undefined?Number(this.options.reviewIndex):-1});this.filters={};this.calendarSelectionInitialized=false;this.commandKeys={};this.refreshLanguage();const kind=formKinds[route];if(kind){const cached=wx.getStorageSync(this.draftKey());const fresh=route==='publish'&&!this.options.id&&!cached;this.endFollowsStart=fresh;const seed={city:prefs.get().city,price_minor:0,capacity:'',approval_required:false,waitlist_enabled:true,event_ids:[],interests:[],...(fresh?dates.eventWindow():{})};this.setData({form:cached||forms.toForm(seed),step:api.isMock()&&Number(this.options.step)||wx.getStorageSync(this.draftKey()+'.step')||1});this.updateFields();}},
  onShow(){if(tabs.includes(route))activeTab=route;this.updateNavigationLayout();this.setData({...tabState(prefs.get().locale,route),keyboardHeight:0,access:null,reviewCount:0,needsLogin:false,canRegister:false,contact:null});this.refreshLanguage();if(route==='feed')restoreHome(this);this.load();},
  onUnload(){clearTimeout(this.saveTimer);}, keyboardChange(e){this.setData({keyboardHeight:Math.max(0,Number(e.detail.height)||0)});},
@@ -125,7 +127,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   else if(route==='event'){const r=await this.read('event',{id});this.setData({record:normalize(r,t,p.locale),comments:r.comments,detailThreads:(r.comments||[]).filter(x=>!x.reply_to&&x.source_surface!=='sheet').map(x=>({...x,replies:(r.comments||[]).filter(y=>y.reply_to===x.id)})),commentThreads:(r.comments||[]).filter(x=>!x.reply_to&&x.source_surface!=='detail').map(x=>({...x,replies:(r.comments||[]).filter(y=>y.reply_to===x.id)})),items:[],canRegister:r.can_register});return;}
   else if(route==='campaign'){const r=await this.read('campaign',{id});this.setData({record:{...r,citySummary:(r.cities||[]).join(' · ')}});result={items:(r.items||[]).map(event=>({...event,type:'event',route:'event'}))};}
   else if(['member','space','org','entity-events','entity-members'].includes(route)){
-   const r=await this.read(route==='member'?'member':'entity',{id});this.setData({record:normalize(r,t,p.locale),memberLinks:route==='member'?['work','social'].map((kind,i)=>(r.public_links||[]).find(x=>x.kind===kind||(!x.kind&&x.label===(i?'社交媒体':'作品与项目')))).filter(Boolean):[]});result={items:route==='entity-members'?(r.members||[]).map(x=>({...x,id:x.owner,route:'member'})):r.items};
+   const r=await this.read(route==='member'?'member':'entity',{id});const viewer=route==='member'&&api.session()?await this.read('me').catch(()=>null):null;this.setData({record:normalize(r,t,p.locale),platformAdmin:isPlatformAdmin(viewer?.roles),memberLinks:route==='member'?['work','social'].map((kind,i)=>(r.public_links||[]).find(x=>x.kind===kind||(!x.kind&&x.label===(i?'社交媒体':'作品与项目')))).filter(Boolean):[]});result={items:route==='entity-members'?(r.members||[]).map(x=>({...x,id:x.owner,route:'member'})):r.items};
    if(route==='space'||route==='org'){
     const links=editorial.entityLinks(r),hosts=await Promise.all(links.hosts.map(async link=>{try{const host=await this.read('member',{id:link.user_id});return {...host,roleLabel:p.locale==='en'?(link.role_en||'Host'):(link.role||'负责人')};}catch{return null;}}));
     const upcoming=(r.items||[]).filter(x=>Date.parse(x.ends_at)>Date.now()).sort((a,b)=>String(a.starts_at).localeCompare(String(b.starts_at)));
@@ -138,11 +140,13 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
    else result=await this.read('entities',{...params,kind:'SPACE',directory:true});
   }
   else if(route==='messages')result=await this.read('notifications',{category:this.data.category||'',cursor:params.cursor});
+  else if(route==='blocks'){if(!api.session())throw Error('LOGIN_REQUIRED');result=await this.read('blocks');}
+  else if(route==='platform-admins'){if(!api.session())throw Error('LOGIN_REQUIRED');const me=await this.read('me');if(!isPlatformAdmin(me.roles))throw Error('FORBIDDEN');result=await this.read('platformAdmins');}
   else if(route==='me'){
    const [r,e,events,registrations,campaigns]=await Promise.all([this.read('me'),this.read('managed'),this.allMine('event'),this.allMine('registration'),this.allMine('campaign')]);const counts=require('./personal-summary')(events,registrations,campaigns);const en=p.locale==='en';
-   const allowed=canManageCommunity(r.roles);
-   const reviewCount=allowed?(await this.read('reviews')).total||0:0;
-   const manageRows=allowed?[{icon:'home',label:en?'Manage':'管理',route:'manage',value:e.items.length?String(e.items.length):''},{icon:'review',label:en?'Admin tasks':'管理员待办',route:'approvals',value:reviewCount?String(reviewCount):(en?'Done':'已完成')}]:[];
+   const reviewer=canReviewTasks(r.roles);
+   const reviewCount=reviewer?(await this.read('reviews')).total||0:0;
+   const manageRows=[{icon:'home',label:en?'Manage':'管理',route:'manage',value:e.items.length?String(e.items.length):''},...(reviewer?[{icon:'review',label:en?'Admin tasks':'管理员待办',route:'approvals',value:reviewCount?String(reviewCount):(en?'Done':'已完成')}]:[]),...(isPlatformAdmin(r.roles)?[{icon:'shield',label:en?'Platform admins':'平台管理员',route:'platform-admins'}]:[])];
    const menuGroups=[
     {id:'participation',title:en?'My participation':'我的参与',rows:[{icon:'ticket',label:en?'My registrations':'我报名的活动',route:'registrations',value:counts.registrations+(en?' upcoming':' 场')}]},
     {id:'hosting',title:en?'My creations':'我的发起',rows:[{icon:'publish',label:en?'Create event':'发布活动',route:'publish'},{icon:'draft',label:en?'Event drafts':'活动草稿',route:'drafts',value:String(counts.drafts)},{icon:'flag',label:en?'My events':'我发布的活动',route:'my-events',value:counts.events+(en?' active':' 场')},{icon:'series',label:en?'Create series':'发起专题',route:'campaign-create'},{icon:'series',label:en?'My series':'我发起的专题',route:'my-campaigns',value:counts.campaigns+(en?' in review':' 个审核中')}]},
@@ -154,8 +158,6 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   }
   else if(route==='manage'){
    if(!api.session()){this.setData({needsLogin:true});throw Error('LOGIN_REQUIRED');}
-   const me=await this.read('me');
-   if(!canManageCommunity(me.roles)){this.setData({canManage:false,managed:[]});return;}
    const managed=await this.read('managed');
    this.setData({canManage:true,managed:(managed.items||[]).sort((a,b)=>(a.kind==='ORGANIZATION'?0:1)-(b.kind==='ORGANIZATION'?0:1))});
    return;
@@ -173,9 +175,9 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   else if(formKinds[route]){
    if(!api.session()){this.setData({needsLogin:true});throw Error('LOGIN_REQUIRED');}
    const kind=formKinds[route];let r=null;
-   if(kind==='space'){if(!canManageCommunity((await this.read('me')).roles)){this.setData({formKind:'',fields:[],canManage:false});return;}this.setData({canManage:true,formKind:'space'});}
+   if(kind==='space')this.setData({canManage:true,formKind:'space'});
    if(!this.formLoaded){if(kind==='profile'){r=(await this.read('me')).profile;const contact=await this.read('selfContact');r={...r,wechat:contact.wechat};}else if(kind==='entity')r=await this.read('entity',{id});else if(kind==='space')r={city:p.city,allow_event_requests:true};else if(id)r=await this.read('draft',{id,kind});
-    const cached=wx.getStorageSync(this.draftKey());this.setData({form:cached|| (r?forms.toForm(r):this.data.form),record:kind==='space'?null:r});this.formLoaded=true;}
+    const cached=wx.getStorageSync(this.draftKey());this.setData({form:cached|| (r?forms.toForm(r):this.data.form),record:kind==='space'?null:r,editingPublished:r?.status==='PUBLISHED'});this.formLoaded=true;}
    if(kind!=='space'){const es=await this.read('managed');const spaces=await this.read('entities',{kind:'SPACE'});
    this.setData({organizations:es.items.filter(e=>e.kind==='ORGANIZATION'),spaces:spaces.items});}
    if(kind==='campaign'){const ev=await this.read('events',{});const mine=await this.read('mine',{kind:'event'});const options=[...ev.items,...mine.items.filter(e=>e.status==='IN_REVIEW')];for(const selected of this.data.form.event_ids||[])if(!options.some(e=>e.id===selected))options.push(await this.read('event',{id:selected}));this.setData({eventOptions:[...new Map(options.map(e=>[e.id,normalize(e,t,p.locale)])).values()]});}
@@ -225,7 +227,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  toggleLanguage(){prefs.set({locale:this.data.locale==='en'?'zh-CN':'en'});if(api.session())this.run(()=>this.write('profile',{locale:prefs.get().locale}));this.refreshLanguage();this.updateFields();this.load();},
  logout(){this.run(async()=>{await api.logout();wx.reLaunch({url:'/pages/feed/index'});});},
  searchInput(e){this.setData({query:e.detail.value});},
- search(){this.run(async()=>{if(!this.data.query)return this.load();const r=await this.read('search',{q:this.data.query,city:this.data.city});this.setData({items:r.items.map(x=>normalize(x,this.data.t,this.data.locale)),searching:true});});},
+ search(){this.run(async()=>{if(!this.data.query)return this.load();const r=await this.read('search',{q:this.data.query,city:this.data.city});const en=this.data.locale==='en',sections=[['event',en?'Events':'活动'],['space',en?'Spaces':'空间'],['org',en?'Organizations':'组织'],['member',en?'People':'成员']];const items=[];for(const [kind,label] of sections){const group=(r.items||[]).filter(item=>kind==='event'?(item.route==='event'||item.type==='event'):item.route===kind);group.forEach((item,index)=>items.push({...normalize(item,this.data.t,this.data.locale),searchSection:index?'':label}));}this.setData({items,searching:true,hasMore:false,total:items.length});});},
  timelineScrolled(e){this.timelineActualLeft=e.detail.scrollLeft;},
  moveTimeline(e){const width=wx.getWindowInfo?wx.getWindowInfo().windowWidth:375,scale=width/750,viewport=(750-56-86)*scale,max=Math.max(0,(this.data.timeline.days.length*310)*scale-viewport);this.setData({timelineScrollLeft:Math.min(max,Math.max(0,(this.timelineActualLeft||0)+Number(e.currentTarget.dataset.delta)*620*scale))});},
  filter(e){this.sharedRange=null;const {key,value}=e.currentTarget.dataset;if(key==='clearTags'){delete this.filters.tag;delete this.filters.free_only;delete this.filters.has_capacity;}else if(key==='date'){this.calendarSelectionInitialized=true;this.setData({offset:value==='next'?1:0,selectedDate:'',calendarMode:'week'});}else{this.filters[key]=value;if(value===false||value==='')delete this.filters[key];}this.setData({filters:{...this.filters}});return this.load();},
@@ -246,22 +248,44 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  submitSheet(){this.run(async()=>{const kind=this.data.sheet;let result;
   if(kind==='register')result=await this.write('register',{id:this.options.id,...this.data.sheetForm,privacy_consent:this.data.consent,contact_share_consent:this.data.shareContact});
   else if(kind==='invite')result=await this.write('invite',{id:this.options.id,...this.data.sheetForm});
+  else if(kind==='grantAdmin')result=await this.write('grantPlatformAdmin',{user_id:this.data.sheetForm.user_id,admin:true});
   else result=await this.write(kind,{id:this.options.id,...this.data.sheetForm});
   this.closeSheet();if(kind==='report'){this.setData({sheetForm:{}});wx.showToast({title:this.data.t.saved,icon:'success'});}if(kind==='register')go('event-access',result.id);else await this.load();});},
  action(e){const {op,id,approve,version,userId,enabled,blockId}=e.currentTarget.dataset;this.run(async()=>{const p={id:id||this.options.id,version:version||this.data.record?.version,...(approve===undefined?{}:{approve}),...(userId?{user_id:userId}:{}),...(enabled===undefined?{}:{enabled:enabled!==false&&enabled!=='false'&&enabled!=='0'&&enabled!==0}),...(blockId?{block_id:blockId}:{})};
   if(op==='review'&&!approve){if(!this.data.sheetForm.note){this.setData({error:this.data.t.REASON_REQUIRED});return;}p.note=this.data.sheetForm.note;}
-  if(['cancelEvent','cancelRegistration','revokeRole'].includes(op)){
+  if(['cancelEvent','cancelRegistration','revokeRole','deleteDraft','declineInvite','deleteCampaign','grantPlatformAdmin','revokePlatformAdmin'].includes(op)){
    const en=this.data.locale==='en';
    const confirmation=op==='cancelEvent'?{
     title:en?'Cancel this event?':'确认取消活动？',
     content:en?'Registration will close and existing registrations will be cancelled. Please coordinate the next steps with participants.':'取消后将停止报名，已有报名也将被取消。请与参与者沟通后续安排。',
     confirmText:this.data.t.cancelEvent,cancelText:en?'Keep event':'保留活动',confirmColor:theme.tokens.danger
+   }:op==='deleteDraft'?{
+    title:en?'Delete this draft?':'删除这份草稿？',
+    content:en?'It will leave your draft list.':'删除后不会再出现在草稿列表。',
+    confirmText:en?'Delete':'删除',cancelText:en?'Keep':'保留',confirmColor:theme.tokens.danger
+   }:op==='declineInvite'?{
+    title:en?'Decline this invitation?':'拒绝这个邀请？',
+    confirmText:this.data.t.decline,cancelText:en?'Not now':'再想想'
+   }:op==='deleteCampaign'?{
+    title:en?'Delete this series?':'删除这个专题？',
+    content:en?'The series and its review history will be removed. Linked events stay.':'专题和审核记录会被删除。已经关联的活动会保留。',
+    confirmText:en?'Delete':'删除',cancelText:en?'Keep':'保留',confirmColor:theme.tokens.danger
+   }:op==='grantPlatformAdmin'?{
+    title:en?'Grant platform admin?':'授权为平台管理员？',
+    content:en?'They will be able to manage the whole community and grant this access to others.':'对方可以管理整个社区，并继续授权其他平台管理员。',
+    confirmText:en?'Grant':'授权',cancelText:en?'Cancel':'取消'
+   }:op==='revokePlatformAdmin'?{
+    title:en?'Remove this platform admin?':'取消这位平台管理员？',
+    content:en?'They will lose platform-wide access.':'对方将失去全站管理权限。',
+    confirmText:en?'Remove':'取消管理员',cancelText:en?'Keep':'保留',confirmColor:theme.tokens.danger
    }:{title:this.data.t[op]||this.data.t.confirm};
    const yes=await new Promise(resolve=>wx.showModal({...confirmation,success:r=>resolve(r.confirm),fail:()=>resolve(false)}));if(!yes)return;
   }
   if(op==='payment'){this.closeSheet();if(api.isMock()){const choice=await new Promise(resolve=>wx.showModal({title:'模拟支付',content:'仅改变本地演示状态，不会扣款。',success:r=>resolve(r.confirm)}));if(choice){await api.call('payment',p);await this.load();}return;}const r=await api.call('payment',p);await new Promise((resolve,reject)=>wx.requestPayment({...r,success:resolve,fail:reject}));await this.load();return;}
   if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
   if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}
+  if(op==='deleteCampaign'){await this.write(op,p);if(route==='my-campaigns'){await this.load();return;}wx.navigateBack({delta:1,fail:()=>go('my-campaigns')});return;}
+  if(op==='grantPlatformAdmin'||op==='revokePlatformAdmin'){await this.write('grantPlatformAdmin',{user_id:p.id,admin:op==='grantPlatformAdmin'});await this.load();return;}
   const r=await this.write(op,p);
   if(op==='clone'){go('publish',r.id);return;}if(op==='access'){if(r?.type==='GROUP_QR'&&r.value?.startsWith('706-media:')){const asset=await api.call('mediaPreview',{id:r.value.slice(10),registration:p.id});r.value=asset.url;}this.setData({access:r});return;}
   this.closeSheet();await this.load();
@@ -335,16 +359,16 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  validateForm(submit=false){const kind=formKinds[route],errors=forms.validate(kind,this.data.form,{step:submit?0:this.data.step,submit,consent:route!=='onboarding'||this.data.consent,locale:this.data.locale});if(!api.isMock()&&kind==='event'&&(this.data.form.join_methods||[]).includes('GROUP_QR')&&!/^https?:\/\//.test(this.data.form.access_values?.GROUP_QR||''))errors.join_methods=this.data.locale==='en'?'Upload the group QR image':'请上传活动群二维码';this.setData({formErrors:errors});const key=Object.keys(errors)[0];if(!key)return true;const step= forms.fieldStep(kind,key);if(['publish','campaign-create','onboarding'].includes(route)&&step<=3)this.setData({step});this.updateFields();wx.nextTick?.(()=>wx.pageScrollTo?.({selector:'#field-'+key,duration:0}));return false;},
  step(e){const delta=Number(e.currentTarget.dataset.delta);if(delta>0&&!this.validateForm())return;this.setData({step:Math.max(1,Math.min(3,this.data.step+delta)),formErrors:{}});this.updateFields();this.persist();wx.pageScrollTo?.({scrollTop:0,duration:0});},
  saveDraft(){this.persist();wx.showToast({title:this.data.t.formSaved,icon:'none'});},
- saveForm(e){const submit=e?.currentTarget?.dataset?.submit||(route==='campaign-edit'&&this.data.record?.status==='PUBLISHED');if((submit||formKinds[route]==='space')&&!this.validateForm(true))return;this.run(async()=>{
+ saveForm(e){const submitFlag=e?.currentTarget?.dataset?.submit;const submit=!this.data.editingPublished&&(submitFlag===true||submitFlag==='true');if((submit||formKinds[route]==='space')&&!this.validateForm(true))return;this.run(async()=>{
   const kind=formKinds[route], p=forms.payload(kind,this.data.form);
-  if(kind==='space'){if(!canManageCommunity((await this.read('me')).roles))return;const created=await this.write('createSpace',p);wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');wx.redirectTo({url:'/pages/space/index?id='+encodeURIComponent(created.id)});return;}
+  if(kind==='space'){const created=await this.write('createSpace',p);wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');wx.redirectTo({url:'/pages/space/index?id='+encodeURIComponent(created.id)});return;}
   let op=kind==='event'?'saveEvent':kind==='campaign'?'saveCampaign':kind==='profile'?'profile':'entity';
   if(kind==='profile'&&route==='onboarding'){p.complete=!!submit;p.privacy_consent=this.data.consent;}
   if(kind==='entity')p.id=this.options.id;
   if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
   if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}
   const r=await this.write(op,p);this.setData({form:forms.toForm({...r,...(kind==='event'?{access:p.access}:{}),...(kind==='profile'?{wechat:p.wechat,follow_spaces:p.follow_spaces}:{})}),record:r});this.persist();
-  if(submit&&(kind==='event'||kind==='campaign')){await this.write(kind==='event'?'submitEvent':'submitCampaign',{id:r.id,version:r.version});wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');this.setData({submitted:true,submittedId:r.id});}
+  if(submit&&(kind==='event'||kind==='campaign')){const published=await this.write(kind==='event'?'submitEvent':'submitCampaign',{id:r.id,version:r.version});wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');this.setData({submitted:true,submittedId:r.id,submittedReview:published?.status==='IN_REVIEW'});}
   else if(kind==='profile'&&submit){wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');this.setData({submitted:true});}
   else wx.showToast({title:this.data.t.saved,icon:'success'});
   this.updateFields();
@@ -381,3 +405,6 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  savePoster(){return this.run(async()=>{await new Promise((resolve,reject)=>wx.saveImageToPhotosAlbum({filePath:this.data.posterPath,success:resolve,fail:reject}));wx.showToast({title:this.data.locale==='en'?'Poster saved':'海报已保存',icon:'success'});});}
 };};
 module.exports.editorial=editorial;
+module.exports.isPlatformAdmin=isPlatformAdmin;
+module.exports.canManageGroups=canManageGroups;
+module.exports.canReviewTasks=canReviewTasks;

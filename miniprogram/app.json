@@ -38,6 +38,8 @@
     "pages/login/index",
     "pages/attendees/index",
     "pages/invitations/index",
+    "pages/blocks/index",
+    "pages/platform-admins/index",
     "pages/my-campaigns/index",
     "pages/privacy/index",
     "pages/feedback/index",

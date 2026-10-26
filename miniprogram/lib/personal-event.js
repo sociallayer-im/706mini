@@ -11,12 +11,13 @@ module.exports=function personalEvent(item,mode,locale,t){
  }else if(draft||phase==='CHANGES_REQUESTED'){
   note=phase==='CHANGES_REQUESTED'?item.list_note||'':'';
   add(draft?(en?'Continue editing':'继续编辑'):t.edit,'publish','primary');
+  if(draft)add(en?'Delete draft':'删除草稿','','text','deleteDraft');
  }else if(phase==='IN_REVIEW'){
   note=item.list_note||t.progress;add(t.progress,'approval-progress');add(t.edit,'publish','text');
  }else{
   note=[event.registered!=null?event.registered+' '+t.registered:'',phase==='PUBLISHED'&&event.remaining!=null?event.remaining+' '+t.remaining:'',phase==='ENDED'&&event.comment_count!=null?event.comment_count+' '+t.comments:''].filter(Boolean).join(' · ');
   add(en?'View event':'查看活动','event');
-  if(phase==='PUBLISHED')add(t.attendees,'attendees');
+  if(phase==='PUBLISHED'){add(t.edit,'publish');add(t.attendees,'attendees');}
   if(phase==='ENDED')add(t.clone,'','secondary','clone');
  }
  const saved=dates.format(item.saved_display||item.updated_at,locale);

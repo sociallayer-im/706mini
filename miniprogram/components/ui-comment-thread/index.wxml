@@ -1,6 +1,6 @@
 <view style="{{theme}}" class="comment-thread surface-{{surface}}"><image class="avatar" src="{{(item.author.avatar_url) || ''}}" data-route="member" bindtap="{{surface === 'sheet' ? '' : 'member'}}"/><view class="comment-content">
  <view class="comment-heading"><text class="comment-author" bindtap="{{surface === 'sheet' ? '' : 'member'}}">{{item.author.display_name}}</text><text wx:if="{{surface === 'sheet'}}" class="meta">{{item.display_time}}</text><text wx:if="{{surface !== 'sheet' && item.badge}}" class="comment-badge">{{item.badge}}</text></view>
  <text class="comment-body">{{item.text}}</text>
- <view wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id" class="comment-reply"><text class="reply-author">{{reply.author.display_name}}：</text><text>{{reply.text}}</text></view>
+ <view wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id" class="comment-reply"><text class="reply-author">{{reply.author.display_name}}：</text><text>{{reply.text}}</text><ui-button wx:if="{{surface !== 'sheet' && reply.owner === currentUser}}" label="{{t.delete}}" variant="text" align="start" compact data-id="{{reply.id}}" bind:press="removeReply" disabled="{{busy}}"/></view>
  <view class="comment-actions"><ui-button label="{{t.reply}}" variant="text" align="start" compact data-kind="comment" data-reply="{{item.id}}" bind:press="reply"/><ui-button wx:if="{{surface !== 'sheet' && item.owner === currentUser}}" label="{{t.delete}}" variant="danger" align="start" compact bind:press="remove" disabled="{{busy}}" loading="{{busy}}"/></view>
 </view></view>

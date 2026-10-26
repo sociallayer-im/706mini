@@ -15,10 +15,19 @@ test('review and published list actions retain their destinations and unknown ca
  const t=i18n.dictionary('en');
  assert.deepEqual(present({id:'e',phase:'IN_REVIEW'},'my-events','en',t).actions.map(x=>x.route),['approval-progress','publish']);
  const view=present({id:'e',phase:'PUBLISHED',registered:3,remaining:null},'my-events','en',t);
- assert.deepEqual(view.actions.map(x=>x.route),['event','attendees']);assert(!view.note.includes('null'));assert(!view.note.includes('undefined'));
+ assert.deepEqual(view.actions.map(x=>x.route),['event','publish','attendees']);assert(!view.note.includes('null'));assert(!view.note.includes('undefined'));
+ const draft=present({id:'e',phase:'DRAFT',edit_step:1},'drafts','en',t);
+ assert.equal(draft.actions.at(-1).op,'deleteDraft');
 });
 test('closing a sheet never restores the main tab bar on any child route',()=>{
  const store=new Map();global.wx={getStorageSync:k=>store.get(k),setStorageSync:(k,v)=>store.set(k,v),removeStorageSync:k=>store.delete(k)};
  const factory=require('../miniprogram/lib/page'),routes=require('../miniprogram/app.json').pages.map(x=>x.split('/')[1]);
  for(const route of routes){const p=factory(route);let state;p.getTabBar=()=>({setData:v=>state=v});p.tabVisibility(true);assert.equal(state.hidden,!['feed','discover','messages','me'].includes(route),route);p.tabVisibility(false);assert.equal(state.hidden,true);}
+ const access=require('../miniprogram/lib/page');
+ assert.equal(access.canManageGroups([{scope:'CAMPAIGN',role:'OWNER'}]),false);
+ assert.equal(access.canReviewTasks([{scope:'CAMPAIGN',role:'OWNER'}]),true);
+ assert.equal(access.canManageGroups([{scope:'ENTITY',role:'ADMIN',parent:'group'}]),true);
+ assert.equal(access.canManageGroups([{scope:'ENTITY',role:'ADMIN',parent:''}]),false);
+ assert.equal(access.isPlatformAdmin([{scope:'PLATFORM',role:'OWNER'}]),true);
+ assert.equal(access.isPlatformAdmin([{scope:'ENTITY',role:'OWNER',parent:'group'}]),false);
 });

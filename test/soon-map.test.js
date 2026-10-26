@@ -2,6 +2,15 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const map = require('../miniprogram/lib/soon-map');
 
+test('public campaigns need a published event and attendee actions follow the role', () => {
+  assert.equal(map.campaignIsPublic({ status: 'PUBLISHED', event_ids: ['evt'] }), true);
+  assert.equal(map.campaignIsPublic({ status: 'PUBLISHED', event_ids: [] }), false);
+  assert.equal(map.campaignIsPublic({ status: 'DRAFT', event_ids: ['evt'] }), false);
+  assert.deepEqual(map.attendeeFlags('REQUESTED', { canEdit: true, canCheckIn: true }), { can_approve: true, can_check_in: false });
+  assert.deepEqual(map.attendeeFlags('CONFIRMED', { canEdit: false, canCheckIn: true }), { can_approve: false, can_check_in: true });
+  assert.deepEqual(map.attendeeFlags('CONFIRMED', { canEdit: true, canCheckIn: true, checkedIn: true }), { can_approve: false, can_check_in: false });
+});
+
 test('a WeChat ticket price stays in fen and a free event is zero', () => {
   assert.equal(map.priceMinor({ ticket_price: 2500, has_non_wechat_price: false }), 2500);
   assert.equal(map.priceMinor({ ticket_price: null, has_non_wechat_price: false }), 0);

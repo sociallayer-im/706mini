@@ -190,6 +190,17 @@ function registrationFrom(participant, event, ticketItem) {
   };
 }
 
+function campaignIsPublic(card) {
+  return card.status === 'PUBLISHED' && (card.event_ids || []).length > 0;
+}
+
+function attendeeFlags(status, { canEdit = false, canCheckIn = false, checkedIn = false } = {}) {
+  return {
+    can_approve: !!(canEdit && status === 'REQUESTED'),
+    can_check_in: !!(canCheckIn && status === 'CONFIRMED' && !checkedIn)
+  };
+}
+
 function campaignCard(campaign) {
   return {
     id: campaign.id,
@@ -390,5 +401,6 @@ function accessMethods(imageNote) {
 module.exports = {
   eventContent, encodeEventContent, CITIES, eventStatus, campaignStatus, priceMinor, person, entity, groupKind, eventCard, registrationFrom,
   registrationStatus, campaignCard, cursorPage, pageResult, comment, feedItem, notification, reviewTask,
-  eventReview, imageNote, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, reportType
+  eventReview, imageNote, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, reportType,
+  campaignIsPublic, attendeeFlags
 };

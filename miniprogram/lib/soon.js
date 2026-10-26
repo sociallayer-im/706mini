@@ -58,10 +58,10 @@ function request({ method = 'GET', path, query, body, auth = true } = {}) {
     });
   });
 }
-async function collect(path, query, auth) {
+async function collect(path, query, auth, maxPages = 8) {
   const rows = [];
   let page = 1;
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < maxPages; i++) {
     const body = await request({ path, query: { ...query, page, limit: query?.limit || 50 }, auth });
     rows.push(...(body?.data || []));
     if (!body?.meta?.next_page) break;
@@ -101,15 +101,24 @@ async function ensurePlace(groupId, { name, address, city, spaceId }) {
   const place = await request({ method: 'POST', path: '/places', body: { place: { name: placeName, address, data: { city: city || '', space_group_id: spaceId || '' } } } });
   return place.address === address ? place.id : null;
 }
+const EDITOR_ROLES = ['co_host', 'speaker', 'group_host', 'custom_host'];
 function eventBody(form, groupId, placeId) {
   return {
     event: {
       title: form.title, content: map.encodeEventContent(form), notes: form.summary || '', image_url: form.cover_url || '',
       start_time: form.starts_at, end_time: form.ends_at, timezone: 'Asia/Shanghai', city: form.city || '',
-      status: 'draft', visibility: 'normal', group_id: groupId, place_id: placeId, max_participant: form.capacity,
+      visibility: 'normal', group_id: groupId, place_id: placeId, max_participant: form.capacity,
       require_approval: !!form.approval_required, tags: form.tags || [], image_note: map.imageNote(form)
     }
   };
+}
+async function staffFlags(raw) {
+  const me = session();
+  const mine = me?.id;
+  const managed = mine ? new Set((await managedGroups().catch(() => [])).map(row => row.group?.id)) : new Set();
+  const cohost = !!(mine && (raw.event_roles || []).some(role => EDITOR_ROLES.includes(role.role) && (role.item_id === mine || (role.email && me.email && role.email === me.email))));
+  const groupStaff = !!(raw.is_owner || managed.has(raw.group?.id));
+  return { canEdit: groupStaff || cohost, canCancel: groupStaff, canCheckIn: groupStaff || cohost };
 }
 async function saveTicket(eventId, price, capacity) {
   const detail = await request({ path: '/events/' + eventId, query: { include_participants: false } });
@@ -156,7 +165,7 @@ async function read(op, params = {}) {
   const auth = map.sendAuth(op, params, !!session());
   if (op === 'events' || op === 'calendar') {
     const window = params.from && params.to ? map.dateWindow(params.from, params.to) : {};
-    const rows = await collect('/events', { city: params.city, collection: op === 'events' ? 'upcoming' : undefined, group_id: params.space_id || params.group_id, owner_id: params.owner_id, attendee_id: params.attendee_id, tags: params.tag ? [params.tag] : undefined, ...window, limit: 50 }, auth);
+    const rows = await collect('/events', { city: params.city, collection: op === 'events' ? 'upcoming' : undefined, group_id: params.space_id || params.group_id, owner_id: params.owner_id, attendee_id: params.attendee_id, tags: params.tag ? [params.tag] : undefined, ...window, limit: 50 }, auth, params.from && params.to ? 12 : 8);
     const items = map.applyEventFilters(rows.map(row => map.eventCard(row)), params);
     if (op === 'calendar') return { items, total: items.length, generated_at: new Date().toISOString() };
     // The series picker reads this once and does not walk a cursor.
@@ -165,7 +174,9 @@ async function read(op, params = {}) {
   if (op === 'event') return eventDetail(params.id);
   if (op === 'campaigns') {
     const body = await request({ path: '/campaigns', query: { page: params.cursor || 1, limit: 30, owner_id: params.owner_id, group_id: params.organization_id }, auth });
-    return map.pageResult(body, map.campaignCard);
+    const page = map.pageResult(body, map.campaignCard);
+    if (!params.owner_id) page.items = page.items.filter(map.campaignIsPublic);
+    return page;
   }
   if (op === 'campaign') {
     const campaign = map.campaignCard(await request({ path: '/campaigns/' + params.id, auth: !!session() }));
@@ -210,6 +221,8 @@ async function read(op, params = {}) {
   if (op === 'attendees') return attendees(params.id);
   if (op === 'admins') return admins(params.id);
   if (op === 'invitations') return invitations();
+  if (op === 'blocks') return blocks();
+  if (op === 'platformAdmins') return platformAdmins();
   fail('UNKNOWN_OPERATION');
 }
 
@@ -226,18 +239,18 @@ async function eventDetail(id) {
   const mine = me?.id;
   const recommendedIds = new Set((recommendations.data || []).map(row => row.user?.id));
   const attendingIds = new Set((roster.data || []).map(row => row.user?.id));
-  const managed = session() ? new Set((await managedGroups().catch(() => [])).map(row => row.group.id)) : new Set();
-  const editorRoles = ['co_host', 'speaker', 'group_host', 'custom_host'];
-  const cohost = !!(mine && (raw.event_roles || []).some(role => editorRoles.includes(role.role) && (role.item_id === mine || (role.email && me.email && role.email === me.email))));
+  const staff = await staffFlags(raw);
   const card = map.eventCard(raw, {
-    can_edit: !!(raw.is_owner || managed.has(raw.group?.id)),
+    can_edit: staff.canEdit,
     recommended: recommendedIds.has(mine),
     comments: (comments.data || []).map(row => map.comment(row, recommendedIds.has(row.user?.id) ? '已推荐' : attendingIds.has(row.user?.id) ? '已报名' : '')),
     campaigns: (campaigns.data || []).filter(item => (item.event_ids || []).includes(id)).map(map.campaignCard),
     host_recent_count: hosted.meta?.total || 0
   });
   card.participants = (roster.data || []).slice(0, 5).map(row => map.person(row.user)).filter(Boolean);
-  card.can_check_in = !!(raw.is_owner || managed.has(raw.group?.id) || cohost);
+  card.can_edit = staff.canEdit;
+  card.can_check_in = staff.canCheckIn;
+  card.can_cancel = staff.canCancel;
   return card;
 }
 async function entityDetail(id) {
@@ -248,7 +261,7 @@ async function entityDetail(id) {
   const followed = await followedIds();
   const managed = session() ? await managedGroups().catch(() => []) : [];
   const mine = managed.find(row => row.group?.id === id);
-  return { ...record, items: events, members, following: followed.has(id), can_manage: !!mine, can_admin: mine?.role === 'owner' };
+  return { ...record, items: events, members, following: followed.has(id), can_manage: !!mine, can_admin: !!mine };
 }
 async function memberDetail(id) {
   const user = await request({ path: '/users/' + id, auth: !!session() });
@@ -309,9 +322,9 @@ async function me() {
   const user = await request({ path: '/users/me' });
   const profile = map.person(user);
   const roles = (await membershipsOf(user.id)).filter(row => row.active !== false && ['manager', 'owner'].includes(row.role)).map(row => ({ id: row.group.id + '~' + row.id, scope: 'ENTITY', role: row.role === 'owner' ? 'OWNER' : 'ADMIN', parent: row.group.id, status: 'ACTIVE' }));
-  if (user.admin) roles.push({ scope: 'PLATFORM', role: 'OWNER', status: 'ACTIVE' });
+  if (user.admin || (user.permissions || []).includes('admin')) roles.push({ scope: 'PLATFORM', role: 'OWNER', status: 'ACTIVE' });
   const campaigns = await request({ path: '/campaigns', query: { owner_id: user.id, limit: 1 } });
-  if ((campaigns.meta?.total || 0) > 0 && !roles.length) roles.push({ scope: 'ENTITY', role: 'ADMIN', parent: '', status: 'ACTIVE' });
+  if ((campaigns.meta?.total || 0) > 0) roles.push({ scope: 'CAMPAIGN', role: 'OWNER', status: 'ACTIVE' });
   const notes = await request({ path: '/activities', query: { limit: 100 } });
   return { profile, roles, following: profile.following_count, followers: profile.followers_count, unread: (notes.data || []).filter(row => !row.has_read).length };
 }
@@ -400,18 +413,49 @@ async function registration(id) {
   return record;
 }
 async function attendees(eventId) {
-  const lists = await Promise.all(['', 'pending', 'declined'].map(status => collect('/events/' + eventId + '/participants', status ? { status, limit: 50 } : { limit: 50 }, true).catch(() => [])));
+  const raw = await request({ path: '/events/' + eventId, query: { include_participants: false } });
+  const staff = await staffFlags(raw);
+  const statuses = staff.canEdit ? ['', 'pending', 'declined'] : [''];
+  const lists = await Promise.all(statuses.map(status => collect('/events/' + eventId + '/participants', status ? { status, limit: 50 } : { limit: 50 }, true).catch(() => [])));
   const seen = new Set();
-  const items = lists.flat().filter(row => seen.has(row.id) ? false : seen.add(row.id)).map(row => ({
-    id: eventId + '~' + row.id,
-    user_id: row.user?.id || '',
-    status: map.registrationStatus(row),
-    display_name: row.user?.nickname || row.user?.name || '',
-    motivation: row.message || '',
-    version: 1,
-    can_read_contact: false,
-    checked_in_at: row.checked_in_at || null
-  }));
+  const items = lists.flat().filter(row => seen.has(row.id) ? false : seen.add(row.id)).map(row => {
+    const status = map.registrationStatus(row);
+    if (!staff.canEdit && status !== 'CONFIRMED') return null;
+    return {
+      id: eventId + '~' + row.id,
+      user_id: row.user?.id || '',
+      status,
+      display_name: row.user?.nickname || row.user?.name || '',
+      motivation: row.message || '',
+      version: 1,
+      can_read_contact: false,
+      checked_in_at: row.checked_in_at || null,
+      ...map.attendeeFlags(status, { canEdit: staff.canEdit, canCheckIn: staff.canCheckIn, checkedIn: !!row.checked_in_at })
+    };
+  }).filter(Boolean);
+  return { items, can_edit: staff.canEdit, can_check_in: staff.canCheckIn };
+}
+async function platformAdmins() {
+  const rows = await collect('/platform_admins', { limit: 50 }, true);
+  return { items: rows.map(row => { const person = map.person(row); return { ...person, id: person.owner, owner: person.owner, route: 'member', admin: true }; }) };
+}
+async function grantPlatformAdmin(params) {
+  const id = params.user_id || params.id;
+  if (!id) fail('NOT_FOUND');
+  if (params.admin === false) {
+    await request({ method: 'DELETE', path: '/platform_admins/' + id });
+    return { ok: true };
+  }
+  return request({ method: 'POST', path: '/platform_admins', body: { user_id: id } });
+}
+async function blocks() {
+  const rows = await collect('/blocks', { limit: 50 }, true);
+  const items = [];
+  for (const row of rows) {
+    let name = row.target_user_id;
+    try { name = map.person(await request({ path: '/users/' + row.target_user_id })).display_name || name; } catch { name = row.target_user_id; }
+    items.push({ id: row.id, block_id: row.id, owner: row.target_user_id, display_name: name, route: 'member', type: 'block' });
+  }
   return { items };
 }
 async function admins(groupId) {
@@ -446,7 +490,10 @@ async function write(op, params = {}) {
   if (op === 'cancelRegistration') return cancelRegistration(params.id);
   if (op === 'registrationContact') return { wechat: '' };
   if (op === 'access') return access(params.id);
-  if (op === 'cancelEvent') { await request({ method: 'DELETE', path: '/events/' + params.id }); return { ok: true }; }
+  if (op === 'cancelEvent' || op === 'deleteDraft') { await request({ method: 'DELETE', path: '/events/' + params.id }); return { ok: true }; }
+  if (op === 'deleteCampaign') { await request({ method: 'DELETE', path: '/campaigns/' + params.id }); return { ok: true }; }
+  if (op === 'grantPlatformAdmin') return grantPlatformAdmin(params);
+  if (op === 'declineInvite') return declineInvite(params.id);
   if (op === 'entity') return saveEntity(params);
   if (op === 'createSpace') return createSpace(params);
   if (op === 'invite') return invite(params);
@@ -530,7 +577,7 @@ async function saveEvent(params) {
   delete fields.group_id;
   const saved = params.id
     ? await request({ method: 'PATCH', path: '/events/' + params.id, body: { event: fields } })
-    : await request({ method: 'POST', path: '/events', body });
+    : await request({ method: 'POST', path: '/events', body: { event: { ...body.event, status: 'draft' } } });
   if (params.price_minor > 0) await saveTicket(saved.id, params.price_minor, params.capacity);
   return eventDetail(saved.id);
 }
@@ -634,6 +681,11 @@ async function invite(params) {
 async function acceptInvite(id) {
   const { parentId, id: inviteId } = splitId(id);
   await request({ method: 'POST', path: '/groups/' + parentId + '/group_invites/' + inviteId + '/accept' });
+  return { ok: true };
+}
+async function declineInvite(id) {
+  const { parentId, id: inviteId } = splitId(id);
+  await request({ method: 'DELETE', path: '/groups/' + parentId + '/group_invites/' + inviteId });
   return { ok: true };
 }
 async function revokeRole(id) {

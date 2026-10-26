@@ -7,7 +7,8 @@ test('shared action control forwards one press and blocks disabled or pending ac
 test('campaign card destinations distinguish draft editing, review progress and public details',()=>{
  const c=definition('ui-personal-campaign');
  for(const [status,route] of [['DRAFT','campaign-edit'],['CHANGES_REQUESTED','campaign-edit'],['IN_REVIEW','campaign-review-progress'],['PUBLISHED','campaign']]){
-  let event;const ctx={data:{item:{id:'series-1',status}},triggerEvent:(name,detail)=>event={name,...detail}};c.methods.open.call(ctx);assert.deepEqual(event,{name:'navigate',route,id:'series-1'});
+  let event;const ctx={data:{item:{id:'series-1',status},busy:false},triggerEvent:(name,detail)=>event={name,...detail}};c.methods.open.call(ctx);assert.deepEqual(event,{name:'navigate',route,id:'series-1'});
+  c.methods.remove.call(ctx);assert.deepEqual(event,{name:'action',op:'deleteCampaign',id:'series-1'});
  }
 });
 test('review history formats actual update timestamps and retains reviewer notes in both languages',()=>{
