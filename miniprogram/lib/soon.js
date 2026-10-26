@@ -18,7 +18,7 @@ function logout() { wx.removeStorageSync(SESSION); clearFollowedIds(); return Pr
 function fail(code) { throw Object.assign(new Error(code), { code }); }
 function httpError(status, body) {
   const serverMessage = body && (body.error || body.message) || '';
-  const known = map.knownCode(status, serverMessage);
+  const known = ['SMS_COOLDOWN','SMS_HOURLY_LIMIT'].includes(body?.code) ? body.code : map.knownCode(status, serverMessage);
   return Object.assign(new Error(known || serverMessage || 'SERVER'), { code: known || '', status, serverMessage });
 }
 function queryString(query) {
@@ -206,6 +206,7 @@ async function read(op, params = {}) {
   }
   if (op === 'calendarShare') fail('NOT_FOUND');
   if (!session()) fail('LOGIN_REQUIRED');
+  if (op === 'account') { const user = await request({path:'/users/me'}); return {profile:map.person(user),phone_verified:user.phone_verified === false ? false : !!user.phone,phone_masked:user.phone ? String(user.phone).replace(/(\d{3})\d{4}(\d{4})$/, '$1****$2') : ''}; }
   if (op === 'me') return me();
   if (op === 'selfContact') { const user = await request({ path: '/users/me' }); return { wechat: user.contact?.wechat || '' }; }
   if (op === 'registrationContact') return { wechat: '' };
@@ -503,9 +504,10 @@ async function write(op, params = {}) {
 }
 
 async function saveProfile(params) {
+  const invalid=require('./profile-rules').validate(params);if(invalid)fail(invalid==='bio'?'SIGNATURE_TOO_LONG':'INTRODUCTION_TOO_LONG');
   if (params.complete && !params.privacy_consent) fail('CONSENT_REQUIRED');
   if (params.display_name !== undefined && !String(params.display_name).trim()) fail('NAME_REQUIRED');
-  if (params.interests && (!Array.isArray(params.interests) || params.interests.length < 2 || params.interests.length > 5)) fail('INTERESTS_INVALID');
+  if (params.interests && (!Array.isArray(params.interests) || params.interests.length === 1 || params.interests.length > 5)) fail('INTERESTS_INVALID');
   const data = {};
   ['city', 'introduction', 'share_activity', 'visibility', 'locale', 'interests'].forEach(key => { if (params[key] !== undefined) data[key] = params[key]; });
   if (params.public_links) data.public_links = params.public_links;
@@ -737,6 +739,21 @@ async function login(mode, address, code) {
   return { demo: false };
 }
 async function call(name, args = {}) {
+  if (name === 'phoneCode' || name === 'bindPhone') {
+    const identity=session()?.id;if(!identity)fail('LOGIN_REQUIRED');
+    if(!/^1[3-9]\d{9}$/.test(String(args.phone||'')))fail('PHONE_INVALID');
+    try {
+      const body=await request({method:'POST',path:'/auth/'+(name==='phoneCode'?'request_phone_code':'verify_phone_code'),body:{phone:args.phone,...(name==='bindPhone'?{code:args.code}:{}),context:'bind_phone'}});
+      // Binding must never silently sign into a different phone account.
+      if(name==='bindPhone'){
+        if(body?.merged || (body?.user?.id && body.user.id!==identity))fail('PHONE_ACCOUNT_CONFLICT');
+        const account=await read('account');if(!account.phone_verified)fail('PHONE_BIND_UNCONFIRMED');
+        if(body?.token)setSession({...session(),token:body.token});
+        return account;
+      }
+      return {ok:true};
+    } catch(error){if(error.status===404)fail('PHONE_BIND_UNAVAILABLE');throw error;}
+  }
   if (name === 'read') return read(args.op, args.params || {});
   if (name === 'write') return write(args.op, args.params || {});
   if (name === 'payment') return payment(args);

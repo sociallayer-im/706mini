@@ -1,5 +1,7 @@
 const api=require('./api'),prefs=require('./preferences'),i18n=require('./i18n'),theme=require('./theme'),dates=require('./dates'),forms=require('./forms'),icons=require('./icons');
 const illustrations=require('./illustrations');
+const accountFlow=require('./account-flow');
+const profileRules=require('./profile-rules');
 const presentation=theme;
 const tabs=['feed','discover','messages','me'];
 let activeTab='feed';
@@ -52,7 +54,7 @@ function homeKey(){const p=prefs.get();return (api.session()?.id||'anonymous')+'
 function rememberHome(payload){const key=homeKey();const previous=homeCache.key===key?homeCache.payload:null;homeCache.key=key;homeCache.at=Date.now();homeCache.payload={...previous,...payload};}
 function restoreHome(page){if(homeCache.key!==homeKey()||!homeCache.payload||Date.now()-homeCache.at>120000)return;page.setData({...homeCache.payload,loading:false,error:''});}
 function go(route,id='',extra={}){const query=Object.entries({...extra,...(id?{id}:{})}).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');const url='/pages/'+route+'/index'+(query?'?'+query:'');if(!tabs.includes(route))return wx.navigateTo({url});activeTab=route;const stack=typeof getCurrentPages==='function'?getCurrentPages():[];const current=stack[stack.length-1];if(stack.length===1&&current&&current.route==='pages/'+route+'/index'&&!query)return;return wx.reLaunch({url});}
-const formKinds={publish:'event','campaign-create':'campaign','campaign-edit':'campaign','edit-profile':'profile',onboarding:'profile','edit-entity':'entity','create-space':'space'};
+const formKinds={publish:'event','campaign-create':'campaign','campaign-edit':'campaign','edit-profile':'profile','edit-entity':'entity','create-space':'space'};
 function isPlatformAdmin(roles){return (roles||[]).some(role=>role.scope==='PLATFORM');}
 function canManageGroups(roles){return isPlatformAdmin(roles)||(roles||[]).some(role=>role.scope==='ENTITY'&&role.parent&&(role.role==='OWNER'||role.role==='ADMIN'));}
 function canReviewTasks(roles){return canManageGroups(roles)||(roles||[]).some(role=>role.scope==='CAMPAIGN');}
@@ -61,11 +63,12 @@ function normalizeBase(item,t,locale){const e=item.event||item,phase=require('./
 module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dictionary(boot.locale),cachedHome=route==='feed'&&homeCache.key===homeKey()&&homeCache.payload&&Date.now()-homeCache.at<120000?homeCache.payload:null;return {
  data:{route,...tabState(boot.locale,route),illustrations,themeAccent:theme.tokens.accent,themeInk:theme.tokens.ink,isTask:presentation.isTask(route),keyboardHeight:0,galleryIndex:0,dragIndex:-1,dragTarget:-1,dragX:0,dragY:0,nodeCards:cachedHome?.nodeCards||[],nodeIndex:0,entityContent:{hosts:[],recaps:[],account:null},externalContent:null,isMainTab:tabs.includes(route),headerHeight:110,navigationTop:42,navigationHeight:44,menuTop:48,menuHeight:32,menuRightInset:116,theme:theme.style(),icons,t:bootT,locale:boot.locale,city:boot.city,sheetCopy:{},loading:!cachedHome,busy:false,error:'',items:cachedHome?.items||[],people:cachedHome?.people||[],campaigns:[],spaces:[],organizations:[],form:{},fields:[],step:1,formKind:route==='create-space'?'':(formKinds[route]||''),sheet:'',sheetForm:{},filters:{},offset:0,calendarMode:'week',days:[],record:null,cityName:'',selectedDate:'',hasMore:!!cachedHome?.hasMore,nextCursor:cachedHome?.nextCursor||null,consent:false,shareContact:false,editingPublished:false,submittedReview:false,category:''},
  onLoad(options){this.options=options||{};this.updateNavigationLayout();if(pendingTabPreview?.route===route){this.options=pendingTabPreview.options;pendingTabPreview=null;}this.setData({optionsId:this.options.id||'',reviewIndex:api.isMock()&&this.options.reviewIndex!==undefined?Number(this.options.reviewIndex):-1});this.filters={};this.calendarSelectionInitialized=false;this.commandKeys={};this.refreshLanguage();const kind=formKinds[route];if(kind){const cached=wx.getStorageSync(this.draftKey());const fresh=route==='publish'&&!this.options.id&&!cached;this.endFollowsStart=fresh;const seed={city:prefs.get().city,price_minor:0,capacity:'',approval_required:false,waitlist_enabled:true,event_ids:[],interests:[],...(fresh?dates.eventWindow():{})};this.setData({form:cached||forms.toForm(seed),step:api.isMock()&&Number(this.options.step)||wx.getStorageSync(this.draftKey()+'.step')||1});this.updateFields();}},
- onShow(){if(tabs.includes(route))activeTab=route;this.updateNavigationLayout();this.setData({...tabState(prefs.get().locale,route),keyboardHeight:0,access:null,reviewCount:0,needsLogin:false,canRegister:false,contact:null});this.refreshLanguage();if(route==='feed')restoreHome(this);this.load();},
- onUnload(){clearTimeout(this.saveTimer);}, keyboardChange(e){this.setData({keyboardHeight:Math.max(0,Number(e.detail.height)||0)});},
+ onShow(){if(this.data.accountOpen){this.refreshLanguage();this.startPhoneCountdown();return;}if(tabs.includes(route))activeTab=route;this.updateNavigationLayout();this.setData({...tabState(prefs.get().locale,route),keyboardHeight:0,access:null,reviewCount:0,needsLogin:false,canRegister:false,contact:null});this.refreshLanguage();if(route==='feed')restoreHome(this);this.load().then(()=>this.resumeAccountAction()).catch(e=>this.setData({error:i18n.message(e,this.data.t)}));},
+ onHide(){clearInterval(this.phoneTimer);this.phoneTimer=null;},
+ onUnload(){clearInterval(this.phoneTimer);clearTimeout(this.saveTimer);}, keyboardChange(e){this.setData({keyboardHeight:Math.max(0,Number(e.detail.height)||0)});},
  onResize(){this.updateNavigationLayout();},
  updateNavigationLayout(){this.setData({...require('./navigation-layout')(wx),developerVisible:editorial.developerVisible(wx,api.isMock()),formSteps:forms.stepInfo(formKinds[route],prefs.get().locale)});},
- back(){wx.navigateBack({delta:1,fail:()=>go('feed')});},
+ back(){if(route==='onboarding'||route==='login')return this.browseAccount();wx.navigateBack({delta:1,fail:()=>go('feed')});},
  onPageScroll(e){this.reviewScrollTop=e.scrollTop;},
  reviewScroll(e){if(!api.isMock()||this.data.reviewIndex<0)return;wx.pageScrollTo({scrollTop:Math.max(0,(this.reviewScrollTop||0)+Number(e.currentTarget.dataset.delta)*500),duration:0});},
  onPullDownRefresh(){this.load().finally(()=>wx.stopPullDownRefresh());},
@@ -93,9 +96,16 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  },
  applyPreview(){if(!api.isMock()||this.previewApplied)return;this.previewApplied=true;if(this.options.submitted)this.setData({submitted:true});if(this.options.sheet)this.sheet({currentTarget:{dataset:{kind:this.options.sheet}}});},
  async loadData(append){
-  if(['login','feedback'].includes(route))return;const profileSync=route==='review-lab'?null:prefs.sync();if(route!=='feed'&&profileSync)await profileSync;this.refreshLanguage();const t=this.data.t,p=prefs.get(),id=this.options.id;let result;
+  if(['me','messages'].includes(route)&&!api.session()){this.setData({guest:true,record:null,items:[],menuGroups:[],loading:false});return;}
+  this.setData({guest:false});
+  if(route==='login'){await this.openAccount();return;}if(route==='feedback'||route==='privacy'&&!api.session())return;const profileSync=route==='review-lab'?null:prefs.sync();if(route!=='feed'&&profileSync)await profileSync;this.refreshLanguage();const t=this.data.t,p=prefs.get(),id=this.options.id;let result;
   if(route==='review-lab'){this.loadLab();return;}
   if(!this.config){this.config=await this.read('config');this.setData({cities:this.config.cities,cityName:this.config.cities.find(c=>c.id===p.city)?.[p.locale==='en'?'en':'zh']});}
+  if(route==='onboarding'){
+   const account=api.session()?await this.read('account'):null;
+   if(accountFlow.stage(account)==='ready'){wx.redirectTo({url:'/pages/edit-profile/index'});return;}
+   await this.openAccount(account);return;
+  }
   if(route==='calendar'&&this.options.scene&&!this.shareLoaded){const share=await this.read('calendarShare',{id:decodeURIComponent(this.options.scene)});this.filters=share.params;this.shareLoaded=true;this.calendarSelectionInitialized=true;const start=share.params.from;this.sharedRange={from:start,to:share.params.to};const month=Date.parse(share.params.to)-Date.parse(start)>7*86400000;const base=dates.range(month?'month':'week');const a=dates.localDate(new Date(start)).split('-').map(Number),b=dates.localDate(new Date(base.from)).split('-').map(Number);const offset=month?(a[0]-b[0])*12+a[1]-b[1]:Math.floor((Date.parse(start)-Date.parse(base.from))/604800000);this.setData({calendarMode:month?'month':'week',offset,selectedDate:Date.parse(share.params.to)-Date.parse(start)===86400000?dates.localDate(new Date(start)):'',city:share.params.city,cityName:this.config.cities.find(c=>c.id===share.params.city)?.[p.locale==='en'?'en':'zh']});}
   const params={...this.filters,city:this.filters.city||p.city,cursor:append?this.data.nextCursor:null};this.setData({city:params.city,cityName:this.config.cities.find(c=>c.id===params.city)?.[p.locale==='en'?'en':'zh']});
   if(route==='feed'){
@@ -128,6 +138,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   else if(route==='campaign'){const r=await this.read('campaign',{id});this.setData({record:{...r,citySummary:(r.cities||[]).join(' · ')}});result={items:(r.items||[]).map(event=>({...event,type:'event',route:'event'}))};}
   else if(['member','space','org','entity-events','entity-members'].includes(route)){
    const r=await this.read(route==='member'?'member':'entity',{id});const viewer=route==='member'&&api.session()?await this.read('me').catch(()=>null):null;this.setData({record:normalize(r,t,p.locale),platformAdmin:isPlatformAdmin(viewer?.roles),memberLinks:route==='member'?['work','social'].map((kind,i)=>(r.public_links||[]).find(x=>x.kind===kind||(!x.kind&&x.label===(i?'社交媒体':'作品与项目')))).filter(Boolean):[]});result={items:route==='entity-members'?(r.members||[]).map(x=>({...x,id:x.owner,route:'member'})):r.items};
+   if(route==='member')this.setData({accountPending:r.owner===api.session()?.id&&!!accountFlow.pending()});
    if(route==='space'||route==='org'){
     const links=editorial.entityLinks(r),hosts=await Promise.all(links.hosts.map(async link=>{try{const host=await this.read('member',{id:link.user_id});return {...host,roleLabel:p.locale==='en'?(link.role_en||'Host'):(link.role||'负责人')};}catch{return null;}}));
     const upcoming=(r.items||[]).filter(x=>Date.parse(x.ends_at)>Date.now()).sort((a,b)=>String(a.starts_at).localeCompare(String(b.starts_at)));
@@ -181,7 +192,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
    if(kind!=='space'){const es=await this.read('managed');const spaces=await this.read('entities',{kind:'SPACE'});
    this.setData({organizations:es.items.filter(e=>e.kind==='ORGANIZATION'),spaces:spaces.items});}
    if(kind==='campaign'){const ev=await this.read('events',{});const mine=await this.read('mine',{kind:'event'});const options=[...ev.items,...mine.items.filter(e=>e.status==='IN_REVIEW')];for(const selected of this.data.form.event_ids||[])if(!options.some(e=>e.id===selected))options.push(await this.read('event',{id:selected}));this.setData({eventOptions:[...new Map(options.map(e=>[e.id,normalize(e,t,p.locale)])).values()]});}
-   this.updateFields();await this.refreshMedia();return;
+   this.updateFields();await this.refreshMedia();if(kind==='profile'&&!this.profileFieldShown&&['bio','introduction'].includes(this.options.field)){this.profileFieldShown=true;wx.nextTick?.(()=>wx.pageScrollTo?.({selector:'#field-'+this.options.field,duration:0}));}return;
   }
   else if(route==='activity-preview'){const r=await this.read('draft',{id});this.setData({record:normalize(r,t,p.locale)});await this.refreshMedia();return;}
   else if(['more','privacy','feedback','login'].includes(route))return;
@@ -193,7 +204,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
   if(!allowed.includes(p.handler)||typeof this[p.handler]!=='function')return;
   return this[p.handler]({currentTarget:{dataset:p.dataset||{}},target:{dataset:p.dataset||{}},detail:p.detail||{},touches:p.touches||[],changedTouches:p.changedTouches||[],mediaRects:p.mediaRects});
  },
- navigate(e){if(this.data.sheet)this.closeSheet();const d=e.currentTarget.dataset;if(d.route==='space'&&!d.id)return;if(d.route==='review-lab'){wx.reLaunch({url:'/pages/review-lab/index'});return;}go(d.route,d.id||'',d.extra||{});},
+ navigate(e){if(this.data.sheet)this.closeSheet();const source=e.currentTarget.dataset,d=source.route==='onboarding'?{...source,route:'edit-profile'}:source;if(d.route==='space'&&!d.id)return;if(d.route==='review-lab'){wx.reLaunch({url:'/pages/review-lab/index'});return;}if(['publish','campaign-create','create-space','edit-profile'].includes(d.route)){return this.run(async()=>{if(await this.requireAccount('',{},d.route,d.id||''))go(d.route,d.id||'',d.extra||{});});}go(d.route,d.id||'',d.extra||{});},
  menuEntry(e){if(e.currentTarget.dataset.kind)return this.sheet(e);return this.navigate(e);},
  openItem(e){if(['attendees','admins','invitations','approval-progress','campaign-review-progress'].includes(route))return;const item=this.data.items[Number(e.currentTarget.dataset.index)];if(route==='messages'){this.run(async()=>{await this.write('read',{id:item.id});if(item.target?.route)go(item.target.route,item.target.id);});}else if(route==='approvals')go(item.subject_type==='campaign'?'campaign-approval-detail':'approval-detail',item.id);else go(item.route,item.route==='member'?(item.owner||item.id):item.id);},
  openEvent(e){const d=e.currentTarget.dataset;go(d.route==='activity-preview'?'activity-preview':'event',d.id);},
@@ -219,7 +230,44 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  },
  bannerMove(e){const total=this.data.campaigns.length;this.setData({bannerIndex:((this.data.bannerIndex||0)+Number(e.currentTarget.dataset.delta)+total)%total});},
  async run(fn){if(this.data.busy)return;this.setData({busy:true,error:''});try{return await fn();}catch(e){this.setData({error:i18n.message(e,this.data.t),needsLogin:/LOGIN_REQUIRED|VERIFIED_LOGIN/.test(e.message||'')});}finally{this.setData({busy:false});}},
- login(){go('login');},
+ login(){accountFlow.remember(route,this.options?.id||'');return this.run(()=>this.openAccount());},
+ accountDraftKey(){return '706.account-draft.'+api.mode()+'.'+api.session()?.id;},
+ persistAccount(){if(api.session())wx.setStorageSync(this.accountDraftKey(),{values:this.data.accountForm,step:this.data.accountQuestion||1});},
+ async openAccount(account=null){
+  if(!this.config){this.config=await this.read('config');this.setData({cities:this.config.cities});}
+  const cached=account?wx.getStorageSync(this.accountDraftKey()):null,profile=account?.profile||{};
+  const values=cached?.values||{display_name:profile.display_name||'',avatar_url:profile.avatar_url||'',city:profile.city||prefs.get().city,bio:profile.bio||'',introduction:profile.introduction||''};
+  this.setData({accountOpen:true,accountStage:account?accountFlow.stage(account)==='ready'?'welcome':accountFlow.stage(account):'login',account,accountForm:values,accountQuestion:cached?.step||1,accountErrors:{},accountLoaded:true,error:'',sheet:'',accountPrivacy:false});
+  this.updateAccountCity();this.updateAccountCounts();this.tabVisibility(false);this.startPhoneCountdown();
+ },
+ async requireAccount(action='',dataset={},destination=route,id=this.options?.id||''){
+  if(api.session()){
+   const account=await this.read('account');if(accountFlow.stage(account)==='ready')return true;
+   accountFlow.remember(destination,id,action,dataset);accountFlow.claim();await this.openAccount(account);return false;
+  }
+  accountFlow.remember(destination,id,action,dataset);await this.openAccount();return false;
+ },
+ async resumeAccountAction(){
+  const intent=accountFlow.pending();if(!this.options?.accountReturn||!intent||intent.route!==route||intent.id!==(this.options.id||'')||this.data.error)return;
+  const account=await this.read('account');if(accountFlow.stage(account)!=='ready')return;
+  accountFlow.clear();delete this.options.accountReturn;
+  // Return to the intended form; registration and publishing still need confirmation.
+  if(intent.action==='sheet')return this.sheet({currentTarget:{dataset:intent.dataset}});
+  if(intent.action==='follow')return this.follow({currentTarget:{dataset:intent.dataset}});
+ },
+ browseAccount(){if(this.data.busy)return;if(this.data.accountStage==='welcome'&&this.data.accountJustCompleted)return this.finishAccountWelcome();if(api.session())this.persistAccount();clearInterval(this.phoneTimer);this.setData({accountOpen:false,accountPrivacy:false,phone:'',phoneCode:'',phoneCodeSent:false,error:''});this.refreshLanguage();this.tabVisibility(true);if(['login','onboarding'].includes(route)){const intent=accountFlow.pending();go(intent?.route||'feed',intent?.id||'');}},
+ finishAccountWelcome(){this.setData({accountOpen:false,error:''});this.tabVisibility(true);this.refreshLanguage();go('member',api.session().id);},
+ async finishAccountLogin(){accountFlow.claim();const account=await this.read('account');prefs.fromProfile(account.profile);this.refreshLanguage();if(accountFlow.stage(account)==='ready')return true;await this.openAccount(account);return false;},
+ async returnFromAccount(){
+  const intent=accountFlow.pending();this.setData({accountOpen:false,accountPrivacy:false,error:''});this.tabVisibility(true);this.refreshLanguage();
+  if(!intent){if(['login','onboarding'].includes(route))go('me');else await this.load();return;}
+  if(intent.route===route&&intent.id===(this.options?.id||'')){
+   await this.load();if(this.data.error)return;const account=await this.read('account');if(accountFlow.stage(account)!=='ready')return;
+   accountFlow.clear();if(intent.action==='sheet')return this.sheet({currentTarget:{dataset:intent.dataset}});if(intent.action==='follow')return this.follow({currentTarget:{dataset:intent.dataset}});return;
+  }
+  go(intent.route,intent.id,{accountReturn:1});
+ },
+ accountPrivacy(){this.setData({accountPrivacy:!this.data.accountPrivacy});},
  chooseCity(){this.sheet({currentTarget:{dataset:{kind:'city'}}});},
  selectCity(e){const id=e.currentTarget.dataset.id,c=this.config.cities.find(c=>c.id===id);if(!c)return;this.sharedRange=null;delete this.filters.city;prefs.set({city:id});this.closeSheet();this.setData({city:id,cityName:c[this.data.locale==='en'?'en':'zh']});this.run(async()=>{if(api.session())await this.write('profile',{city:id});await this.load();});},
  selectLanguage(e){prefs.set({locale:e.currentTarget.dataset.locale});this.closeSheet();this.refreshLanguage();this.updateFields();this.run(async()=>{if(api.session())await this.write('profile',{locale:prefs.get().locale});await this.load();});},
@@ -239,12 +287,13 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  relationTab(e){this.setData({relationMode:e.currentTarget.dataset.mode});this.load();},
  category(e){this.setData({category:e.currentTarget.dataset.value});this.load();},
  personFollow(e){if(e.currentTarget.dataset.enabled!==false)return this.follow(e);wx.showActionSheet({itemList:[this.data.t.unfollow],success:r=>{if(r.tapIndex===0)this.follow(e);}});},
- follow(e){const d=e.currentTarget.dataset;this.run(async()=>{await this.write('follow',{id:d.id,enabled:d.enabled!==false});await this.load();});},
- sheet(e){const d=e.currentTarget.dataset,kind=d.kind;this.run(async()=>{if(kind==='city'&&!this.config){this.config=await this.read('config');this.setData({cities:this.config.cities});}if(kind==='manage'&&!this.data.record?.can_manage)throw Error('FORBIDDEN');let values={};if(kind==='register'){const me=await this.read('me');values={display_name:me.profile.display_name,motivation:api.isMock()?'对城市里的公共空间很感兴趣，也想认识一起做社区的人。':''};}if(kind==='recommend')values={text:api.isMock()?'这个主题很适合第一次来 706 的朋友，一起去吧。':''};if(kind==='comment'){values={reply_to:d.reply||'',text:d.reply&&api.isMock()?'谢谢分享，我也想听听你的看法。':''};const list=this.data.comments||[];const threads=list.filter(x=>!x.reply_to&&(d.reply?x.id===d.reply:x.source_surface!=='detail')).map(x=>({...x,replies:list.filter(y=>y.reply_to===x.id)}));this.setData({commentThreads:threads,commentCount:threads.reduce((n,x)=>n+1+x.replies.length,0)});}if(kind==='return')values={note:api.isMock()?(route==='campaign-approval-detail'?'请补充各城市活动如何呼应专题主题，并替换一张缺少来源说明的图片。':'空间 18:30 前还有其他活动，请将布置时间改为 18:40 以后。'):''};if(kind==='group'){let access=await this.write('access',{id:this.options.id});const methods=[];for(const m of access?.methods||[access]){if(!m)continue;methods.push(m.type==='GROUP_QR'&&m.value?.startsWith('706-media:')?{...m,value:(await api.call('mediaPreview',{id:m.value.slice(10),registration:this.options.id})).url}:m);}this.setData({access:{...access,methods}});}if(kind==='report'&&route==='feedback')values=this.data.sheetForm;this.sheetSnapshot=JSON.stringify(values);this.tabVisibility(false);this.setData({sheet:kind,sheetForm:values,consent:false,shareContact:false});});},
+ follow(e){const d=e.currentTarget.dataset;return this.run(async()=>{if(!await this.requireAccount('follow',d))return;await this.write('follow',{id:d.id,enabled:d.enabled!==false});await this.load();});},
+ openSheet(e){const d=e.currentTarget.dataset,kind=d.kind;this.run(async()=>{if(kind==='city'&&!this.config){this.config=await this.read('config');this.setData({cities:this.config.cities});}if(kind==='manage'&&!this.data.record?.can_manage)throw Error('FORBIDDEN');let values={};if(kind==='register'){const me=await this.read('me');values={display_name:me.profile.display_name,motivation:api.isMock()?'对城市里的公共空间很感兴趣，也想认识一起做社区的人。':''};}if(kind==='recommend')values={text:api.isMock()?'这个主题很适合第一次来 706 的朋友，一起去吧。':''};if(kind==='comment'){values={reply_to:d.reply||'',text:d.reply&&api.isMock()?'谢谢分享，我也想听听你的看法。':''};const list=this.data.comments||[];const threads=list.filter(x=>!x.reply_to&&(d.reply?x.id===d.reply:x.source_surface!=='detail')).map(x=>({...x,replies:list.filter(y=>y.reply_to===x.id)}));this.setData({commentThreads:threads,commentCount:threads.reduce((n,x)=>n+1+x.replies.length,0)});}if(kind==='return')values={note:api.isMock()?(route==='campaign-approval-detail'?'请补充各城市活动如何呼应专题主题，并替换一张缺少来源说明的图片。':'空间 18:30 前还有其他活动，请将布置时间改为 18:40 以后。'):''};if(kind==='group'){let access=await this.write('access',{id:this.options.id});const methods=[];for(const m of access?.methods||[access]){if(!m)continue;methods.push(m.type==='GROUP_QR'&&m.value?.startsWith('706-media:')?{...m,value:(await api.call('mediaPreview',{id:m.value.slice(10),registration:this.options.id})).url}:m);}this.setData({access:{...access,methods}});}if(kind==='report'&&route==='feedback')values=this.data.sheetForm;this.sheetSnapshot=JSON.stringify(values);this.tabVisibility(false);this.setData({sheet:kind,sheetForm:values,consent:false,shareContact:false});});},
  requestCloseSheet(){if(this.data.busy)return;if(this.sheetSnapshot!==undefined&&JSON.stringify(this.data.sheetForm)!==this.sheetSnapshot){const en=this.data.locale==='en';wx.showModal({title:en?'Discard this edit?':'放弃这次编辑？',content:en?'Your changes have not been sent. Closing will discard this edit.':'内容尚未发送，关闭后将放弃这次编辑。',confirmText:en?'Discard':'放弃编辑',cancelText:en?'Keep editing':'继续编辑',success:r=>{if(r.confirm)this.closeSheet();}});return;}this.closeSheet();}, closeSheet(){this.setData({sheet:'',keyboardHeight:0});this.tabVisibility(true);},
  sheetInput(e){this.setData({['sheetForm.'+e.currentTarget.dataset.key]:e.detail.value});},
  consent(e){this.setData({consent:e.detail.value.length>0});},
  contactConsent(e){this.setData({shareContact:e.detail.value.length>0});},
+ sheet(e){const kind=e.currentTarget.dataset.kind;if(['register','recommend','comment','invite','manage'].includes(kind))return this.run(()=>this.requireAccount('sheet',e.currentTarget.dataset)).then(ready=>{if(ready)return this.openSheet(e);});return this.openSheet(e);},
  submitSheet(){this.run(async()=>{const kind=this.data.sheet;let result;
   if(kind==='register')result=await this.write('register',{id:this.options.id,...this.data.sheetForm,privacy_consent:this.data.consent,contact_share_consent:this.data.shareContact});
   else if(kind==='invite')result=await this.write('invite',{id:this.options.id,...this.data.sheetForm});
@@ -292,7 +341,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  });},
  updateFields(){
   const kind=formKinds[route];if(!kind)return;
-  let {form}=this.data;const {t,locale}=this.data,multi=['publish','campaign-create','onboarding'].includes(route),lang=locale==='en'?'en':'zh';
+  let {form}=this.data;const {t,locale}=this.data,multi=['publish','campaign-create'].includes(route),lang=locale==='en'?'en':'zh';
   let joinMethods=form.join_methods||[];if(!api.isMock()&&joinMethods.includes('ORGANIZER_WECHAT')){joinMethods=joinMethods.filter(type=>type!=='ORGANIZER_WECHAT');if(!joinMethods.length)joinMethods=['ORGANIZER_WILL_CONTACT'];form={...form,join_methods:joinMethods};}
   const fields=forms.fields(kind,multi?this.data.step:0,t,form).map(f=>({...f,dateDisplay:f.type==='datetime'?dates.format(f.value).slice(0,10):'',timeDisplay:f.type==='datetime'?dates.format(f.value).slice(11,16):'',display:f.type==='datetime'?dates.format(f.value):f.type==='space'?this.data.spaces.find(x=>x.id===f.value)?.name:f.type==='organization'?this.data.organizations.find(x=>x.id===f.value)?.name:f.type==='city'?this.config?.cities.find(x=>x.id===f.value)?.[lang]:f.value}));
   const accessKinds=api.isMock()?['GROUP_QR','ORGANIZER_WECHAT','ORGANIZER_WILL_CONTACT']:['GROUP_QR','ORGANIZER_WILL_CONTACT'];
@@ -356,14 +405,13 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  eventSelection(e){const next=e.detail.value,previous=this.data.form.event_ids||[];this.setData({'form.event_ids':[...previous.filter(id=>next.includes(id)),...next.filter(id=>!previous.includes(id))]});this.persist();},
  toggleEventPicker(){this.setData({showEventPicker:!this.data.showEventPicker});this.updateFields();},
  persist(){wx.setStorageSync(this.draftKey(),this.data.form);wx.setStorageSync(this.draftKey()+'.step',this.data.step);this.setData({draftSaved:true});},
- validateForm(submit=false){const kind=formKinds[route],errors=forms.validate(kind,this.data.form,{step:submit?0:this.data.step,submit,consent:route!=='onboarding'||this.data.consent,locale:this.data.locale});if(!api.isMock()&&kind==='event'&&(this.data.form.join_methods||[]).includes('GROUP_QR')&&!/^https?:\/\//.test(this.data.form.access_values?.GROUP_QR||''))errors.join_methods=this.data.locale==='en'?'Upload the group QR image':'请上传活动群二维码';this.setData({formErrors:errors});const key=Object.keys(errors)[0];if(!key)return true;const step= forms.fieldStep(kind,key);if(['publish','campaign-create','onboarding'].includes(route)&&step<=3)this.setData({step});this.updateFields();wx.nextTick?.(()=>wx.pageScrollTo?.({selector:'#field-'+key,duration:0}));return false;},
+ validateForm(submit=false){const kind=formKinds[route],errors=forms.validate(kind,this.data.form,{step:submit?0:this.data.step,submit,consent:true,locale:this.data.locale});if(!api.isMock()&&kind==='event'&&(this.data.form.join_methods||[]).includes('GROUP_QR')&&!/^https?:\/\//.test(this.data.form.access_values?.GROUP_QR||''))errors.join_methods=this.data.locale==='en'?'Upload the group QR image':'请上传活动群二维码';this.setData({formErrors:errors});const key=Object.keys(errors)[0];if(!key)return true;const step= forms.fieldStep(kind,key);if(['publish','campaign-create'].includes(route)&&step<=3)this.setData({step});this.updateFields();wx.nextTick?.(()=>wx.pageScrollTo?.({selector:'#field-'+key,duration:0}));return false;},
  step(e){const delta=Number(e.currentTarget.dataset.delta);if(delta>0&&!this.validateForm())return;this.setData({step:Math.max(1,Math.min(3,this.data.step+delta)),formErrors:{}});this.updateFields();this.persist();wx.pageScrollTo?.({scrollTop:0,duration:0});},
  saveDraft(){this.persist();wx.showToast({title:this.data.t.formSaved,icon:'none'});},
- saveForm(e){const submitFlag=e?.currentTarget?.dataset?.submit;const submit=!this.data.editingPublished&&(submitFlag===true||submitFlag==='true');if((submit||formKinds[route]==='space')&&!this.validateForm(true))return;this.run(async()=>{
+ saveForm(e){const submitFlag=e?.currentTarget?.dataset?.submit;const submit=!this.data.editingPublished&&(submitFlag===true||submitFlag==='true');if((submit||['space','profile'].includes(formKinds[route]))&&!this.validateForm(true))return;return this.run(async()=>{
   const kind=formKinds[route], p=forms.payload(kind,this.data.form);
   if(kind==='space'){const created=await this.write('createSpace',p);wx.removeStorageSync(this.draftKey());wx.removeStorageSync(this.draftKey()+'.step');wx.redirectTo({url:'/pages/space/index?id='+encodeURIComponent(created.id)});return;}
   let op=kind==='event'?'saveEvent':kind==='campaign'?'saveCampaign':kind==='profile'?'profile':'entity';
-  if(kind==='profile'&&route==='onboarding'){p.complete=!!submit;p.privacy_consent=this.data.consent;}
   if(kind==='entity')p.id=this.options.id;
   if(op==='registrationContact'){const contact=await this.write('registrationContact',p);this.setData({contact:contact.wechat||this.data.t.noContact});return;}
   if(op==='withdrawRecommendation'){await this.write('recommend',{id:p.id,enabled:false});await this.load();return;}
@@ -375,9 +423,30 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  });},
  loginInput(e){this.setData({[e.currentTarget.dataset.key]:e.detail.value});},
  sendCode(){this.run(async()=>{await api.login(this.data.loginMode||'phone',this.data.address);this.setData({codeSent:true});if(api.isMock())wx.showToast({title:'演示验证码：706000',icon:'none'});});},
- verifyCode(){this.run(async()=>{if(!String(this.data.code||'').trim())throw Error('CODE_REQUIRED');await api.login(this.data.loginMode||'phone',this.data.address,this.data.code);const me=await this.read('me');prefs.fromProfile(me.profile);if(me.profile?.onboarded)go('me');else go('onboarding');});},
+ verifyCode(){return this.run(async()=>{if(!String(this.data.code||'').trim())throw Error('CODE_REQUIRED');await api.login(this.data.loginMode||'phone',this.data.address,this.data.code);return this.finishAccountLogin();}).then(ready=>ready?this.returnFromAccount():undefined);},
  loginMode(){this.setData({loginMode:this.data.loginMode==='email'?'phone':'email',codeSent:false});},
- wechatLogin(){this.run(async()=>{if(api.isMock()){await api.call('wechatLogin');go('me');return;}const r=await new Promise((resolve,reject)=>wx.login({success:resolve,fail:reject}));const login=await api.call('wechatLogin',{code:r.code});api.setSession(login.user);const me=await this.read('me');prefs.fromProfile(me.profile);go(me.profile?.onboarded?'me':'onboarding');});},
+ wechatLogin(){return this.run(async()=>{if(!this.data.loginConsent){this.setData({error:this.data.locale==='en'?'Please read and accept the privacy notice.':'请先阅读并同意隐私说明。'});return;}if(api.isMock())await api.call('wechatLogin');else{const r=await new Promise((resolve,reject)=>wx.login({success:resolve,fail:reject}));await api.call('wechatLogin',{code:r.code});}return this.finishAccountLogin();}).then(ready=>ready?this.returnFromAccount():undefined);},
+ loginConsent(e){this.setData({loginConsent:e.detail.value.length>0,error:''});},
+ toggleLoginAlternative(){this.setData({loginAlternative:!this.data.loginAlternative});},
+ phoneInput(e){this.setData({phone:e.detail.value,phoneCodeSent:false,phoneCode:'',error:''});},
+ phoneCodeInput(e){this.setData({phoneCode:e.detail.value,error:''});},
+ startPhoneCountdown(){clearInterval(this.phoneTimer);const tick=()=>{const remaining=Math.max(0,Math.ceil(((this.phoneCodeAt||0)+30000-Date.now())/1000));this.setData({phoneCooldown:remaining});if(!remaining){clearInterval(this.phoneTimer);this.phoneTimer=null;}};tick();if(this.data.phoneCooldown)this.phoneTimer=setInterval(tick,1000);},
+ sendPhoneCode(){return this.run(async()=>{if(!accountFlow.phoneValid(this.data.phone))throw Error('PHONE_INVALID');if(this.phoneCodeAt&&Date.now()-this.phoneCodeAt<30000)return;const phone=String(this.data.phone).trim();await api.call('phoneCode',{phone});this.challengePhone=phone;this.phoneCodeAt=Date.now();this.setData({phoneCodeSent:true});this.startPhoneCountdown();});},
+ bindPhone(){return this.run(async()=>{if(this.challengePhone!==String(this.data.phone||'').trim())throw Error('PHONE_CODE_REQUIRED');if(!/^\d{6}$/.test(this.data.phoneCode||''))throw Error('PHONE_CODE_INVALID');const account=await api.call('bindPhone',{phone:this.challengePhone,code:this.data.phoneCode});if(!account.phone_verified)throw Error('PHONE_BIND_UNCONFIRMED');clearInterval(this.phoneTimer);this.setData({account,phone:'',phoneCode:'',accountStage:'profile'});return !!account.profile.onboarded;}).then(ready=>ready?this.returnFromAccount():undefined);},
+ updateAccountCity(){const city=this.data.cities?.find(c=>c.id===this.data.accountForm?.city);this.setData({accountCityLabel:city?.[this.data.locale==='en'?'en':'zh']||''});},
+ accountCity(e){const city=this.data.cities[Number(e.detail.value)];if(city){this.setData({'accountForm.city':city.id,'accountErrors.city':''});this.updateAccountCity();this.persistAccount();}},
+ accountNickname(e){this.setData({'accountForm.display_name':e.detail.value,'accountErrors.display_name':''});this.persistAccount();},
+ updateAccountCounts(){this.setData({accountBioCount:profileRules.length(this.data.accountForm?.bio),accountIntroCount:profileRules.length(this.data.accountForm?.introduction)});},
+ accountText(e){const key=e.currentTarget.dataset.key;if(!['bio','introduction'].includes(key))return;this.setData({['accountForm.'+key]:e.detail.value,['accountErrors.'+key]:''});this.updateAccountCounts();this.persistAccount();},
+ accountNext(){const errors={};if(this.data.accountQuestion===1&&!String(this.data.accountForm.display_name||'').trim())errors.display_name=this.data.locale==='en'?'Enter a name':'请填写昵称';const invalid=profileRules.validate(this.data.accountForm);if(invalid)errors[invalid]=this.data.locale==='en'?'Please shorten this text':'请缩短至字数限制以内';if(this.data.accountQuestion===2&&!this.data.cities.some(c=>c.id===this.data.accountForm.city))errors.city=this.data.locale==='en'?'Choose a city':'请选择城市';this.setData({accountErrors:errors});if(!Object.keys(errors).length){this.setData({accountQuestion:Math.min(3,this.data.accountQuestion+1)});this.persistAccount();}},
+ accountPrevious(){this.setData({accountQuestion:Math.max(1,this.data.accountQuestion-1),accountErrors:{},error:''});this.persistAccount();},
+ chooseAccountAvatar(e){const path=e.detail.avatarUrl;if(!path)return;return this.run(async()=>{const asset=api.isMock()?api.mock.localMedia(path):await api.call('mediaUpload',{path});this.setData({'accountForm.avatar_url':asset.url});this.persistAccount();});},
+ completeAccount(){return this.run(async()=>{
+  const account=await this.read('account');if(!account.phone_verified){this.setData({accountStage:'phone'});return;}
+  const values=this.data.accountForm,name=String(values.display_name||'').trim(),city=values.city,errors={};if(!name)errors.display_name=this.data.locale==='en'?'Enter a name':'请填写昵称';if(!this.data.cities.some(c=>c.id===city))errors.city=this.data.locale==='en'?'Choose a city':'请选择城市';const invalid=profileRules.validate(values);if(invalid)errors[invalid]=this.data.locale==='en'?'Please shorten this text':'请缩短至字数限制以内';if(!this.data.consent)errors.privacy=this.data.locale==='en'?'Accept the privacy notice':'请阅读并同意隐私说明';this.setData({accountErrors:errors});if(Object.keys(errors).length){if(errors.display_name||errors.bio)this.setData({accountQuestion:1});else if(errors.city)this.setData({accountQuestion:2});return;}
+  const profile=await this.write('profile',{display_name:name,city,bio:values.bio||'',introduction:values.introduction||'',...(values.avatar_url?{avatar_url:values.avatar_url}:{}),complete:true,privacy_consent:true});
+  if(!profile.onboarded)throw Error('PROFILE_REQUIRED');prefs.fromProfile(profile);wx.removeStorageSync(this.accountDraftKey());this.setData({accountStage:'welcome',accountJustCompleted:true,account:{...account,profile},error:''});
+ });},
  copy(e){wx.setClipboardData({data:e.currentTarget.dataset.value});},
  async refreshMedia(){const values=this.data.formKind?this.data.form:this.data.record||{};const out={};for(const key of ['cover_url','avatar_url','access_value']){const value=values[key];if(!value)continue;const match=value.match(/(?:706-media:|\/community\/media\/)([^/?]+)$/);if(!match)continue;try{out[key]=(await api.call('mediaPreview',{id:match[1]})).url;}catch{out[key]=key==='access_value'?'':value;}}this.setData({mediaPreviews:out});},
  galleryChange(e){this.setData({galleryIndex:e.detail.current});},
@@ -396,6 +465,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  });},
  loadLab(){const catalog=require('./mock/catalog').map((e,index)=>({...e,index})),pending=require('./mock/pending-review');const pendingCatalog=[...pending.originalQueries.map(query=>catalog.find(e=>e.sourceQuery===query)),...pending.extraRoutes.map(route=>catalog.find(e=>e.route===route))].filter(Boolean).map(e=>({...e,label:e.label.replace(/^原型 · /,''),note:e.route==='onboarding'||e.route==='campaign-create'?'进入现有表单；各步骤及成功态请在页面内操作。':e.route==='event-access'&&e.options?.sheet==='payment'?'需要有效待付款凭证；过期时保留现状，不自动重置。':e.route==='event-access'&&e.options?.sheet==='group'?'需先在现有报名凭证完成模拟支付，已确认后再打开；不自动改状态。':e.options?.submitted?'直接展示成功态；完整提交流程请从发布第一步进入。':''}));this.setData({catalog,pendingCatalog,developerPersonas:api.isMock()?api.mock.personas:[]});},
  labOpen(e){const entry=this.data.catalog[Number(e.currentTarget.dataset.index)];if(!api.isMock()){this.setData({error:'合成页面目录仅用于离线演示模式。'});return;}api.mock.configure({persona:entry.persona||'demo-member',scenario:'normal'});prefs.set({city:'shanghai'});const options={...entry.options,...(e.currentTarget.dataset.pending?{}:{reviewIndex:e.currentTarget.dataset.index}),...(entry.id?{id:entry.id}:{})};pendingTabPreview=null;const query=Object.entries(options).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');wx.reLaunch({url:'/pages/'+entry.route+'/index'+(query?'?'+query:'')});},
+ labNewUserJourney(){if(!api.isMock())return;api.mock.startNewUserJourney();accountFlow.clear();prefs.set({city:'shanghai'});pendingTabPreview=null;wx.reLaunch({url:'/pages/feed/index'});},
  labQuery(e){const q=e.detail.value.toLowerCase();this.setData({filteredCatalog:this.data.catalog.filter(c=>[c.label,c.sourceQuery,c.route,String(c.index)].join(' ').toLowerCase().includes(q))});},
  reviewNext(e){const catalog=require('./mock/catalog'),index=this.data.reviewIndex+Number(e.currentTarget.dataset.delta);if(index<0||index>=catalog.length)return;this.closeSheet();this.setData({catalog});this.labOpen({currentTarget:{dataset:{index}}});},
   labPersona(e){api.mock.configure({persona:e.currentTarget.dataset.id});wx.reLaunch({url:'/pages/review-lab/index'});},

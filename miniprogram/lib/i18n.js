@@ -12,9 +12,22 @@ DRAFT:['草稿','Draft'],IN_REVIEW:['审核中','In review'],PUBLISHED:['已发�
 DOMAIN_NOT_ALLOWED:['当前微信 AppID 尚未配置服务合法域名','The service domain is not configured for this WeChat AppID'],NETWORK:['网络连接失败，请重试','Connection failed. Please retry.'],TIMEOUT:['请求超时，请重试','Request timed out. Please retry.'],LOGIN_REQUIRED:['请先登录','Please sign in'],VERIFIED_LOGIN_REQUIRED:['请使用已验证账号登录','Use a verified account'],PROFILE_REQUIRED:['请先完善个人资料','Complete your profile first'],FORBIDDEN:['你没有此操作权限','You do not have permission'],NOT_FOUND:['内容不存在或已移除','Content not found'],VERSION_CONFLICT:['内容已更新，请刷新后再操作','This changed. Refresh before continuing'],STATUS_CONFLICT:['状态已变化，请刷新','Status changed. Please refresh'],CONSENT_REQUIRED:['请填写昵称并确认隐私说明','Enter a name and accept the privacy notice'],INTERESTS_INVALID:['请选择 2–5 个兴趣','Choose 2–5 interests'],EVENT_INVALID:['请检查标题、介绍、城市和起止时间','Check title, description, city and dates'],PRICE_INVALID:['请填写有效价格','Enter a valid price'],CAPACITY_INVALID:['名额应为正整数或留空','Capacity must be a positive integer or empty'],VENUE_INVALID:['请选择空间，或填写地点和详细地址','Choose a space or enter a venue and address'],TEXT_REQUIRED:['请填写内容','Enter some text'],NAME_REQUIRED:['请填写昵称','Enter a display name'],REASON_REQUIRED:['请填写退回原因','Enter a reason'],CAMPAIGN_INVALID:['请填写专题资料并选择活动','Complete campaign details and choose events'],CAPACITY_FULL:['名额已满','This event is full'],REGISTRATION_CLOSED:['报名已关闭','Registration is closed'],ACCESS_NOT_GRANTED:['确认报名后才能查看参与方式','Access is available after confirmation'],ACCESS_EXPIRED:['参与方式已过期，请联系发起者更新','Access details expired. Contact the organizer'],WECHAT_PAY_CONFIGURATION_REQUIRED:['支付暂未开通，请稍后重试','Payment is not available yet'],WECHAT_LOGIN_CONFIGURATION_REQUIRED:['微信登录暂未开通，可使用验证码登录','WeChat sign in is not available yet. Use a verification code'],WECHAT_IDENTITY_EXCHANGE_NOT_CONFIGURED:['微信登录暂未开通','WeChat sign in is not available yet'],REFUND_POLICY_REQUIRED:['付费取消需联系发起者处理退款','Contact the organizer to arrange a paid cancellation'],SERVER:['操作失败，请重试','Could not complete this action. Please retry']
 };
 Object.assign(words,{
+ bio:['一句签名','Signature'],profileIntroduction:['自我介绍','About me'],
+ SIGNATURE_TOO_LONG:['签名请控制在 30 字以内','Use at most 30 characters for your signature'],
+ INTRODUCTION_TOO_LONG:['自我介绍请控制在 300 字以内','Use at most 300 characters for your introduction'],
  'review-lab':['开发者','Developer'],
  COMMON_EVENT:['共同参加过活动','Attended the same event'],COMMON_SPACE:['关注同一空间','Follow the same space'],COMMON_RECOMMENDATION:['推荐过同一活动','Recommended the same event'],COMMON_INTEREST:['同城且兴趣相近','Shared interests in your city'],
  DEMO_NETWORK:['演示加载失败，请到“我的 → 开发者”检查场景设置','Demo loading error. Check Me → Developer.'],CODE_REQUIRED:['请填写验证码','Enter the verification code'],DEMO_CODE_INVALID:['演示验证码为 706000','The demo code is 706000'],readContact:['读取获准分享的联系方式','Read consented contact'],noContact:['该成员尚未填写联系方式','No contact details provided'],checkIn:['签到','Check in'],checkedIn:['已签到','Checked in'],withdrawRecommendation:['撤回推荐','Withdraw recommendation']
+});
+Object.assign(words,{
+ PHONE_INVALID:['请输入有效的 11 位中国大陆手机号','Enter a valid mainland China mobile number'],
+ PHONE_CODE_REQUIRED:['请先为当前手机号获取验证码','Request a code for this phone number first'],
+ PHONE_CODE_INVALID:['验证码不正确或已过期，请重试','The code is invalid or expired. Please retry'],
+ PHONE_BIND_UNAVAILABLE:['手机号验证暂未开通，可先返回浏览，稍后再试','Phone verification is unavailable. You can keep browsing and retry later'],
+ PHONE_BIND_UNCONFIRMED:['尚未确认手机号绑定成功，请稍后重试','Phone binding has not been confirmed. Please retry'],
+ PHONE_ACCOUNT_CONFLICT:['该号码涉及其他账号，请联系支持处理，当前微信账号未切换','This phone is linked to another account. Contact support. Your current account has not changed'],
+ SMS_COOLDOWN:['验证码发送太频繁，请稍后再试','Please wait before requesting another code'],
+ SMS_HOURLY_LIMIT:['本小时验证码次数已用完，请稍后再试','The hourly SMS limit has been reached. Try again later']
 });
 function dictionary(locale){return Object.fromEntries(Object.entries(words).map(([k,v])=>[k,v[locale==='en'?1:0]]));}
 function message(error,t){const raw=error?.message||error?.code||'SERVER';const code=Object.keys(words).find(k=>/^[A-Z_]+$/.test(k)&&raw.includes(k));if(t[code])return t[code];if(t[error?.code])return t[error.code];if(error?.message&&!/^[A-Z0-9_]+$/.test(error.message))return error.message;return t.SERVER;}
