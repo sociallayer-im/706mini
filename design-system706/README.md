@@ -77,3 +77,5 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 表单默认ChoiceGroup保留真实Radio/Checkbox，兴趣、隐私、参与方式等不能套用筛选外观。原生显式appearance="filter"才进入无bullet样式；Web SegmentedControl默认筛选样式，表单ChoiceGroup默认保持输入控件。旧20px指示器规则仅用于仍有指示器的表单用途。
 
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
+
+日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。

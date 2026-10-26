@@ -61,3 +61,5 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 最新用户决定取代前述筛选圆点修补：筛选全部纯文字Badge/Chip，时间/空间互斥与独立组合布尔筛选不变；表单Radio/Checkbox不变。Web和原生筛选都复用FilterChip/Button compact，新增appearance=filter明确用途。实测Web三类筛选点击区44px、可见面28px、字体12px、padding4px 12px相同，筛选DOM输入控件0，表单checkbox仍存在。选择切换及组合结果见evidence/page-gutters/filter-web.json。
 
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
+
+日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。

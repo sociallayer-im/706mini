@@ -1,0 +1,195 @@
+### Result
+{
+  "buttons": [
+    {
+      "width": 320,
+      "state": "normal",
+      "control": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "face": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 320,
+      "state": "disabled",
+      "control": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "face": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 320,
+      "state": "loading",
+      "control": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "face": {
+        "width": 236,
+        "right": 312,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 320,
+      "state": "long",
+      "control": {
+        "width": 236,
+        "right": 312,
+        "height": 58
+      },
+      "face": {
+        "width": 236,
+        "right": 312,
+        "height": 58
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 390,
+      "state": "normal",
+      "control": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "face": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 390,
+      "state": "disabled",
+      "control": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "face": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 390,
+      "state": "loading",
+      "control": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "face": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 390,
+      "state": "long",
+      "control": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "face": {
+        "width": 306,
+        "right": 382,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 430,
+      "state": "normal",
+      "control": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "face": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 430,
+      "state": "disabled",
+      "control": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "face": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 430,
+      "state": "loading",
+      "control": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "face": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "remainingRight": 8
+    },
+    {
+      "width": 430,
+      "state": "long",
+      "control": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "face": {
+        "width": 346,
+        "right": 422,
+        "height": 44
+      },
+      "remainingRight": 8
+    }
+  ],
+  "calendar": {
+    "transform": "rotate(180deg)",
+    "start": "2026年11月一二三四",
+    "forward": "2026年12月一二三四",
+    "back": "2026年11月一二三四"
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => {const out=[];for(const width of [320,390,430])for(const state of [\'normal\',\'disabled\',\'loading\',\'long\']){const h=document.createElement(\'div\');h.style=`width:${width}px;display:flex;gap:8px;padding:8px`;document.body.append(h);const a=DS706.Button({label:\'推荐\'}),b=DS706.Button({label:state===\'long\'?\'申请参加这一次非常期待的城市交流活动\':\'申请报名\',grow:true,variant:\'primary\',disabled:state===\'disabled\',loading:state===\'loading\'});h.append(a,b);const r=n=>({width:n.getBoundingClientRect().width,right:n.getBoundingClientRect().right,height:n.getBoundingClientRect().height});out.push({width,state,control:r(b),face:r(b.firstChild),remainingRight:width-b.getBoundingClientRect().right});h.remove();}const cal=DS706.Calendar();document.body.append(cal);const next=cal.querySelector(\'[aria-label="下个月"]\');const transform=next.querySelector(\'img\').style.transform;const start=cal.textContent;next.click();const forward=cal.textContent;cal.querySelector(\'[aria-label="上个月"]\').click();const back=cal.textContent;cal.remove();return {buttons:out,calendar:{transform,start:start.slice(0,12),forward:forward.slice(0,12),back:back.slice(0,12)}};}');
+```

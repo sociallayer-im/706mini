@@ -7,3 +7,5 @@
 /* Normalize native choice geometry: no UA margin is added to the declared gap or inset. */
 .choice>input[type=checkbox],.choice>input[type=radio]{display:block;box-sizing:border-box;width:var(--choiceIndicator);height:var(--choiceIndicator);flex:0 0 var(--choiceIndicator);margin:0;padding:0;align-self:center}
 .filter-choices{display:flex;flex-wrap:wrap;align-items:center;gap:var(--actionGap)}
+
+.button.is-grow{flex:1 1 0%;min-width:var(--touchTarget)}.button.is-grow .face{width:100%;flex:1;min-width:0}.button .face>span:last-child{min-width:0;overflow-wrap:anywhere}

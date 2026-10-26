@@ -1,8 +1,8 @@
-图标按钮。必须提供可读label；返回/关闭复用真实本地图标。
+图标按钮。必须提供可读label；返回/关闭复用真实本地图标。direction默认none保留图形；以左箭头资源为基准，previous=left不旋转、next=right旋转180度，up=90度、down=-90度，仅旋转glyph，不旋转触控区；页面返回保持默认。
 
 ## 调用参数
 
-`icon:string; label:string; size:number; surface:surface|plain|glass; disabled:boolean; onPress:()=>void`
+`icon:string; label:string; direction:none|left|right|up|down; size:number; surface:surface|plain|glass; disabled:boolean; onPress:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"IconButton",props)`。所有数据为textContent，不接受任意HTML。
 

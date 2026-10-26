@@ -1,0 +1,414 @@
+Window: "706-community", App: 微信开发者工具.
+0 标准窗口 706-community, Secondary Actions: Raise
+	1 HTML 内容 file:///Applications/wechatwebdevtools.app/Contents/Resources/app.asar/html/electron-project.html?projectpath=%2FUsers%2Fshing%2FProjects%2F706mini&projectname=706-community&projectid=%2FUsers%2Fshing%2FProjects%2F706mini&theme=dark&skeletonPath=%2FUsers%2Fshing%2FLibrary%2FApplication%20Support%2F%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2Fd1e8765721a6c23d43b14c95b1843e6b%2FWeappCache%2FskeletonCache%2Faae4a44ce864d0fd6d3c38ebdb1cf9da%2Fpageskeleton.html&appid=touristappid&frame=0&devid=s1&runtimeid=1&devtype=miniprogram&proxyPort=15489&userDataPath=%2FUsers%2Fshing%2FLibrary%2FApplication%2520Support%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%25BC%2580%25E5%258F%2591%25E8%2580%2585%25E5%25B7%25A5%25E5%2585%25B7%2Fd1e8765721a6c23d43b14c95b1843e6b&appVersion=2.02.2608080&appVersionType=0
+		2 container
+			3 文本 微信开发者工具 Stable 2.02.2608080
+			4 container
+				5 text 小程序模式
+			6 文本 预览
+			7 文本 真机调试
+			8 文本 上传
+			9 未加标签的图片 要获取缺失的图片说明，请打开上下文菜单。
+			10 container
+				11 container
+					12 container
+						13 text 预览 编辑
+					14 container
+						15 text 普通编译
+					16 container
+						17 container
+							18 text 14 : 44
+						19 container
+							20 链接
+							21 链接
+						22 HTML 内容 Webview: pages/discover/index, URL: 127.0.0.1:45417/__pageframe__/pages/discover/index
+							23 container
+								24 按钮 上海
+									25 文本 上海
+								26 文本栏 (settable) 
+搜索活动、成员、组织和空间
+									27 文本栏 (settable)
+									28 文本 搜索活动、成员、组织和空间
+								29 按钮 搜索活动、成员、组织和空间
+							30 列表框 活动专题
+								31 container 活动专题
+									32 container
+										33 container
+											34 text 多城联动 · 706 客厅对话 我们为什么留在这里？ 用放映、散步、共读记录城市里的连接。上海、杭州、北京各有一场。
+										35 container
+											36 图像
+											37 文本 一起出门寻秋吧，各地的朋友们
+											38 文本 你窗外的秋天
+											39 文本 十月最后一个星期二上午十一点，异地出动上街寻秋
+							40 container 活动日历
+								41 文本 活动日历
+								42 文本 本周 1 个空间 · 4 场活动
+							43 活动时段
+								44 单选按钮 Description: 本周, Value: 1
+									45 文本 本周
+								46 单选按钮 Description: 下周, Value: 0
+									47 文本 下周
+								48 单选按钮 Description: 本月, Value: 0
+									49 文本 本月
+							50 container 全部空间
+								51 container
+									52 单选按钮 Description: 全部空间, Value: 1
+										53 文本 全部空间
+									54 单选按钮 Description: 上海706, Value: 0
+										55 文本 上海706
+							56 container
+								57 切换按钮 Description: 免费, Value: 0
+									58 文本 免费
+								59 切换按钮 Description: 有名额, Value: 0
+									60 文本 有名额
+							61 文本 4 场活动
+							62 container
+								63 文本 秋日放映：城市游牧者
+								64 container 报名中 · 已报名 3 人，共 20 个名额
+									65 文本 报名中 3/20
+								66 text 10月26日（周一） 19:00–21:30 上海706客厅 禾舟 免费 706 活动
+							67 container
+								68 文本 苏州河慢走：寻找城市缝隙
+								69 container 报名中 · 已报名 3 人，共 16 个名额
+									70 文本 报名中 3/16
+								71 text 10月27日（周二） 14:00–17:00 上海706客厅 林叶 免费 706 活动
+							72 container
+								73 文本 社区功能许愿工作坊
+								74 container 报名中 · 已报名 2 人，共 12 个名额
+									75 文本 报名中 2/12
+								76 text 10月29日（周四） 19:00–21:00 上海706客厅 禾舟 免费 706 活动
+							77 container
+								78 文本 周末共读：我们如何一起生活
+								79 container 报名中 · 已报名 0 人，不限名额
+									80 文本 报名中 0 人参加
+								81 text 11月1日（周日） 14:00–17:00 上海706客厅 星桥 免费 706 活动
+							82 按钮 发布活动
+							83 container
+								84 按钮 关注
+									85 文本 关注
+								86 按钮 发现
+									87 文本 发现
+								88 按钮 消息
+									89 文本 消息
+								90 按钮 我的
+									91 文本 我的
+						92 container
+							93 链接
+							94 链接
+						95 HTML 内容 Webview: pages/calendar/index, URL: 127.0.0.1:45417/__pageframe__/pages/calendar/index
+							96 container
+								97 按钮 返回
+								98 文本 活动日历
+							99 活动时段
+								100 单选按钮 Description: 本周, Value: 0
+									101 文本 本周
+								102 单选按钮 Description: 本月, Value: 1
+									103 文本 本月
+							104 按钮 生成海报
+								105 文本 生成海报
+							106 按钮 上一期
+							107 文本 2026年10月
+							108 按钮 下一期
+							109 container 全部空间
+								110 container
+									111 单选按钮 Description: 全部空间, Value: 1
+										112 文本 全部空间
+									113 单选按钮 Description: 上海706, Value: 0
+										114 文本 上海706
+							115 container
+								116 切换按钮 Description: 免费, Value: 0
+									117 文本 免费
+								118 切换按钮 Description: 有名额, Value: 0
+									119 文本 有名额
+							120 container
+								121 text 一 二 三 四 五 六 日
+								122 切换按钮 (disabled) Description: blank-0, Value: 0
+								123 切换按钮 (disabled) Description: blank-1, Value: 0
+								124 切换按钮 (disabled) Description: blank-2, Value: 0
+								125 切换按钮 Description: 2026-10-01, Value: 0
+								126 切换按钮 Description: 2026-10-02, Value: 0
+								127 切换按钮 Description: 2026-10-03, Value: 0
+								128 切换按钮 Description: 2026-10-04, Value: 0
+								129 切换按钮 Description: 2026-10-05, Value: 0
+								130 切换按钮 Description: 2026-10-06, Value: 0
+								131 切换按钮 Description: 2026-10-07, Value: 0
+								132 切换按钮 Description: 2026-10-08, Value: 0
+								133 切换按钮 Description: 2026-10-09, Value: 0
+								134 切换按钮 Description: 2026-10-10, Value: 0
+								135 切换按钮 Description: 2026-10-11, Value: 0
+								136 切换按钮 Description: 2026-10-12, Value: 0
+								137 切换按钮 Description: 2026-10-13, Value: 0
+								138 切换按钮 Description: 2026-10-14, Value: 0
+								139 切换按钮 Description: 2026-10-15, Value: 0
+								140 切换按钮 Description: 2026-10-16, Value: 0
+								141 切换按钮 Description: 2026-10-17, Value: 0
+								142 切换按钮 Description: 2026-10-18, Value: 0
+								143 文本 1 场
+								144 切换按钮 Description: 2026-10-19, Value: 0
+								145 切换按钮 Description: 2026-10-20, Value: 0
+								146 切换按钮 Description: 2026-10-21, Value: 0
+								147 文本 1 场
+								148 切换按钮 Description: 2026-10-22, Value: 0
+								149 文本 2 场
+								150 切换按钮 Description: 2026-10-23, Value: 0
+								151 文本 1 场
+								152 切换按钮 Description: 2026-10-24, Value: 0
+								153 切换按钮 Description: 2026-10-25, Value: 0
+								154 切换按钮 Description: 2026-10-26, Value: 0
+								155 文本 1 场
+								156 切换按钮 Description: 2026-10-27, Value: 0
+								157 文本 1 场
+								158 切换按钮 Description: 2026-10-28, Value: 0
+								159 切换按钮 Description: 2026-10-29, Value: 0
+								160 文本 1 场
+								161 切换按钮 Description: 2026-10-30, Value: 0
+								162 切换按钮 Description: 2026-10-31, Value: 0
+							163 文本 ● 有活动
+							164 文本 6 场活动
+							165 文本 本月活动
+							166 文本 6 场活动
+							167 container
+								168 按钮 已经结束的社区共读
+								169 container 已结束 · 已报名 1 人，共 12 个名额
+									170 文本 已结束 1/12
+								171 text 10月18日（周日） 14:00–17:00 上海706客厅 禾舟 免费 706 活动
+							172 container
+								173 按钮 黄浦江边一起跑步
+								174 container 已结束 · 已报名 1 人，共 10 个名额
+									175 文本 已结束 1/10
+								176 text 10月21日（周三） 12:00–10-22 12:00 3mycx5sdix4zl · 黄浦江 · 黄浦江 jiangjia 免费 706 活动
+							177 container
+								178 按钮 上海打牌
+								179 container 已结束 · 已报名 0 人，不限名额
+									180 文本 已结束 0 人参加
+								181 text 10月22日（周四） 12:00–10-23 12:00 上海706 jiangjia 免费 706 活动
+							182 container
+								183 按钮 秋日放映：城市游牧者
+								184 container 报名中 · 已报名 3 人，共 20 个名额
+									185 文本 报名中 3/20
+								186 text 10月26日（周一） 19:00–21:30 上海706客厅 禾舟 免费 706 活动
+							187 container
+								188 按钮 苏州河慢走：寻找城市缝隙
+								189 container 报名中 · 已报名 3 人，共 16 个名额
+									190 文本 报名中 3/16
+								191 text 10月27日（周二） 14:00–17:00 上海706客厅 林叶 免费 706 活动
+							192 container
+								193 按钮 社区功能许愿工作坊
+								194 container 报名中 · 已报名 2 人，共 12 个名额
+									195 文本 报名中 2/12
+								196 text 10月29日（周四） 19:00–21:00 上海706客厅 禾舟 免费 706 活动
+							197 container
+								198 文本 绘图区域
+								199 图像
+						200 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/s1/_sessionId/simulator-app-session-s1/mainframe?load
+							201 container
+								202 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792997030229&autoload#id_1
+								203 HTML 内容 127.0.0.1:45417/appservice/appContext?contextName=app&id=ifr-1_2#id_1
+								204 HTML 内容 127.0.0.1:45417/appservice/app_xrframe_renderContext?contextName=app_xrframe_render&id=ifr-1_3&empty=true#id_1
+								205 HTML 内容 127.0.0.1:45417/appservice/app_sub_debugContext?contextName=app_sub_debug&id=ifr-1_4&empty=true#id_1
+								206 HTML 内容 小程序逻辑层, URL: 127.0.0.1:45417/appservice/instanceframe?s=1792997030229#id_2
+						207 container
+							208 链接
+							209 链接
+					210 container
+						211 文本 iPhone 12/13 (Pro) 102% 16
+					212 container
+						213 文本 页面路径
+					214 文本 pages/calendar/index
+					215 链接 复制
+				216 container
+					217 container
+						218 container
+							219 文本 706mini
+							220 工具栏
+								221 按钮 Toggle Primary Side Bar (⌘K ⌘B)
+									222 文本 
+								223 按钮 切换面板 (⌘J)
+									224 文本 
+								225 按钮 Toggle Secondary Side Bar (⌥⌘B)
+									226 文本 
+						227 container
+							228 container
+								229 标签组 活动视图切换器
+									230 标签 (selected) 资源管理器 (⌘K ⇧⌘E), Value: 1
+										231 container 资源管理器 (⌘K ⇧⌘E)
+											232 文本 
+									233 标签 (settable, integer) Search (⇧⌘F), Value: 0
+										234 container Search (⇧⌘F)
+											235 文本 
+									236 标签 (settable, integer) Description: 源代码管理 (⌃⇧G) - 23 个挂起的更改, Value: 0
+										237 文本 
+									238 标签 (settable, integer) 扩展 (⇧⌘X), Value: 0
+										239 container 扩展 (⇧⌘X)
+											240 文本 
+									241 弹出式按钮 其他视图
+										242 文本 
+								243 container
+									244 标题 资源管理器, Help: 资源管理器 (⌘K ⇧⌘E), Value: 2
+										245 文本 资源管理器
+									246 内容列表 资源管理器操作
+										247 弹出式按钮 Views and More Actions...
+									248 container
+										249 container
+											250 按钮 文件资源管理器部分
+												251 文本 
+												252 标题 Description: 文件资源管理器部分, Help: 706mini, Value: 3
+													253 文本 706MINI
+											254 外框 树
+												255 container
+													256 row .openai
+														257 container
+															258 文本 
+															259 文本 .openai
+													260 row .playwright-mcp
+														261 container
+															262 文本 
+															263 container ~/Projects/706mini/.playwright-mcp • 包含强调项
+																264 文本 .playwright-mcp
+																265 文本 
+													266 row data-integration-review
+														267 container
+															268 文本 
+															269 文本 data-integration-review
+													270 row design-system706
+														271 container
+															272 文本 
+															273 container ~/Projects/706mini/design-system706 • 包含强调项
+																274 文本 design-system706
+																275 文本 
+													276 row dist
+														277 container
+															278 文本 
+															279 文本 dist
+													280 row docs
+														281 container
+															282 文本 
+															283 文本 docs
+													284 row miniprogram
+														285 container
+															286 文本 
+															287 container ~/Projects/706mini/miniprogram • 包含强调项
+																288 文本 miniprogram
+																289 文本 
+													290 row scripts
+														291 container
+															292 文本 
+															293 container ~/Projects/706mini/scripts • 包含强调项
+																294 文本 scripts
+																295 文本 
+													296 row test
+														297 container
+															298 文本 
+															299 文本 test
+													300 row .gitignore
+														301 container
+															302 文本 .gitignore
+													303 row AGENTS.md
+														304 container
+															305 文本 AGENTS.md
+													306 row project.config.json
+														307 container
+															308 文本 project.config.json
+													309 row project.private.config.json
+														310 container
+															311 文本 project.private.config.json
+													312 row README.md
+														313 container
+															314 文本 README.md
+										315 按钮 大纲 Section
+											316 文本 
+											317 标题 大纲, Value: 3
+												318 文本 大纲
+										319 按钮 时间线 Section
+											320 文本 
+											321 标题 时间线, Value: 3
+												322 文本 时间线
+							323 container
+								324 container
+									325 container 第 1 组 (空)
+										326 container
+											327 定义列表
+												328 container 显示所有命令
+													329 文本 显示所有命令
+												330 container Command+K Command+P
+													331 text ⌘ K ⌘ P
+											332 定义列表
+												333 container Go to File
+													334 文本 Go to File
+												335 container Command+P
+													336 text ⌘ P
+											337 定义列表
+												338 container 在文件中查找
+													339 文本 在文件中查找
+												340 container Shift+Command+F
+													341 text ⇧ ⌘ F
+											342 定义列表
+												343 container 开始调试
+													344 文本 开始调试
+												345 文本 F5
+											346 定义列表
+												347 container 切换终端
+													348 文本 切换终端
+												349 container Control+`
+													350 text ⌃ `
+								351 container
+									352 标签组 活动视图切换器
+										353 标签 (settable, integer) Description: 构建 - Logs: 31, Value: 0
+											354 container 构建 - Logs: 31
+												355 文本 构建
+											356 container 构建 - Logs: 31
+												357 文本 31
+										358 标签 (selected) Description: 调试器 - Errors: 0, Warnings: 13, Value: 1
+											359 文本 调试器
+											360 文本 13
+										361 标签 (settable, integer) Description: 问题 (⌘K ⇧⌘M) - 总计 0 个问题, Value: 0
+											362 文本 问题
+										363 标签 (settable, integer) Description: 输出, Value: 0
+											364 文本 输出
+										365 标签 (settable, integer) Description: 调试控制台 (⇧⌘Y), Value: 0
+											366 文本 调试控制台
+										367 标签 (settable, integer) 终端 (⌃`), Value: 0
+											368 container 终端 (⌃`)
+												369 文本 终端
+										370 标签 (settable, integer) 代码质量, Value: 0
+											371 container 代码质量
+												372 文本 代码质量
+									373 工具栏 调试器操作
+									374 工具栏
+										375 按钮 最大化面板大小
+											376 文本 
+										377 按钮 关闭面板
+											378 文本 
+									379 container
+						380 container
+							381 container 706mini (Git) - main*, Checkout Branch/Tag...
+								382 按钮 706mini (Git) - main*, Checkout Branch/Tag...
+									383 文本 
+									384 文本  main*
+							385 container 706mini (Git) - Synchronize Changes
+								386 按钮 706mini (Git) - Synchronize Changes
+							387 container 没有问题
+								388 按钮 没有问题
+									389 文本 
+									390 文本  0 
+									391 文本 
+									392 文本  0
+							393 container 进度和简要通知
+							394 container undefined
+	395 关闭按钮
+	396 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	397 最小化按钮
+398 menu bar
+	399 微信开发者工具
+	400 项目
+	401 文件
+	402 编辑
+	403 工具
+	404 跳转
+	405 选择
+	406 界面
+	407 设置
+	408 插件
+	409 帮助
+
+The focused UI element is 22 HTML 内容 Webview: pages/discover/index, URL: 127.0.0.1:45417/__pageframe__/pages/discover/index

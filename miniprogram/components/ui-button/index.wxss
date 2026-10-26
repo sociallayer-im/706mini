@@ -20,3 +20,6 @@
 .align-start{justify-content:flex-start}.align-start .control-face{padding-left:0;padding-right:0;justify-content:flex-start;text-align:left}.control-icon{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}
 
 .is-grow{flex:1 1 0%;min-width:var(--touchTarget)}
+
+/* grow fills both native hit box and painted face; inline buttons stay intrinsic. */
+.is-grow .control-face{width:100%;flex:1;min-width:0}

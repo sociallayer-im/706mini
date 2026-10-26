@@ -1,0 +1,32 @@
+{
+  "wcc": {
+    "files": 90,
+    "exit": 0,
+    "stderr": ""
+  },
+  "wcsc": {
+    "files": 49,
+    "exit": 0,
+    "stderr": ""
+  },
+  "verify-native-system.cjs": {
+    "exit": 0,
+    "stdout": "{\n  \"scope\": \"offline native component and page interaction contracts; not GUI/device acceptance\",\n  \"checks\": 28,\n  \"passed\": 28,\n  \"failed\": [],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "stderr": ""
+  },
+  "verify-paper-layout.cjs": {
+    "exit": 0,
+    "stdout": "Paper layout contracts: native header 320/375/430, fallback, bilingual capacity/host states, compact card and developer entry passed; networkCalls=0.\n",
+    "stderr": ""
+  },
+  "verify-page-gutters.cjs": {
+    "exit": 0,
+    "stdout": "{\n  scope: 'source layout contracts; GUI and browser geometry recorded separately',\n  pages: 42,\n  horizontalRails: 5,\n  pageRails: 4,\n  containedHeaderRails: 1,\n  sourceChecks: 'pass',\n  networkCalls: 0,\n  productionWrites: 0\n}\n",
+    "stderr": ""
+  },
+  "verify-event-gallery.cjs": {
+    "exit": 0,
+    "stdout": "Event gallery: multi-select capacity/order, oversize rejection, partial-failure draft retention, preview, swipe, cross-row reorder/cover and cancelled-drag rollback passed; no network.\n",
+    "stderr": ""
+  }
+}

@@ -1,8 +1,8 @@
-动作按钮。执行单一动作；主按钮一组最多一个。点击区与可见面分开，loading保留底色并阻止重复。align:start用于正文左缘文字操作，保留44px透明点击区。
+动作按钮。执行单一动作；主按钮一组最多一个。点击区与可见面分开，loading保留底色并阻止重复。align:start用于正文左缘文字操作，保留44px透明点击区。grow仅用于flex动作栏主CTA，同时撑满触控盒与可见背景，普通内联按钮不自动全宽。
 
 ## 调用参数
 
-`label:string; variant:primary|secondary|text|danger|selected; compact,block,disabled,loading:boolean; align:center|start; onPress:()=>void`
+`label:string; variant:primary|secondary|text|danger|selected; compact,block,grow,disabled,loading:boolean; align:center|start; onPress:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Button",props)`。所有数据为textContent，不接受任意HTML。
 

@@ -9,3 +9,8 @@
 .is-pressed .ui-icon-button-face{opacity:var(--pressOpacity)}
 .ui-icon-button.is-disabled .ui-icon-button-face{background:var(--control);opacity:1}
 .ui-icon-button.is-disabled .ui-icon-button-glyph{opacity:.5}
+
+/* Direction applies only to the left-pointing arrow glyph, never the hit area. */
+.direction-right{transform:rotate(180deg)}
+.direction-up{transform:rotate(90deg)}
+.direction-down{transform:rotate(-90deg)}

@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T05:05:40.546895+00:00",
-    "via": "Codex · message filter viewport fix",
-    "note": "Message filter viewport follows full touch area; shared navigation reserves max(capsule,touchTarget); native 390/320 and simulator font26 screenshots, 27 contracts, layout checks and 90WXML/49WXSS compilation passed; no real-device edge-touch claim"
+    "at": "2026-10-26T06:50:09.897178+00:00",
+    "via": "Codex · calendar directions and growing CTA",
+    "note": "IconButton directions preserve back and map next to right; native week/month forward/back verified. Explicit grow fills both button and face; native event CTA checked at 390/320. Web normal/disabled/loading/long checks at 320/390/430. 28 native contracts plus layout/gallery/gutter checks and direct compilation pass."
   },
   "localAssets": [
     {
