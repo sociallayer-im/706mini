@@ -4,8 +4,9 @@
 .control-face{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:var(--spaceUnit);width:auto;max-width:100%;min-height:var(--controlHeight);padding:var(--actionGap) var(--controlStandardInset);border-radius:var(--pill);background:var(--control);transition:opacity var(--pressDuration) ease-out}
 .control-label{min-width:0;overflow-wrap:anywhere}
 .variant-primary .control-face{background:var(--accent)}
-.context-canvas.variant-secondary .control-face,.context-canvas.variant-selection .control-face{background:var(--surface)}
-.variant-text .control-face,.variant-danger .control-face{background:transparent}
+.context-canvas.variant-selection .control-face{background:var(--surface)}
+.variant-text .control-face{background:transparent}
+.variant-danger .control-face{background:var(--control)}
 .variant-danger{color:var(--danger)}
 .variant-selection.is-selected .control-face{background:var(--ink);color:var(--surface)}
 .is-compact{font-size:var(--typeFact)}
@@ -17,7 +18,8 @@
 .spinner{box-sizing:border-box;flex:none;width:var(--typeFact);height:var(--typeFact);border:var(--stroke) solid currentColor;border-right-color:transparent;border-radius:50%;animation:button-spin var(--loadingDuration) linear infinite}
 @keyframes button-spin{to{transform:rotate(360deg)}}
 
-.align-start{justify-content:flex-start}.align-start .control-face{padding-left:0;padding-right:0;justify-content:flex-start;text-align:left}.control-icon{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}
+.align-start{justify-content:flex-start}.align-start .control-face{justify-content:flex-start;text-align:left}
+.align-start.variant-text .control-face{padding-left:0;padding-right:0}.control-icon{flex:none;width:var(--iconControlGlyph);height:var(--iconControlGlyph)}
 
 .is-grow{flex:1 1 0%;min-width:var(--touchTarget)}
 

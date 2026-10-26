@@ -2,4 +2,6 @@
 .heading{display:flex;align-items:center;gap:var(--actionGap)}
 .status-icon{display:block;flex:none;width:var(--sectionGap);height:var(--sectionGap)}
 .title{flex:1;min-width:0;font-size:var(--typeTitle);font-weight:600;line-height:1.4}
-.context{margin-top:var(--itemGap)}
+.description{display:block;margin:var(--resultDescriptionGap) 0 0;font-size:var(--typeBody);font-weight:400;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.context{margin-top:var(--resultDescriptionGap)}
+.actions{margin-top:var(--resultActionGap)}

@@ -1,7 +1,10 @@
-<view class="field {{error ? 'invalid' : ''}}" style="{{theme}}">
+<view class="field shape-{{shape}} {{standalone ? 'is-standalone' : ''}} {{error ? 'invalid' : ''}}" style="{{theme}}">
  <text wx:if="{{label}}" class="label">{{label}}<text wx:if="{{optional}}" class="optional">{{optionalLabel}}</text></text>
  <slot wx:if="{{custom}}"/>
- <textarea wx:elif="{{type === 'area' || type === 'textarea'}}" class="input textarea" value="{{value}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" disabled="{{disabled}}" auto-height="{{autoHeight}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
- <input wx:else class="input" type="{{type}}" value="{{value}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" disabled="{{disabled}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
+ <view wx:else class="control-surface">
+  <textarea wx:if="{{type === 'area' || type === 'textarea'}}" class="input textarea" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="input-placeholder" maxlength="{{maxlength}}" disabled="{{disabled}}" auto-height="{{autoHeight}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindchange="change" bindblur="blur" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
+  <input wx:else class="input single-line" type="{{type}}" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="input-placeholder" maxlength="{{maxlength}}" disabled="{{disabled}}" cursor-spacing="{{cursorSpacing}}" bindinput="input" bindchange="change" bindblur="blur" bindkeyboardheightchange="keyboard" aria-label="{{label || placeholder}}"/>
+  <text wx:if="{{showCount}}" class="count">{{characterCount}} / {{maxlength}}</text>
+ </view>
  <text wx:if="{{hint}}" class="hint">{{hint}}</text><text wx:if="{{error}}" class="error" role="alert">{{error}}</text>
 </view>

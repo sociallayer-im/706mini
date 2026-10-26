@@ -1,1 +1,1 @@
-<view style="{{theme}}" class="notice state-{{state}}" role="{{state === 'error' ? 'alert' : 'status'}}"><text class="copy">{{text}}</text><slot/><ui-button wx:if="{{action}}" label="{{action}}" compact variant="text" disabled="{{disabled}}" bind:press="press"/></view>
+<view style="{{theme}}" class="notice state-{{state}}" role="{{state === 'error' ? 'alert' : 'status'}}"><text class="copy">{{text}}</text><slot/><ui-button wx:if="{{action}}" label="{{action}}" compact variant="secondary" disabled="{{disabled}}" bind:press="press"/></view>

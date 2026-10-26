@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "ui-button": "/components/ui-button/index",
-    "ui-follow-control": "/components/ui-follow-control/index"
+    "ui-follow-control": "/components/ui-follow-control/index",
+    "ui-identity-row": "/components/ui-identity-row/index"
   }
 }

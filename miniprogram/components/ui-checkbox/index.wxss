@@ -1,1 +1,4 @@
 /* Layout and visuals are owned by ui-choice-group. */
+
+@import "../ui-choice-group/index.wxss";
+.secondary-copy{font-size:var(--typeMeta);color:var(--muted);line-height:var(--choiceIndicator);align-items:flex-start}.secondary-copy .choice-indicator{margin:0}.secondary-copy .choice-copy{padding:0;overflow-wrap:anywhere}

@@ -1,4 +1,4 @@
 <view style="{{theme}}" class="{{rail ? 'in-rail' : ''}} person-card {{locale === 'en' ? 'is-english' : ''}}">
  <text wx:if="{{reason}}" class="person-reason">{{reason}}</text>
- <view class="person-content" bindtap="open"><image class="avatar" src="{{person.avatar_url}}"/><view class="person-copy"><text class="person-name">{{person.display_name}}</text><text class="person-bio">{{person.bio}}</text></view><view class="person-action" catchtap="stop"><ui-follow-control primary following="{{person.following}}" label="{{(person.following ? (locale === 'en' ? 'Following' : '已关注') : t.follow) || ''}}" disabled="{{disabled}}" bind:press="follow"/></view></view>
+ <ui-identity-row src="{{person.avatar_url || ''}}" name="{{person.display_name || ''}}" description="{{person.bio || ''}}" size="42" flush interactive bind:press="open"><view slot="actions" class="person-action" catchtap="stop"><ui-follow-control primary following="{{person.following}}" label="{{(person.following ? (locale === 'en' ? 'Following' : '已关注') : t.follow) || ''}}" disabled="{{disabled}}" bind:press="follow"/></view></ui-identity-row>
 </view>

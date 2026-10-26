@@ -1,1 +1,1 @@
-<view style="{{theme}}" class="group"><text wx:if="{{title}}" class="title">{{title}}</text><view class="surface"><slot/></view></view>
+<view style="{{theme}}" class="group {{flush ? 'is-flush' : ''}}"><text wx:if="{{title && !titleInside}}" class="title">{{title}}</text><view class="surface"><text wx:if="{{title && titleInside}}" class="inside-title">{{title}}</text><slot/></view></view>

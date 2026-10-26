@@ -567,6 +567,8 @@ async function markRead(id) {
   return { ok: true };
 }
 async function saveEvent(params) {
+  const methods=params.access?.methods||(params.access?[params.access]:[]);
+  if(methods.some(method=>['ORGANIZER_WECHAT','OTHER'].includes(method.type)))fail('ACCESS_METHOD_NOT_SUPPORTED');
   const groupId = params.organization_id || params.space_id || (await personalGroup()).id;
   let placeId = null;
   if (!params.space_id && params.venue_name && params.address) placeId = await ensurePlace(groupId, { name: params.venue_name, address: params.address, city: params.city });

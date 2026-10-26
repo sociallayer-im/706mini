@@ -60,13 +60,15 @@
     {
       "family": "ActionRow",
       "components": [
-        "ui-action-row"
+        "ui-action-row",
+        "ui-fact-row"
       ],
       "sources": [
-        "miniprogram/components/ui-action-row/index"
+        "miniprogram/components/ui-action-row/index",
+        "miniprogram/components/ui-fact-row/index"
       ],
       "status": "source-integrated",
-      "note": "原生组件；业务处理由页面控制器承担。"
+      "note": "操作行与只读事实行复用同类图文信息层级；事实行仅 interactive 时显示跳转箭头并发送 press。"
     },
     {
       "family": "FormField",
@@ -1074,7 +1076,6 @@
       "entry": "miniprogram/pages/campaign/index.wxml",
       "template": "miniprogram/templates/screen.wxml",
       "families": [
-        "EntityCard",
         "Section",
         "LinkList",
         "EventCard",
@@ -1083,22 +1084,25 @@
         "LoadingState",
         "EmptyState",
         "Notice",
-        "Sheet"
+        "Sheet",
+        "Gallery",
+        "MenuGroup",
+        "ActionRow"
       ],
       "nativeComponents": [
         "ui-action-row",
         "ui-button",
         "ui-empty-state",
-        "ui-entity-card",
         "ui-event-card",
         "ui-icon-button",
         "ui-loading-state",
         "ui-menu-group",
         "ui-notice",
         "ui-section",
-        "ui-sheet"
+        "ui-sheet",
+        "ui-gallery"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "专题封面复用 Gallery；介绍与资料复用 Section + MenuGroup + ActionRow；活动复用 EventCard。条件与权限仍由共享模板及控制器维护。"
     },
     {
       "route": "pages/campaign-edit/index",

@@ -1,1 +1,1 @@
-<view style="{{theme}}"><ui-button label="{{(label) || ''}}" variant="{{following ? 'text' : primary ? 'primary' : 'secondary'}}" compact disabled="{{disabled}}" loading="{{loading}}" bind:press="press"/></view>
+<view style="{{theme}}"><ui-button label="{{(label) || ''}}" variant="{{following ? 'secondary' : primary ? 'primary' : 'secondary'}}" compact disabled="{{disabled}}" loading="{{loading}}" bind:press="press"/></view>

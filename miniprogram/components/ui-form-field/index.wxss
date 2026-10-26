@@ -1,1 +1,13 @@
-.field{margin-bottom:var(--itemGap);color:var(--ink)}.label{display:block;font-size:var(--typeBody);font-weight:600;margin-bottom:var(--headingGap);line-height:1.5}.optional{font-size:var(--typeFact);font-weight:400;color:var(--muted);margin-left:var(--actionGap)}.input{box-sizing:border-box;width:100%;min-height:var(--controlHeight);padding:var(--headingGap);border:var(--stroke) solid var(--line);border-radius:var(--radiusInput);background:var(--surface);color:var(--ink);font-size:var(--typeBody);line-height:1.7}.textarea{min-height:160rpx}.invalid .input{border-color:var(--danger)}.hint,.error{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.hint{color:var(--muted)}.error{color:var(--danger)}
+@import "../../styles/input-placeholder.wxss";
+.field{box-sizing:border-box;min-width:0;max-width:100%;margin-bottom:var(--itemGap);color:var(--ink)}
+.label{display:block;font-size:var(--typeBody);font-weight:600;margin-bottom:var(--headingGap);line-height:1.5}
+.optional{font-size:var(--typeFact);font-weight:400;color:var(--muted);margin-left:var(--actionGap)}
+.control-surface{box-sizing:border-box;width:100%;max-width:100%;min-width:0;min-height:var(--controlHeight);padding:var(--fieldInsetBlock) var(--fieldInsetInline);border:var(--stroke) solid var(--line);border-radius:var(--radiusField);background:var(--surface)}
+.input{box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;min-height:var(--fieldLineHeight);margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink);font-size:var(--typeFact);font-weight:400;line-height:var(--fieldLineHeight)}
+.single-line{height:var(--fieldLineHeight)}
+.textarea{min-height:132rpx;overflow:visible}
+.shape-pill .textarea{min-height:var(--fieldLineHeight)}
+.invalid .control-surface{border-color:var(--danger)}
+.count{display:block;margin-top:var(--spaceUnit);color:var(--muted);font-size:var(--typeMeta);line-height:1.5;text-align:right}
+.hint,.error{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.hint{color:var(--muted)}.error{color:var(--danger)}
+.field.is-standalone{margin-bottom:0}

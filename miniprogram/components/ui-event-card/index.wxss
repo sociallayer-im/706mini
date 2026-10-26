@@ -2,8 +2,6 @@
 .event-main{display:flex;gap:0;align-items:stretch}
 .event-info{box-sizing:border-box;flex:1;min-width:0;min-height:var(--eventArtHeight);padding:22rpx 18rpx;display:flex;flex-direction:column;align-self:stretch}
 .event-title{display:block;flex:none;min-height:0;font-size:var(--typeEvent);line-height:1.3;font-weight:700;letter-spacing:-.5rpx;margin:0 0 14rpx;white-space:normal;overflow-wrap:anywhere}
-.event-title-link{box-sizing:border-box;width:100%;max-width:100%;margin:0 0 14rpx;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink);text-align:left;white-space:normal;line-height:1.3}
-.event-title-link::after{border:0}
 .event-side{display:flex;align-items:center;flex:0 0 var(--eventArtWidth);width:var(--eventArtWidth);min-height:var(--eventArtHeight);background:transparent}
 .event-cover{display:block;flex:none;width:var(--eventArtWidth);height:var(--eventArtHeight);border:0;border-radius:var(--eventArtRadius)}
 .event-art{overflow:hidden;border-radius:var(--eventArtRadius)}

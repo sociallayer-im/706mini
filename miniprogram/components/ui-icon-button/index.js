@@ -8,11 +8,12 @@ Component({
     direction: { type: String, value: 'none' },
     size: { type: Number, value: Number.parseFloat(theme.tokens.iconControlFallback) },
     surface: { type: String, value: 'surface' },
-    disabled: Boolean
+    disabled: Boolean,
+    loading: Boolean
   },
   methods: {
     onPress() {
-      if (!this.data.disabled) this.triggerEvent('press');
+      if (!this.data.disabled && !this.data.loading) this.triggerEvent('press');
     }
   }
 });

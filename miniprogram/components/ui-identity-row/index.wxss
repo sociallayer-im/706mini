@@ -1,4 +1,6 @@
-.identity{display:flex;align-items:flex-start;gap:var(--actionGap);padding:var(--headingGap) 0}.copy{flex:1;min-width:0}.name{display:block;font-size:var(--typeBody);font-weight:600;line-height:1.4;overflow-wrap:anywhere}.description{display:block;color:var(--muted);font-size:var(--typeFact);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}.actions{flex:none;align-self:center}
+.identity{display:flex;align-items:center;gap:var(--identityGap);padding:var(--headingGap) 0}.copy{flex:1;min-width:0}.name{display:block;font-size:var(--typeSection);font-weight:600;line-height:1.4;overflow-wrap:anywhere}.description{display:block;margin-top:var(--spaceUnit);color:var(--muted);font-size:var(--typeBody);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}.actions{flex:none;align-self:center}
 .is-stacked{flex-direction:column;align-items:center;gap:8rpx;width:100%;padding:0;text-align:center}
 .is-stacked .copy{flex:none;width:100%}
 .is-stacked .name{font-size:var(--typeFact);font-weight:500;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.is-flush{padding:0}

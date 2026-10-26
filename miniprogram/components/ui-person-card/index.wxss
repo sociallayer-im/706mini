@@ -1,10 +1,5 @@
 .person-card{box-sizing:border-box;display:inline-block;vertical-align:top;width:var(--stickerWidth);min-height:var(--stickerHeight);margin:0 var(--actionGap) var(--spaceUnit) 0;padding:var(--headingGap);border:0;border-radius:var(--radius);background:var(--peopleSurface);color:var(--ink);white-space:normal;text-align:left}
 .person-reason{display:block;max-width:100%;margin:0 0 var(--actionGap);font-size:var(--typeLabel);line-height:1.4;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
-.person-content{display:flex;align-items:flex-start;gap:18rpx}
-.avatar{flex:none;width:var(--stickerAvatar);height:var(--stickerAvatar);margin:0;border:0;border-radius:50%;background:var(--control)}
-.person-copy{flex:1;min-width:0}
-.person-name{display:block;font-size:var(--typeBody);line-height:1.4;font-weight:600;white-space:normal;overflow-wrap:anywhere}
-.person-bio{display:block;margin-top:6rpx;font-size:var(--typeMeta);line-height:1.5;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
 .person-action{flex:none;align-self:center;max-width:140rpx}
 
 .in-rail{flex:none;margin:0}

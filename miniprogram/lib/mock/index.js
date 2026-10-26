@@ -146,7 +146,7 @@ async function call(name,args={}){
  if(name==='read')result=read(args.op,args.params);
  else if(name==='write'){const key=user()+':'+args.key,input=JSON.stringify([args.op,args.params]);const prior=db.commands[key];if(!['access','registrationContact'].includes(args.op)&&prior){if(prior.input!==input)fail('IDEMPOTENCY_CONFLICT');return clone(prior.result);}result=write(args.op,args.params);if(!['access','registrationContact'].includes(args.op))db.commands[key]={input,result:clone(result)};}
  else if(name==='payment'){const r=get(args.id,'registration');if(r.owner!==user())fail('FORBIDDEN');if(r.status!=='APPROVED_AWAITING_PAYMENT'||r.payment_expires_at<=now())fail('STATUS_CONFLICT');result=save(r,{status:'CONFIRMED',demo_payment:true});notice(r.owner,'CONFIRMED',{route:'event-access',id:r.id});}
- else if(name==='wechatLogin'){db.persona=db.persona||'demo-new';result={user:session()};}
+ else if(name==='wechatLogin'){db.persona=db.persona||'demo-new';if(db.persona==='demo-new'){const pr=profile();save(pr,{display_name:pr.display_name||'初芽',avatar_url:pr.avatar_url||'/assets/demo/avatar-3.png'});}result={user:session()};}
  else if(name==='phoneCode'){user();if(!/^1[3-9]\d{9}$/.test(args.phone||''))fail('PHONE_INVALID');db.phoneChallenge={owner:user(),phone:args.phone,at:Date.now()};result={ok:true};}
  else if(name==='bindPhone'){const c=db.phoneChallenge;if(!c||c.owner!==user()||c.phone!==args.phone||Date.now()-c.at>1800000||args.code!=='706000')fail('PHONE_CODE_INVALID');save(profile(),{phone_verified:true});delete db.phoneChallenge;result=read('account');}
  else if(name==='calendarCode'){result={demo:true,items:events(args.params),code:null};}
@@ -164,6 +164,12 @@ function startNewUserJourney(){
  wx.removeStorageSync('706.account-draft.mock.demo-new');
  const draft='706.draft.mock.'+db.version+'.edit-profile.new.demo-new';wx.removeStorageSync(draft);wx.removeStorageSync(draft+'.step');
 }
+// A developer snapshot of the prior WeChat selection; never used by live transport.
+function previewNewUserProfile(){
+ state();db.persona='demo-new';db.scenario='normal';
+ save(profile(),{display_name:'初芽',avatar_url:'/assets/demo/avatar-3.png',bio:'',introduction:'',city:'shanghai',phone_verified:true,onboarded:false});
+ wx.removeStorageSync('706.account-draft.mock.demo-new');persist();
+}
 async function login(mode,address,code){if(code){if(code!=='706000')fail('DEMO_CODE_INVALID');configure({persona:'demo-member'});}return {demo:true};}
 function localMedia(path){const r=put('media',{url:path});persist();return {id:r.id,url:path,preview_url:path};}
-module.exports={call,login,logout:async()=>configure({persona:''}),close(){},session,setSession(u){configure({persona:u?.id||''});},state:()=>clone(state()),configure,reset,startNewUserJourney,personas:fixtures.personas,localMedia};
+module.exports={call,login,logout:async()=>configure({persona:''}),close(){},session,setSession(u){configure({persona:u?.id||''});},state:()=>clone(state()),configure,reset,startNewUserJourney,previewNewUserProfile,personas:fixtures.personas,localMedia};

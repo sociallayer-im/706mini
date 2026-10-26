@@ -15,3 +15,7 @@
 .screen.community-edition .filter-options{margin:0}
 .screen.community-edition .filter-options .chip{font-size:24rpx;line-height:1.4;padding:9rpx 18rpx;border:0;background:var(--surface)}
 .screen.community-edition.page-discover .section-heading{font-size:var(--typeSection);line-height:1.4;font-weight:600;margin:0 0 28rpx}
+
+/* Discovery filters share the controls’ hit-height; avoid stacking row margins and section padding. */
+.screen.community-edition.page-discover .filters{margin:0 0 var(--actionGap)}
+.screen.community-edition.page-discover .filter-group{min-height:var(--touchTarget);margin:0}

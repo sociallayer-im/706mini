@@ -63,3 +63,12 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
 
 日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。
+
+
+2026-10-27 身份布局更新：用户要求全局沿用最新的姓名／城市层级，替代历史顶部对齐决定。IdentityRow 与原生 ui-identity-row 统一为文字组垂直居中、名称 typeSection、说明 typeBody、行距 spaceUnit、图文距 identityGap；Web／原生 PersonCard 均直接组合身份组件。评论正文继续顶部对齐。空间／组织的地址和营业时间与活动详情共用原生 ui-fact-row，只读状态不显示箭头；未关注主操作恢复黄色。原生模拟器已核查发现页推荐用户卡及空间主页。
+
+
+2026-10-27 专题详情统一：移除独立 series-hero 遮罩和字号，封面复用原生 Gallery，标题／城市采用现有文字角色；资料入口组合 Section、MenuGroup、ActionRow，恢复分组圆角，分享与管理沿用标准等宽按钮。介绍／资料／活动为空时隐藏栏目标题。原有复制资料、分享、编辑、删除权限及活动跳转保持。映射同步至 native-mapping，模拟器核查专题正文与资料卡，原生编译及目录交互检查通过。
+
+
+2026-10-27 顶部导航：原生 main-navigation::before 去除 canvas／chromeSoft 的浅色渐变填充，只保留透明背景、navigationBlur 与现有渐隐 mask；navigationFade 及布局不变。所有主标签页、任务页、活动／专题／空间／组织封面共用，底部胶囊的材料仍按自身组件规则。

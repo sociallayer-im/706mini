@@ -1,1 +1,1 @@
-原生706 identity-row组件。视觉与交互外壳复用theme令牌，业务权限、请求、草稿与状态机留在调用页面。
+共用身份行。名称 typeSection（32rpx）、城市／简介 typeBody（28rpx），两行间距 spaceUnit（8rpx），图文间距 identityGap；文字组沿头像垂直居中。我的、公开成员、活动发起人、空间／组织主页、成员列表与用户卡共用。头像尺寸按原语境保留；stacked 单行头像横列保留紧凑姓名角色。flush 关闭行内留白，交由外层卡片提供。custom 槽仍应沿用相同文字层级。interactive 时发送 press，disabled 时阻止。actions 槽的独立操作自行拦截原生 tap。

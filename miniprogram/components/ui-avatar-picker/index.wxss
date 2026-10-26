@@ -1,0 +1,1 @@
+.picker{box-sizing:border-box;display:flex;align-items:center;gap:var(--headingGap);width:100%;min-height:var(--touchTarget);margin:0;padding:var(--headingGap);background:var(--surface);color:var(--ink);border:0;border-radius:var(--pill);font-size:var(--typeBody);font-weight:var(--actionWeight);white-space:normal;line-height:1.5;text-align:left}.picker::after{border:0}

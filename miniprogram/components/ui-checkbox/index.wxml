@@ -1,1 +1,3 @@
-<ui-choice-group options="{{options}}" value="{{value}}" disabled="{{disabled}}" layout="{{layout}}" label="{{(label) || ''}}" bindchange="change"/>
+<ui-choice-group wx:if="{{!custom && !secondary}}" options="{{options}}" value="{{value}}" disabled="{{disabled}}" layout="{{layout}}" label="{{(label) || ''}}" bindchange="change"/>
+
+<view wx:else style="{{theme}}"><checkbox-group bindchange="change"><label class="choice choice-row mode-multiple {{checked ? 'is-selected' : ''}} {{secondary ? 'secondary-copy' : ''}}"><view class="choice-indicator"><checkbox class="choice-native" value="checked" checked="{{checked}}" disabled="{{disabled}}" aria-label="{{label}}"/><view class="choice-mark" aria-hidden="true"><view wx:if="{{checked}}" class="choice-tick"/></view></view><view class="choice-copy"><slot wx:if="{{custom}}"/><text wx:else>{{label}}</text></view></label></checkbox-group></view>

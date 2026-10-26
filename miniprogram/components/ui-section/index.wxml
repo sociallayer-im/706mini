@@ -1,1 +1,1 @@
-<view style="{{theme}}" class="section"><view wx:if="{{title || action}}" class="heading"><text class="title">{{title}}</text><ui-button wx:if="{{action}}" label="{{action}}" variant="text" compact bind:press="press"/></view><slot/></view>
+<view style="{{theme}}" class="section inset-{{inset}}"><view wx:if="{{title || action}}" class="heading"><text class="title">{{title}}</text><ui-button wx:if="{{action}}" label="{{action}}" variant="secondary" compact bind:press="press"/></view><slot/></view>

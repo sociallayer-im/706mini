@@ -10,14 +10,16 @@
 - 正文用 `typeBody`（375px基准14px）、1.7行高；主标题 `typeTitle`、活动标题 `typeEvent`、栏目 `typeSection`；事实 `typeFact`，时间 `typeMeta`，只读标签 `typeLabel`。小字不替代正文。
 - 页边用 `pageGutter`，区块间用 `sectionGap`，标题间用 `headingGap`；内容角用 `radius`，图片 `radiusImage`，输入 `radiusInput`，弹层 `radiusSheet`。胶囊只包必要内容。
 - 标准操作用 `controlHeight`，卡片内紧凑操作用 `controlCompactHeight`。透明点击区至少 `touchTarget`，不把最小点击高度涂满成大按钮。长文自然增高，不缩小字。
-- 卡片无常规装饰描边和阴影；字段用 `line`，必要分隔用 `stroke`。导航/底部动作组可用 `navigationSurface` 与 `navigationBlur`，正文不用毛玻璃。
+- 卡片无常规装饰描边和阴影；字段用 `line`，必要分隔用 `stroke`。底部导航胶囊/动作组可用 `navigationSurface` 与 `navigationBlur`，正文不用毛玻璃。全局顶部导航蒙层背景透明，只用 `navigationBlur` 配合渐隐 mask 向下过渡，不叠加白色或画布色，图片封面页与普通页面一致。
 - 按压用 `pressDuration` 与 `pressOpacity`，不缩放几何；等待旋转用 `loadingDuration`，遵循减少动态偏好。焦点使用 `ink` 的3px实线（本次Web适配决定）。
 
 `ink`/`muted`/`danger` 在 `canvas`/`surface` 上可读。保留源代码细灰边：`line` 对白面不足3:1，不能把它声称为完整无障碍控件边界；明确字段标签与深色焦点辅助识别。只有一个来源浅色主题，不凭空制造暗色品牌规范。
 
 ## 身份组合布局
 
-左侧圆形头像或圆形身份标记搭配右侧文本时，使用共享 `identity-layout`：头像与完整文本块顶部对齐，不因简介或评论增高而垂直居中。PersonCard、IdentityRow、CommentThread共用，FeedItem与参与者弹层通过组合继承。独立操作按钮单独决定对齐：PersonCard关注按钮保持居中；不跟随头像强制顶齐。多头像统计行、上下堆叠结果图标及普通功能图标行不是此类身份布局，不机械套用。
+左侧头像搭配右侧名称／城市或简介时，共用 IdentityRow：文字组沿头像垂直居中；名称 typeSection、辅助说明 typeBody，两行间距 spaceUnit，头像到文字 identityGap。PersonCard 直接组合 IdentityRow，FeedItem 与参与者身份列表继承；个人、活动发起人、空间、组织主页沿用相同身份层级。此规则替代早期“身份栏顶部对齐”的约定。头像尺寸按主页／卡片／列表语境保留，长文自然换行，不缩小姓名迁就操作。
+
+评论头像与整段评论正文仍顶部对齐；紧凑头像横列、通知来源、纯统计头像保持各自文字角色。独立关注操作自行居中，不给姓名添加箭头或下划线。空间／组织简介后以事实行排列地址、营业时间，复用活动详情的 ui-fact-row；只读事实没有箭头，关联地点按真实跳转显示交互。未关注为黄色 primary，已关注和分享为灰色 secondary；主页操作等宽铺满行。
 
 ## 图标与字体
 

@@ -1,7 +1,7 @@
 <view class="personal-event" style="{{theme}}">
  <view class="personal-state"><text>{{view.state}}</text></view>
  <view class="summary" role="button" aria-label="{{view.event.title}}" bindtap="open" hover-class="is-pressed">
-  <view class="summary-copy"><text class="title">{{view.event.title}}</text>
+  <view class="summary-copy"><text class="title">{{view.event.title}} <text aria-hidden="true">›</text></text>
    <view class="fact"><image class="fact-icon" src="{{icons.calendar}}" aria-hidden="true"/><text class="fact-copy">{{view.date}}</text></view>
    <view class="fact"><image class="fact-icon" src="{{icons.location}}" aria-hidden="true"/><text class="fact-copy">{{view.venue}}</text></view>
    <view wx:if="{{view.host}}" class="fact"><image class="fact-icon" src="{{icons.group}}" aria-hidden="true"/><text class="fact-copy">{{view.host}}</text></view>

@@ -81,7 +81,7 @@ assert.equal(theme.community.invitation, '#FFFFFF');
 assert.equal(Number.parseFloat(theme.community.eventArtWidth) / Number.parseFloat(theme.community.eventArtHeight), 3/4);
 assert.equal(Number.parseFloat(theme.community.eventRadius), Number.parseFloat(theme.community.eventArtRadius) + Number.parseFloat(theme.community.eventRim));
 const eventCss=read('miniprogram/components/ui-event-card/index.wxss'),personCss=read('miniprogram/components/ui-person-card/index.wxss'),buttonCss=read('miniprogram/components/ui-button/index.wxss');
-assert(eventCss.includes('padding:var(--eventRim)'));assert(eventCss.includes('border-radius:var(--eventArtRadius)'));assert(eventCss.includes('width:var(--eventArtWidth)'));assert(personCss.includes('align-items:flex-start'));assert(personCss.includes('white-space:normal'));assert(personCss.includes('min-width:0'));assert(buttonCss.includes('var(--touchTarget)'));
+assert(eventCss.includes('padding:var(--eventRim)'));assert(eventCss.includes('border-radius:var(--eventArtRadius)'));assert(eventCss.includes('width:var(--eventArtWidth)'));assert(read('miniprogram/components/ui-person-card/index.wxml').includes('<ui-identity-row'));const identityCss=read('miniprogram/components/ui-identity-row/index.wxss');assert(identityCss.includes('align-items:center'));assert(identityCss.includes('min-width:0'));assert(identityCss.includes('font-size:var(--typeSection)'));assert(personCss.includes('white-space:normal'));assert(buttonCss.includes('var(--touchTarget)'));
 assert(read('miniprogram/components/ui-person-card/index.wxml').includes('person.following'));
 assert(read('miniprogram/components/ui-person-card/index.wxml').includes('bind:press="follow"'));
 const iconSource = read('scripts/build-community-icons.cjs');

@@ -66,16 +66,6 @@ text{overflow-wrap:anywhere}
 .detail-facts{padding:20rpx 0;border-top:1rpx solid var(--line);border-bottom:1rpx solid var(--line)}
 .detail-fact{display:flex;align-items:flex-start;gap:20rpx;padding:16rpx 0}
 .fact-main{display:block;font-size:28rpx;font-weight:600}
-.series-hero{position:relative;overflow:hidden;border-radius:28rpx;min-height:360rpx;display:flex;align-items:flex-end}
-.series-art{position:absolute;inset:0;width:100%;height:100%}
-.series-tint{position:absolute;inset:0;width:100%;height:100%}
-.series-tint{background:linear-gradient(100deg,#e2f7edee,#f1f4e5bb,#e1edf5bb)}
-.series-copy{position:relative;padding:40rpx 28rpx}
-.series-kicker{font-size:24rpx;color:var(--muted);display:block}
-.series-copy .hero-title{font-size:42rpx;margin:14rpx 0}
-.series-cities{font-size:24rpx;line-height:1.7;display:block}
-.series-actions{margin:24rpx 0}
-.series-about{border-bottom:1rpx solid var(--line)}
 .page-calendar .filters>.chips:first-child{display:flex;align-items:center}
 .page-calendar .calendar-period{font-size:26rpx;margin:8rpx 0 22rpx}
 .page-calendar .calendar-results-title{margin:24rpx 0 8rpx}

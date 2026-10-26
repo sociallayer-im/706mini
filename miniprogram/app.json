@@ -103,6 +103,8 @@
     "ui-stat-link": "/components/ui-stat-link/index",
     "ui-status-summary": "/components/ui-status-summary/index",
     "ui-stepper": "/components/ui-stepper/index",
-    "ui-switch": "/components/ui-switch/index"
+    "ui-switch": "/components/ui-switch/index",
+    "ui-avatar-picker": "/components/ui-avatar-picker/index",
+    "ui-fact-row": "/components/ui-fact-row/index"
   }
 }

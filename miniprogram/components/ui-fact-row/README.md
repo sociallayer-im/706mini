@@ -1,0 +1,1 @@
+只读事实／关联地点信息行。由活动详情的时间、地点、费用行提取，空间／组织地址与营业时间复用。icon 使用 iconControlGlyph，label 使用 typeBody，description 使用 typeFact；图文 gap=headingGap，上下 padding=actionGap，正文与说明 gap=spaceUnit。interactive=true 时显示箭头并发送 press，否则只读且不发送事件。业务路由、权限和数据仍由页面提供。
