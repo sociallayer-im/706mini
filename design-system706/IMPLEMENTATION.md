@@ -37,3 +37,9 @@ SegmentedControl复用ChoiceGroup；原生radio默认margin叠加了定义的gap
 人工核验39/42注册路由、20/20种弹层的阅读/编辑面；33/48当前待查看目录入口直接访问，另沿页面自然递归。84份原始快照排除11份加载中/旧页尝试，73份核验快照保留。不是118入口全部实访，也不是20弹层全部状态转移验收。
 
 未进入：spaces与following当前无可操作GUI入口；invitations当前离线r12数据没有管理员邀请通知入口。未制造数据、改编译配置或开启CLI端口来凑覆盖。payment仅在过期凭证下从离线目录打开模拟付款阅读面，未点击付款。结束已恢复原Montana模式和原演示身份。完整原因与证据编号见evidence/native-review/coverage.json。
+
+## 用户反馈修复：身份头像顶部对齐
+
+PersonCard与IdentityRow原先align-items:center导致头像随多行文本整体居中。统一为identity-layout共享布局，PersonCard、IdentityRow、CommentThread均显式使用顶部对齐；FeedItem和参与者身份列表通过组合继承。PersonCard独立关注按钮使用align-self:center，不因头像顶对齐改变其操作位置。多头像统计行、上下堆叠结果图标、普通功能图标行不机械套用。规则写入README与对应组件指南，并由build.cjs生成保持可继承。
+
+浏览器24个默认/长文、320/375/768px组合：头像与文本块顶部差均0px，无溢出；关注按钮中心误差小于0.004px。回复文字左缘仍为0px差，分段单选仍为零margin、8px gap、12px左右内边距。截图person-top-375.png及person-top-long-320.png。

@@ -1365,7 +1365,7 @@
     "name": "PersonCard",
     "title": "人物推荐卡",
     "props": "name,bio:string; following:boolean",
-    "guide": "身份、简介与关注并列；取消关注需确认，整卡不抢独立操作。",
+    "guide": "头像与右侧身份/简介文本块顶部对齐；关注按钮独立居中。取消关注需确认，整卡不抢独立操作。",
     "examples": [
       {
         "label": "默认",
@@ -3897,7 +3897,7 @@
     "name": "CommentThread",
     "title": "评论与回复",
     "props": "name,text:string",
-    "guide": "提供本机回复弹层，空回复不提交；回复为无图标文字操作，与正文左缘对齐。真实发布由使用方绑定。",
+    "guide": "提供本机回复弹层，空回复不提交；头像与右侧评论文本块顶部对齐；回复为无图标文字操作，与正文左缘对齐。真实发布由使用方绑定。",
     "examples": [
       {
         "label": "默认",
@@ -4083,7 +4083,7 @@
     "name": "IdentityRow",
     "title": "身份行",
     "props": "name,description,src:string; size:number",
-    "guide": "组合Avatar与文字，不附加无依据的身份或活跃程度。",
+    "guide": "组合Avatar与文字，头像与右侧文本块顶部对齐，不随多行简介垂直居中；不附加无依据的身份或活跃程度。",
     "examples": [
       {
         "label": "默认",

@@ -133,5 +133,39 @@
     "actualCatalogEntries": 33,
     "visiblePendingCatalogEntries": 48,
     "historicalCatalogEntries": 118
+  },
+  "identityTopAlignment": {
+    "components": [
+      "PersonCard",
+      "IdentityRow",
+      "CommentThread",
+      "FeedItem (composed)"
+    ],
+    "inheritedBy": [
+      "ParticipantSummary identity list"
+    ],
+    "cases": 24,
+    "widths": [
+      320,
+      375,
+      768
+    ],
+    "content": [
+      "default",
+      "long"
+    ],
+    "avatarMinusTextTop": 0,
+    "overflowCases": 0,
+    "personActionButton": "independently centered; maximum rounding error under 0.004px",
+    "regressions": {
+      "replyLeftDelta": 0,
+      "segmentedMargin": "0px",
+      "segmentedGap": "8px",
+      "segmentedPadding": "4px 12px"
+    },
+    "screenshots": [
+      "person-top-375.png",
+      "person-top-long-320.png"
+    ]
   }
 }
