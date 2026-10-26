@@ -1,0 +1,9 @@
+HTML 内容 Webview: pages/publish/index, URL: 127.0.0.1:45417/__pageframe__/pages/publish/index
+							23 container
+								24 按钮 返回
+								25 文本 发布活动
+							26 文本 活动已提交审核
+							27 文本 所在小组会收到审核申请，通过后自动公开。
+							28 按钮 查看审核进度
+							29 按钮 进入社区
+						30 

@@ -1,0 +1,27 @@
+HTML 内容 Webview: pages/onboarding/index, URL: 127.0.0.1:45417/__pageframe__/pages/onboarding/index
+							23 container
+								24 按钮 返回
+								25 文本 新人资料
+							26 文本 1
+							27 文本 打个招呼
+							28 文本 2
+							29 文本 找到同好
+							30 文本 3
+							31 文本 准备出发
+							32 文本 打个招呼
+							33 文本 先告诉大家怎么称呼你、你在哪座城市。头像可稍后补充。
+							34 container
+								35 text 头像 选填
+								36 图像
+								37 按钮 选择图片
+							38 container
+								39 文本 昵称
+								40 文本栏 (settable) 初芽 · 演示新人
+									41 文本栏 (settable) 初芽 · 演示新人
+							42 container
+								43 文本 城市
+								44 文本 上海
+							45 container
+								46 按钮 存草稿
+								47 按钮 下一步
+						48 

@@ -1,0 +1,265 @@
+{
+  "method": "微信开发者工具原生UI操作与AX完整快照；仅本机离线演示。源码只用于查找入口和解释缺口，不计真实访问。",
+  "app": "微信开发者工具 Stable 2.02.2608080",
+  "device": "iPhone 12/13 (Pro) simulator",
+  "date": "2026-10-26",
+  "visitedRoutes": [
+    "pages/activity-preview/index",
+    "pages/admins/index",
+    "pages/approval-detail/index",
+    "pages/approval-progress/index",
+    "pages/approvals/index",
+    "pages/attendees/index",
+    "pages/calendar/index",
+    "pages/campaign-approval-detail/index",
+    "pages/campaign-create/index",
+    "pages/campaign-edit/index",
+    "pages/campaign-review-progress/index",
+    "pages/campaign/index",
+    "pages/create-space/index",
+    "pages/discover/index",
+    "pages/drafts/index",
+    "pages/edit-entity/index",
+    "pages/edit-profile/index",
+    "pages/entity-events/index",
+    "pages/entity-members/index",
+    "pages/event-access/index",
+    "pages/event/index",
+    "pages/feed/index",
+    "pages/feedback/index",
+    "pages/login/index",
+    "pages/manage/index",
+    "pages/me/index",
+    "pages/member/index",
+    "pages/messages/index",
+    "pages/more/index",
+    "pages/my-campaigns/index",
+    "pages/my-events/index",
+    "pages/onboarding/index",
+    "pages/org/index",
+    "pages/privacy/index",
+    "pages/publish/index",
+    "pages/registrations/index",
+    "pages/relations/index",
+    "pages/review-lab/index",
+    "pages/space/index"
+  ],
+  "unvisitedRoutes": [
+    {
+      "route": "pages/spaces/index",
+      "reason": "注册了空间目录，但本次可见关注/发现/我的及48项待查看目录没有可操作入口；未开启CLI端口、未改编译配置、未执行跳转JS。"
+    },
+    {
+      "route": "pages/following/index",
+      "reason": "注册的旧关注列表路由，当前可见关注数入口实际进入relations，待查看目录无该路由入口；未以视觉重复当到达。"
+    },
+    {
+      "route": "pages/invitations/index",
+      "reason": "当前离线r12消息未展示管理员邀请通知，6条原型通知的目标为审核/参与方式/成员/空间；未创建邀请或重置数据以制造入口。"
+    }
+  ],
+  "visitedSheets": [
+    "about",
+    "city",
+    "comment",
+    "group",
+    "invite",
+    "language",
+    "manage",
+    "member",
+    "mini",
+    "notifications",
+    "official",
+    "participants",
+    "payment",
+    "poster",
+    "recap",
+    "recommend",
+    "register",
+    "report",
+    "return",
+    "why"
+  ],
+  "unvisitedSheets": [],
+  "sheetEvidence": {
+    "participants": {
+      "record": 17,
+      "label": "公开参与者弹层",
+      "route": "pages/event/index"
+    },
+    "comment": {
+      "record": 18,
+      "label": "评论与回复弹层",
+      "route": "pages/event/index"
+    },
+    "group": {
+      "record": 22,
+      "label": "演示群二维码弹层",
+      "route": "pages/event-access/index"
+    },
+    "official": {
+      "record": 32,
+      "label": "演示公众号弹层",
+      "route": "pages/space/index"
+    },
+    "recap": {
+      "record": 33,
+      "label": "演示回顾文章弹层",
+      "route": "pages/space/index"
+    },
+    "manage": {
+      "record": 34,
+      "label": "空间管理弹层",
+      "route": "pages/space/index"
+    },
+    "return": {
+      "record": 48,
+      "label": "退回修改",
+      "route": "pages/approval-detail/index"
+    },
+    "register": {
+      "record": 49,
+      "label": "报名申请",
+      "route": "pages/event/index"
+    },
+    "recommend": {
+      "record": 52,
+      "label": "推荐活动",
+      "route": "pages/event/index"
+    },
+    "mini": {
+      "record": 53,
+      "label": "小程序菜单",
+      "route": "pages/feed/index"
+    },
+    "about": {
+      "record": 54,
+      "label": "关于弹层",
+      "route": "pages/feed/index"
+    },
+    "city": {
+      "record": 55,
+      "label": "选择城市",
+      "route": "pages/more/index"
+    },
+    "language": {
+      "record": 56,
+      "label": "选择语言",
+      "route": "pages/more/index"
+    },
+    "member": {
+      "record": 57,
+      "label": "成员操作",
+      "route": "pages/member/index"
+    },
+    "why": {
+      "record": 58,
+      "label": "推荐原因",
+      "route": "pages/feed/index"
+    },
+    "payment": {
+      "record": 63,
+      "label": "活动付款",
+      "route": "pages/event-access/index"
+    },
+    "notifications": {
+      "record": 70,
+      "label": "通知设置弹层",
+      "route": "pages/more/index"
+    },
+    "poster": {
+      "record": 76,
+      "label": "日历海报预览完成",
+      "route": "pages/calendar/index"
+    },
+    "invite": {
+      "record": 78,
+      "label": "邀请管理员弹层",
+      "route": "pages/admins/index"
+    },
+    "report": {
+      "record": 80,
+      "label": "举报弹层",
+      "route": "pages/member/index"
+    }
+  },
+  "actualCatalogEntries": [
+    "编辑个人资料",
+    "我报名的活动",
+    "我发布的活动",
+    "活动草稿",
+    "空间主页",
+    "组织主页",
+    "空间全部活动",
+    "空间活跃成员",
+    "管理员设置",
+    "发布 ① 活动信息",
+    "发布 ② 报名设置",
+    "发布 ③ 确认提交",
+    "提交成功",
+    "活动预览",
+    "审核待办",
+    "审核完成",
+    "活动审核详情",
+    "退回修改",
+    "报名申请",
+    "直接报名",
+    "加入候补",
+    "推荐活动",
+    "小程序菜单",
+    "选择城市",
+    "选择语言",
+    "成员操作",
+    "推荐原因",
+    "新人三步引导",
+    "创建专题",
+    "专题审核 · 平台",
+    "专题审核进度",
+    "活动付款",
+    "活动群二维码"
+  ],
+  "counts": {
+    "registeredRoutes": 42,
+    "visitedRoutes": 39,
+    "unvisitedRoutes": 3,
+    "requiredSheets": 20,
+    "visitedSheets": 20,
+    "rawSnapshots": 84,
+    "reviewedSnapshots": 73,
+    "actualCatalogEntries": 33,
+    "visiblePendingCatalogEntries": 48,
+    "historicalCatalogEntries": 118
+  },
+  "restoredOriginalMode": true,
+  "restorationEvidence": {
+    "record": 84,
+    "text": "Montana / 切换演示数据"
+  },
+  "originalMode": "Montana",
+  "originalDemoPersonaRestored": "禾舟 · 演示发起人",
+  "sideEffects": [
+    "临时切换本机离线演示及演示身份；目录按自身说明切到上海。结束已恢复原Montana模式，演示身份恢复禾舟。",
+    "浏览表单时保留已有内容，未输入或发送新内容。未重置演示数据、草稿或业务状态。",
+    "没有点击通知正文，因此本次没有为访问invitations写入已读状态。"
+  ],
+  "boundaries": [
+    "39路由进入不等于42路由或118入口全部实访。",
+    "20种弹层均看到阅读/编辑面；不代表其提交成功、失败、键盘、弱网等全部转移已真实执行。",
+    "payment由离线目录在已过期凭证下打开模拟付款阅读面，未点击模拟付款，更未真实付款。",
+    "微信授权、验证码发送、真实支付、扫码、相册选择/保存权限、真机键盘及弱网没有执行。",
+    "没有修改小程序代码、编译配置、CLI安全端口、用户登录配置或真实业务记录。"
+  ],
+  "excludedRawRecords": [
+    2,
+    4,
+    9,
+    12,
+    13,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26
+  ]
+}

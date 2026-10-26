@@ -1,0 +1,14 @@
+HTML 内容 Webview: pages/admins/index, URL: 127.0.0.1:45417/__pageframe__/pages/admins/index
+							23 container
+								24 按钮 返回
+								25 文本 管理员
+							26 按钮 邀请管理员
+							27 文本 有效
+							28 文本 ENTITY
+							29 文本 有效
+							30 文本 ENTITY
+							31 按钮 撤销管理员
+							32 文本 有效
+							33 文本 ENTITY
+							34 按钮 撤销管理员
+						35 

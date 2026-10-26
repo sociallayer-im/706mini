@@ -1,0 +1,17 @@
+HTML 内容 Webview: pages/campaign-review-progress/index, URL: 127.0.0.1:45417/__pageframe__/pages/campaign-review-progress/index
+							23 container
+								24 按钮 返回
+								25 文本 专题审核进度
+							26 文本 审核中
+							27 文本 把客厅打开
+							28 文本 正在等待必要审核方处理。你可以在下面查看每一方的进度。
+							29 文本 审核记录
+							30 container
+								31 text 706 城市运营 已通过 2026-10-09 16:13
+							32 container
+								33 text 组织管理员 已通过 2026-10-09 11:00
+							34 container
+								35 text 活动发起者 已通过 2026-10-09 11:00
+							36 container
+								37 text 活动发起者 待处理 2026-10-09 11:00
+						38 

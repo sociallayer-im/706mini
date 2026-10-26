@@ -1,0 +1,21 @@
+HTML 内容 Webview: pages/login/index, URL: 127.0.0.1:45417/__pageframe__/pages/login/index
+							41 container
+								42 按钮 返回
+								43 文本 登录
+							44 文本 706
+							45 文本 登录
+							46 文本 发现有意思的人
+							47 文本 演示登录验证码：706000，不发送短信 / 邮件
+							48 文本栏 (settable) 
+手机号
+								49 文本栏 (settable)
+								50 文本 手机号
+							51 按钮 发送验证码
+							52 文本栏 (settable) 
+验证码
+								53 文本栏 (settable)
+								54 文本 验证码
+							55 按钮 登录
+							56 按钮 邮箱
+							57 按钮 微信登录
+						58 

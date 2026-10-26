@@ -1,0 +1,1537 @@
+- generic [active] [ref=f8e1]:
+  - complementary [ref=f8e2]:
+    - link "706 Community" [ref=f8e3] [cursor=pointer]:
+      - /url: "#overview"
+      - text: 706Community
+    - paragraph [ref=f8e4]: 让相聚自然发生
+    - navigation [ref=f8e5]:
+      - link "使用指南" [ref=f8e6] [cursor=pointer]:
+        - /url: "#overview"
+      - link "基础规则" [ref=f8e7] [cursor=pointer]:
+        - /url: "#foundations"
+      - link "通用组件清单" [ref=f8e8] [cursor=pointer]:
+        - /url: "#components"
+      - link "组合流程" [ref=f8e9] [cursor=pointer]:
+        - /url: "#recipes"
+      - link "页面应用地图" [ref=f8e10] [cursor=pointer]:
+        - /url: "#pages"
+      - link "访问与验证证据" [ref=f8e11] [cursor=pointer]:
+        - /url: "#evidence"
+    - paragraph [ref=f8e12]: 独立 Web 组件未应用到小程序
+  - main [ref=f8e13]:
+    - generic [ref=f8e14]:
+      - generic [ref=f8e16]:
+        - heading "706 Community" [level=1] [ref=f8e17]
+        - paragraph [ref=f8e18]: 轻松、清晰、真实的社区界面。
+      - heading "一套可以使用的系统" [level=2] [ref=f8e24]
+      - paragraph [ref=f8e25]: 从关注与发现的中性块面、黄色操作和真实内容中提炼。每个组件累积全部使用页面与具体位置，页面也能反查组件。这里的操作只作用于本机示例。
+      - paragraph [ref=f8e26]: 43 个可执行组件 · 42 个页面映射 · 20 类弹层 · 0 页本次原生到达
+      - generic [ref=f8e27]:
+        - link "品牌与使用手册" [ref=f8e28] [cursor=pointer]:
+          - /url: README.md
+        - link "Tokens" [ref=f8e29] [cursor=pointer]:
+          - /url: tokens.json
+        - link "组件清单 JSON" [ref=f8e30] [cursor=pointer]:
+          - /url: catalog.json
+        - link "API 类型" [ref=f8e31] [cursor=pointer]:
+          - /url: components/index.d.ts
+    - generic [ref=f8e32]:
+      - heading "基础规则" [level=2] [ref=f8e33]
+      - paragraph [ref=f8e34]: 画布保持安静，内容白面、操作黄面。组件不使用装饰描边或常规阴影；输入与同组分隔保留必要细线。点击区至少44px，可见紧凑面28px，两者独立。
+      - generic [ref=f8e35]:
+        - 'button "canvas · #F5F5F2" [ref=f8e36] [cursor=pointer]'
+        - 'button "surface · #FFFFFF" [ref=f8e39] [cursor=pointer]'
+        - 'button "ink · #232323" [ref=f8e42] [cursor=pointer]'
+        - 'button "muted · #6B6B66" [ref=f8e45] [cursor=pointer]'
+        - 'button "accent · #FFE568" [ref=f8e48] [cursor=pointer]'
+        - 'button "accentSoft · #FFF7CC" [ref=f8e51] [cursor=pointer]'
+        - 'button "line · #DDDDD7" [ref=f8e54] [cursor=pointer]'
+        - 'button "danger · #A34035" [ref=f8e57] [cursor=pointer]'
+      - group [ref=f8e60]:
+        - generic "全部基础值与原始来源" [ref=f8e61] [cursor=pointer]
+      - generic [ref=f8e62]:
+        - paragraph [ref=f8e63]: typeTitle / 20px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e64]: typeEvent / 17px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e65]: typeSection / 16px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e66]: typeBody / 14px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e67]: typeFact / 12px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e68]: typeMeta / 11px · 一起认识城市里的活动与人
+        - paragraph [ref=f8e69]: typeLabel / 10px · 一起认识城市里的活动与人
+      - generic [ref=f8e70]:
+        - article [ref=f8e71]:
+          - heading "文字与内容" [level=3] [ref=f8e72]
+          - paragraph [ref=f8e73]: 正文用 typeBody / 1.7 行高；人名与栏目600字重，活动标题700。系统文案可中英文，用户内容保持原文。保留“待审核”“待付款”“已确认”的业务区别。
+        - article [ref=f8e74]:
+          - heading "布局与圆角" [level=3] [ref=f8e75]
+          - paragraph [ref=f8e76]: 375px基准下，页边16px、区块28px，内容角16px、图片12px、弹层24px。窄屏自然换行，长文不缩小字号。尺寸由角色选择，避免调用页面任意覆盖组件几何。
+        - article [ref=f8e77]:
+          - heading "图标与媒体" [level=3] [ref=f8e78]
+          - paragraph [ref=f8e79]: 使用仓库原始线稿图标，禁止emoji补装饰。头像圆形，活动图保留3:4裁切窗口；大图阅读保持原比例。本系统采用系统字体，无额外字体下载，品牌名称是文字而非仿造标志。
+        - article [ref=f8e80]:
+          - heading "状态与动效" [level=3] [ref=f8e81]
+          - paragraph [ref=f8e82]: 按压仅以140ms降低可见面透明度；加载旋转800ms。遵循减少动态偏好。加载拦重复，错误保留内容。状态同时使用文字，焦点环为深色实线。弹层Esc返回，忙碌时锁关闭。
+      - heading "本地图标" [level=3] [ref=f8e83]
+      - generic [ref=f8e84]:
+        - figure "back" [ref=f8e85]
+        - figure "close" [ref=f8e87]
+        - figure "feed" [ref=f8e89]
+        - figure "discover" [ref=f8e91]
+        - figure "messages" [ref=f8e93]
+        - figure "me" [ref=f8e95]
+        - figure "calendar" [ref=f8e97]
+        - figure "location" [ref=f8e99]
+        - figure "group" [ref=f8e101]
+        - figure "search" [ref=f8e103]
+        - figure "publish" [ref=f8e105]
+        - figure "empty" [ref=f8e107]
+        - figure "check" [ref=f8e109]
+        - figure "success" [ref=f8e111]
+        - figure "waiting" [ref=f8e113]
+        - figure "draft" [ref=f8e115]
+        - figure "ticket" [ref=f8e117]
+        - figure "review" [ref=f8e119]
+        - figure "home" [ref=f8e121]
+        - figure "more" [ref=f8e123]
+        - figure "city" [ref=f8e125]
+        - figure "language" [ref=f8e127]
+        - figure "bell" [ref=f8e129]
+        - figure "shield" [ref=f8e131]
+        - figure "info" [ref=f8e133]
+        - figure "feedback" [ref=f8e135]
+        - figure "logout" [ref=f8e137]
+        - figure "edit" [ref=f8e139]
+        - figure "remove" [ref=f8e141]
+        - figure "share" [ref=f8e143]
+        - figure "upload" [ref=f8e145]
+        - figure "link" [ref=f8e147]
+      - paragraph [ref=f8e149]: 来源值保持原样；细灰输入边与白面的对比不足3:1，仅为原样来源记录。焦点使用ink补充；未声称全源系统满足WCAG。
+    - generic [ref=f8e150]:
+      - heading "通用组件清单" [level=2] [ref=f8e151]
+      - paragraph [ref=f8e152]: 同一组件只有一个条目。选择组件后调整参数，查看实际状态与嵌套组合。使用位置来自源码推导，真实访问另列。
+      - generic [ref=f8e153]:
+        - text: 检索组件或页面
+        - searchbox "检索组件或页面" [ref=f8e154]
+      - generic [ref=f8e155]:
+        - navigation "组件目录" [ref=f8e156]:
+          - button "动作按钮 · Button" [ref=f8e157] [cursor=pointer]
+          - button "图标按钮 · IconButton" [ref=f8e158] [cursor=pointer]
+          - button "选择组 · ChoiceGroup" [ref=f8e159] [cursor=pointer]
+          - button "布尔确认 · Checkbox" [ref=f8e160] [cursor=pointer]
+          - button "筛选项 · FilterChip" [ref=f8e161] [cursor=pointer]
+          - button "操作行 · ActionRow" [ref=f8e162] [cursor=pointer]
+          - button "输入字段 · FormField" [ref=f8e163] [cursor=pointer]
+          - button "偏好开关 · Switch" [ref=f8e164] [cursor=pointer]
+          - button "日期时间选择 · DateTimePicker" [ref=f8e165] [cursor=pointer]
+          - button "媒体选择与排序 · MediaUploader" [ref=f8e166] [cursor=pointer]
+          - button "多图阅读 · Gallery" [ref=f8e167] [cursor=pointer]
+          - button "成员头像 · Avatar" [ref=f8e168] [cursor=pointer]
+          - button "人物推荐卡 · PersonCard" [ref=f8e169] [cursor=pointer]
+          - button "活动邀请卡 · EventCard" [ref=f8e170] [cursor=pointer]
+          - button "个人活动摘要 · PersonalEvent" [ref=f8e171] [cursor=pointer]
+          - button "个人专题摘要 · PersonalCampaign" [ref=f8e172] [cursor=pointer]
+          - button "空间/专题轮播 · FeatureCarousel" [ref=f8e173] [cursor=pointer]
+          - button "动态组合 · FeedItem" [ref=f8e174] [cursor=pointer]
+          - button "通知条目 · NotificationItem" [ref=f8e175] [cursor=pointer]
+          - button "日历 · Calendar" [ref=f8e176] [cursor=pointer]
+          - button "结果摘要 · StatusSummary" [ref=f8e177] [cursor=pointer]
+          - button "参与步骤 · AccessStep" [ref=f8e178] [cursor=pointer]
+          - button "审核历史 · ReviewHistory" [ref=f8e179] [cursor=pointer]
+          - button "任务弹层 · Sheet" [ref=f8e180] [cursor=pointer]
+          - button "主导航 · Navigation" [ref=f8e181] [cursor=pointer]
+          - button "步骤指示 · Stepper" [ref=f8e182] [cursor=pointer]
+          - button "空内容承接 · EmptyState" [ref=f8e183] [cursor=pointer]
+          - button "加载状态 · LoadingState" [ref=f8e184] [cursor=pointer]
+          - button "提示与错误 · Notice" [ref=f8e185] [cursor=pointer]
+          - button "内容区块 · Section" [ref=f8e186] [cursor=pointer]
+          - button "空间/组织摘要 · EntityCard" [ref=f8e187] [cursor=pointer]
+          - button "评论与回复 · CommentThread" [ref=f8e188] [cursor=pointer]
+          - button "公开链接组 · LinkList" [ref=f8e189] [cursor=pointer]
+          - button "搜索框 · SearchField" [ref=f8e190] [cursor=pointer]
+          - button "分段单选 · SegmentedControl" [ref=f8e191] [cursor=pointer]
+          - button "身份行 · IdentityRow" [ref=f8e192] [cursor=pointer]
+          - button "可打开统计 · StatLink" [ref=f8e193] [cursor=pointer]
+          - button "分组菜单 · MenuGroup" [ref=f8e194] [cursor=pointer]
+          - button "权限/不可用状态 · PermissionState" [ref=f8e195] [cursor=pointer]
+          - button "只读状态标签 · Badge" [ref=f8e196] [cursor=pointer]
+          - button "底部动作组 · FloatingBar" [ref=f8e197] [cursor=pointer]
+          - button "关注控件 · FollowControl" [ref=f8e198] [cursor=pointer]
+          - button "公开参与者摘要 · ParticipantSummary" [ref=f8e199] [cursor=pointer]
+        - article [ref=f8e200]:
+          - heading "Button · 动作按钮" [level=3] [ref=f8e201]
+          - paragraph [ref=f8e202]: 执行单一动作；主按钮一组最多一个。点击区与可见面分开，loading保留底色并阻止重复。align:start用于正文左缘文字操作，保留44px透明点击区。
+          - generic [ref=f8e203]:
+            - generic [ref=f8e204]:
+              - text: 变体与状态
+              - combobox "变体与状态" [ref=f8e205]:
+                - option "次操作" [selected]
+                - option "主要操作"
+                - option "紧凑操作"
+                - option "文字操作"
+                - option "危险操作"
+                - option "提交中"
+                - option "不可用"
+                - option "整行宽度"
+            - generic [ref=f8e206]:
+              - text: 示例宽度
+              - combobox "示例宽度" [ref=f8e207]:
+                - option "375px" [selected]
+                - option "320px"
+                - option "768px"
+                - option "随容器"
+            - generic [ref=f8e208]:
+              - text: 内容
+              - combobox "内容" [ref=f8e209]:
+                - option "默认" [selected]
+                - option "长文 / English"
+                - option "空内容"
+            - generic [ref=f8e210]:
+              - checkbox "disabled" [ref=f8e211]
+              - text: disabled
+            - generic [ref=f8e212]:
+              - checkbox "loading" [ref=f8e213]
+              - text: loading
+          - button "继续" [ref=f8e216] [cursor=pointer]
+          - status [ref=f8e219]: 交互事件将在这里显示。
+          - group [ref=f8e220]:
+            - generic "参数与实时编辑" [ref=f8e221] [cursor=pointer]
+            - paragraph [ref=f8e222]: label:string; variant:primary|secondary|text|danger|selected; compact,block,disabled,loading:boolean; align:center|start; onPress:()=>void
+            - text: JSON 参数（事件函数由使用方绑定）
+            - textbox "JSON 参数（事件函数由使用方绑定）" [ref=f8e223]: "{}"
+            - button "应用参数" [ref=f8e224] [cursor=pointer]
+            - alert
+          - group [ref=f8e225]:
+            - generic "使用页面与具体位置" [ref=f8e226] [cursor=pointer]
+            - generic [ref=f8e227]:
+              - paragraph [ref=f8e228]:
+                - link "feed" [ref=f8e229] [cursor=pointer]:
+                  - /url: "#page-feed"
+                - text: 关注 · Button语义需求 · miniprogram/templates/screen.wxml:31
+              - paragraph [ref=f8e230]:
+                - link "discover" [ref=f8e231] [cursor=pointer]:
+                  - /url: "#page-discover"
+                - text: 发现 · Button语义需求 · miniprogram/templates/screen.wxml:39
+              - paragraph [ref=f8e232]:
+                - link "me" [ref=f8e233] [cursor=pointer]:
+                  - /url: "#page-me"
+                - text: 我的 · Button语义需求 · miniprogram/templates/screen.wxml:55
+              - paragraph [ref=f8e234]:
+                - link "create-space" [ref=f8e235] [cursor=pointer]:
+                  - /url: "#page-create-space"
+                - text: 创建空间 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e236]:
+                - link "event" [ref=f8e237] [cursor=pointer]:
+                  - /url: "#page-event"
+                - text: row event-secondary-actions · miniprogram/templates/screen.wxml:87
+              - paragraph [ref=f8e238]:
+                - link "event" [ref=f8e239] [cursor=pointer]:
+                  - /url: "#page-event"
+                - text: section event-discussion · miniprogram/templates/screen.wxml:88
+              - paragraph [ref=f8e240]:
+                - link "member" [ref=f8e241] [cursor=pointer]:
+                  - /url: "#page-member"
+                - text: 成员主页 · Button语义需求 · miniprogram/templates/screen.wxml:105
+              - paragraph [ref=f8e242]:
+                - link "space" [ref=f8e243] [cursor=pointer]:
+                  - /url: "#page-space"
+                - text: 空间主页 · Button语义需求 · miniprogram/templates/screen.wxml:113
+              - paragraph [ref=f8e244]:
+                - link "org" [ref=f8e245] [cursor=pointer]:
+                  - /url: "#page-org"
+                - text: 组织主页 · Button语义需求 · miniprogram/templates/screen.wxml:113
+              - paragraph [ref=f8e246]:
+                - link "edit-entity" [ref=f8e247] [cursor=pointer]:
+                  - /url: "#page-edit-entity"
+                - text: 编辑实体 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e248]:
+                - link "admins" [ref=f8e249] [cursor=pointer]:
+                  - /url: "#page-admins"
+                - text: 管理员 · Button语义需求 · miniprogram/templates/screen.wxml:193
+              - paragraph [ref=f8e250]:
+                - link "edit-profile" [ref=f8e251] [cursor=pointer]:
+                  - /url: "#page-edit-profile"
+                - text: 编辑资料 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e252]:
+                - link "onboarding" [ref=f8e253] [cursor=pointer]:
+                  - /url: "#page-onboarding"
+                - text: 新人引导 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e254]:
+                - link "calendar" [ref=f8e255] [cursor=pointer]:
+                  - /url: "#page-calendar"
+                - text: 活动日历 · Button语义需求 · miniprogram/templates/screen.wxml:39
+              - paragraph [ref=f8e256]:
+                - link "campaign" [ref=f8e257] [cursor=pointer]:
+                  - /url: "#page-campaign"
+                - text: 专题详情 · Button语义需求 · miniprogram/templates/screen.wxml:100
+              - paragraph [ref=f8e258]:
+                - link "campaign-edit" [ref=f8e259] [cursor=pointer]:
+                  - /url: "#page-campaign-edit"
+                - text: 编辑专题 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e260]:
+                - link "campaign-create" [ref=f8e261] [cursor=pointer]:
+                  - /url: "#page-campaign-create"
+                - text: 创建专题 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e262]:
+                - link "campaign-approval-detail" [ref=f8e263] [cursor=pointer]:
+                  - /url: "#page-campaign-approval-detail"
+                - text: 专题审核详情 · Button语义需求 · miniprogram/templates/screen.wxml:147
+              - paragraph [ref=f8e264]:
+                - link "campaign-review-progress" [ref=f8e265] [cursor=pointer]:
+                  - /url: "#page-campaign-review-progress"
+                - text: 专题审核进度 · Button语义需求 · miniprogram/templates/screen.wxml:157
+              - paragraph [ref=f8e266]:
+                - link "event-access" [ref=f8e267] [cursor=pointer]:
+                  - /url: "#page-event-access"
+                - text: 参与方式 · Button语义需求 · miniprogram/templates/screen.wxml:129
+              - paragraph [ref=f8e268]:
+                - link "publish" [ref=f8e269] [cursor=pointer]:
+                  - /url: "#page-publish"
+                - text: 发布活动 · Button语义需求 · miniprogram/templates/screen.wxml:160
+              - paragraph [ref=f8e270]:
+                - link "approval-detail" [ref=f8e271] [cursor=pointer]:
+                  - /url: "#page-approval-detail"
+                - text: 活动审核详情 · Button语义需求 · miniprogram/templates/screen.wxml:147
+              - paragraph [ref=f8e272]:
+                - link "approval-progress" [ref=f8e273] [cursor=pointer]:
+                  - /url: "#page-approval-progress"
+                - text: 活动审核进度 · Button语义需求 · miniprogram/templates/screen.wxml:157
+              - paragraph [ref=f8e274]:
+                - link "registrations" [ref=f8e275] [cursor=pointer]:
+                  - /url: "#page-registrations"
+                - text: 我报名的活动 · Button语义需求 · miniprogram/templates/screen.wxml:194
+              - paragraph [ref=f8e276]:
+                - link "my-events" [ref=f8e277] [cursor=pointer]:
+                  - /url: "#page-my-events"
+                - text: 我发起的活动 · Button语义需求 · miniprogram/templates/screen.wxml:194
+              - paragraph [ref=f8e278]:
+                - link "drafts" [ref=f8e279] [cursor=pointer]:
+                  - /url: "#page-drafts"
+                - text: 草稿 · Button语义需求 · miniprogram/templates/screen.wxml:202
+              - paragraph [ref=f8e280]:
+                - link "more" [ref=f8e281] [cursor=pointer]:
+                  - /url: "#page-more"
+                - text: 更多设置 · Button语义需求 · miniprogram/templates/screen.wxml:66
+              - paragraph [ref=f8e282]:
+                - link "login" [ref=f8e283] [cursor=pointer]:
+                  - /url: "#page-login"
+                - text: 登录 · Button语义需求 · miniprogram/templates/screen.wxml:190
+              - paragraph [ref=f8e284]:
+                - link "attendees" [ref=f8e285] [cursor=pointer]:
+                  - /url: "#page-attendees"
+                - text: 报名管理 · Button语义需求 · miniprogram/templates/screen.wxml:207
+              - paragraph [ref=f8e286]:
+                - link "invitations" [ref=f8e287] [cursor=pointer]:
+                  - /url: "#page-invitations"
+                - text: 管理邀请 · Button语义需求 · miniprogram/templates/screen.wxml:207
+              - paragraph [ref=f8e288]:
+                - link "my-campaigns" [ref=f8e289] [cursor=pointer]:
+                  - /url: "#page-my-campaigns"
+                - text: 我的专题 · Button语义需求 · miniprogram/templates/screen.wxml:203
+              - paragraph [ref=f8e290]:
+                - link "feedback" [ref=f8e291] [cursor=pointer]:
+                  - /url: "#page-feedback"
+                - text: 反馈 · Button语义需求 · miniprogram/templates/screen.wxml:192
+              - paragraph [ref=f8e292]:
+                - link "review-lab" [ref=f8e293] [cursor=pointer]:
+                  - /url: "#page-review-lab"
+                - text: 开发者目录 · Button语义需求 · miniprogram/templates/screen.wxml:26
+          - link "完整指南" [ref=f8e294] [cursor=pointer]:
+            - /url: components/Button/README.md
+    - generic [ref=f8e295]:
+      - heading "组合流程" [level=2] [ref=f8e296]
+      - paragraph [ref=f8e297]: 在独立网页内走完发布、报名与审核的演示过程。只改变内存状态，不写真实业务记录。
+      - generic [ref=f8e298]:
+        - button "发布三步" [ref=f8e299] [cursor=pointer]
+        - button "报名与参与" [ref=f8e302] [cursor=pointer]
+        - button "审核与退回" [ref=f8e305] [cursor=pointer]
+      - generic [ref=f8e308]:
+        - list [ref=f8e309]:
+          - listitem [ref=f8e310]: 1 介绍活动
+          - listitem [ref=f8e311]: 2 安排参与
+          - listitem [ref=f8e312]: 3 预览提交
+        - generic [ref=f8e313]:
+          - generic [ref=f8e314]: 活动名称 *
+          - textbox "活动名称 *" [ref=f8e315]:
+            - /placeholder: 请输入
+        - generic [ref=f8e316]:
+          - generic [ref=f8e317]: 活动介绍
+          - textbox "活动介绍" [ref=f8e318]:
+            - /placeholder: 请输入
+        - generic [ref=f8e319]:
+          - button "选择活动图片" [ref=f8e320]
+          - generic [ref=f8e321]: 选择本机图片；不上传服务器
+        - generic [ref=f8e322]:
+          - button "上一步" [disabled] [ref=f8e323]
+          - button "下一步" [ref=f8e326] [cursor=pointer]
+    - generic [ref=f8e329]:
+      - heading "页面 → 组件" [level=2] [ref=f8e330]
+      - generic [ref=f8e331]:
+        - text: 查找页面
+        - searchbox "查找页面" [ref=f8e332]
+      - generic [ref=f8e333]:
+        - article [ref=f8e334]:
+          - heading "关注 · feed" [level=3] [ref=f8e335]
+          - paragraph [ref=f8e336]: pages/feed/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e337]:
+            - link "FeatureCarousel" [ref=f8e338] [cursor=pointer]:
+              - /url: "#components"
+            - link "PersonCard" [ref=f8e339] [cursor=pointer]:
+              - /url: "#components"
+            - link "FeedItem" [ref=f8e340] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e341] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e342] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e343] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e344] [cursor=pointer]:
+              - /url: "#components"
+            - link "Navigation" [ref=f8e345] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e346] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e347] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e348] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e349] [cursor=pointer]:
+              - /url: "#components"
+            - link "CommentThread" [ref=f8e350] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e351]:
+            - generic "具体位置、状态与弹层" [ref=f8e352] [cursor=pointer]
+        - article [ref=f8e353]:
+          - heading "发现 · discover" [level=3] [ref=f8e354]
+          - paragraph [ref=f8e355]: pages/discover/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e356]:
+            - link "FeatureCarousel" [ref=f8e357] [cursor=pointer]:
+              - /url: "#components"
+            - link "SearchField" [ref=f8e358] [cursor=pointer]:
+              - /url: "#components"
+            - link "FilterChip" [ref=f8e359] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e360] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e361] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e362] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e363] [cursor=pointer]:
+              - /url: "#components"
+            - link "Navigation" [ref=f8e364] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e365] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e366] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e367] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e368] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e369]:
+            - generic "具体位置、状态与弹层" [ref=f8e370] [cursor=pointer]
+        - article [ref=f8e371]:
+          - heading "消息 · messages" [level=3] [ref=f8e372]
+          - paragraph [ref=f8e373]: pages/messages/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e374]:
+            - link "SegmentedControl" [ref=f8e375] [cursor=pointer]:
+              - /url: "#components"
+            - link "NotificationItem" [ref=f8e376] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e377] [cursor=pointer]:
+              - /url: "#components"
+            - link "Navigation" [ref=f8e378] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e379] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e380] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e381] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e382] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e383] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e384]:
+            - generic "具体位置、状态与弹层" [ref=f8e385] [cursor=pointer]
+        - article [ref=f8e386]:
+          - heading "我的 · me" [level=3] [ref=f8e387]
+          - paragraph [ref=f8e388]: pages/me/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e389]:
+            - link "IdentityRow" [ref=f8e390] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatLink" [ref=f8e391] [cursor=pointer]:
+              - /url: "#components"
+            - link "MenuGroup" [ref=f8e392] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e393] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e394] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e395] [cursor=pointer]:
+              - /url: "#components"
+            - link "Navigation" [ref=f8e396] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e397] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e398] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e399] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e400] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e401] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e402]:
+            - generic "具体位置、状态与弹层" [ref=f8e403] [cursor=pointer]
+        - article [ref=f8e404]:
+          - heading "管理 · manage" [level=3] [ref=f8e405]
+          - paragraph [ref=f8e406]: pages/manage/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e407]:
+            - link "MenuGroup" [ref=f8e408] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e409] [cursor=pointer]:
+              - /url: "#components"
+            - link "EntityCard" [ref=f8e410] [cursor=pointer]:
+              - /url: "#components"
+            - link "PermissionState" [ref=f8e411] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e412] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e413] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e414] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e415] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e416] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e417]:
+            - generic "具体位置、状态与弹层" [ref=f8e418] [cursor=pointer]
+        - article [ref=f8e419]:
+          - heading "创建空间 · create-space" [level=3] [ref=f8e420]
+          - paragraph [ref=f8e421]: pages/create-space/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e422]:
+            - link "FormField" [ref=f8e423] [cursor=pointer]:
+              - /url: "#components"
+            - link "DateTimePicker" [ref=f8e424] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e425] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e426] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e427] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e428] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e429] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e430] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e431] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e432]:
+            - generic "具体位置、状态与弹层" [ref=f8e433] [cursor=pointer]
+        - article [ref=f8e434]:
+          - heading "活动详情 · event" [level=3] [ref=f8e435]
+          - paragraph [ref=f8e436]: pages/event/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e437]:
+            - link "Gallery" [ref=f8e438] [cursor=pointer]:
+              - /url: "#components"
+            - link "Section" [ref=f8e439] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e440] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e441] [cursor=pointer]:
+              - /url: "#components"
+            - link "ParticipantSummary" [ref=f8e442] [cursor=pointer]:
+              - /url: "#components"
+            - link "CommentThread" [ref=f8e443] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e444] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e445] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e446] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e447] [cursor=pointer]:
+              - /url: "#components"
+            - link "FloatingBar" [ref=f8e448] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e449] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e450] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e451] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e452] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e453] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e454]:
+            - generic "具体位置、状态与弹层" [ref=f8e455] [cursor=pointer]
+        - article [ref=f8e456]:
+          - heading "成员主页 · member" [level=3] [ref=f8e457]
+          - paragraph [ref=f8e458]: pages/member/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e459]:
+            - link "Avatar" [ref=f8e460] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e461] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e462] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatLink" [ref=f8e463] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e464] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e465] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e466] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e467] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e468] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e469] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e470] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e471] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e472] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e473]:
+            - generic "具体位置、状态与弹层" [ref=f8e474] [cursor=pointer]
+        - article [ref=f8e475]:
+          - heading "空间主页 · space" [level=3] [ref=f8e476]
+          - paragraph [ref=f8e477]: pages/space/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e478]:
+            - link "EntityCard" [ref=f8e479] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e480] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e481] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e482] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e483] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e484] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e485] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e486] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e487] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e488] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e489] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e490] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e491] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e492]:
+            - generic "具体位置、状态与弹层" [ref=f8e493] [cursor=pointer]
+        - article [ref=f8e494]:
+          - heading "组织主页 · org" [level=3] [ref=f8e495]
+          - paragraph [ref=f8e496]: pages/org/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e497]:
+            - link "EntityCard" [ref=f8e498] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e499] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e500] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e501] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e502] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e503] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e504] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e505] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e506] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e507] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e508] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e509] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e510] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e511]:
+            - generic "具体位置、状态与弹层" [ref=f8e512] [cursor=pointer]
+        - article [ref=f8e513]:
+          - heading "全部活动 · entity-events" [level=3] [ref=f8e514]
+          - paragraph [ref=f8e515]: pages/entity-events/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e516]:
+            - link "EventCard" [ref=f8e517] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e518] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e519] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e520] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e521] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e522] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e523]:
+            - generic "具体位置、状态与弹层" [ref=f8e524] [cursor=pointer]
+        - article [ref=f8e525]:
+          - heading "空间成员 · entity-members" [level=3] [ref=f8e526]
+          - paragraph [ref=f8e527]: pages/entity-members/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e528]:
+            - link "IdentityRow" [ref=f8e529] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e530] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e531] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e532] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e533] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e534] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e535] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e536] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e537]:
+            - generic "具体位置、状态与弹层" [ref=f8e538] [cursor=pointer]
+        - article [ref=f8e539]:
+          - heading "编辑实体 · edit-entity" [level=3] [ref=f8e540]
+          - paragraph [ref=f8e541]: pages/edit-entity/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e542]:
+            - link "FormField" [ref=f8e543] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e544] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e545] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e546] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e547] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e548] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e549] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e550] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e551]:
+            - generic "具体位置、状态与弹层" [ref=f8e552] [cursor=pointer]
+        - article [ref=f8e553]:
+          - heading "管理员 · admins" [level=3] [ref=f8e554]
+          - paragraph [ref=f8e555]: pages/admins/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e556]:
+            - link "IdentityRow" [ref=f8e557] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e558] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e559] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e560] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e561] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e562] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e563] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e564] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e565] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e566]:
+            - generic "具体位置、状态与弹层" [ref=f8e567] [cursor=pointer]
+        - article [ref=f8e568]:
+          - heading "编辑资料 · edit-profile" [level=3] [ref=f8e569]
+          - paragraph [ref=f8e570]: pages/edit-profile/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e571]:
+            - link "FormField" [ref=f8e572] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e573] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e574] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e575] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e576] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e577] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e578] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e579] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e580] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e581] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e582] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e583]:
+            - generic "具体位置、状态与弹层" [ref=f8e584] [cursor=pointer]
+        - article [ref=f8e585]:
+          - heading "关注与粉丝 · relations" [level=3] [ref=f8e586]
+          - paragraph [ref=f8e587]: pages/relations/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e588]:
+            - link "SegmentedControl" [ref=f8e589] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e590] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e591] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e592] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e593] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e594] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e595] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e596] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e597] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e598]:
+            - generic "具体位置、状态与弹层" [ref=f8e599] [cursor=pointer]
+        - article [ref=f8e600]:
+          - heading "新人引导 · onboarding" [level=3] [ref=f8e601]
+          - paragraph [ref=f8e602]: pages/onboarding/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e603]:
+            - link "Stepper" [ref=f8e604] [cursor=pointer]:
+              - /url: "#components"
+            - link "FormField" [ref=f8e605] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e606] [cursor=pointer]:
+              - /url: "#components"
+            - link "Checkbox" [ref=f8e607] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e608] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e609] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e610] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e611] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e612] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e613] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e614] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e615]:
+            - generic "具体位置、状态与弹层" [ref=f8e616] [cursor=pointer]
+        - article [ref=f8e617]:
+          - heading "活动日历 · calendar" [level=3] [ref=f8e618]
+          - paragraph [ref=f8e619]: pages/calendar/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e620]:
+            - link "Calendar" [ref=f8e621] [cursor=pointer]:
+              - /url: "#components"
+            - link "SegmentedControl" [ref=f8e622] [cursor=pointer]:
+              - /url: "#components"
+            - link "FilterChip" [ref=f8e623] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e624] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e625] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e626] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e627] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e628] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e629] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e630] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e631]:
+            - generic "具体位置、状态与弹层" [ref=f8e632] [cursor=pointer]
+        - article [ref=f8e633]:
+          - heading "空间目录 · spaces" [level=3] [ref=f8e634]
+          - paragraph [ref=f8e635]: pages/spaces/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e636]:
+            - link "SegmentedControl" [ref=f8e637] [cursor=pointer]:
+              - /url: "#components"
+            - link "EntityCard" [ref=f8e638] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e639] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e640] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e641] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e642] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e643] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e644]:
+            - generic "具体位置、状态与弹层" [ref=f8e645] [cursor=pointer]
+        - article [ref=f8e646]:
+          - heading "专题详情 · campaign" [level=3] [ref=f8e647]
+          - paragraph [ref=f8e648]: pages/campaign/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e649]:
+            - link "EntityCard" [ref=f8e650] [cursor=pointer]:
+              - /url: "#components"
+            - link "Section" [ref=f8e651] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e652] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e653] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e654] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e655] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e656] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e657] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e658] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e659] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e660]:
+            - generic "具体位置、状态与弹层" [ref=f8e661] [cursor=pointer]
+        - article [ref=f8e662]:
+          - heading "编辑专题 · campaign-edit" [level=3] [ref=f8e663]
+          - paragraph [ref=f8e664]: pages/campaign-edit/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e665]:
+            - link "FormField" [ref=f8e666] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e667] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e668] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e669] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e670] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e671] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e672] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e673] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e674] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e675] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e676]:
+            - generic "具体位置、状态与弹层" [ref=f8e677] [cursor=pointer]
+        - article [ref=f8e678]:
+          - heading "创建专题 · campaign-create" [level=3] [ref=f8e679]
+          - paragraph [ref=f8e680]: pages/campaign-create/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e681]:
+            - link "Stepper" [ref=f8e682] [cursor=pointer]:
+              - /url: "#components"
+            - link "FormField" [ref=f8e683] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e684] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e685] [cursor=pointer]:
+              - /url: "#components"
+            - link "LinkList" [ref=f8e686] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e687] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e688] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e689] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e690] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e691] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e692] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e693] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e694] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e695]:
+            - generic "具体位置、状态与弹层" [ref=f8e696] [cursor=pointer]
+        - article [ref=f8e697]:
+          - heading "专题审核详情 · campaign-approval-detail" [level=3] [ref=f8e698]
+          - paragraph [ref=f8e699]: pages/campaign-approval-detail/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e700]:
+            - link "StatusSummary" [ref=f8e701] [cursor=pointer]:
+              - /url: "#components"
+            - link "Gallery" [ref=f8e702] [cursor=pointer]:
+              - /url: "#components"
+            - link "ReviewHistory" [ref=f8e703] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e704] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e705] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e706] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e707] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e708] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e709] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e710] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e711]:
+            - generic "具体位置、状态与弹层" [ref=f8e712] [cursor=pointer]
+        - article [ref=f8e713]:
+          - heading "专题审核进度 · campaign-review-progress" [level=3] [ref=f8e714]
+          - paragraph [ref=f8e715]: pages/campaign-review-progress/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e716]:
+            - link "ReviewHistory" [ref=f8e717] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e718] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e719] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e720] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e721] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e722] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e723] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e724] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e725]:
+            - generic "具体位置、状态与弹层" [ref=f8e726] [cursor=pointer]
+        - article [ref=f8e727]:
+          - heading "参与方式 · event-access" [level=3] [ref=f8e728]
+          - paragraph [ref=f8e729]: pages/event-access/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e730]:
+            - link "StatusSummary" [ref=f8e731] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e732] [cursor=pointer]:
+              - /url: "#components"
+            - link "AccessStep" [ref=f8e733] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e734] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e735] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e736] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e737] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e738] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e739] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e740]:
+            - generic "具体位置、状态与弹层" [ref=f8e741] [cursor=pointer]
+        - article [ref=f8e742]:
+          - heading "活动预览 · activity-preview" [level=3] [ref=f8e743]
+          - paragraph [ref=f8e744]: pages/activity-preview/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e745]:
+            - link "Gallery" [ref=f8e746] [cursor=pointer]:
+              - /url: "#components"
+            - link "Section" [ref=f8e747] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e748] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e749] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e750] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e751] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e752] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e753] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e754] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e755]:
+            - generic "具体位置、状态与弹层" [ref=f8e756] [cursor=pointer]
+        - article [ref=f8e757]:
+          - heading "发布活动 · publish" [level=3] [ref=f8e758]
+          - paragraph [ref=f8e759]: pages/publish/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e760]:
+            - link "Stepper" [ref=f8e761] [cursor=pointer]:
+              - /url: "#components"
+            - link "FormField" [ref=f8e762] [cursor=pointer]:
+              - /url: "#components"
+            - link "Switch" [ref=f8e763] [cursor=pointer]:
+              - /url: "#components"
+            - link "DateTimePicker" [ref=f8e764] [cursor=pointer]:
+              - /url: "#components"
+            - link "MediaUploader" [ref=f8e765] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e766] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e767] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e768] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e769] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e770] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e771] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e772] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e773] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e774] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e775]:
+            - generic "具体位置、状态与弹层" [ref=f8e776] [cursor=pointer]
+        - article [ref=f8e777]:
+          - heading "审核待办 · approvals" [level=3] [ref=f8e778]
+          - paragraph [ref=f8e779]: pages/approvals/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e780]:
+            - link "SegmentedControl" [ref=f8e781] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e782] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e783] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e784] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e785] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e786] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e787] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e788] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e789]:
+            - generic "具体位置、状态与弹层" [ref=f8e790] [cursor=pointer]
+        - article [ref=f8e791]:
+          - heading "活动审核详情 · approval-detail" [level=3] [ref=f8e792]
+          - paragraph [ref=f8e793]: pages/approval-detail/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e794]:
+            - link "StatusSummary" [ref=f8e795] [cursor=pointer]:
+              - /url: "#components"
+            - link "Gallery" [ref=f8e796] [cursor=pointer]:
+              - /url: "#components"
+            - link "ReviewHistory" [ref=f8e797] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e798] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e799] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e800] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e801] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e802] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e803] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e804] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e805]:
+            - generic "具体位置、状态与弹层" [ref=f8e806] [cursor=pointer]
+        - article [ref=f8e807]:
+          - heading "活动审核进度 · approval-progress" [level=3] [ref=f8e808]
+          - paragraph [ref=f8e809]: pages/approval-progress/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e810]:
+            - link "ReviewHistory" [ref=f8e811] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e812] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e813] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e814] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e815] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e816] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e817] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e818] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e819]:
+            - generic "具体位置、状态与弹层" [ref=f8e820] [cursor=pointer]
+        - article [ref=f8e821]:
+          - heading "我报名的活动 · registrations" [level=3] [ref=f8e822]
+          - paragraph [ref=f8e823]: pages/registrations/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e824]:
+            - link "FilterChip" [ref=f8e825] [cursor=pointer]:
+              - /url: "#components"
+            - link "PersonalEvent" [ref=f8e826] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e827] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e828] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e829] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e830] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e831] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e832] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e833] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e834] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e835]:
+            - generic "具体位置、状态与弹层" [ref=f8e836] [cursor=pointer]
+        - article [ref=f8e837]:
+          - heading "我发起的活动 · my-events" [level=3] [ref=f8e838]
+          - paragraph [ref=f8e839]: pages/my-events/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e840]:
+            - link "FilterChip" [ref=f8e841] [cursor=pointer]:
+              - /url: "#components"
+            - link "PersonalEvent" [ref=f8e842] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e843] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e844] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e845] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e846] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e847] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e848] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e849] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e850]:
+            - generic "具体位置、状态与弹层" [ref=f8e851] [cursor=pointer]
+        - article [ref=f8e852]:
+          - heading "草稿 · drafts" [level=3] [ref=f8e853]
+          - paragraph [ref=f8e854]: pages/drafts/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e855]:
+            - link "PersonalEvent" [ref=f8e856] [cursor=pointer]:
+              - /url: "#components"
+            - link "EventCard" [ref=f8e857] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e858] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e859] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e860] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e861] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e862] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e863] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e864]:
+            - generic "具体位置、状态与弹层" [ref=f8e865] [cursor=pointer]
+        - article [ref=f8e866]:
+          - heading "关注入口 · following" [level=3] [ref=f8e867]
+          - paragraph [ref=f8e868]: pages/following/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e869]:
+            - link "SegmentedControl" [ref=f8e870] [cursor=pointer]:
+              - /url: "#components"
+            - link "IdentityRow" [ref=f8e871] [cursor=pointer]:
+              - /url: "#components"
+            - link "Avatar" [ref=f8e872] [cursor=pointer]:
+              - /url: "#components"
+            - link "FollowControl" [ref=f8e873] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e874] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e875] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e876] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e877] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e878] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e879]:
+            - generic "具体位置、状态与弹层" [ref=f8e880] [cursor=pointer]
+        - article [ref=f8e881]:
+          - heading "更多设置 · more" [level=3] [ref=f8e882]
+          - paragraph [ref=f8e883]: pages/more/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e884]:
+            - link "MenuGroup" [ref=f8e885] [cursor=pointer]:
+              - /url: "#components"
+            - link "ActionRow" [ref=f8e886] [cursor=pointer]:
+              - /url: "#components"
+            - link "Switch" [ref=f8e887] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e888] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e889] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e890] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e891] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e892] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e893] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e894]:
+            - generic "具体位置、状态与弹层" [ref=f8e895] [cursor=pointer]
+        - article [ref=f8e896]:
+          - heading "登录 · login" [level=3] [ref=f8e897]
+          - paragraph [ref=f8e898]: pages/login/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e899]:
+            - link "FormField" [ref=f8e900] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e901] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e902] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e903] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e904] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e905] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e906] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e907]:
+            - generic "具体位置、状态与弹层" [ref=f8e908] [cursor=pointer]
+        - article [ref=f8e909]:
+          - heading "报名管理 · attendees" [level=3] [ref=f8e910]
+          - paragraph [ref=f8e911]: pages/attendees/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e912]:
+            - link "IdentityRow" [ref=f8e913] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e914] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e915] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e916] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e917] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e918] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e919] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e920] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e921]:
+            - generic "具体位置、状态与弹层" [ref=f8e922] [cursor=pointer]
+        - article [ref=f8e923]:
+          - heading "管理邀请 · invitations" [level=3] [ref=f8e924]
+          - paragraph [ref=f8e925]: pages/invitations/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e926]:
+            - link "ActionRow" [ref=f8e927] [cursor=pointer]:
+              - /url: "#components"
+            - link "Badge" [ref=f8e928] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e929] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e930] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e931] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e932] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e933] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e934] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e935]:
+            - generic "具体位置、状态与弹层" [ref=f8e936] [cursor=pointer]
+        - article [ref=f8e937]:
+          - heading "我的专题 · my-campaigns" [level=3] [ref=f8e938]
+          - paragraph [ref=f8e939]: pages/my-campaigns/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e940]:
+            - link "PersonalCampaign" [ref=f8e941] [cursor=pointer]:
+              - /url: "#components"
+            - link "StatusSummary" [ref=f8e942] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e943] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e944] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e945] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e946] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e947] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e948] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e949]:
+            - generic "具体位置、状态与弹层" [ref=f8e950] [cursor=pointer]
+        - article [ref=f8e951]:
+          - heading "隐私与可见性 · privacy" [level=3] [ref=f8e952]
+          - paragraph [ref=f8e953]: pages/privacy/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e954]:
+            - link "Switch" [ref=f8e955] [cursor=pointer]:
+              - /url: "#components"
+            - link "MenuGroup" [ref=f8e956] [cursor=pointer]:
+              - /url: "#components"
+            - link "Section" [ref=f8e957] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e958] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e959] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e960] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e961] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e962] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e963]:
+            - generic "具体位置、状态与弹层" [ref=f8e964] [cursor=pointer]
+        - article [ref=f8e965]:
+          - heading "反馈 · feedback" [level=3] [ref=f8e966]
+          - paragraph [ref=f8e967]: pages/feedback/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e968]:
+            - link "FormField" [ref=f8e969] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e970] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e971] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e972] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e973] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e974] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e975] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e976]:
+            - generic "具体位置、状态与弹层" [ref=f8e977] [cursor=pointer]
+        - article [ref=f8e978]:
+          - heading "开发者目录 · review-lab" [level=3] [ref=f8e979]
+          - paragraph [ref=f8e980]: pages/review-lab/index · 源码映射 · 本次尚未真实到达
+          - generic [ref=f8e981]:
+            - link "MenuGroup" [ref=f8e982] [cursor=pointer]:
+              - /url: "#components"
+            - link "ChoiceGroup" [ref=f8e983] [cursor=pointer]:
+              - /url: "#components"
+            - link "Button" [ref=f8e984] [cursor=pointer]:
+              - /url: "#components"
+            - link "Notice" [ref=f8e985] [cursor=pointer]:
+              - /url: "#components"
+            - link "IconButton" [ref=f8e986] [cursor=pointer]:
+              - /url: "#components"
+            - link "LoadingState" [ref=f8e987] [cursor=pointer]:
+              - /url: "#components"
+            - link "EmptyState" [ref=f8e988] [cursor=pointer]:
+              - /url: "#components"
+            - link "Sheet" [ref=f8e989] [cursor=pointer]:
+              - /url: "#components"
+          - group [ref=f8e990]:
+            - generic "具体位置、状态与弹层" [ref=f8e991] [cursor=pointer]
+    - generic [ref=f8e992]:
+      - heading "访问与验证证据" [level=2] [ref=f8e993]
+      - paragraph [ref=f8e994]: 源码盘点覆盖注册路由、共享模板条件与20类弹层，不等于真实递归访问。原生开发工具访问、独立网页交互、源码证据各自保存；支付、扫码、登录、系统权限与线上数据仍需各自环境验证。
+      - generic [ref=f8e995]:
+        - link "源码盘点与边界" [ref=f8e996] [cursor=pointer]:
+          - /url: evidence/inventory.md
+        - link "完整页面/弹层/状态矩阵" [ref=f8e997] [cursor=pointer]:
+          - /url: evidence/page-inventory.json
+        - link "原生真实访问" [ref=f8e998] [cursor=pointer]:
+          - /url: evidence/native-review/visits.json
+        - link "网页验证" [ref=f8e999] [cursor=pointer]:
+          - /url: evidence/validation.json
+        - link "实现与交付记录" [ref=f8e1000] [cursor=pointer]:
+          - /url: IMPLEMENTATION.md
+      - generic [ref=f8e1001]:
+        - heading "原生访问覆盖" [level=3] [ref=f8e1002]
+        - paragraph [ref=f8e1003]: 0 / 42 页真实到达；0 / 20 类弹层真实到达。到达不代表全部变体、真机或业务验收。
+        - table [ref=f8e1004]:
+          - row [ref=f8e1005]:
+            - columnheader "弹层" [ref=f8e1006]
+            - columnheader "本次访问" [ref=f8e1007]
+            - columnheader "缺口" [ref=f8e1008]
+          - row [ref=f8e1009]:
+            - cell "register" [ref=f8e1010]
+            - cell "未进入" [ref=f8e1011]
+            - cell "见原生巡检记录" [ref=f8e1012]
+          - row [ref=f8e1013]:
+            - cell "recommend" [ref=f8e1014]
+            - cell "未进入" [ref=f8e1015]
+            - cell "见原生巡检记录" [ref=f8e1016]
+          - row [ref=f8e1017]:
+            - cell "comment" [ref=f8e1018]
+            - cell "未进入" [ref=f8e1019]
+            - cell "见原生巡检记录" [ref=f8e1020]
+          - row [ref=f8e1021]:
+            - cell "participants" [ref=f8e1022]
+            - cell "未进入" [ref=f8e1023]
+            - cell "见原生巡检记录" [ref=f8e1024]
+          - row [ref=f8e1025]:
+            - cell "payment" [ref=f8e1026]
+            - cell "未进入" [ref=f8e1027]
+            - cell "见原生巡检记录" [ref=f8e1028]
+          - row [ref=f8e1029]:
+            - cell "group" [ref=f8e1030]
+            - cell "未进入" [ref=f8e1031]
+            - cell "见原生巡检记录" [ref=f8e1032]
+          - row [ref=f8e1033]:
+            - cell "return" [ref=f8e1034]
+            - cell "未进入" [ref=f8e1035]
+            - cell "见原生巡检记录" [ref=f8e1036]
+          - row [ref=f8e1037]:
+            - cell "city" [ref=f8e1038]
+            - cell "未进入" [ref=f8e1039]
+            - cell "见原生巡检记录" [ref=f8e1040]
+          - row [ref=f8e1041]:
+            - cell "language" [ref=f8e1042]
+            - cell "未进入" [ref=f8e1043]
+            - cell "见原生巡检记录" [ref=f8e1044]
+          - row [ref=f8e1045]:
+            - cell "notifications" [ref=f8e1046]
+            - cell "未进入" [ref=f8e1047]
+            - cell "见原生巡检记录" [ref=f8e1048]
+          - row [ref=f8e1049]:
+            - cell "mini" [ref=f8e1050]
+            - cell "未进入" [ref=f8e1051]
+            - cell "见原生巡检记录" [ref=f8e1052]
+          - row [ref=f8e1053]:
+            - cell "about" [ref=f8e1054]
+            - cell "未进入" [ref=f8e1055]
+            - cell "见原生巡检记录" [ref=f8e1056]
+          - row [ref=f8e1057]:
+            - cell "manage" [ref=f8e1058]
+            - cell "未进入" [ref=f8e1059]
+            - cell "见原生巡检记录" [ref=f8e1060]
+          - row [ref=f8e1061]:
+            - cell "member" [ref=f8e1062]
+            - cell "未进入" [ref=f8e1063]
+            - cell "见原生巡检记录" [ref=f8e1064]
+          - row [ref=f8e1065]:
+            - cell "why" [ref=f8e1066]
+            - cell "未进入" [ref=f8e1067]
+            - cell "见原生巡检记录" [ref=f8e1068]
+          - row [ref=f8e1069]:
+            - cell "poster" [ref=f8e1070]
+            - cell "未进入" [ref=f8e1071]
+            - cell "见原生巡检记录" [ref=f8e1072]
+          - row [ref=f8e1073]:
+            - cell "official" [ref=f8e1074]
+            - cell "未进入" [ref=f8e1075]
+            - cell "见原生巡检记录" [ref=f8e1076]
+          - row [ref=f8e1077]:
+            - cell "recap" [ref=f8e1078]
+            - cell "未进入" [ref=f8e1079]
+            - cell "见原生巡检记录" [ref=f8e1080]
+          - row [ref=f8e1081]:
+            - cell "invite" [ref=f8e1082]
+            - cell "未进入" [ref=f8e1083]
+            - cell "见原生巡检记录" [ref=f8e1084]
+          - row [ref=f8e1085]:
+            - cell "report" [ref=f8e1086]
+            - cell "未进入" [ref=f8e1087]
+            - cell "见原生巡检记录" [ref=f8e1088]
+    - generic [ref=f8e1089]: 706 Community · 本机组件展示 · 来源 a74168a

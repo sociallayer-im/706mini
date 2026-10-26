@@ -1,0 +1,38 @@
+HTML 内容 Webview: pages/campaign-create/index, URL: 127.0.0.1:45417/__pageframe__/pages/campaign-create/index
+							23 container
+								24 按钮 返回
+								25 文本 发起专题
+							26 文本 1
+							27 文本 介绍专题
+							28 文本 2
+							29 文本 关联活动
+							30 文本 3
+							31 文本 预览提交
+							32 文本 介绍专题
+							33 文本 说清这个专题想讨论什么，以及活动之间的联系。
+							34 container
+								35 文本 名称
+								36 文本栏 (settable) 
+
+									37 文本栏 (settable)
+							38 container
+								39 文本 主题
+								40 文本栏 (settable) 
+
+									41 文本栏 (settable)
+							42 container
+								43 text 图片与链接 选填
+								44 按钮 多选图片
+								45 文本 正文最多 12 张图片；长按图片拖动排序，第一张作为专题封面。
+							46 container
+								47 文本 介绍
+								48 container
+									49 文本输入区 (settable)
+									50 文本 a
+							51 container
+								52 文本 发布组织
+								53 文本 个人发起
+							54 container
+								55 按钮 存草稿
+								56 按钮 下一步
+						57 

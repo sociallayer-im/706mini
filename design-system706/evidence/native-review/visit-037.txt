@@ -1,0 +1,19 @@
+HTML 内容 Webview: pages/entity-events/index, URL: 127.0.0.1:45417/__pageframe__/pages/entity-events/index
+							23 container
+								24 按钮 返回
+								25 文本 活动列表
+							26 container
+								27 文本 秋日放映：城市游牧者
+								28 container 已结束 · 已报名 12 人，共 20 个名额
+									29 文本 已结束 12/20
+								30 text 10月10日（周六） 19:30–22:00 706 青年空间 禾舟 & Sola 放映组 ¥30.00
+								31 container 预览
+									32 图像
+							33 container
+								34 文本 社区功能许愿工作坊
+								35 container 已结束 · 已报名 8 人，共 20 个名额
+									36 文本 已结束 8/20
+								37 text 10月14日（周三） 19:00–21:30 706 青年空间 林叶 & 706 产品小组 免费
+								38 container 预览
+									39 图像
+						40 

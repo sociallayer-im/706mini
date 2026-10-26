@@ -1,0 +1,23 @@
+{
+ "Button":[{"label":"次操作","props":{}},{"label":"主要操作","props":{"variant":"primary","label":"保存活动"}},{"label":"紧凑操作","props":{"variant":"primary","compact":true,"label":"继续编辑"}},{"label":"文字操作","props":{"variant":"text","label":"取消"}},{"label":"危险操作","props":{"variant":"danger","label":"取消报名"}},{"label":"提交中","props":{"variant":"primary","loading":true,"label":"提交中"}},{"label":"不可用","props":{"disabled":true,"label":"暂不可报名"}},{"label":"整行宽度","props":{"block":true,"variant":"primary","label":"下一步"}}],
+ "IconButton":[{"label":"返回白面","props":{}},{"label":"关闭透明","props":{"icon":"close","label":"关闭","surface":"plain"}},{"label":"媒体上玻璃面","props":{"surface":"glass","size":40}},{"label":"不可用","props":{"disabled":true}}],
+ "ChoiceGroup":[{"label":"多选列表","props":{}},{"label":"多选标签／最多2项","props":{"layout":"tags","max":2}},{"label":"单选列表","props":{"mode":"single","value":["city"]}},{"label":"单选标签","props":{"mode":"single","layout":"tags","value":["city"]}},{"label":"空选项","props":{"options":[]}},{"label":"禁用整组","props":{"disabled":true,"value":["film"]}}],
+ "Checkbox":[{"label":"未确认","props":{}},{"label":"已确认","props":{"checked":true}},{"label":"禁用","props":{"checked":true,"disabled":true}}],
+ "FilterChip":[{"label":"未筛选","props":{}},{"label":"已筛选","props":{"selected":true}},{"label":"不可用","props":{"disabled":true}}],
+ "FormField":[{"label":"单行输入","props":{}},{"label":"多行介绍","props":{"label":"活动介绍","multiline":true}},{"label":"字段错误保留内容","props":{"value":"过去的时间","error":"请选择未来的开始时间","required":true}},{"label":"禁用字段","props":{"value":"只读中的资料","disabled":true}}],
+ "Switch":[{"label":"开启","props":{}},{"label":"关闭","props":{"checked":false}},{"label":"禁用","props":{"disabled":true}}],
+ "EventCard":[{"label":"普通活动卡","props":{}},{"label":"大图变体","props":{"large":true}},{"label":"满员","props":{"status":"已满 · 20/20"}},{"label":"已取消","props":{"status":"已取消","title":"活动取消公告"}},{"label":"无海报","props":{"cover":null}}],
+ "PersonalEvent":[{"label":"待审核","props":{}},{"label":"待付款","props":{"status":"待付款","description":"申请已通过，付款后保留名额。","action":"付款保留名额"}},{"label":"报名确认","props":{"status":"已确认","description":"请查看主办方提供的参与方式。","action":"查看参与方式"}},{"label":"草稿","props":{"status":"草稿","description":"尚未提交审核","action":"继续编辑"}}],
+ "Gallery":[{"label":"单图","props":{}},{"label":"多图","props":{"items":["assets/Demo/cover-2.png","assets/Demo/cover-2.png"]}},{"label":"空图集","props":{"items":[]}}],
+ "FeatureCarousel":[{"label":"多内容","props":{}},{"label":"单内容","props":{"items":[{"title":"706 青年空间","description":"同城探索"}]}},{"label":"空内容","props":{"items":[]}}],
+ "NotificationItem":[{"label":"未读","props":{}},{"label":"已读","props":{"read":true}}],
+ "Calendar":[{"label":"演示11月","props":{}},{"label":"传入年月及计数","props":{"year":2027,"month":2,"events":{"2027-02-02":3,"2027-02-14":1}}},{"label":"无活动月份","props":{"year":2027,"month":1,"events":{}}}],
+ "StatusSummary":[{"label":"待审核","props":{}},{"label":"已确认","props":{"state":"success","title":"报名已确认","description":"请按主办方提供的信息参与。","action":"查看参与方式"}},{"label":"失败承接","props":{"state":"error","title":"暂时无法提交","description":"输入已保留，请稍后重试。","action":"重试"}}],
+ "ReviewHistory":[{"label":"审核记录","props":{}},{"label":"无审核记录","props":{"items":[]}}],
+ "Sheet":[{"label":"只读内容","props":{}},{"label":"提交中不可关闭","props":{"loading":true,"title":"正在提交"}},{"label":"错误保留上下文","props":{"error":"提交失败，内容已保留"}}],
+ "Stepper":[{"label":"第一步","props":{}},{"label":"第二步","props":{"current":1}},{"label":"第三步","props":{"current":2}}],
+ "LoadingState":[{"label":"首次加载","props":{}},{"label":"保留内容刷新","props":{"refresh":true}}],
+ "Notice":[{"label":"普通说明","props":{}},{"label":"可重试错误","props":{"state":"error","text":"网络暂时不可用，已保留内容。","action":"重试"}}],
+ "FollowControl":[{"label":"未关注","props":{}},{"label":"已关注／取消确认","props":{"following":true}},{"label":"请求中","props":{"loading":true}},{"label":"不可用","props":{"disabled":true}}],
+ "ParticipantSummary":[{"label":"公开部分名单","props":{}},{"label":"暂无公开名单","props":{"names":[],"label":"暂无公开参与者"}}]
+}

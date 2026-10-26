@@ -1,0 +1,278 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-26T01:41:18.647921+00:00"
+  },
+  "title": "706 Community",
+  "namespace": "DS706",
+  "libraries": [],
+  "sections": {},
+  "groups": [
+    "Icons",
+    "Demo"
+  ],
+  "assetGroups": {
+    "Icons": {
+      "name": "Icons",
+      "tile": "xs",
+      "order": [],
+      "files": {}
+    },
+    "Demo": {
+      "name": "Demo",
+      "tile": "m",
+      "order": [],
+      "files": {}
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "readme": "README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Shing",
+    "at": "2026-10-26T01:41:18.647921+00:00",
+    "via": "Codex · standalone Web adaptation",
+    "note": "43 components, 42 page source map, 39 native routes and 20 sheet reading/editing surfaces; no miniprogram replacement"
+  },
+  "localAssets": [
+    {
+      "path": "assets/Demo/cover-2.png",
+      "size": 2030,
+      "type": "image/png",
+      "source": "miniprogram/assets/demo/cover-2.png"
+    },
+    {
+      "path": "assets/Icons/back.png",
+      "size": 402,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/back.png"
+    },
+    {
+      "path": "assets/Icons/bell.png",
+      "size": 1332,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/bell.png"
+    },
+    {
+      "path": "assets/Icons/calendar.png",
+      "size": 1249,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/calendar.png"
+    },
+    {
+      "path": "assets/Icons/check.png",
+      "size": 399,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/check.png"
+    },
+    {
+      "path": "assets/Icons/city.png",
+      "size": 632,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/city.png"
+    },
+    {
+      "path": "assets/Icons/close.png",
+      "size": 495,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/close.png"
+    },
+    {
+      "path": "assets/Icons/discover-inverse.png",
+      "size": 1965,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/discover-inverse.png"
+    },
+    {
+      "path": "assets/Icons/discover.png",
+      "size": 2229,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/discover.png"
+    },
+    {
+      "path": "assets/Icons/draft.png",
+      "size": 1045,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/draft.png"
+    },
+    {
+      "path": "assets/Icons/edit.png",
+      "size": 719,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/edit.png"
+    },
+    {
+      "path": "assets/Icons/empty.png",
+      "size": 1558,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/empty.png"
+    },
+    {
+      "path": "assets/Icons/feed-inverse.png",
+      "size": 1790,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/feed-inverse.png"
+    },
+    {
+      "path": "assets/Icons/feed.png",
+      "size": 2048,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/feed.png"
+    },
+    {
+      "path": "assets/Icons/feedback.png",
+      "size": 1031,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/feedback.png"
+    },
+    {
+      "path": "assets/Icons/group.png",
+      "size": 1938,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/group.png"
+    },
+    {
+      "path": "assets/Icons/home.png",
+      "size": 1020,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/home.png"
+    },
+    {
+      "path": "assets/Icons/info.png",
+      "size": 2073,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/info.png"
+    },
+    {
+      "path": "assets/Icons/language.png",
+      "size": 2409,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/language.png"
+    },
+    {
+      "path": "assets/Icons/link.png",
+      "size": 1526,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/link.png"
+    },
+    {
+      "path": "assets/Icons/location.png",
+      "size": 2223,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/location.png"
+    },
+    {
+      "path": "assets/Icons/logout.png",
+      "size": 559,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/logout.png"
+    },
+    {
+      "path": "assets/Icons/me-inverse.png",
+      "size": 1513,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/me-inverse.png"
+    },
+    {
+      "path": "assets/Icons/me.png",
+      "size": 1750,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/me.png"
+    },
+    {
+      "path": "assets/Icons/messages-inverse.png",
+      "size": 1292,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/messages-inverse.png"
+    },
+    {
+      "path": "assets/Icons/messages.png",
+      "size": 1479,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/messages.png"
+    },
+    {
+      "path": "assets/Icons/more.png",
+      "size": 307,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/more.png"
+    },
+    {
+      "path": "assets/Icons/publish.png",
+      "size": 346,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/publish.png"
+    },
+    {
+      "path": "assets/Icons/remove.png",
+      "size": 1017,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/remove.png"
+    },
+    {
+      "path": "assets/Icons/review.png",
+      "size": 1478,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/review.png"
+    },
+    {
+      "path": "assets/Icons/search.png",
+      "size": 1394,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/search.png"
+    },
+    {
+      "path": "assets/Icons/share.png",
+      "size": 636,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/share.png"
+    },
+    {
+      "path": "assets/Icons/shield.png",
+      "size": 1795,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/shield.png"
+    },
+    {
+      "path": "assets/Icons/success.png",
+      "size": 2099,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/success.png"
+    },
+    {
+      "path": "assets/Icons/ticket.png",
+      "size": 834,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/ticket.png"
+    },
+    {
+      "path": "assets/Icons/upload.png",
+      "size": 1739,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/upload.png"
+    },
+    {
+      "path": "assets/Icons/waiting.png",
+      "size": 1969,
+      "type": "image/png",
+      "source": "miniprogram/assets/community-icons/waiting.png"
+    }
+  ],
+  "web": {
+    "entry": "index.html",
+    "catalog": "catalog.json",
+    "pageMap": "evidence/page-inventory.json",
+    "nativeCoverage": "evidence/native-review/coverage.json",
+    "validation": "evidence/validation.json",
+    "runtime": "classic DOM bundle, no React or BaoCut runtime"
+  },
+  "adaptation": {
+    "design_system_check": "not present in tool inventory; not called",
+    "design_system_import_asset": "not present in tool inventory; local assets retained per user instruction",
+    "assetGroups": "No fabricated upload/blob records; localAssets indexes the ordinary Web files"
+  }
+}

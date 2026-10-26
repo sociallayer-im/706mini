@@ -1,0 +1,95 @@
+HTML 内容 Webview: pages/edit-profile/index, URL: 127.0.0.1:45417/__pageframe__/pages/edit-profile/index
+							23 container
+								24 按钮 返回
+								25 文本 编辑资料
+							26 container
+								27 text 头像 选填
+								28 图像
+								29 按钮 选择图片
+							30 container
+								31 文本 昵称
+								32 文本栏 (settable) 林叶
+									33 文本栏 (settable) 林叶
+							34 container
+								35 文本 城市
+								36 文本 上海
+							37 container
+								38 文本 兴趣（2–5 个，逗号分隔）
+								39 复选框  城市观察, Value: 1
+									40 复选框 , Value: 1
+										41 文本 
+									42 文本 城市观察
+								43 复选框 线下共读, Value: 0
+									44 复选框 0
+									45 文本 线下共读
+								46 复选框 独立放映, Value: 0
+									47 复选框 0
+									48 文本 独立放映
+								49 复选框 户外散步, Value: 0
+									50 复选框 0
+									51 文本 户外散步
+								52 复选框 桌游, Value: 0
+									53 复选框 0
+									54 文本 桌游
+								55 复选框 社区营造, Value: 0
+									56 复选框 0
+									57 文本 社区营造
+								58 复选框 公共空间, Value: 0
+									59 复选框 0
+									60 文本 公共空间
+								61 复选框 一起吃饭, Value: 0
+									62 复选框 0
+									63 文本 一起吃饭
+							64 container
+								65 text 身份关键词 选填
+								66 文本栏 (settable) 城市研究 / 社区产品
+									67 文本栏 (settable) 城市研究 / 社区产品
+							68 container
+								69 text 介绍 选填
+								70 container
+									71 文本输入区 (settable) 关注城市里的公共生活，也喜欢组织桌游和陌生人晚餐。
+									72 文本 关注城市里的公共生活，也喜欢组织桌游和陌生人晚餐。
+							73 container
+								74 文本 微信号（不公开）
+								75 文本栏 (settable) DEMO_MEMBER_NO_REAL_ACCOUNT
+									76 文本栏 (settable) DEMO_MEMBER_NO_REAL_ACCOUNT
+								77 文本 默认不公开；仅在获得许可、需要联系时向授权对象提供。
+							78 container
+								79 文本 作品链接
+								80 文本栏 (settable) https://example.com/demo/jiang/portfolio
+									81 文本栏 (settable) https://example.com/demo/jiang/portfolio
+								82 按钮 删除
+								83 文本栏 (settable) https://example.com/demo/jiang/projects
+									84 文本栏 (settable) https://example.com/demo/jiang/projects
+								85 按钮 删除
+								86 按钮  添加
+							87 container
+								88 文本 社交媒体链接
+								89 文本栏 (settable) https://example.com/demo/jiang/social-1
+									90 文本栏 (settable) https://example.com/demo/jiang/social-1
+								91 按钮 删除
+								92 文本栏 (settable) https://example.com/demo/jiang/social-2
+									93 文本栏 (settable) https://example.com/demo/jiang/social-2
+								94 按钮 删除
+								95 按钮  添加
+							96 container
+								97 文本 常出没的空间
+								98 复选框  706 青年空间, Value: 1
+									99 复选框 , Value: 1
+										100 文本 
+									101 文本 706 青年空间
+								102 复选框 杭州 706 客厅, Value: 0
+									103 复选框 0
+									104 文本 杭州 706 客厅
+								105 复选框 M50 创意园门口, Value: 0
+									106 复选框 0
+									107 文本 M50 创意园门口
+								108 复选框 徐汇滨江草坪, Value: 0
+									109 复选框 0
+									110 文本 徐汇滨江草坪
+								111 复选框  Sola 共创空间, Value: 1
+									112 复选框 , Value: 1
+										113 文本 
+									114 文本 Sola 共创空间
+							115 按钮 保存
+						116 

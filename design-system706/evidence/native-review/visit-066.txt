@@ -1,0 +1,43 @@
+HTML 内容 Webview: pages/create-space/index, URL: 127.0.0.1:45417/__pageframe__/pages/create-space/index
+							122 container
+								123 按钮 返回
+								124 文本 创建空间
+							125 文本 创建空间
+							126 文本 填写名称和城市后就会出现在对应城市。封面、地址和开放时间可以稍后补。
+							127 container
+								128 text 封面图片 选填
+								129 按钮 选择图片
+							130 container
+								131 文本 名称
+								132 文本栏 (settable) 
+
+									133 文本栏 (settable)
+							134 container
+								135 文本 城市
+								136 文本 上海
+							137 container
+								138 text 开放时间 选填
+								139 文本栏 (settable) 
+
+									140 文本栏 (settable)
+							141 container
+								142 text 详细地址 选填
+								143 文本栏 (settable) 
+
+									144 文本栏 (settable)
+							145 container
+								146 text 介绍 选填
+								147 container
+									148 文本输入区 (settable)
+									149 文本 a
+							150 container
+								151 text 对外联系人（仅向授权发起人提供） 选填
+								152 文本栏 (settable) 
+
+									153 文本栏 (settable)
+								154 文本 默认不公开；仅在获得许可、需要联系时向授权对象提供。
+							155 container
+								156 text 允许活动申请使用空间 选填
+								157 复选框 1
+							158 按钮 创建空间
+						159 

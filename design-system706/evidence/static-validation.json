@@ -1,0 +1,91 @@
+{
+  "assetCount": 36,
+  "sourceAssetsByteEqual": true,
+  "sourceCommit": "a74168a",
+  "checkedAt": "2026-10-26T01:41:18.750Z",
+  "components": 43,
+  "pages": 42,
+  "overlays": 20,
+  "tokens": 87,
+  "bidirectionalMapping": true,
+  "colorContrast": [
+    {
+      "fg": "ink",
+      "bg": "canvas",
+      "ratio": 14.39,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "ink",
+      "bg": "surface",
+      "ratio": 15.72,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "muted",
+      "bg": "canvas",
+      "ratio": 4.9,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "muted",
+      "bg": "surface",
+      "ratio": 5.36,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "danger",
+      "bg": "canvas",
+      "ratio": 5.75,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "danger",
+      "bg": "surface",
+      "ratio": 6.28,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "ink",
+      "bg": "accent",
+      "ratio": 12.47,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "ink",
+      "bg": "control",
+      "ratio": 13.63,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "ink",
+      "bg": "accentSoft",
+      "ratio": 14.54,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "muted",
+      "bg": "control",
+      "ratio": 4.65,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "line",
+      "bg": "surface",
+      "ratio": 1.36,
+      "minimum": 3,
+      "pass": false,
+      "preservedSource": true
+    }
+  ]
+}

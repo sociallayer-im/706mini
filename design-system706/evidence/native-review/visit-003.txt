@@ -1,0 +1,40 @@
+HTML 内容 Webview: pages/discover/index, URL: 127.0.0.1:45417/__pageframe__/pages/discover/index
+							23 container
+								24 按钮 切换城市：上海
+								25 文本栏 (settable) 
+搜索活动、成员、组织和空间
+									26 文本栏 (settable)
+									27 文本 搜索活动、成员、组织和空间
+								28 按钮 搜索活动、成员、组织和空间
+							29 列表框 活动专题
+								30 container
+									31 text 8 城联动 · 社区行动月 把客厅打开 从一次邻里晚餐开始认识附近的人
+							32 container 活动日历
+								33 文本 活动日历
+								34 文本 本周 0 个空间 · 0 场活动
+							35 container
+								36 按钮 本周
+								37 按钮 下周
+							38 container
+								39 按钮 全部空间
+								40 按钮 706 青年空间
+								41 按钮 M50 创意园门口
+								42 按钮 徐汇滨江草坪
+							43 container
+								44 切换按钮 免费, Value: 0
+								45 切换按钮 有名额, Value: 0
+							46 文本 0 场活动
+							47 文本 暂时没有活动
+							48 文本 换个时间看看，或者发起一场你想参加的活动。
+							49 按钮 清空筛选
+							50 按钮 发布活动
+							51 container
+								52 container 关注
+									53 文本 关注
+								54 container 发现
+									55 文本 发现
+								56 container 消息
+									57 文本 消息
+								58 container 我的
+									59 文本 我的
+						60 

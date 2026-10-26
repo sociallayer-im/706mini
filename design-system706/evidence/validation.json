@@ -1,0 +1,137 @@
+{
+  "checkedAt": "2026-10-26T01:29:11.129385+00:00",
+  "tool": "mcp__playwright (real Chromium browser)",
+  "sourceCommit": "a74168a",
+  "componentCount": 43,
+  "registeredPageMappingCount": 42,
+  "widthRender": {
+    "widths": [
+      320,
+      375,
+      768
+    ],
+    "cases": 129,
+    "scriptFailures": 0,
+    "componentRootOverflowCases": 0,
+    "note": "126 non-dialog component renders plus 3 dialog renders; render smoke checks are not 129 full visual acceptances"
+  },
+  "stateRender": {
+    "states": [
+      "default",
+      "empty",
+      "disabled",
+      "loading"
+    ],
+    "cases": 172,
+    "exceptions": 0,
+    "note": "Unsupported props ignored; not every component semantically has every state"
+  },
+  "interactions": {
+    "multipleSelection": true,
+    "singleSelection": true,
+    "selectionMaximumLockAndRelease": true,
+    "keyboardFocusAfterSelection": true,
+    "emptyOptionsNotice": true,
+    "followAndCancelConfirmation": true,
+    "dialogEscape": true,
+    "dialogBusyBlocksEscape": true,
+    "dirtyTextContinueAndDiscard": true,
+    "dirtyCheckboxConfirmation": true,
+    "searchEnterCallbackAndQuery": true,
+    "searchClear": true,
+    "calendarSelectAndDeselect": true,
+    "calendarYearMonthAndEventParameters": true,
+    "localMediaSelection": 2,
+    "mediaReorderChangesCover": true,
+    "mediaDelete": true,
+    "galleryBadImageRecovery": true,
+    "notificationReadLabel": true,
+    "publishRequiredFieldValidation": true,
+    "publishDateAndTypeRetainedOnBack": true,
+    "publishPreviewAndLocalSubmit": true,
+    "registrationPendingPaymentConfirmedTransitions": true
+  },
+  "visualInspection": [
+    "showcase-desktop.png",
+    "showcase-mobile.png"
+  ],
+  "console": {
+    "unexpectedPageErrors": 0,
+    "initialFavicon404": "fixed by local icon link",
+    "negativeImageCase": "intentional invalid data URI to exercise recovery"
+  },
+  "limits": [
+    "No real payment, approval, registration, login, message or upload request",
+    "No real device or user acceptance",
+    "Native miniprogram visit coverage is separate in native-review/visits.json",
+    "BaoCut design_system_check/import not available and not called"
+  ],
+  "fileProtocol": "Playwright tool blocks file: navigation; local HTTP display verified. Direct-file support is structural, not browser-verified in this run.",
+  "presets": {
+    "count": 94,
+    "realBrowserRendered": 94,
+    "exceptions": 0,
+    "busySheetHasExitControl": true
+  },
+  "followupChecks": {
+    "eventCardNormalAndLargeAt320375768": 6,
+    "eventCardOverflow": 0,
+    "iconButtonSize40Square": true
+  },
+  "userFeedbackFixes": {
+    "CommentThread": {
+      "cause": "compact text Button face had 12px inline padding; no missing icon or reserved icon slot",
+      "fix": "shared Button align:start; CommentThread uses it",
+      "defaultWidth": 375,
+      "replyLeftMinusBodyLeft": 0,
+      "hitTargetHeight": 44,
+      "narrowAndWideLongText": [
+        320,
+        768
+      ],
+      "overflow": false,
+      "screenshots": [
+        "comment-reply-375.png",
+        "comment-reply-long-320.png"
+      ]
+    },
+    "SegmentedControl": {
+      "cause": "native radio UA margin added to declared gap and inset",
+      "fix": "shared ChoiceGroup zero margin, normalized indicator and symmetric geometry",
+      "checkedAndUnchecked": {
+        "indicator": [
+          20,
+          20
+        ],
+        "margin": 0,
+        "gap": 8,
+        "leftInset": 12,
+        "rightInset": 12,
+        "verticalCenterDelta": 0
+      },
+      "widths": [
+        320,
+        375,
+        768
+      ],
+      "longTextAndSelectionSwitch": true,
+      "overflow": false,
+      "screenshots": [
+        "segmented-375.png",
+        "segmented-long-320.png"
+      ]
+    }
+  },
+  "nativeCoverageSummary": {
+    "registeredRoutes": 42,
+    "visitedRoutes": 39,
+    "unvisitedRoutes": 3,
+    "requiredSheets": 20,
+    "visitedSheets": 20,
+    "rawSnapshots": 84,
+    "reviewedSnapshots": 73,
+    "actualCatalogEntries": 33,
+    "visiblePendingCatalogEntries": 48,
+    "historicalCatalogEntries": 118
+  }
+}

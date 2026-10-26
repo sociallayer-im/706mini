@@ -1,0 +1,34 @@
+成员头像。无图与失败时用姓名首字占位，不制造真人头像。
+
+## 调用参数
+
+`name,src:string; size:number`
+
+使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Avatar",props)`。所有数据为textContent，不接受任意HTML。
+
+## 状态与组合
+
+展示页可切换375/320/768宽度、默认/长文/空内容以及自定义JSON参数。交互状态按此组件语义适用；不适用的loading/disabled不机械增加。业务请求、权限和原生交接由使用方提供。
+
+## 页面位置
+
+- feed · people-strip discovery-people · miniprogram/templates/screen.wxml:37
+- feed · feed-entry · miniprogram/templates/screen.wxml:199
+- messages · 消息 · Avatar语义需求 · miniprogram/templates/screen.wxml:204
+- me · self-profile · miniprogram/templates/screen.wxml:56
+- event · section event-person-card · miniprogram/templates/screen.wxml:84
+- event · detail-social · miniprogram/templates/screen.wxml:85
+- event · section event-discussion · miniprogram/templates/screen.wxml:88
+- member · member-hero · miniprogram/templates/screen.wxml:106
+- space · entity-heading · miniprogram/templates/screen.wxml:116
+- space · entity-host · miniprogram/templates/screen.wxml:120
+- space · entity-members-section · miniprogram/templates/screen.wxml:214
+- org · entity-heading · miniprogram/templates/screen.wxml:116
+- org · entity-host · miniprogram/templates/screen.wxml:120
+- org · entity-members-section · miniprogram/templates/screen.wxml:214
+- entity-members · member-row · miniprogram/templates/screen.wxml:200
+- edit-profile · 编辑资料 · Avatar语义需求 · miniprogram/templates/screen.wxml:160
+- relations · member-row · miniprogram/templates/screen.wxml:200
+- following · member-row · miniprogram/templates/screen.wxml:200
+
+实现：独立Web组件，未替换小程序。

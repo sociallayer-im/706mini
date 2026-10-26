@@ -1,0 +1,26 @@
+身份行。组合Avatar与文字，不附加无依据的身份或活跃程度。
+
+## 调用参数
+
+`name,description,src:string; size:number`
+
+使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"IdentityRow",props)`。所有数据为textContent，不接受任意HTML。
+
+## 状态与组合
+
+展示页可切换375/320/768宽度、默认/长文/空内容以及自定义JSON参数。交互状态按此组件语义适用；不适用的loading/disabled不机械增加。业务请求、权限和原生交接由使用方提供。
+
+## 页面位置
+
+- me · 我的 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:55
+- event · section event-person-card · miniprogram/templates/screen.wxml:84
+- member · 成员主页 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:105
+- space · 空间主页 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:113
+- org · 组织主页 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:113
+- entity-members · member-row · miniprogram/templates/screen.wxml:200
+- admins · 管理员 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:193
+- relations · member-row · miniprogram/templates/screen.wxml:200
+- following · member-row · miniprogram/templates/screen.wxml:200
+- attendees · 报名管理 · IdentityRow语义需求 · miniprogram/templates/screen.wxml:207
+
+实现：独立Web组件，未替换小程序。

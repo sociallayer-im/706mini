@@ -1,0 +1,39 @@
+HTML 内容 Webview: pages/edit-entity/index, URL: 127.0.0.1:45417/__pageframe__/pages/edit-entity/index
+							98 container
+								99 按钮 返回
+								100 文本 编辑资料
+							101 container
+								102 文本 封面图片
+								103 图像
+								104 按钮 选择图片
+								105 文本 图片已上传
+							106 container
+								107 文本 名称
+								108 文本栏 (settable) 706 青年空间
+									109 文本栏 (settable) 706 青年空间
+							110 container
+								111 文本 城市
+								112 文本 上海
+							113 container
+								114 文本 开放时间
+								115 文本栏 (settable) 每日 10:00–22:00
+									116 文本栏 (settable) 每日 10:00–22:00
+							117 container
+								118 文本 详细地址
+								119 文本栏 (settable) 静安区愚园路 1088 号
+									120 文本栏 (settable) 静安区愚园路 1088 号
+							121 container
+								122 文本 介绍
+								123 container
+									124 文本输入区 (settable) 一个欢迎活动、讨论和偶遇发生的共享空间。
+									125 文本 一个欢迎活动、讨论和偶遇发生的共享空间。
+							126 container
+								127 文本 对外联系人（仅向授权发起人提供）
+								128 文本栏 (settable) DEMO_SPACE_CONTACT
+									129 文本栏 (settable) DEMO_SPACE_CONTACT
+								130 文本 默认不公开；仅在获得许可、需要联系时向授权对象提供。
+							131 container
+								132 文本 允许活动申请使用空间
+								133 复选框 1
+							134 按钮 保存
+						135 

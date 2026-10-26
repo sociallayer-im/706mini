@@ -1,0 +1,4500 @@
+[
+  {
+    "name": "Button",
+    "title": "动作按钮",
+    "props": "label:string; variant:primary|secondary|text|danger|selected; compact,block,disabled,loading:boolean; align:center|start; onPress:()=>void",
+    "guide": "执行单一动作；主按钮一组最多一个。点击区与可见面分开，loading保留底色并阻止重复。align:start用于正文左缘文字操作，保留44px透明点击区。",
+    "examples": [
+      {
+        "label": "次操作",
+        "props": {}
+      },
+      {
+        "label": "主要操作",
+        "props": {
+          "variant": "primary",
+          "label": "保存活动"
+        }
+      },
+      {
+        "label": "紧凑操作",
+        "props": {
+          "variant": "primary",
+          "compact": true,
+          "label": "继续编辑"
+        }
+      },
+      {
+        "label": "文字操作",
+        "props": {
+          "variant": "text",
+          "label": "取消"
+        }
+      },
+      {
+        "label": "危险操作",
+        "props": {
+          "variant": "danger",
+          "label": "取消报名"
+        }
+      },
+      {
+        "label": "提交中",
+        "props": {
+          "variant": "primary",
+          "loading": true,
+          "label": "提交中"
+        }
+      },
+      {
+        "label": "不可用",
+        "props": {
+          "disabled": true,
+          "label": "暂不可报名"
+        }
+      },
+      {
+        "label": "整行宽度",
+        "props": {
+          "block": true,
+          "variant": "primary",
+          "label": "下一步"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "关注 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 31,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "discover",
+        "location": "发现 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "me",
+        "location": "我的 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 55,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "create-space",
+        "location": "创建空间 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event",
+        "location": "row event-secondary-actions",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 87,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-discussion",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 88,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "member",
+        "location": "成员主页 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 105,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "space",
+        "location": "空间主页 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "org",
+        "location": "组织主页 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "edit-entity",
+        "location": "编辑实体 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "admins",
+        "location": "管理员 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 193,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "edit-profile",
+        "location": "编辑资料 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "onboarding",
+        "location": "新人引导 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "calendar",
+        "location": "活动日历 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign",
+        "location": "专题详情 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 100,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "编辑专题 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-create",
+        "location": "创建专题 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "专题审核详情 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "专题审核进度 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event-access",
+        "location": "参与方式 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 129,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "publish",
+        "location": "发布活动 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approval-detail",
+        "location": "活动审核详情 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approval-progress",
+        "location": "活动审核进度 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "registrations",
+        "location": "我报名的活动 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "my-events",
+        "location": "我发起的活动 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "drafts",
+        "location": "草稿 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 202,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "more",
+        "location": "更多设置 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 66,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "login",
+        "location": "登录 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 190,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "attendees",
+        "location": "报名管理 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "invitations",
+        "location": "管理邀请 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "我的专题 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 203,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "feedback",
+        "location": "反馈 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 192,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "review-lab",
+        "location": "开发者目录 · Button语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 26,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "IconButton",
+    "title": "图标按钮",
+    "props": "icon:string; label:string; size:number; surface:surface|plain|glass; disabled:boolean; onPress:()=>void",
+    "guide": "必须提供可读label；返回/关闭复用真实本地图标。",
+    "examples": [
+      {
+        "label": "返回白面",
+        "props": {}
+      },
+      {
+        "label": "关闭透明",
+        "props": {
+          "icon": "close",
+          "label": "关闭",
+          "surface": "plain"
+        }
+      },
+      {
+        "label": "媒体上玻璃面",
+        "props": {
+          "surface": "glass",
+          "size": 40
+        }
+      },
+      {
+        "label": "不可用",
+        "props": {
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "IconButton · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 24,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "ChoiceGroup",
+    "title": "选择组",
+    "props": "options:{value,label,description?,disabled?}[]; value:string[]; mode:multiple|single; layout:list|tags; max:number; disabled:boolean; onChange:(value)=>void",
+    "guide": "选择与提交分开；单选仍用数组接口，达到max只禁用未选项。",
+    "examples": [
+      {
+        "label": "多选列表",
+        "props": {}
+      },
+      {
+        "label": "多选标签／最多2项",
+        "props": {
+          "layout": "tags",
+          "max": 2
+        }
+      },
+      {
+        "label": "单选列表",
+        "props": {
+          "mode": "single",
+          "value": [
+            "city"
+          ]
+        }
+      },
+      {
+        "label": "单选标签",
+        "props": {
+          "mode": "single",
+          "layout": "tags",
+          "value": [
+            "city"
+          ]
+        }
+      },
+      {
+        "label": "空选项",
+        "props": {
+          "options": []
+        }
+      },
+      {
+        "label": "禁用整组",
+        "props": {
+          "disabled": true,
+          "value": [
+            "film"
+          ]
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "edit-profile",
+        "location": "ui-choice-group",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 172,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "onboarding",
+        "location": "section-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 185,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "ui-choice-group",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 172,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-create",
+        "location": "ui-choice-group",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 172,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "ui-choice-group",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 172,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "review-lab",
+        "location": "开发者目录 · ChoiceGroup语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 26,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Checkbox",
+    "title": "布尔确认",
+    "props": "label:string; checked,disabled:boolean; onChange:(checked:boolean)=>void",
+    "guide": "只用于单个布尔确认；隐私同意不默认替用户勾选。",
+    "examples": [
+      {
+        "label": "未确认",
+        "props": {}
+      },
+      {
+        "label": "已确认",
+        "props": {
+          "checked": true
+        }
+      },
+      {
+        "label": "禁用",
+        "props": {
+          "checked": true,
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "onboarding",
+        "location": "section-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 185,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FilterChip",
+    "title": "筛选项",
+    "props": "label:string; selected,disabled:boolean; onChange:(selected)=>void",
+    "guide": "可切换状态，不用作只读标签。",
+    "examples": [
+      {
+        "label": "未筛选",
+        "props": {}
+      },
+      {
+        "label": "已筛选",
+        "props": {
+          "selected": true
+        }
+      },
+      {
+        "label": "不可用",
+        "props": {
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "discover",
+        "location": "mine-filter-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "calendar",
+        "location": "mine-filter-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "registrations",
+        "location": "mine-filter-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "my-events",
+        "location": "mine-filter-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "ActionRow",
+    "title": "操作行",
+    "props": "title,description,value,icon:string; danger:boolean; onPress?:()=>void",
+    "guide": "只有传onPress才是按钮；信息行不伪装可点击。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "discover",
+        "location": "发现 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "me",
+        "location": "我的 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 55,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "manage",
+        "location": "管理 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 61,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event",
+        "location": "ui-action-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 92,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "ui-action-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 93,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "ui-action-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 94,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "空间主页 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "org",
+        "location": "组织主页 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "admins",
+        "location": "管理员 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 193,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-action-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 131,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event-access",
+        "location": "participation-management",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 145,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "approvals",
+        "location": "审核待办 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "more",
+        "location": "更多设置 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 66,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "invitations",
+        "location": "管理邀请 · ActionRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FormField",
+    "title": "输入字段",
+    "props": "label,value,hint,error,placeholder,name,type:string; multiline,required,disabled:boolean; onChange:(value)=>void",
+    "guide": "错误靠近字段，不清空用户输入；label与输入通过ID关联。",
+    "examples": [
+      {
+        "label": "单行输入",
+        "props": {}
+      },
+      {
+        "label": "多行介绍",
+        "props": {
+          "label": "活动介绍",
+          "multiline": true
+        }
+      },
+      {
+        "label": "字段错误保留内容",
+        "props": {
+          "value": "过去的时间",
+          "error": "请选择未来的开始时间",
+          "required": true
+        }
+      },
+      {
+        "label": "禁用字段",
+        "props": {
+          "value": "只读中的资料",
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "create-space",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "edit-entity",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "edit-profile",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "onboarding",
+        "location": "section-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 185,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-create",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "field",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 164,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "login",
+        "location": "登录 · FormField语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 190,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "feedback",
+        "location": "反馈 · FormField语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 192,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Switch",
+    "title": "偏好开关",
+    "props": "label,hint:string; checked,disabled:boolean; onChange:(checked)=>void",
+    "guide": "仅用于立即生效偏好；业务保存失败时由使用方复原。",
+    "examples": [
+      {
+        "label": "开启",
+        "props": {}
+      },
+      {
+        "label": "关闭",
+        "props": {
+          "checked": false
+        }
+      },
+      {
+        "label": "禁用",
+        "props": {
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "publish",
+        "location": "<switch",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 166,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "more",
+        "location": "更多设置 · Switch语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 66,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "privacy",
+        "location": "隐私与可见性 · Switch语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 191,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "DateTimePicker",
+    "title": "日期时间选择",
+    "props": "label,value:string; disabled:boolean; onChange:(value)=>void",
+    "guide": "浏览器使用datetime-local；时区与开始/结束约束由业务层校验。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "create-space",
+        "location": "row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 167,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 167,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "MediaUploader",
+    "title": "媒体选择与排序",
+    "props": "max:number; disabled:boolean; change事件:{count}",
+    "guide": "本机文件选择、10MB/图片校验、删除/前移和封面变化；不上传服务器。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "create-space",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "edit-entity",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "edit-profile",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-create",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "media-grid",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 178,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Gallery",
+    "title": "多图阅读",
+    "props": "items:string[]",
+    "guide": "上一张/下一张及图片预览；空图/失败明确提示，保留原比例。",
+    "examples": [
+      {
+        "label": "单图",
+        "props": {}
+      },
+      {
+        "label": "多图",
+        "props": {
+          "items": [
+            "assets/Demo/cover-2.png",
+            "assets/Demo/cover-2.png"
+          ]
+        }
+      },
+      {
+        "label": "空图集",
+        "props": {
+          "items": []
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "event",
+        "location": "event-gallery",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 75,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "专题审核详情 · Gallery语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "activity-preview",
+        "location": "event-gallery",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 75,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "approval-detail",
+        "location": "活动审核详情 · Gallery语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Avatar",
+    "title": "成员头像",
+    "props": "name,src:string; size:number",
+    "guide": "无图与失败时用姓名首字占位，不制造真人头像。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "people-strip discovery-people",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 37,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "feed",
+        "location": "feed-entry",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 199,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "messages",
+        "location": "消息 · Avatar语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 204,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "me",
+        "location": "self-profile",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 56,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-person-card",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 84,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "detail-social",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 85,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-discussion",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 88,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "member",
+        "location": "member-hero",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 106,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "entity-heading",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 116,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "entity-host",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 120,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "entity-members-section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 214,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "org",
+        "location": "entity-heading",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 116,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "org",
+        "location": "entity-host",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 120,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "org",
+        "location": "entity-members-section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 214,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "entity-members",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "edit-profile",
+        "location": "编辑资料 · Avatar语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "relations",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "following",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "PersonCard",
+    "title": "人物推荐卡",
+    "props": "name,bio:string; following:boolean",
+    "guide": "身份、简介与关注并列；取消关注需确认，整卡不抢独立操作。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "people-strip discovery-people",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 37,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "EventCard",
+    "title": "活动邀请卡",
+    "props": "title,status,date,venue,host,fee,cover:string; large:boolean; onOpen:()=>void",
+    "guide": "活动自身状态与个人报名状态分开；海报3:4，点击图可独立预览。",
+    "examples": [
+      {
+        "label": "普通活动卡",
+        "props": {}
+      },
+      {
+        "label": "大图变体",
+        "props": {
+          "large": true
+        }
+      },
+      {
+        "label": "满员",
+        "props": {
+          "status": "已满 · 20/20"
+        }
+      },
+      {
+        "label": "已取消",
+        "props": {
+          "status": "已取消",
+          "title": "活动取消公告"
+        }
+      },
+      {
+        "label": "无海报",
+        "props": {
+          "cover": null
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "feed-entry",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 199,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "discover",
+        "location": "发现 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event",
+        "location": "活动详情 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 74,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "member",
+        "location": "is=\"eventCard\"",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 205,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "空间主页 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "org",
+        "location": "组织主页 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "entity-events",
+        "location": "全部活动 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 205,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "calendar",
+        "location": "is=\"eventCard\"",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 205,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign",
+        "location": "is=\"eventCard\"",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 205,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-create",
+        "location": "hero-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 184,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "专题审核详情 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "activity-preview",
+        "location": "活动预览 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 74,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "publish",
+        "location": "hero-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 184,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "approval-detail",
+        "location": "活动审核详情 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "registrations",
+        "location": "我报名的活动 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "my-events",
+        "location": "我发起的活动 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "drafts",
+        "location": "草稿 · EventCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 202,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "PersonalEvent",
+    "title": "个人活动摘要",
+    "props": "EventCard参数; status,description,action:string",
+    "guide": "组合StatusSummary、EventCard与操作组；不把待审核写成确认报名。",
+    "examples": [
+      {
+        "label": "待审核",
+        "props": {}
+      },
+      {
+        "label": "待付款",
+        "props": {
+          "status": "待付款",
+          "description": "申请已通过，付款后保留名额。",
+          "action": "付款保留名额"
+        }
+      },
+      {
+        "label": "报名确认",
+        "props": {
+          "status": "已确认",
+          "description": "请查看主办方提供的参与方式。",
+          "action": "查看参与方式"
+        }
+      },
+      {
+        "label": "草稿",
+        "props": {
+          "status": "草稿",
+          "description": "尚未提交审核",
+          "action": "继续编辑"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "registrations",
+        "location": "ui-personal-event",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 202,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "my-events",
+        "location": "ui-personal-event",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 202,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "drafts",
+        "location": "ui-personal-event",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 202,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "PersonalCampaign",
+    "title": "个人专题摘要",
+    "props": "title,status,description:string",
+    "guide": "状态、内容与继续编辑共同构成一项记录。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "my-campaigns",
+        "location": "ui-personal-campaign",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 203,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FeatureCarousel",
+    "title": "空间/专题轮播",
+    "props": "items:{title,description}[]",
+    "guide": "手动翻页，不自动播放；空内容可辨认。",
+    "examples": [
+      {
+        "label": "多内容",
+        "props": {}
+      },
+      {
+        "label": "单内容",
+        "props": {
+          "items": [
+            {
+              "title": "706 青年空间",
+              "description": "同城探索"
+            }
+          ]
+        }
+      },
+      {
+        "label": "空内容",
+        "props": {
+          "items": []
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "is=\"featureCarousel\"",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 33,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "discover",
+        "location": "is=\"featureCarousel\"",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 40,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FeedItem",
+    "title": "动态组合",
+    "props": "name,text:string; EventCard参数",
+    "guide": "作者、正文与活动卡嵌套，动态外层不再套白卡。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "feed-entry",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 199,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "NotificationItem",
+    "title": "通知条目",
+    "props": "title,description:string; read:boolean; read事件",
+    "guide": "点击标记演示已读；状态通过文字而非仅颜色表达。",
+    "examples": [
+      {
+        "label": "未读",
+        "props": {}
+      },
+      {
+        "label": "已读",
+        "props": {
+          "read": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "messages",
+        "location": "message-group-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 204,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Calendar",
+    "title": "日历",
+    "props": "year,month,value:number; events:Record<YYYY-MM-DD,number>; onChange:(detail)=>void; datechange事件:{selected,year,month}",
+    "guide": "支持传入年月、选日与日期计数；月切换与再点取消日期。默认2026年11月7日活动点为演示数据，非线上统计。",
+    "examples": [
+      {
+        "label": "演示11月",
+        "props": {}
+      },
+      {
+        "label": "传入年月及计数",
+        "props": {
+          "year": 2027,
+          "month": 2,
+          "events": {
+            "2027-02-02": 3,
+            "2027-02-14": 1
+          }
+        }
+      },
+      {
+        "label": "无活动月份",
+        "props": {
+          "year": 2027,
+          "month": 1,
+          "events": {}
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "calendar",
+        "location": "calendar-box",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 49,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "StatusSummary",
+    "title": "结果摘要",
+    "props": "title,description,state,action:string; compact:boolean; onPress:()=>void",
+    "guide": "待审/成功/失败要按业务事实输入；摘要本身不可点击。",
+    "examples": [
+      {
+        "label": "待审核",
+        "props": {}
+      },
+      {
+        "label": "已确认",
+        "props": {
+          "state": "success",
+          "title": "报名已确认",
+          "description": "请按主办方提供的信息参与。",
+          "action": "查看参与方式"
+        }
+      },
+      {
+        "label": "失败承接",
+        "props": {
+          "state": "error",
+          "title": "暂时无法提交",
+          "description": "输入已保留，请稍后重试。",
+          "action": "重试"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "onboarding",
+        "location": "新人引导 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-create",
+        "location": "创建专题 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "专题审核详情 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "专题审核进度 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-status-summary",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 130,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-status-summary",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 132,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "发布活动 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approval-detail",
+        "location": "活动审核详情 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approval-progress",
+        "location": "活动审核进度 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "registrations",
+        "location": "我报名的活动 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 194,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "我的专题 · StatusSummary语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 203,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "AccessStep",
+    "title": "参与步骤",
+    "props": "number:number; title,description,action:string; onPress:()=>void",
+    "guide": "编号、说明、局部操作在一组；窄屏自然换行。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "event-access",
+        "location": "ui-access-step",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 136,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-access-step",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 137,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-access-step",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 138,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event-access",
+        "location": "ui-access-step",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 139,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "ReviewHistory",
+    "title": "审核历史",
+    "props": "items:{title,description,state}[]",
+    "guide": "传真实时间与记录；空数组明确无记录。",
+    "examples": [
+      {
+        "label": "审核记录",
+        "props": {}
+      },
+      {
+        "label": "无审核记录",
+        "props": {
+          "items": []
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "campaign-approval-detail",
+        "location": "专题审核详情 · ReviewHistory语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "ui-review-history",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "approval-detail",
+        "location": "活动审核详情 · ReviewHistory语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 147,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approval-progress",
+        "location": "ui-review-history",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 157,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Sheet",
+    "title": "任务弹层",
+    "props": "title,error:string; content:Node; actions:ButtonProps[]; loading,dirty,confirmDiscard,removeOnClose:boolean",
+    "guide": "返回dialog，调用showModal。焦点由浏览器限制在弹层，Escape关闭；loading时锁关闭；输入后关闭先确认放弃，内部成功close跳过确认。",
+    "examples": [
+      {
+        "label": "只读内容",
+        "props": {}
+      },
+      {
+        "label": "提交中不可关闭",
+        "props": {
+          "loading": true,
+          "title": "正在提交"
+        }
+      },
+      {
+        "label": "错误保留上下文",
+        "props": {
+          "error": "提交失败，内容已保留"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "Sheet · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 218,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Navigation",
+    "title": "主导航",
+    "props": "items:string[]; value:string; navigate事件",
+    "guide": "仅主浏览上下文使用，任务页隐藏；此网页示例点击改变选中状态。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "Navigation · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 221,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "Navigation · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 221,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "Navigation · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 221,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "Navigation · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 221,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Stepper",
+    "title": "步骤指示",
+    "props": "items:string[]; current:number",
+    "guide": "指示当前步骤，不把未校验步骤做成任意跳转按钮。",
+    "examples": [
+      {
+        "label": "第一步",
+        "props": {}
+      },
+      {
+        "label": "第二步",
+        "props": {
+          "current": 1
+        }
+      },
+      {
+        "label": "第三步",
+        "props": {
+          "current": 2
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "onboarding",
+        "location": "form-intro",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 161,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign-create",
+        "location": "form-intro",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 161,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "publish",
+        "location": "form-intro",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 161,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "EmptyState",
+    "title": "空内容承接",
+    "props": "title,description,action:string; onPress:()=>void",
+    "guide": "说明为什么为空与可采取的动作，不造假内容。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "EmptyState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 215,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "LoadingState",
+    "title": "加载状态",
+    "props": "refresh:boolean",
+    "guide": "初载骨架；刷新保留内容，仅给轻量说明；减少动态偏好关闭动画。",
+    "examples": [
+      {
+        "label": "首次加载",
+        "props": {}
+      },
+      {
+        "label": "保留内容刷新",
+        "props": {
+          "refresh": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "LoadingState · 共享壳/过渡状态（按条件显示）",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Notice",
+    "title": "提示与错误",
+    "props": "text,state,action:string; onPress:()=>void",
+    "guide": "错误用alert，普通提示用status；颜色伴随明确文案。",
+    "examples": [
+      {
+        "label": "普通说明",
+        "props": {}
+      },
+      {
+        "label": "可重试错误",
+        "props": {
+          "state": "error",
+          "text": "网络暂时不可用，已保留内容。",
+          "action": "重试"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feed",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feed",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "discover",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "messages",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "me",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "manage",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "create-space",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "member",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "space",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "org",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-events",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "entity-members",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-entity",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "admins",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "edit-profile",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "relations",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "onboarding",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "calendar",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "spaces",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-create",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-approval-detail",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "campaign-review-progress",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event-access",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "activity-preview",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "publish",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approvals",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-detail",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "approval-progress",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "registrations",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-events",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "drafts",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "following",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "more",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "login",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "attendees",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "invitations",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "my-campaigns",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "privacy",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "feedback",
+        "location": "弹层局部错误：sheet-error；底层页面错误由!sheet条件抑制",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 3,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "页面级错误、登录承接与重试：error && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 29,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "review-lab",
+        "location": "保留现有内容的刷新提示：loading && (items.length || record) && !sheet",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 30,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Section",
+    "title": "内容区块",
+    "props": "title,action:string; children:Node; onPress:()=>void",
+    "guide": "区块留白与标题统一，嵌套正文不机械多层套卡。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "event",
+        "location": "event-overview",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 76,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-information",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 78,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "detail-facts section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 79,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-person-card",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 84,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "detail-series-links",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 86,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section event-discussion",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 88,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "section-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 90,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "campaign",
+        "location": "section series-about",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 103,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "event-overview",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 76,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "section event-information",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 78,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "detail-facts section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 79,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "section event-person-card",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 84,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "detail-series-links",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 86,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "section event-discussion",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 88,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "activity-preview",
+        "location": "section-title",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 90,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "privacy",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 191,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "EntityCard",
+    "title": "空间/组织摘要",
+    "props": "title,description,address:string",
+    "guide": "地点与身份说明来自公开数据；不从管理角色推断公开负责人。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "manage",
+        "location": "管理 · EntityCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 61,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "space",
+        "location": "entity-intro",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 114,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "org",
+        "location": "entity-intro",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 114,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "spaces",
+        "location": "空间目录 · EntityCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 197,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign",
+        "location": "专题详情 · EntityCard语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 100,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "CommentThread",
+    "title": "评论与回复",
+    "props": "name,text:string",
+    "guide": "提供本机回复弹层，空回复不提交；回复为无图标文字操作，与正文左缘对齐。真实发布由使用方绑定。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "feed",
+        "location": "comment弹层：按reply_to组织评论线程与内嵌回复；入口须由可达状态验证",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 20,
+        "mappingKind": "shared-conditional"
+      },
+      {
+        "page": "event",
+        "location": "活动详情讨论区：作者、正文、内嵌回复及回复/删除操作",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 88,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "event",
+        "location": "comment弹层：按reply_to组织评论线程与内嵌回复；入口须由可达状态验证",
+        "source": "miniprogram/templates/sheets.wxml",
+        "line": 20,
+        "mappingKind": "shared-conditional"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "LinkList",
+    "title": "公开链接组",
+    "props": "items:{title,description,url?}[]",
+    "guide": "明确外部承接，不自动打开或复制用户数据。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "member",
+        "location": "member-section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 110,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "member",
+        "location": "member-section",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 111,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "空间主页 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "org",
+        "location": "组织主页 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "edit-profile",
+        "location": "编辑资料 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign",
+        "location": "专题详情 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 100,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-edit",
+        "location": "编辑专题 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "campaign-create",
+        "location": "创建专题 · LinkList语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 160,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "SearchField",
+    "title": "搜索框",
+    "props": "label,value,placeholder:string; onSearch:(query)=>void; search事件",
+    "guide": "清空与搜索分开；Enter提交不触发页面跳转。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "discover",
+        "location": "发现 · SearchField语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "SegmentedControl",
+    "title": "分段单选",
+    "props": "ChoiceGroup参数",
+    "guide": "固定单选tags变体，用于本周/本月等互斥视角。radio零margin，20px指示符、8px文字间隔、左右12px对称内边距。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "messages",
+        "location": "消息 · SegmentedControl语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 204,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "relations",
+        "location": "chips",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 158,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "calendar",
+        "location": "活动日历 · SegmentedControl语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 39,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "spaces",
+        "location": "空间目录 · SegmentedControl语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 197,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approvals",
+        "location": "审核待办 · SegmentedControl语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "following",
+        "location": "chips",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 158,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "IdentityRow",
+    "title": "身份行",
+    "props": "name,description,src:string; size:number",
+    "guide": "组合Avatar与文字，不附加无依据的身份或活跃程度。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "me",
+        "location": "我的 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 55,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "event",
+        "location": "section event-person-card",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 84,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "member",
+        "location": "成员主页 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 105,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "space",
+        "location": "空间主页 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "org",
+        "location": "组织主页 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 113,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "entity-members",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "admins",
+        "location": "管理员 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 193,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "relations",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "following",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "attendees",
+        "location": "报名管理 · IdentityRow语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "StatLink",
+    "title": "可打开统计",
+    "props": "value:number; label:string; onPress:()=>void",
+    "guide": "真实数量含0；只读统计应直接文字而非按钮。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "me",
+        "location": "self-profile",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 56,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "member",
+        "location": "成员主页 · StatLink语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 105,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "MenuGroup",
+    "title": "分组菜单",
+    "props": "items:ActionRowProps[]",
+    "guide": "同组共享白面，整行点击与分隔；展示站设置只在本机示例内。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "me",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 57,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "me",
+        "location": "settings-menu developer-entry",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 58,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "me",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 59,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "manage",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 63,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "manage",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 64,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "more",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 68,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "more",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 69,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "more",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 70,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "more",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 71,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "privacy",
+        "location": "settings-menu",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 191,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "review-lab",
+        "location": "开发者目录 · MenuGroup语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 26,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "PermissionState",
+    "title": "权限/不可用状态",
+    "props": "title,description,action:string; onPress:()=>void",
+    "guide": "明确受限原因和返回，不把权限失败当空列表。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "manage",
+        "location": "canManage",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 61,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "Badge",
+    "title": "只读状态标签",
+    "props": "label:string",
+    "guide": "不绑定点击；必须有状态文字，不与FilterChip混用。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "event",
+        "location": "活动详情 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 74,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "member",
+        "location": "成员主页 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 105,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "admins",
+        "location": "管理员 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 193,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "activity-preview",
+        "location": "活动预览 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 74,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "approvals",
+        "location": "审核待办 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "attendees",
+        "location": "报名管理 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      },
+      {
+        "page": "invitations",
+        "location": "管理邀请 · Badge语义需求",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 207,
+        "mappingKind": "design-semantic-requirement"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FloatingBar",
+    "title": "底部动作组",
+    "props": "actions:ButtonProps[]",
+    "guide": "背景借用导航壳；业务页面放置时须预留底部与键盘安全区。",
+    "examples": [
+      {
+        "label": "默认",
+        "props": {}
+      }
+    ],
+    "uses": [
+      {
+        "page": "event",
+        "location": "navigation-shell event-action-shell",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 97,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "FollowControl",
+    "title": "关注控件",
+    "props": "following,disabled,loading:boolean; onChange:(following)=>void",
+    "guide": "点击关注；已关注触发取消确认；异步失败由使用方回滚。",
+    "examples": [
+      {
+        "label": "未关注",
+        "props": {}
+      },
+      {
+        "label": "已关注／取消确认",
+        "props": {
+          "following": true
+        }
+      },
+      {
+        "label": "请求中",
+        "props": {
+          "loading": true
+        }
+      },
+      {
+        "label": "不可用",
+        "props": {
+          "disabled": true
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "member",
+        "location": "row member-actions",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 107,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "space",
+        "location": "meta entity-address",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 117,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "org",
+        "location": "meta entity-address",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 117,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "entity-members",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "relations",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      },
+      {
+        "page": "following",
+        "location": "member-row",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 200,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  },
+  {
+    "name": "ParticipantSummary",
+    "title": "公开参与者摘要",
+    "props": "names:string[]; label:string",
+    "guide": "打开公开参与者弹层，明确不是完整名单，不展示私密联系方式。",
+    "examples": [
+      {
+        "label": "公开部分名单",
+        "props": {}
+      },
+      {
+        "label": "暂无公开名单",
+        "props": {
+          "names": [],
+          "label": "暂无公开参与者"
+        }
+      }
+    ],
+    "uses": [
+      {
+        "page": "event",
+        "location": "detail-social",
+        "source": "miniprogram/templates/screen.wxml",
+        "line": 85,
+        "mappingKind": "source-implementation-or-semantic-equivalent"
+      }
+    ],
+    "implementation": "独立Web DOM实现；由706源码语义与主题提炼，非原生组件直接编译"
+  }
+]
