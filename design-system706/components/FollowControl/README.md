@@ -1,8 +1,8 @@
-关注控件。点击关注；已关注触发取消确认；异步失败由使用方回滚。
+关注控件。已关注为浅灰次要按钮，触发取消确认；primary按语境显式传入，异步失败由使用方回滚。
 
 ## 调用参数
 
-`following,disabled,loading:boolean; onChange:(following)=>void`
+`following,primary,disabled,loading:boolean; onChange:(following)=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"FollowControl",props)`。所有数据为textContent，不接受任意HTML。
 

@@ -6,7 +6,10 @@
 .meta{font-size:var(--typeMeta);line-height:1.5;color:var(--muted)}
 .comment-badge{border-radius:var(--pill);padding:2rpx 9rpx;background:var(--infoSoft);color:var(--info);font-size:var(--typeLabel);line-height:1.4}
 .comment-body{display:block;margin-top:var(--spaceUnit);font-size:var(--typeBody);line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-.comment-reply{margin-top:var(--actionGap);padding:var(--actionGap) 20rpx;background:var(--control);color:var(--ink);border-radius:var(--radiusInput);font-size:var(--typeFact);line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.comment-replies{margin-top:var(--actionGap);padding:var(--actionGap) var(--headingGap);background:var(--canvas);border-radius:var(--radiusImage)}
+.comment-reply{color:var(--ink);font-size:var(--typeFact);line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.comment-reply+.comment-reply{margin-top:var(--headingGap)}
+.reply-actions{display:flex;margin-top:var(--spaceUnit)}
+.reply-expansion{margin-top:var(--spaceUnit)}
 .reply-author{font-weight:500}
 .comment-actions{display:flex;align-items:center;flex-wrap:wrap;gap:var(--headingGap);margin:var(--spaceUnit) 0 0}
-.surface-detail .comment-reply{background:var(--canvas)}

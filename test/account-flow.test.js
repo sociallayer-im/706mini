@@ -270,3 +270,17 @@ test('unlimited capacity is explicit in previews and remains null in the saved p
  assert.equal(editor.data.previewEvent.capacityDisplay,'0 / 不限');assert.equal(forms.payload('event',editor.data.form).capacity,null);
  editor.updateFields({form:{...editor.data.form,capacity:'20'}});assert.equal(editor.data.previewEvent.capacityDisplay,'0/20');assert.equal(forms.payload('event',editor.data.form).capacity,20);editor.onUnload();
 });
+
+test('campaign submission opens the complete current public preview and linked event previews without publishing',async()=>{
+ const editor=page('campaign-create');await editor.load();const selected=editor.data.eventOptions[0];assert(selected);
+ const option={...selected,access:{value:'PRIVATE_EVENT_CONTACT'},organizer_note:'PRIVATE_REVIEW_NOTE'};
+ editor.updateFields({step:3,eventOptions:[option],form:{...editor.data.form,title:'未提交专题',kicker:'城市联动',introduction:'完整专题介绍\n第二段',media:[{type:'image',url:'/assets/demo/cover-2.png'}],event_ids:[selected.id],resource_links:'PRIVATE_RESOURCE',contact:'PRIVATE_FORM_CONTACT'}});
+ const before=api.mock.state().rows.filter(row=>row.type==='campaign').length;
+ editor.previewSeries();const url=navigation.at(-1);assert.match(url,/campaign\/index\?snapshot=/);const snapshot=new URL('https://test'+url).searchParams.get('snapshot');
+ const preview=page('campaign',{snapshot});await preview.load();assert.equal(preview.data.localPreview,true);assert.equal(preview.data.record.title,'未提交专题');assert.equal(preview.data.record.kicker,'城市联动');assert.equal(preview.data.record.introduction,'完整专题介绍\n第二段');assert.equal(preview.data.items.length,1);assert.equal(preview.data.items[0].id,selected.id);assert.deepEqual(preview.data.record.galleryUrls,['/assets/demo/cover-2.png']);assert(!JSON.stringify(preview.data.record).includes('PRIVATE_'));assert.equal(preview.onShareAppMessage().path,'/pages/feed/index');
+ preview.openEvent({currentTarget:{dataset:{id:selected.id}}});const childUrl=navigation.at(-1);assert.match(childUrl,/activity-preview\/index\?snapshot=/);const child=page('activity-preview',{snapshot:new URL('https://test'+childUrl).searchParams.get('snapshot')});await child.load();assert.equal(child.data.record.title,selected.title);assert(!JSON.stringify(child.data.record).includes('PRIVATE_'));
+ await editor.load();assert.equal(editor.data.step,3);assert.equal(editor.data.form.introduction,'完整专题介绍\n第二段');assert.equal(editor.data.form.resource_links,'PRIVATE_RESOURCE');assert.equal(api.mock.state().rows.filter(row=>row.type==='campaign').length,before);
+ const malformed=page('campaign',{snapshot:'not-the-token'});await malformed.load();assert.equal(malformed.data.record,null);assert(malformed.data.error);
+ api.mock.configure({persona:'demo-host'});const other=page('campaign',{snapshot});await other.load();assert.equal(other.data.record,null);assert(other.data.error);
+ for(const p of [editor,preview,child,malformed,other])p.onUnload();
+});

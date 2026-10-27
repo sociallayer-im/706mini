@@ -1,8 +1,8 @@
-操作行。只有传onPress才是按钮；信息行不伪装可点击。
+操作行。只有传onPress才是按钮；navigation显式表示前往内容，复制与状态操作不画箭头；信息行不伪装可点击。
 
 ## 调用参数
 
-`title,description,value,icon:string; danger:boolean; onPress?:()=>void`
+`title,description,value,icon:string; navigation,danger:boolean; onPress?:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"ActionRow",props)`。所有数据为textContent，不接受任意HTML。
 

@@ -3,3 +3,7 @@
 .record-description,.record-meta{display:block;margin-top:var(--spaceUnit);font-size:var(--typeFact);line-height:1.7;color:var(--muted);white-space:pre-line;overflow-wrap:anywhere}
 .record-actions{display:flex;align-items:center;flex-wrap:wrap;gap:var(--actionGap)}
 .is-interactive.is-pressed{background:var(--control)}
+
+.record-cover{display:block;width:100%;height:var(--eventArtHeight);margin-bottom:var(--headingGap);border-radius:var(--radiusImage);background:var(--control)}
+.record-eyebrow{display:block;font-size:var(--typeFact);line-height:1.6;color:var(--muted)}
+.record-description.is-prose{font-size:var(--typeBody);color:var(--ink)}

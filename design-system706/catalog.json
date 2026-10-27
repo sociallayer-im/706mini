@@ -818,8 +818,8 @@
   {
     "name": "ActionRow",
     "title": "操作行",
-    "props": "title,description,value,icon:string; danger:boolean; onPress?:()=>void",
-    "guide": "只有传onPress才是按钮；信息行不伪装可点击。",
+    "props": "title,description,value,icon:string; navigation,danger:boolean; onPress?:()=>void",
+    "guide": "只有传onPress才是按钮；navigation显式表示前往内容，复制与状态操作不画箭头；信息行不伪装可点击。",
     "examples": [
       {
         "label": "默认",
@@ -1966,8 +1966,8 @@
   {
     "name": "Sheet",
     "title": "任务弹层",
-    "props": "title,error:string; content:Node; actions:ButtonProps[]; loading,dirty,confirmDiscard,removeOnClose:boolean",
-    "guide": "返回dialog，调用showModal。焦点由浏览器限制在弹层，Escape关闭；loading时锁关闭；输入后关闭先确认放弃，内部成功close跳过确认。",
+    "props": "title,error,closeLabel:string; content:Node; actions:ButtonProps[]; loading,dirty,confirmDiscard,removeOnClose:boolean",
+    "guide": "返回dialog，调用showModal。焦点由浏览器限制在弹层，Escape关闭；loading时锁关闭；输入后关闭先确认放弃，内部成功close跳过确认。顶部使用紧凑取消／完成，不加关闭叉和默认重复底部关闭；单一提交为标准整行主按钮。",
     "examples": [
       {
         "label": "只读内容",
@@ -3897,7 +3897,7 @@
     "name": "CommentThread",
     "title": "评论与回复",
     "props": "name,text:string",
-    "guide": "提供本机回复弹层，空回复不提交；头像与右侧评论文本块顶部对齐；回复为无图标文字操作，与正文左缘对齐。真实发布由使用方绑定。",
+    "guide": "提供本机回复弹层，空回复不提交；头像与正文顶部对齐；回复透明文字操作。每条评论的回复合为一张灰色圆角面，按时间先后显示前两条，其余可展开／收起。真实发布由使用方绑定。",
     "examples": [
       {
         "label": "默认",
@@ -4396,8 +4396,8 @@
   {
     "name": "FollowControl",
     "title": "关注控件",
-    "props": "following,disabled,loading:boolean; onChange:(following)=>void",
-    "guide": "点击关注；已关注触发取消确认；异步失败由使用方回滚。",
+    "props": "following,primary,disabled,loading:boolean; onChange:(following)=>void",
+    "guide": "已关注为浅灰次要按钮，触发取消确认；primary按语境显式传入，异步失败由使用方回滚。",
     "examples": [
       {
         "label": "未关注",

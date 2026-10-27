@@ -1,5 +1,5 @@
 {
-  "scope": "迁移后源码接入；不代表42页GUI、真机或业务验收",
+  "scope": "当前注册路由与共享弹窗的源码接入；不等于全页面 GUI、真机或业务验收",
   "source": "miniprogram/templates/screen.wxml + sheets.wxml",
   "families": [
     {
@@ -480,8 +480,8 @@
       "note": "原生组件；业务处理由页面控制器承担。"
     }
   ],
-  "pages": 42,
-  "sheets": 20,
+  "pages": 44,
+  "sheets": 21,
   "guiEvidence": "evidence/native-migration/",
   "pageMappings": [
     {
@@ -1077,7 +1077,6 @@
       "template": "miniprogram/templates/screen.wxml",
       "families": [
         "Section",
-        "LinkList",
         "EventCard",
         "Button",
         "IconButton",
@@ -1085,24 +1084,20 @@
         "EmptyState",
         "Notice",
         "Sheet",
-        "Gallery",
-        "MenuGroup",
-        "ActionRow"
+        "Gallery"
       ],
       "nativeComponents": [
-        "ui-action-row",
         "ui-button",
         "ui-empty-state",
         "ui-event-card",
         "ui-icon-button",
         "ui-loading-state",
-        "ui-menu-group",
         "ui-notice",
         "ui-section",
         "ui-sheet",
         "ui-gallery"
       ],
-      "evidence": "专题封面复用 Gallery；介绍与资料复用 Section + MenuGroup + ActionRow；活动复用 EventCard。条件与权限仍由共享模板及控制器维护。"
+      "evidence": "公开封面复用 Gallery，介绍复用 Section，活动复用 EventCard；本地草稿 snapshot 复用同一页面，只读预览，不显示分享／管理。专题资料入口已移除。"
     },
     {
       "route": "pages/campaign-edit/index",
@@ -1168,7 +1163,8 @@
         "ui-notice",
         "ui-sheet",
         "ui-status-summary",
-        "ui-stepper"
+        "ui-stepper",
+        "ui-record-card"
       ],
       "evidence": "source-based; conditional rendering remains in shared template"
     },
@@ -1621,6 +1617,56 @@
       "evidence": "source-based; conditional rendering remains in shared template"
     },
     {
+      "route": "pages/blocks/index",
+      "entry": "miniprogram/pages/blocks/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Button",
+        "IconButton",
+        "Section",
+        "Sheet",
+        "LoadingState",
+        "EmptyState",
+        "Notice"
+      ],
+      "nativeComponents": [
+        "ui-record-card",
+        "ui-button",
+        "ui-icon-button",
+        "ui-section",
+        "ui-sheet",
+        "ui-loading-state",
+        "ui-empty-state",
+        "ui-notice"
+      ],
+      "evidence": "current app registration and shared template; not GUI acceptance"
+    },
+    {
+      "route": "pages/platform-admins/index",
+      "entry": "miniprogram/pages/platform-admins/index.wxml",
+      "template": "miniprogram/templates/screen.wxml",
+      "families": [
+        "Button",
+        "IconButton",
+        "Section",
+        "Sheet",
+        "LoadingState",
+        "EmptyState",
+        "Notice"
+      ],
+      "nativeComponents": [
+        "ui-record-card",
+        "ui-button",
+        "ui-icon-button",
+        "ui-section",
+        "ui-sheet",
+        "ui-loading-state",
+        "ui-empty-state",
+        "ui-notice"
+      ],
+      "evidence": "current app registration and shared template; not GUI acceptance"
+    },
+    {
       "route": "pages/my-campaigns/index",
       "entry": "miniprogram/pages/my-campaigns/index.wxml",
       "template": "miniprogram/templates/screen.wxml",
@@ -1918,6 +1964,15 @@
         "feedback"
       ],
       "evidence": "source-based; transitions require separate GUI/business verification"
+    },
+    {
+      "id": "grantAdmin",
+      "template": "miniprogram/templates/sheets.wxml",
+      "shell": "ui-sheet",
+      "pages": [
+        "platform-admins"
+      ],
+      "evidence": "current shared authorization branch; no production write during verification"
     }
   ],
   "compositionSupport": [

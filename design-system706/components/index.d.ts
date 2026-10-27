@@ -9,7 +9,7 @@ IconButton:NodeComponent<Record<string,unknown>>;
 Checkbox:NodeComponent<Record<string,unknown>>;
 /** label:string; selected,disabled:boolean; onChange:(selected)=>void */
 FilterChip:NodeComponent<Record<string,unknown>>;
-/** title,description,value,icon:string; danger:boolean; onPress?:()=>void */
+/** title,description,value,icon:string; navigation,danger:boolean; onPress?:()=>void */
 ActionRow:NodeComponent<Record<string,unknown>>;
 /** label,value,hint,error,placeholder,name,type:string; multiline,required,disabled:boolean; onChange:(value)=>void */
 FormField:NodeComponent<Record<string,unknown>>;
@@ -79,7 +79,7 @@ PermissionState:NodeComponent<Record<string,unknown>>;
 Badge:NodeComponent<Record<string,unknown>>;
 /** actions:ButtonProps[] */
 FloatingBar:NodeComponent<Record<string,unknown>>;
-/** following,disabled,loading:boolean; onChange:(following)=>void */
+/** following,primary,disabled,loading:boolean; onChange:(following)=>void */
 FollowControl:NodeComponent<Record<string,unknown>>;
 /** names:string[]; label:string */
 ParticipantSummary:NodeComponent<Record<string,unknown>>;

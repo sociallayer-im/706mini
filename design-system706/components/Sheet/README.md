@@ -1,8 +1,8 @@
-任务弹层。返回dialog，调用showModal。焦点由浏览器限制在弹层，Escape关闭；loading时锁关闭；输入后关闭先确认放弃，内部成功close跳过确认。
+任务弹层。返回dialog，调用showModal。焦点由浏览器限制在弹层，Escape关闭；loading时锁关闭；输入后关闭先确认放弃，内部成功close跳过确认。顶部使用紧凑取消／完成，不加关闭叉和默认重复底部关闭；单一提交为标准整行主按钮。
 
 ## 调用参数
 
-`title,error:string; content:Node; actions:ButtonProps[]; loading,dirty,confirmDiscard,removeOnClose:boolean`
+`title,error,closeLabel:string; content:Node; actions:ButtonProps[]; loading,dirty,confirmDiscard,removeOnClose:boolean`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Sheet",props)`。所有数据为textContent，不接受任意HTML。
 

@@ -1,4 +1,4 @@
-> 当前已确认标准见 [当前设计规范](../docs/design-system-current.md)。Web 展示站与原生仍有待同步差异，见 [全局审查](../docs/design-review-2026-10-27.md)；展示示例不自动代表已更新的当前规范。
+> 当前已确认标准见 [当前设计规范](../docs/design-system-current.md)。本轮已清理按钮颜色、弹窗关闭、成功态与字段圆角的旧规则，处理进度见 [全局审查](../docs/design-review-2026-10-27.md)；展示示例不自动代表已更新的当前规范。
 
 让相聚自然发生。保持轻松、清晰、真实：让人物、活动和关系成为内容，不让控件争夺注意力。
 
@@ -10,7 +10,7 @@
 
 - 画布用 `canvas`，内容面用 `surface`，正文用 `ink`，辅助文字用 `muted`。主要操作用 `accent` 上的 `accentText`；危险动作用 `danger`，并保留确认语义。
 - 正文用 `typeBody`（375px基准14px）、1.7行高；主标题 `typeTitle`、活动标题 `typeEvent`、栏目 `typeSection`；事实 `typeFact`，时间 `typeMeta`，只读标签 `typeLabel`。小字不替代正文。
-- 页边用 `pageGutter`，区块间用 `sectionGap`，标题间用 `headingGap`；内容角用 `radius`，图片 `radiusImage`，输入 `radiusInput`，弹层 `radiusSheet`。胶囊只包必要内容。
+- 页边用 `pageGutter`，区块间用 `sectionGap`，标题间用 `headingGap`；内容角用 `radius`，图片 `radiusImage`，字段外框 `radiusField`，弹层 `radiusSheet`。胶囊只包必要内容。
 - 标准操作用 `controlHeight`，卡片内紧凑操作用 `controlCompactHeight`。透明点击区至少 `touchTarget`，不把最小点击高度涂满成大按钮。长文自然增高，不缩小字。
 - 卡片无常规装饰描边和阴影；字段用 `line`，必要分隔用 `stroke`。底部导航胶囊/动作组可用 `navigationSurface` 与 `navigationBlur`，正文不用毛玻璃。全局顶部导航蒙层背景透明，只用 `navigationBlur` 配合渐隐 mask 向下过渡，不叠加白色或画布色，图片封面页与普通页面一致。
 - 按压用 `pressDuration` 与 `pressOpacity`，不缩放几何；等待旋转用 `loadingDuration`，遵循减少动态偏好。焦点使用 `ink` 的3px实线（本次Web适配决定）。
@@ -68,9 +68,9 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 
 ## 小程序原生接入
 
-用户已批准将系统应用到小程序。`native-mapping.json`提供43个语义家族的原生路径或组合；原生调用以各`miniprogram/components/ui-*/README.md`为准。Web示范保留DOM API，原生组件通过共享模板使用，不把Web节点移入WXML。42路由与20弹层已接入共享模板。迁移后的GUI证据见`evidence/native-migration/README.md`，迁移前覆盖仅为历史记录。
+用户已批准将系统应用到小程序。`native-mapping.json`提供43个语义家族的原生路径或组合；原生调用以各`miniprogram/components/ui-*/README.md`为准。Web示范保留DOM API，原生组件通过共享模板使用，不把Web节点移入WXML。44路由与21弹层已接入共享模板。迁移后的GUI证据见`evidence/native-migration/README.md`，迁移前覆盖仅为历史记录。
 
-`evidence/page-inventory.json`保留最初提炼时的行号与源码快照。当前原生对应以`native-mapping.json`为准，包含42页和20弹层的接入映射；条件仍由共享模板与控制器决定。
+`evidence/page-inventory.json`保留最初提炼时的行号与源码快照。当前原生对应以`native-mapping.json`为准，包含44页和21弹层的当前接入映射；条件仍由共享模板与控制器决定。
 
 ## 当前规则：页面留白与纯文字筛选
 

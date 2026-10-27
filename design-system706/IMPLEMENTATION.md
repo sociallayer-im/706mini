@@ -8,7 +8,11 @@
 
 完整读取 BaoCut Design System SKILL.md 及 format/craft/from-code/cover，参考本机design-skills索引。服从用户明确授权：完整手写独立Web组件、正常网页、本地素材文件与提交push；没有强制引入BaoCut runtime，没有修改技能。未调用不存在的design_system_check/import；本地验证不是该工具的替代冒称。组件实时预览由主网页装载，逐组件preview是预加载上下文卡片片段。
 
-## 来源优先级
+## 当前规范优先级
+
+本文件按时间记录实现经过；早期数目、顶部对齐、资料包入口等均为历史，不作为当前规则。当前以 `../docs/design-system-current.md`、原生主题与共用组件为准。后续用户明确修正覆盖早期决定。
+
+## 历史来源优先级
 
 当前 `lib/theme.js` 与 `docs/design-direction-system-2026-10-23.md` 优先；global/controls用于语义与状态，paper历史色板不重新引入。主题精确值与原始rpx都保留在tokens，Web按375px基准换算。全部必要新语义按页面位置登记为同一清单，原有组件存在与否仅作次要来源信息。
 
@@ -72,3 +76,6 @@ PersonCard与IdentityRow原先align-items:center导致头像随多行文本整�
 
 
 2026-10-27 顶部导航：原生 main-navigation::before 去除 canvas／chromeSoft 的浅色渐变填充，只保留透明背景、navigationBlur 与现有渐隐 mask；navigationFade 及布局不变。所有主标签页、任务页、活动／专题／空间／组织封面共用，底部胶囊的材料仍按自身组件规则。
+
+
+2026-10-27 审查批准修复：R01–R07、R10、R12 完成；R08、R09、R11 保留待确认。Web 同步灰色 secondary／danger 面、字段 radiusField、无装饰成功图标的结果节奏、顶部取消／完成与单一整行提交、显式 navigation 箭头以及回复分组。筛选保留自身白色未选面，列表关注不擅自推广黄色。旧控件记录归档，当前映射为44页／21弹层。专题创建第三步复用记录卡与既有专题详情完成本地公开字段预览，未新增业务路由或发布数据。
