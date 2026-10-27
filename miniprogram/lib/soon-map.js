@@ -335,10 +335,19 @@ function eventReview(event) {
 }
 
 function imageNote(form) {
-  const methods = form?.access?.methods || (form?.access ? [form.access] : []);
-  const qr = methods.find(item => item && item.type === 'GROUP_QR');
-  const value = String(qr?.value || '');
-  return /^https?:\/\//.test(value) ? value : '';
+  const methods = (form?.access?.methods || (form?.access ? [form.access] : [])).map(item => {
+    if (!item || !item.type) return null;
+    const value = String(item.value || '').trim();
+    if (!value) return null;
+    if (item.type === 'GROUP_QR') return /^https?:\/\//.test(value) ? { type: item.type, value } : null;
+    return { type: item.type, value };
+  }).filter(Boolean);
+  if (!methods.length) return '';
+  if (methods.length === 1 && methods[0].type === 'GROUP_QR') return methods[0].value;
+  const payload = JSON.stringify({ v: 1, m: methods.map(item => ({ t: item.type, v: item.value })) });
+  if (payload.length <= 255) return payload;
+  const qr = methods.find(item => item.type === 'GROUP_QR');
+  return qr ? qr.value : '';
 }
 
 function applyEventFilters(items, params = {}) {
@@ -394,14 +403,23 @@ function reportType(route) {
 }
 
 function accessMethods(imageNote) {
+  const stored = parseAccessNote(imageNote);
+  if (stored) return { ...stored[0], methods: stored };
   const methods = [{ type: 'ORGANIZER_WILL_CONTACT', value: '发起人将联系你' }];
   if (imageNote && /^https?:\/\//.test(imageNote)) methods.unshift({ type: 'GROUP_QR', value: imageNote });
   return { ...methods[0], methods };
+}
+function parseAccessNote(note) {
+  if (!note || note[0] !== '{') return null;
+  try {
+    const methods = (JSON.parse(note).m || []).filter(item => item && ['GROUP_QR', 'ORGANIZER_WECHAT', 'OTHER', 'ORGANIZER_WILL_CONTACT'].includes(item.t) && typeof item.v === 'string' && item.v.trim() && (item.t !== 'GROUP_QR' || /^https?:\/\//.test(item.v)));
+    return methods.length ? methods.map(item => ({ type: item.t, value: item.v })) : null;
+  } catch { return null; }
 }
 
 module.exports = {
   eventContent, encodeEventContent, CITIES, eventStatus, campaignStatus, priceMinor, person, entity, groupKind, eventCard, registrationFrom,
   registrationStatus, campaignCard, cursorPage, pageResult, comment, feedItem, notification, reviewTask,
-  eventReview, imageNote, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, reportType,
+  eventReview, imageNote, applyEventFilters, dateWindow, sendAuth, knownCode, config, accessMethods, parseAccessNote, reportType,
   campaignIsPublic, attendeeFlags
 };

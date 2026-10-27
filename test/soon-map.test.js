@@ -107,7 +107,9 @@ test('server errors map onto the words the screens already translate', () => {
 });
 
 test('group QR is the uploaded image and a missing city is not labeled same-city data', () => {
-  assert.equal(map.imageNote({ access: { methods: [{ type: 'GROUP_QR', value: 'https://assets.example/qr.png' }, { type: 'ORGANIZER_WECHAT', value: 'secret' }] } }), 'https://assets.example/qr.png');
+  const packed = map.imageNote({ access: { methods: [{ type: 'GROUP_QR', value: 'https://assets.example/qr.png' }, { type: 'ORGANIZER_WECHAT', value: 'secret' }] } });
+  assert.deepEqual(map.parseAccessNote(packed).map(item => item.type), ['GROUP_QR', 'ORGANIZER_WECHAT']);
+  assert.equal(map.parseAccessNote(packed).find(item => item.type === 'ORGANIZER_WECHAT').value, 'secret');
   assert.equal(map.imageNote({ access: { methods: [{ type: 'GROUP_QR', value: '706-media:private' }] } }), '');
   assert.equal(map.imageNote({}), '');
   const access = map.accessMethods('https://assets.example/qr.png');

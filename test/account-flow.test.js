@@ -237,7 +237,7 @@ test('participation values are required before continuing, while empty early dra
  for(const type of ['GROUP_QR','ORGANIZER_WECHAT','OTHER'])assert(forms.validate('event',{...base,join_methods:[type],access_values:{}},{step:2}).join_methods);
  assert.equal(forms.validate('event',{...base,join_methods:['OTHER'],access_values:{OTHER:'到场后在入口集合'}},{step:2}).join_methods,undefined);
  assert.equal(forms.payload('event',{...base,join_methods:[]}).access,undefined);
- const soon=require('../miniprogram/lib/soon');soon.setSession({id:'guard-test',token:'TEST_ONLY'});await assert.rejects(soon.call('write',{op:'saveEvent',params:{access:{methods:[{type:'OTHER',value:'私密说明'}]}}}),/ACCESS_METHOD_NOT_SUPPORTED/);soon.setSession(null);
+ assert.equal(forms.validate('event',base,{step:2,submit:true}).join_methods,undefined);
 });
 
 
