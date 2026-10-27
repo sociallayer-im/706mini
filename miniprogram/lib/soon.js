@@ -216,6 +216,7 @@ async function read(op, params = {}) {
   if (op === 'mine') return mine(params);
   if (op === 'draft') return draft(params);
   if (op === 'managed') { const groups = await Promise.all((await managedGroups()).map(row => request({ path: '/groups/' + row.group.id }))); return { items: groups.filter(group => !(group.group_tags || []).includes('personal')).map(map.entity) }; }
+  if (op === 'memberships') return { items: (await membershipsOf(myId())).filter(row => row.active !== false && row.group?.id).map(row => ({ id: row.group.id, role: row.role })) };
   if (op === 'reviews') return reviews(params);
   if (op === 'review') return review(params.id);
   if (op === 'progress') return progress(params.id);
@@ -657,6 +658,7 @@ async function access(id) {
 }
 async function saveEntity(params) {
   const group = { nickname: params.name, bio: params.introduction, city: params.city, banner_image_url: params.cover_url, image_url: params.avatar_url, data: {} };
+  if (['everyone', 'member', 'manager'].includes(params.can_publish_event)) group.can_publish_event = params.can_publish_event;
   ['opening_hours', 'address', 'public_contact', 'public_links', 'allow_event_requests'].forEach(key => { if (params[key] !== undefined) group.data[key] = params[key]; });
   return map.entity(await request({ method: 'PATCH', path: '/groups/' + params.id, body: { group } }));
 }
@@ -674,7 +676,7 @@ async function createSpace(params) {
   const data = {};
   ['opening_hours', 'address', 'public_contact'].forEach(key => { if (String(params[key] || '').trim()) data[key] = String(params[key]).trim(); });
   if (params.allow_event_requests !== undefined) data.allow_event_requests = !!params.allow_event_requests;
-  const group = { name: spaceSlug(), nickname, city, timezone: 'Asia/Shanghai', bio: String(params.introduction || '').trim(), banner_image_url: params.cover_url || '', group_tags: ['space'], can_publish_event: 'manager', data };
+  const group = { name: spaceSlug(), nickname, city, timezone: 'Asia/Shanghai', bio: String(params.introduction || '').trim(), banner_image_url: params.cover_url || '', group_tags: ['space'], can_publish_event: ['everyone', 'member', 'manager'].includes(params.can_publish_event) ? params.can_publish_event : 'manager', data };
   return map.entity(await request({ method: 'POST', path: '/groups', body: { group } }));
 }
 async function invite(params) {

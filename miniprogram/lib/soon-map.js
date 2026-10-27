@@ -76,6 +76,7 @@ function entity(group) {
     public_links: group.public_links || [],
     public_contact: group.public_contact || '',
     allow_event_requests: !!group.allow_event_requests,
+    can_publish_event: ['everyone', 'member', 'manager'].includes(group.can_publish_event) ? group.can_publish_event : 'manager',
     status: group.active === false ? 'INACTIVE' : 'ACTIVE',
     followers_count: group.followers_count || 0,
     version: 1

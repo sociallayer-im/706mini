@@ -52,6 +52,19 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F5F5F2"
   },
+  "tabBar": {
+    "custom": true,
+    "color": "#6B6B66",
+    "selectedColor": "#232323",
+    "backgroundColor": "#F5F5F2",
+    "borderStyle": "white",
+    "list": [
+      {"pagePath": "pages/feed/index", "text": "关注", "iconPath": "assets/tab-icons/feed-default.png", "selectedIconPath": "assets/tab-icons/feed-selected.png"},
+      {"pagePath": "pages/discover/index", "text": "发现", "iconPath": "assets/tab-icons/discover-default.png", "selectedIconPath": "assets/tab-icons/discover-selected.png"},
+      {"pagePath": "pages/messages/index", "text": "消息", "iconPath": "assets/tab-icons/messages-default.png", "selectedIconPath": "assets/tab-icons/messages-selected.png"},
+      {"pagePath": "pages/me/index", "text": "我的", "iconPath": "assets/tab-icons/me-default.png", "selectedIconPath": "assets/tab-icons/me-selected.png"}
+    ]
+  },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "lazyCodeLoading": "requiredComponents",

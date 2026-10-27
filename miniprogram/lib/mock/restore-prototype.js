@@ -4,7 +4,7 @@ module.exports=function restore(rows,add,at){
  const find=id=>rows.find(r=>r.id===id);
  const primary=source.people;
  primary.forEach(p=>Object.assign(find('profile-'+p.id),{display_name:p.name,bio:p.bio,city:p.city==='杭州'?'hangzhou':'shanghai',introduction:p.source_id==='jiang'?'关注城市里的公共生活，也喜欢组织桌游和陌生人晚餐。':'喜欢把陌生人聚到一张桌子边，聊一些没有标准答案的问题。',source_id:p.source_id,share_activity:true,visibility:'PUBLIC',interests:['城市观察','纪录片','社区空间'],public_links:[{label:'作品与项目',url:'https://example.com/demo/'+p.source_id+'/works'},{label:'社交媒体',url:'https://example.com/demo/'+p.source_id+'/social'}],frequent_spaces:['demo-space','demo-sola-space']}));
- Object.assign(find('demo-space'),{name:'706 青年空间',introduction:'一个欢迎活动、讨论和偶遇发生的共享空间。',address:'静安区愚园路 1088 号',opening_hours:'每日 10:00–22:00',public_contact:'DEMO_SPACE_CONTACT',allow_event_requests:true});
+ Object.assign(find('demo-space'),{name:'706 青年空间',introduction:'一个欢迎活动、讨论和偶遇发生的共享空间。',address:'静安区愚园路 1088 号',opening_hours:'每日 10:00–22:00',public_contact:'DEMO_SPACE_CONTACT',allow_event_requests:true,can_publish_event:'manager'});
  Object.assign(find('demo-space-hz'),{name:'杭州 706 客厅',introduction:'从一部电影、一顿晚餐或一次散步开始，讨论居住、迁徙与社区。'});
  Object.assign(find('demo-org'),{name:'Sola 放映组',introduction:'用电影打开现实里的讨论，也认识一起看电影的人。'});
  [['demo-product-org','ORGANIZATION','706 产品小组','参与社区产品共创'],['demo-frisbee-org','ORGANIZATION','飞盘散人局','零基础友好的飞盘活动'],['demo-m50','SPACE','M50 创意园门口','苏州河慢走集合点'],['demo-riverside','SPACE','徐汇滨江草坪','傍晚飞盘集合点'],['demo-sola-space','SPACE','Sola 共创空间','社区共创与交流']].forEach(([id,kind,name,introduction])=>add('entity',id,{kind,name,introduction,city:'shanghai',cover_url:'/assets/demo/cover-1.png'}));

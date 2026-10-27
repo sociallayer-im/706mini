@@ -10,6 +10,7 @@ global.wx = {
   removeStorageSync: key => store.delete(key),
   setNavigationBarTitle() {},
   reLaunch(options) { relaunches.push(options.url); options.success?.(); options.complete?.(); },
+  switchTab(options) { relaunches.push(options.url); options.success?.(); options.complete?.(); },
   navigateTo(options) { relaunches.push(options.url); },
   request() { throw Error('Unexpected network'); }
 };
@@ -47,7 +48,7 @@ for (const route of routes) {
 }
 const markup = read('miniprogram/templates/screen.wxml');
 const navigation = read('miniprogram/components/ui-navigation/index.wxml');
-assert(markup.includes('<ui-navigation'));assert(read('miniprogram/custom-tab-bar/index.wxml').includes('<ui-navigation'));
+assert(!markup.includes('<ui-navigation'));assert(read('miniprogram/custom-tab-bar/index.wxml').includes('<ui-navigation'));
 assert(navigation.includes('src="{{item.icon}}"'));
 assert(navigation.includes('aria-selected="{{current === item.key}}"'));
 assert(!/Inverse|navigation-emoji|navigation-selection|translateX/.test(navigation));
@@ -114,6 +115,15 @@ for (const route of routes) {
   assert(component.data.items.every(item => item.icon === icons[item.key]));
 }
 component.sync('feed');
+assert(markup.includes("tabMotion ? 'tab-motion-' + tabMotion : ''"));
+assert(read('miniprogram/styles/editorial.wxss').includes('@keyframes tabEnterRight'));
+const feed = factory('feed');
+feed.data = structuredClone(feed.data);
+feed.setData = values => Object.assign(feed.data, values);
+feed.playTabExit(1, () => {});
+assert.equal(feed.data.tabMotion, 'leave-left');
+feed.playTabExit(-1, () => {});
+assert.equal(feed.data.tabMotion, 'leave-right');
 component.switchTab({detail:{handler:'navigate',dataset:{route:'discover'}}});
 assert.equal(relaunches.at(-1), '/pages/discover/index');
 assert.equal(component.data.selected, 1);

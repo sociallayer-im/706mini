@@ -11,6 +11,23 @@ test('public campaigns need a published event and attendee actions follow the ro
   assert.deepEqual(map.attendeeFlags('CONFIRMED', { canEdit: true, canCheckIn: true, checkedIn: true }), { can_approve: false, can_check_in: false });
 });
 
+test('a manager-only space blocks the event form before the last step', () => {
+  const forms = require('../miniprogram/lib/forms');
+  const space = { id: 'shanghai', name: '上海706', can_publish_event: 'manager', can_host: false };
+  assert.equal(forms.canHostEvent(space, 'owner'), true);
+  assert.equal(forms.canHostEvent(space, undefined), false);
+  assert.equal(forms.hostingRefusal({ space_id: 'shanghai' }, [space], 'zh-CN'), '「上海706」不能接收这场活动，原因是小组权限设为只允许管理员发布。请换一个空间，或改选你管理的发布组织。');
+  assert.equal(forms.hostingRefusal({ space_id: 'shanghai', organization_id: 'org' }, [space], 'zh-CN'), '');
+  const blocked = forms.validate('event', { title: '见面', description: '一起', city: 'shanghai', space_id: 'shanghai', starts_at: '2099-01-01T10:00:00.000Z', ends_at: '2099-01-01T12:00:00.000Z', join_methods: ['OTHER'], access_values: { OTHER: '到了再说' } }, { step: 2, locale: 'zh-CN', spaces: [space] });
+  assert.match(blocked.space_id, /小组权限设为只允许管理员/);
+});
+
+test('a group publish scope stays one of the three backend values', () => {
+  assert.equal(map.entity({ id: 'g', nickname: '上海706', group_tags: ['space'], can_publish_event: 'manager' }).can_publish_event, 'manager');
+  assert.equal(map.entity({ id: 'g', nickname: '开放', can_publish_event: 'everyone' }).can_publish_event, 'everyone');
+  assert.equal(map.entity({ id: 'g', nickname: '缺省' }).can_publish_event, 'manager');
+});
+
 test('a WeChat ticket price stays in fen and a free event is zero', () => {
   assert.equal(map.priceMinor({ ticket_price: 2500, has_non_wechat_price: false }), 2500);
   assert.equal(map.priceMinor({ ticket_price: null, has_non_wechat_price: false }), 0);

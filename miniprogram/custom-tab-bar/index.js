@@ -1,3 +1,4 @@
+const pages = require('../lib/page');
 const theme = require('../lib/theme');
 const prefs = require('../lib/preferences');
 const i18n = require('../lib/i18n');
@@ -18,14 +19,11 @@ Component({
    this.setData({selected: selected < 0 ? 0 : selected, hidden: !!page?.data?.sheet || !routes.includes(path), items: routes.map(key => ({key, label: t[key], icon: illustrations[key]}))});
   },
   switchTab(e) {
-   const index = routes.indexOf(e.detail.dataset.route);
-   if (index === this.data.selected || this.data.switching || !routes[index]) return;
-   this.setData({switching: true});
-   wx.reLaunch({
-    url: '/pages/' + routes[index] + '/index',
-    success: () => this.setData({selected: index}),
-    complete: () => this.setData({switching: false})
-   });
+   const index = routes.indexOf(e.detail && e.detail.dataset && e.detail.dataset.route);
+   if (index < 0 || index === this.data.selected || this.data.switching || !routes[index]) return;
+   this.setData({switching: true, selected: index});
+   const finish = () => this.setData({switching: false});
+   pages.openTab(routes[index], {fail: () => { this.sync(); finish(); }, complete: finish});
   }
  }
 });

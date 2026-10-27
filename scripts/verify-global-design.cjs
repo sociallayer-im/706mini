@@ -16,7 +16,7 @@ assert.equal(theme.style('paper'),theme.style('community'));
 assert.equal(theme.tokens.eventArtWidth,'264rpx');assert.equal(theme.tokens.eventArtHeight,'352rpx');
 for(const value of Object.values(icons).flat())assert(fs.existsSync(path.join(root,'miniprogram',value)),value);
 const markup=read('miniprogram/templates/screen.wxml'),sheets=read('miniprogram/templates/sheets.wxml'),css=read('miniprogram/styles/editorial.wxss');
-assert(markup.includes('!sheet && !isTask && !keyboardHeight'));
+assert(read('miniprogram/lib/page.js').includes('!this.data.sheet&&!presentation.isTask(route)&&!this.data.keyboardHeight&&!this.data.accountOpen'));
 assert(markup.includes('<ui-floating-bar keyboard-height="{{keyboardHeight}}"'));
 assert(read('miniprogram/components/ui-floating-bar/index.wxml').includes('keyboardHeight'));
 assert(css.includes('.screen.task-page{padding-bottom:'));
@@ -24,7 +24,7 @@ assert(read('miniprogram/components/ui-floating-bar/index.wxml').includes("keybo
 assert(read('miniprogram/components/ui-sheet/index.wxss').includes('border-radius:var(--radiusSheet)'));
 assert(markup.includes('e:previewEvent,illustrations:illustrations,t:t,previewOnly:true'));
 assert(markup.includes('<ui-personal-event'));
-assert(markup.includes('isMainTab && !sheet && !isTask && !keyboardHeight'));
+assert(!markup.includes('<ui-navigation'));
 assert(!/✅|🎉|⏳|🗑|➕/.test(markup+sheets));
 assert(sheets.includes('busy="{{busy}}"'));
 assert(read('miniprogram/components/ui-sheet/index.wxml').includes('bind:press="close"'));

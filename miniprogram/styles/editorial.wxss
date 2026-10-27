@@ -15,6 +15,16 @@
 .screen .filters{margin:32rpx 0 36rpx}
 .screen .chips{margin:20rpx 0}
 .screen.has-bottom{padding-bottom:calc(160rpx + var(--tabBarSpace) + env(safe-area-inset-bottom))}
+.screen.tab-motion-parked,.screen.tab-motion-leave-left,.screen.tab-motion-leave-right,.screen.tab-motion-enter-left,.screen.tab-motion-enter-right{pointer-events:none}
+.screen.tab-motion-parked{opacity:0}
+.screen.tab-motion-leave-left{animation:tabLeaveLeft 180ms ease-in both}
+.screen.tab-motion-leave-right{animation:tabLeaveRight 180ms ease-in both}
+.screen.tab-motion-enter-left{animation:tabEnterLeft 240ms cubic-bezier(.22,1,.36,1) both}
+.screen.tab-motion-enter-right{animation:tabEnterRight 240ms cubic-bezier(.22,1,.36,1) both}
+@keyframes tabLeaveLeft{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(-20%,0,0)}}
+@keyframes tabLeaveRight{from{opacity:1;transform:translate3d(0,0,0)}to{opacity:0;transform:translate3d(20%,0,0)}}
+@keyframes tabEnterLeft{from{opacity:0;transform:translate3d(-20%,0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes tabEnterRight{from{opacity:0;transform:translate3d(20%,0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
 .screen.has-bottom .detail-cover{height:440rpx;border:0;border-radius:var(--radius)}
 .screen .detail-facts{padding:24rpx 28rpx;border:0;border-radius:var(--radius)}
 .screen .detail-fact{padding-top:20rpx;padding-bottom:20rpx;gap:24rpx}
@@ -216,6 +226,11 @@
 .participation-detail .meta{margin-bottom:var(--actionGap)}
 
 .entity-details{display:flex;flex-direction:column;gap:var(--headingGap);margin-top:var(--headingGap)}
+.entity-publish{margin-top:var(--headingGap)}
+.entity-publish .section-heading{margin-top:0}
+.entity-publish .body-text{margin:0}
+.publish-scope{display:flex;flex-direction:column;gap:12rpx}
+.publish-scope .label{font-size:var(--typeFact);font-weight:600}
 .screen .entity-description{margin:0;font-size:var(--typeBody);line-height:1.7}
 
 .campaign-overview{display:flex;flex-direction:column;gap:var(--headingGap);padding:var(--itemGap) 0}
