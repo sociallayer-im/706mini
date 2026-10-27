@@ -25,6 +25,9 @@
 .screen .section>.section-title + .body-text{margin-top:0}
 .screen .section>.section-heading{margin-top:0}
 .screen .member-hero{padding:var(--panelInset);border:0;border-radius:var(--radius);margin-bottom:var(--sectionGap)}
+.screen .member-id{display:flex;align-items:center;gap:12rpx;margin:16rpx 0 0}
+.screen .member-id-label{font-size:var(--typeFact);line-height:1.5;color:var(--muted)}
+.screen .member-id-value{flex:1;min-width:0;font-size:var(--typeFact);line-height:1.5;color:var(--ink)}
 .account-welcome,.account-fields,.account-guest{display:flex;flex-direction:column;gap:24rpx;align-items:stretch}
 .account-welcome{padding:24rpx 0}
 .account-setup{padding-bottom:32rpx}

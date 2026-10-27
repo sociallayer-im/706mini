@@ -80,7 +80,7 @@ test('binding uses authenticated bind context, rejects account switching and nev
  wx.request=options=>{requests.push(options);options.success({statusCode:200,data:options.url.endsWith('/users/me')?{id:'wechat-user',phone:null}:{user:{id:different?'phone-user':'wechat-user'},token:'other'}});};
  await assert.rejects(soon.call('bindPhone',{phone:'13800138000',code:'123456'}),/PHONE_ACCOUNT_CONFLICT/);assert.equal(soon.session().id,'wechat-user');assert.equal(soon.session().token,'original');
  different=false;await assert.rejects(soon.call('bindPhone',{phone:'13800138000',code:'123456'}),/PHONE_BIND_UNCONFIRMED/);
- assert.equal(requests[0].data.context,'bind_phone');assert.equal(requests[0].header.Authorization,'Bearer original');
+ assert.equal(requests[0].url.endsWith('/auth/bind_phone'),true);assert.equal(requests[0].data.code,'123456');assert.equal(requests[0].header.Authorization,'Bearer original');
  wx.request=()=>{throw Error('Unexpected network');};
 });
 test('agreement is required, reminders are optional, and documents return to the same login form',async()=>{

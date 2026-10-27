@@ -1,8 +1,8 @@
-只读状态标签。不绑定点击；保留状态文字，statusCode按共享真实枚举映射success/pending/danger/waiting/neutral语义色。主操作黄色不作为状态色，不与FilterChip混用。
+只读状态标签。不绑定点击；必须有状态文字，不与FilterChip混用。
 
 ## 调用参数
 
-`label,statusCode:string; tone:neutral|success|pending|danger|waiting`
+`label:string`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Badge",props)`。所有数据为textContent，不接受任意HTML。
 

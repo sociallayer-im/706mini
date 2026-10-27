@@ -1,8 +1,8 @@
-分组菜单。title为卡片内Header，由容器施加panelInset，与行icon左缘一致，禁止slot裸标题或双重padding。卡片级辅助动作右上，正文操作/footer保留原层级。同组共享白面，整行点击与分隔；展示站设置只在本机示例内。
+分组菜单。同组共享白面，整行点击与分隔；展示站设置只在本机示例内。
 
 ## 调用参数
 
-`title,action:string; items:ActionRowProps[]`
+`items:ActionRowProps[]`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"MenuGroup",props)`。所有数据为textContent，不接受任意HTML。
 

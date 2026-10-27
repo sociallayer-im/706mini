@@ -1,2 +1,2 @@
-@import "../../styles/input-placeholder.wxss";
+.input-placeholder{color:var(--muted);font-size:var(--typeFact);font-weight:400;line-height:var(--fieldLineHeight)}
 .search{box-sizing:border-box;display:flex;flex:1;align-items:center;min-height:var(--touchTarget);min-width:0;pointer-events:auto}.search-face{box-sizing:border-box;display:flex;align-items:center;gap:var(--spaceUnit);width:100%;min-width:0;height:var(--controlCompactHeight);padding:0 var(--spaceUnit) 0 var(--headingGap);border-radius:var(--pill);background:var(--surface)}.input{box-sizing:border-box;flex:1;min-width:0;height:var(--controlCompactHeight);border:0;border-radius:0;background:transparent;padding:0;color:var(--ink);font-size:var(--typeFact);line-height:var(--fieldLineHeight)}

@@ -1,8 +1,8 @@
-内容区块。区块留白与标题统一，嵌套正文不机械多层套卡。summary/description展示仅抑制正文完整开头摘要，不删正文任意相似句。
+内容区块。区块留白与标题统一，嵌套正文不机械多层套卡。
 
 ## 调用参数
 
-`title,action,summary,description:string; context:page|card; children:Node; onPress:()=>void`
+`title,action:string; children:Node; onPress:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Section",props)`。所有数据为textContent，不接受任意HTML。
 

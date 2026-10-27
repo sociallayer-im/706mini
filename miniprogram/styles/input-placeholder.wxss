@@ -1,2 +1,0 @@
-/* Search and form fields share the same secondary placeholder typography. */
-.input-placeholder{color:var(--muted);font-size:var(--typeFact);font-weight:400;line-height:var(--fieldLineHeight)}

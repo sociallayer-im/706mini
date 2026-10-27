@@ -37,7 +37,7 @@ function dropSession() {
 function rejectedLogin() {
   return Object.assign(new Error('LOGIN_REQUIRED'), { code: 'LOGIN_REQUIRED', status: 401 });
 }
-function request({ method = 'GET', path, query, body, auth = true } = {}) {
+function request({ method = 'GET', path, query, body, auth = true, preserveSession = false } = {}) {
   const token = auth ? session()?.token : '';
   if (auth && !token) return Promise.reject(rejectedLogin());
   return new Promise((resolve, reject) => {
@@ -48,7 +48,8 @@ function request({ method = 'GET', path, query, body, auth = true } = {}) {
       timeout: 20000,
       header: { 'content-type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
       success(res) {
-        if (res.statusCode === 401 && token) dropSession();
+        const invalidCode = res.statusCode === 401 && /invalid or expired code/i.test(String(res.data?.error || res.data?.message || ''));
+        if (res.statusCode === 401 && token && !(preserveSession && invalidCode)) dropSession();
         if (res.statusCode === 204) return resolve(null);
         const data = res.data;
         if (res.statusCode >= 400) return reject(httpError(res.statusCode, data));
@@ -745,7 +746,7 @@ async function call(name, args = {}) {
     const identity=session()?.id;if(!identity)fail('LOGIN_REQUIRED');
     if(!/^1[3-9]\d{9}$/.test(String(args.phone||'')))fail('PHONE_INVALID');
     try {
-      const body=await request({method:'POST',path:'/auth/'+(name==='phoneCode'?'request_phone_code':'verify_phone_code'),body:{phone:args.phone,...(name==='bindPhone'?{code:args.code}:{}),context:'bind_phone'}});
+      const body=await request({method:'POST',path:'/auth/'+(name==='phoneCode'?'request_phone_code':'bind_phone'),body:name==='phoneCode'?{phone:args.phone,context:'bind_phone'}:{phone:args.phone,code:args.code},preserveSession:name==='bindPhone'});
       // Binding must never silently sign into a different phone account.
       if(name==='bindPhone'){
         if(body?.merged || (body?.user?.id && body.user.id!==identity))fail('PHONE_ACCOUNT_CONFLICT');
@@ -754,7 +755,7 @@ async function call(name, args = {}) {
         return account;
       }
       return {ok:true};
-    } catch(error){if(error.status===404)fail('PHONE_BIND_UNAVAILABLE');throw error;}
+    } catch(error){if(error.status===404)fail('PHONE_BIND_UNAVAILABLE');if(name==='bindPhone'&&error.status===401&&/invalid or expired code/i.test(error.serverMessage||''))fail('PHONE_CODE_INVALID');throw error;}
   }
   if (name === 'read') return read(args.op, args.params || {});
   if (name === 'write') return write(args.op, args.params || {});

@@ -33,7 +33,15 @@
   "simulatorPluginLibVersion": {},
   "packOptions": {
     "ignore": [],
-    "include": []
+    "include": [
+      { "type": "file", "value": "lib/profile-rules.js" },
+      { "type": "file", "value": "lib/account-flow.js" },
+      { "type": "file", "value": "lib/preview-records.js" },
+      { "type": "file", "value": "lib/event-content.js" },
+      { "type": "file", "value": "lib/status-tone.js" },
+      { "type": "file", "value": "lib/legal-documents.js" },
+      { "type": "file", "value": "lib/wechat-subscription.js" }
+    ]
   },
   "editorSetting": {},
   "isGameTourist": false

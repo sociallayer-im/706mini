@@ -55,7 +55,7 @@ EmptyState:NodeComponent<Record<string,unknown>>;
 LoadingState:NodeComponent<Record<string,unknown>>;
 /** text,state,action:string; onPress:()=>void */
 Notice:NodeComponent<Record<string,unknown>>;
-/** title,action,summary,description:string; context:page|card; children:Node; onPress:()=>void */
+/** title,action:string; children:Node; onPress:()=>void */
 Section:NodeComponent<Record<string,unknown>>;
 /** title,description,address:string */
 EntityCard:NodeComponent<Record<string,unknown>>;
@@ -67,15 +67,15 @@ LinkList:NodeComponent<Record<string,unknown>>;
 SearchField:NodeComponent<Record<string,unknown>>;
 /** ChoiceGroup参数 */
 SegmentedControl:NodeComponent<Record<string,unknown>>;
-/** name,description,src,action:string; size:number */
+/** name,description,src:string; size:number */
 IdentityRow:NodeComponent<Record<string,unknown>>;
 /** value:number; label:string; onPress:()=>void */
 StatLink:NodeComponent<Record<string,unknown>>;
-/** title,action:string; items:ActionRowProps[] */
+/** items:ActionRowProps[] */
 MenuGroup:NodeComponent<Record<string,unknown>>;
 /** title,description,action:string; onPress:()=>void */
 PermissionState:NodeComponent<Record<string,unknown>>;
-/** label,statusCode:string; tone:neutral|success|pending|danger|waiting */
+/** label:string */
 Badge:NodeComponent<Record<string,unknown>>;
 /** actions:ButtonProps[] */
 FloatingBar:NodeComponent<Record<string,unknown>>;

@@ -1,4 +1,4 @@
-@import "../../styles/input-placeholder.wxss";
+.input-placeholder{color:var(--muted);font-size:var(--typeFact);font-weight:400;line-height:var(--fieldLineHeight)}
 .field{box-sizing:border-box;min-width:0;max-width:100%;margin-bottom:var(--itemGap);color:var(--ink)}
 .label{display:block;font-size:var(--typeBody);font-weight:600;margin-bottom:var(--headingGap);line-height:1.5}
 .optional{font-size:var(--typeFact);font-weight:400;color:var(--muted);margin-left:var(--actionGap)}
