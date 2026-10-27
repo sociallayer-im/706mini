@@ -1,1 +1,3 @@
 .panel{box-sizing:border-box;border-radius:var(--radius);background:var(--surface);padding:var(--panelInset);margin-bottom:var(--itemGap)}.context-canvas{background:transparent}.inset-none{padding:0}.inset-section{padding:var(--sectionInset)}
+
+.layout-form{display:flex;flex-direction:column;align-items:stretch;gap:var(--itemGap);min-width:0}

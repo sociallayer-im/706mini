@@ -13,3 +13,5 @@
 .tone-pending{color:var(--statusPendingInk);background:var(--statusPendingSurface)}
 .tone-danger{color:var(--danger);background:var(--statusDangerSurface)}
 .tone-waiting{color:var(--statusWaitingInk);background:var(--statusWaitingSurface)}
+
+.identity-row{box-sizing:border-box;width:100%;min-width:0;text-align:left}.identity-name-line{display:flex;align-items:center;flex-wrap:wrap;gap:var(--spaceUnit)}.identity-chevron{flex:none;align-self:center;margin-left:auto;transform:rotate(180deg)}.form-stack{display:flex;flex-direction:column;align-items:stretch;gap:var(--itemGap);min-width:0}

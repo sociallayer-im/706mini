@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-27",
+  "baseCommit": "a210f11",
+  "policy": "Code review and required compilation only. No new tests, test runs, screenshots or screenshot review. Removed profile interest selection is not applicable.",
+  "wcc": {
+    "files": 96,
+    "exit": 0,
+    "stderr": ""
+  },
+  "wcsc": {
+    "files": 54,
+    "exit": 0,
+    "stderr": ""
+  },
+  "javascriptSyntax": [
+    {
+      "file": "design-system706/build.cjs",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "design-system706/components/bundle.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "design-system706/data.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/components/ui-choice-group/index.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/components/ui-entity-card/index.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/components/ui-identity-row/index.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/components/ui-panel/index.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/lib/display-metadata.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/lib/mock/seed.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "miniprogram/lib/sheet-copy.js",
+      "exit": 0,
+      "stderr": ""
+    }
+  ]
+}

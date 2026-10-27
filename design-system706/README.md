@@ -83,3 +83,5 @@ python3 -m http.server 7066 --bind 127.0.0.1 --directory design-system706
 消息筛选裁切修复：轨道按完整触控内容定高，导航行与微信胶囊分别计算；禁止以menuHeight限制44px Badge触控区。根因、复用排查与原生证据见[evidence/message-filter-clip/README.md](evidence/message-filter-clip/README.md)。
 
 日历previous/next方向与主CTA伸展：IconButton方向仅作用glyph，grow同步撑满button与face；详见[evidence/calendar-and-cta/README.md](evidence/calendar-and-cta/README.md)。
+
+2026-10-27跟进：仅修当前保留功能，已移除兴趣选择不恢复；公开参与者整行、关系类型/元信息、空间链接移除、反馈表单间距及动态分支映射见[evidence/2026-10-27-follow-up/README.md](evidence/2026-10-27-follow-up/README.md)。本轮只做代码与必要编译，不新增测试或截图验收。

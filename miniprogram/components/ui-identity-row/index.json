@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "ui-avatar": "/components/ui-avatar/index"
+    "ui-avatar": "/components/ui-avatar/index",
+    "ui-badge": "/components/ui-badge/index"
   }
 }

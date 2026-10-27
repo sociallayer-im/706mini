@@ -76,10 +76,7 @@ function nodeContent(rows){
  const examples=[['demo-space','demo-host'],['demo-sola-space','demo-peer-1'],['demo-space-hz','demo-peer-1']];
  for(const [id,host]of examples){const space=rows.find(r=>r.id===id);if(!space||space.public_links!==undefined)continue;
   space.public_links=[
-   {kind:'host',user_id:host,role:'空间主理人',role_en:'Space host'},
-   {kind:'official_account',label:space.name+' · 演示公众号',username:'',demo:true},
-   {id:id+'-recap-1',kind:'recap',label:'把一张桌子留给陌生人',published_at:'2026-09-28',cover_url:'/assets/demo/cover-2.png',demo:true,excerpt:'这是一篇虚构的空间回顾，用来预览文章入口。一次相聚之后，大家留在桌边继续聊天，从居住、迁徙聊到如何一起经营一个客厅。正式内容将由空间提供真实公众号文章链接。'},
-   {id:id+'-recap-2',kind:'recap',label:'周末客厅：一起做饭、散步和聊天',published_at:'2026-09-12',cover_url:'/assets/demo/cover-3.png',demo:true,excerpt:'这是离线演示文章，不对应真实公众号。回顾可以记录活动之外的相处方式，让第一次到访的人了解空间的日常。'}
+   {kind:'host',user_id:host,role:'空间主理人',role_en:'Space host'}
   ];
  }
 }

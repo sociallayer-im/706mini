@@ -103,3 +103,6 @@ text{overflow-wrap:anywhere}
 
 /* Management actions are right-aligned independently from the record copy. */
 .record-side-actions{display:flex;flex-direction:column;align-items:flex-end;gap:var(--actionGap);max-width:100%;min-width:0}.record-side-actions>.row{justify-content:flex-end;flex-wrap:wrap;max-width:100%}
+
+/* Form stacks own field/action spacing, including virtual-host slotted controls. */
+.form-stack{display:flex;flex-direction:column;align-items:stretch;gap:var(--itemGap);min-width:0}

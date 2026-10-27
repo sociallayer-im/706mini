@@ -14,8 +14,8 @@ const editorial={
   const en=locale==='en',unique=[...new Map(followed.filter(x=>x.kind==='SPACE'&&(!x.status||x.status==='ACTIVE')).map(x=>[x.id,x])).values()].sort((a,b)=>Number(b.city===city)-Number(a.city===city)),suggestions=unique.length?unique:cityNodes.filter(x=>x.kind==='SPACE').slice(0,2);
   return suggestions.slice(0,4).map(x=>({...x,cityLabel:en?(String(x.city||'').charAt(0).toUpperCase()+String(x.city||'').slice(1)):({shanghai:'上海',hangzhou:'杭州',beijing:'北京',chengdu:'成都',guangzhou:'广州',shenzhen:'深圳'}[x.city]||x.city),route:'space',title:x.name,context:unique.length?(en?'Following':'已关注'):(en?'In your city':'同城探索'),summary:x.introduction||x.address||''}));
  },
- entityLinks(record){
-  const links=Array.isArray(record.public_links)?record.public_links:[],accounts=links.filter(x=>x.kind==='official_account'&&x.label),recaps=links.filter(x=>x.kind==='recap'&&x.label&&(x.demo||editorial.articleUrl(x.url)));
+ entityLinks(record,includeExternal=true){
+  const links=Array.isArray(record.public_links)?record.public_links:[],accounts=includeExternal?links.filter(x=>x.kind==='official_account'&&x.label):[],recaps=includeExternal?links.filter(x=>x.kind==='recap'&&x.label&&(x.demo||editorial.articleUrl(x.url))):[];
   return {hosts:links.filter(x=>x.kind==='host'&&typeof x.user_id==='string'&&x.user_id),account:accounts[0]||null,recaps:[...new Map(recaps.map(x=>[x.url||x.id||x.label,x])).values()]};
  },
  articleUrl(url){return typeof url==='string'&&/^https:\/\/mp\.weixin\.qq\.com\/s(?:\/[^\s]+|\?[^\s]+)$/.test(url)?url:'';},
@@ -49,7 +49,7 @@ const editorial={
  reviewGuidance(status,locale){const copy={IN_REVIEW:['正在等待必要审核方处理。你可以在下面查看每一方的进度。','Waiting for the required reviewers. Check each review below.'],CHANGES_REQUESTED:['有内容需要修改。查看审核意见，修改后重新提交。','Changes requested. Read the notes, edit and resubmit.'],PUBLISHED:['已通过必要审核，内容已公开。','All required reviews passed. This is now public.'],DRAFT:['这是草稿，尚未提交审核。','This is a draft and has not been submitted.'],CANCELLED:['已取消，不再接受报名。','Cancelled. Registration is no longer available.']};return (copy[status]||['查看下面的审核记录与意见。','See the review records and notes below.'])[locale==='en'?1:0];},
  eventReviewGuidance(status,locale){const copy={IN_REVIEW:['正在等待所在小组审核。通过后活动会公开。','Waiting for the hosting group. The event becomes public after they approve.'],PUBLISHED:['活动已公开。','This event is public.'],DRAFT:['这是草稿，尚未提交。','This is a draft and has not been submitted.'],CANCELLED:['已取消，不再接受报名。','Cancelled. Registration is no longer available.']};return (copy[status]||['查看下面的小组审核结果。','See the group review below.'])[locale==='en'?1:0];}
 };
-function normalize(item,t,locale){const result=normalizeBase(item,t,locale),event=item.event||item;const galleryUrls=[...new Set([...(event.cover_url?[event.cover_url]:[]),...(event.media||[]).filter(x=>x.type==='image'&&x.url).map(x=>x.url)])];return {...result,statusTone:require('./status-tone')(item.status),...require('./event-content')(event),galleryUrls,...editorial.eventState(event,t,locale),dateLine:editorial.eventDate(event,locale),feedIdentity:editorial.feedIdentity(item,locale),feedHeadline:editorial.feedHeadline(item,locale),registrationAction:editorial.registrationAction(item.registration?.status||item.status,locale),reviewGuidance:editorial.reviewGuidance(item.status,locale),event:result.event};}
+function normalize(item,t,locale){const result=normalizeBase(item,t,locale),event=item.event||item;const galleryUrls=[...new Set([...(event.cover_url?[event.cover_url]:[]),...(event.media||[]).filter(x=>x.type==='image'&&x.url).map(x=>x.url)])];return {...result,relationTargetId:require('./display-metadata').targetId(item),identityMeta:require('./display-metadata').join(item.bio,result.cityLabel||item.city),cityBioMeta:require('./display-metadata').join(result.cityLabel||item.city,item.bio),relationTypeLabel:require('./display-metadata').typeLabel(item,locale),statusTone:require('./status-tone')(item.status),...require('./event-content')(event),galleryUrls,...editorial.eventState(event,t,locale),dateLine:editorial.eventDate(event,locale),feedIdentity:editorial.feedIdentity(item,locale),feedHeadline:editorial.feedHeadline(item,locale),registrationAction:editorial.registrationAction(item.registration?.status||item.status,locale),reviewGuidance:editorial.reviewGuidance(item.status,locale),event:result.event};}
 let pendingEventPreview=null;
 let pendingCampaignPreview=null;
 let pendingTabPreview=null; // One navigation only; tabBar URLs cannot carry query parameters.
@@ -180,7 +180,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
    const r=await this.read(route==='member'?'member':'entity',{id});const viewer=route==='member'&&api.session()?await this.read('me').catch(()=>null):null;this.setData({record:normalize(r,t,p.locale),platformAdmin:isPlatformAdmin(viewer?.roles),memberLinks:route==='member'?['work','social'].map((kind,i)=>(r.public_links||[]).find(x=>x.kind===kind||(!x.kind&&x.label===(i?'社交媒体':'作品与项目')))).filter(Boolean):[]});result={items:route==='entity-members'?(r.members||[]).map(x=>({...x,id:x.owner,route:'member'})):r.items};
    if(route==='member')this.setData({accountPending:r.owner===api.session()?.id&&!!accountFlow.pending()});
    if(route==='space'||route==='org'){
-    const links=editorial.entityLinks(r),hosts=await Promise.all(links.hosts.map(async link=>{try{const host=await this.read('member',{id:link.user_id});return {...host,roleLabel:p.locale==='en'?(link.role_en||'Host'):(link.role||'负责人')};}catch{return null;}}));
+    const links=editorial.entityLinks(r,route==='org'),hosts=await Promise.all(links.hosts.map(async link=>{try{const host=await this.read('member',{id:link.user_id});return {...host,roleLabel:p.locale==='en'?(link.role_en||'Host'):(link.role||'负责人')};}catch{return null;}}));
     const upcoming=(r.items||[]).filter(x=>Date.parse(x.ends_at)>Date.now()).sort((a,b)=>String(a.starts_at).localeCompare(String(b.starts_at)));
     this.setData({entityContent:{...links,hosts:hosts.filter(Boolean)},upcomingCount:upcoming.length,showAllRecaps:false});result={items:upcoming.slice(0,3)};
    }
@@ -206,7 +206,7 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
      {id:'managed',title:en?'My management':'我的管理',rows:e.items.slice().sort((a,b)=>(a.kind==='ORGANIZATION'?0:1)-(b.kind==='ORGANIZATION'?0:1)).map(x=>({icon:x.kind==='SPACE'?'home':'org',label:x.name,route:x.kind==='SPACE'?'space':'org',id:x.id}))},
      {id:'preferences',title:en?'Preferences':'偏好与设置',rows:[{icon:'city',label:t.city,kind:'city',value:this.data.cityName},{icon:'language',label:t.language,kind:'language',value:en?'English':'简体中文'},{icon:'more',label:t.more,route:'more'}]}
     ].filter(group=>group.rows.length);
-    this.setData({record:r.profile,me:r,managed:e.items,counts,menuGroups,reviewCount:reviewCount||0});
+    this.setData({record:r.profile?{...r.profile,cityBioMeta:require('./display-metadata').join(this.data.cityName,r.profile.bio)}:null,me:r,managed:e.items,counts,menuGroups,reviewCount:reviewCount||0});
    };
    paint({registrations:0,drafts:0,events:0,campaigns:0},canReviewTasks(r.roles)?null:0);
    const [events,registrations,campaigns]=await Promise.all([eventsTask,registrationsTask,campaignsTask]);
@@ -266,12 +266,14 @@ module.exports=function createPage(route){const boot=prefs.get(),bootT=i18n.dict
  retryNodes(){return this.run(()=>this.loadNodes());},
  toggleRecaps(){this.setData({showAllRecaps:!this.data.showAllRecaps});},
  openOfficial(){
+  if(route!=='org')return;
   const account=this.data.entityContent?.account;if(!account)return;
   const fallback=()=>{this.setData({sheet:'official',externalContent:account});};
   if(api.isMock()||account.demo||!/^gh_[a-zA-Z0-9_]+$/.test(account.username||'')||typeof wx.openOfficialAccountProfile!=='function')return fallback();
   try{wx.openOfficialAccountProfile({username:account.username,fail:fallback});}catch{fallback();}
  },
  openRecap(e){
+  if(route!=='org')return;
   const article=this.data.entityContent?.recaps[Number(e.currentTarget.dataset.index)];if(!article)return;
   const fallback=()=>this.setData({sheet:'recap',externalContent:article}),url=editorial.articleUrl(article.url);
   if(api.isMock()||article.demo||!url||typeof wx.openOfficialAccountArticle!=='function')return fallback();

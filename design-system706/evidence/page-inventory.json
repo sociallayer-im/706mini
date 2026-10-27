@@ -3253,18 +3253,6 @@
           "mappingKind": "design-semantic-requirement"
         },
         {
-          "name": "LinkList",
-          "location": "空间主页 · LinkList语义需求",
-          "source": "miniprogram/templates/screen.wxml",
-          "line": 113,
-          "conditions": [
-            "{{(route === 'space' || route === 'org') && record}}"
-          ],
-          "evidenceLevel": "source",
-          "note": "此组件为页面源码功能提炼出的统一设计需求，当前源码未必已有同名实现；引用该页功能分支，不宣称直接使用同名组件。",
-          "mappingKind": "design-semantic-requirement"
-        },
-        {
           "name": "EventCard",
           "location": "空间主页 · EventCard语义需求",
           "source": "miniprogram/templates/screen.wxml",
@@ -3416,7 +3404,6 @@
         "IdentityRow",
         "FollowControl",
         "ActionRow",
-        "LinkList",
         "EventCard",
         "Avatar",
         "Button",
@@ -3484,9 +3471,7 @@
         }
       ],
       "overlays": [
-        "manage",
-        "official",
-        "recap"
+        "manage"
       ],
       "links": [
         {
@@ -3588,6 +3573,10 @@
             "{{!items.length && !loading}}"
           ]
         }
+      ],
+      "removedRequirements": [
+        "official",
+        "recap"
       ]
     },
     {
@@ -5422,6 +5411,10 @@
             "{{step === 3}}"
           ]
         }
+      ],
+      "activeDynamicBranch": "profile-editor",
+      "removedRequirements": [
+        "interest-selection"
       ]
     },
     {
@@ -5864,17 +5857,11 @@
         }
       ],
       "componentNames": [
-        "Stepper",
+        "Avatar",
         "FormField",
-        "ChoiceGroup",
         "Checkbox",
         "Button",
-        "StatusSummary",
-        "IconButton",
-        "LoadingState",
-        "EmptyState",
-        "Notice",
-        "Sheet"
+        "IconButton"
       ],
       "states": [
         {
@@ -6128,6 +6115,10 @@
             "{{step === 3}}"
           ]
         }
+      ],
+      "activeDynamicBranch": "account-overlay",
+      "removedRequirements": [
+        "legacy interest-selection"
       ]
     },
     {
@@ -11787,13 +11778,11 @@
         }
       ],
       "componentNames": [
+        "Avatar",
         "FormField",
+        "Checkbox",
         "Button",
-        "Notice",
-        "IconButton",
-        "LoadingState",
-        "EmptyState",
-        "Sheet"
+        "IconButton"
       ],
       "states": [
         {
@@ -11869,6 +11858,10 @@
             "{{codeSent}}"
           ]
         }
+      ],
+      "activeDynamicBranch": "account-overlay",
+      "removedRequirements": [
+        "legacy interest-selection"
       ]
     },
     {
@@ -15959,13 +15952,6 @@
           "mappingKind": "source-implementation-or-semantic-equivalent"
         },
         {
-          "page": "space",
-          "location": "空间主页 · LinkList语义需求",
-          "source": "miniprogram/templates/screen.wxml",
-          "line": 113,
-          "mappingKind": "design-semantic-requirement"
-        },
-        {
           "page": "org",
           "location": "组织主页 · LinkList语义需求",
           "source": "miniprogram/templates/screen.wxml",
@@ -17280,7 +17266,6 @@
     {
       "id": "official",
       "pages": [
-        "space",
         "org"
       ],
       "source": "miniprogram/templates/sheets.wxml",
@@ -17293,7 +17278,6 @@
     {
       "id": "recap",
       "pages": [
-        "space",
         "org"
       ],
       "source": "miniprogram/templates/sheets.wxml",
@@ -19879,5 +19863,68 @@
     "manage",
     "review-lab"
   ],
-  "integrationNote": "Inherited two registered routes from remote a5f6f90 during card-content rebase; previous per-page evidence remains historical."
+  "integrationNote": "Inherited two registered routes from remote a5f6f90 during card-content rebase; previous per-page evidence remains historical.",
+  "dynamicBranches": [
+    {
+      "id": "account-overlay",
+      "template": "miniprogram/templates/account.wxml",
+      "states": [
+        "login",
+        "identity",
+        "phone",
+        "profile-question-1",
+        "profile-question-2",
+        "profile-question-3",
+        "welcome",
+        "privacy-document"
+      ],
+      "controls": [
+        "ui-avatar-picker",
+        "ui-form-field",
+        "ui-select-field",
+        "ui-checkbox",
+        "ui-button",
+        "ui-icon-button"
+      ],
+      "entrypoints": [
+        "login",
+        "onboarding",
+        "me",
+        "messages",
+        "protected-action"
+      ],
+      "evidence": "code only; same overlay, draft and accountFlow state machine retained"
+    },
+    {
+      "id": "profile-editor",
+      "template": "miniprogram/templates/screen.wxml",
+      "entrypoints": [
+        "more/new-member-profile",
+        "me/edit-profile",
+        "member/profile-empty-field",
+        "onboarding-ready-redirect"
+      ],
+      "route": "pages/edit-profile/index",
+      "evidence": "reuse the one retained editor; no restored interest field"
+    }
+  ],
+  "removedFeatures": [
+    {
+      "feature": "profile-interest-selection",
+      "status": "removed-not-applicable",
+      "source": "miniprogram/lib/forms.js profile definitions and payload; templates/account.wxml",
+      "policy": "2026-10-27 operator correction: do not restore removed content; old 2-5 requirement superseded"
+    },
+    {
+      "feature": "space-official-account-and-stories",
+      "status": "removed",
+      "source": "space route gated in screen + entityLinks; mock placeholders removed",
+      "policy": "preserve organization and person/other business links; do not delete server data"
+    }
+  ],
+  "followUpRevision": {
+    "baseCommit": "a210f11",
+    "date": "2026-10-27",
+    "policy": "current retained source only; historical requirements are not gaps; no screenshots/tests added"
+  }
 }

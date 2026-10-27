@@ -55,7 +55,7 @@ EmptyState:NodeComponent<Record<string,unknown>>;
 LoadingState:NodeComponent<Record<string,unknown>>;
 /** text,state,action:string; onPress:()=>void */
 Notice:NodeComponent<Record<string,unknown>>;
-/** title,action:string; children:Node; onPress:()=>void */
+/** title,action:string; layout:content|form; fields:FormFieldProps[]; actions:ButtonProps[]; children:Node; onPress:()=>void */
 Section:NodeComponent<Record<string,unknown>>;
 /** title,description,address:string */
 EntityCard:NodeComponent<Record<string,unknown>>;
@@ -67,7 +67,7 @@ LinkList:NodeComponent<Record<string,unknown>>;
 SearchField:NodeComponent<Record<string,unknown>>;
 /** ChoiceGroup参数 */
 SegmentedControl:NodeComponent<Record<string,unknown>>;
-/** name,description,src:string; size:number */
+/** name,description,src,kind,type,typeLabel,bio,city:string; navigation:boolean; size:number; onPress:()=>void */
 IdentityRow:NodeComponent<Record<string,unknown>>;
 /** value:number; label:string; onPress:()=>void */
 StatLink:NodeComponent<Record<string,unknown>>;

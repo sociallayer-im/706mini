@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T13:09:18.815463+00:00",
-    "via": "Codex · card content and management layout code review",
-    "note": "Rebased onto a5f6f90 preserving account/role/member changes. 44 routes / 45 native components source-reviewed; card header insets, right/top action columns, enum-backed badges, non-mutating event text suppression. No new screenshots per operator. 94WXML/50WXSS compile, 28 native contracts, 9 text cases, 29 inherited integration tests and existing offline/layout checks passed."
+    "at": "2026-10-27T14:57:05.176203+00:00",
+    "via": "Codex · retained UI follow-up code review",
+    "note": "Based on a210f11: full-width public participant IdentityRow, enum-backed relation type and correct target IDs, filtered metadata, space external entries removed without deleting server links, retained account branches mapped and removed interests not restored, form-container spacing. 96WXML/54WXSS and 11JS syntax checks pass; no added tests/screenshots."
   },
   "localAssets": [
     {

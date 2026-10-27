@@ -1,0 +1,202 @@
+{
+  "participants": [
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 2,
+      "code": "<block wx:if=\"{{sheet === 'participants'}}\"><text class=\"body-text\">{{record.capacityLabel}}</text><text class=\"meta\">{{locale === 'en' ? 'Only public profiles returned by the event are shown. This is not the complete registration list.' : '仅展示活动返回的公开参与者资料，并非完整报名名单。'}}</text><ui-identity-row wx:for=\"{{record.participants}}\" wx:key=\"owner\" data-route=\"member\" data-id=\"{{item.owner}}\" bind:press=\"navigate\" src=\"{{(item.avatar_url) || ''}}\" name=\"{{item.display_name}}\" description=\"\" navigation=\"{{true}}\" interactive=\"{{true}}\"/><text wx:if=\"{{!record.participants.length}}\" class=\"meta\">{{locale === 'en' ? 'No public participants to show yet' : '暂无可展示的公开参与者'}}</text></block>"
+    },
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 8,
+      "code": "<block wx:elif=\"{{sheet === 'mini'}}\"><text class=\"brand mini-logo\">706</text><ui-action-row data-kind=\"about\" bind:press=\"sheet\" label=\"{{sheetCopy.titles.about}}\" navigation=\"{{true}}\"/><ui-action-row bind:press=\"reloadPage\" label=\"{{locale === 'en' ? 'Reload page' : '重新加载页面'}}\"/><ui-action-row data-route=\"feedback\" bind:press=\"navigate\" label=\"{{t.feedback}}\" navigation=\"{{true}}\"/></block>"
+    },
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 10,
+      "code": "<block wx:elif=\"{{sheet === 'manage'}}\"><ui-action-row data-route=\"edit-entity\" data-id=\"{{record.id}}\" bind:press=\"navigate\" label=\"{{t.edit}}\" navigation=\"{{true}}\"/><ui-action-row data-route=\"approvals\" bind:press=\"navigate\" label=\"{{t.approvals}}\" navigation=\"{{true}}\"/><ui-action-row wx:if=\"{{record.can_admin}}\" data-route=\"admins\" data-id=\"{{record.id}}\" bind:press=\"navigate\" label=\"{{t.admins}}\" navigation=\"{{true}}\"/></block>"
+    },
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 11,
+      "code": "<block wx:elif=\"{{sheet === 'member'}}\"><ui-action-row data-value=\"{{'/pages/member/index?id=' + record.owner}}\" bind:press=\"copy\" label=\"{{locale === 'en' ? 'Copy profile link' : '复制主页链接'}}\"/><ui-action-row wx:if=\"{{record.owner !== currentUser && record.muted}}\" data-op=\"mute\" data-id=\"{{record.owner}}\" data-block-id=\"{{record.block_id}}\" data-enabled=\"0\" disabled=\"{{busy}}\" loading=\"{{busy}}\" bind:press=\"action\" label=\"{{t.unmute}}\"/><ui-action-row wx:elif=\"{{record.owner !== currentUser}}\" data-op=\"mute\" data-id=\"{{record.owner}}\" disabled=\"{{busy}}\" loading=\"{{busy}}\" bind:press=\"action\" label=\"{{t.mute}}\"/><ui-action-row wx:if=\"{{platformAdmin && record.owner !== currentUser}}\" data-op=\"grantPlatformAdmin\" data-id=\"{{record.owner}}\" disabled=\"{{busy}}\" loading=\"{{busy}}\" bind:press=\"action\" label=\"{{t.grantAdmin}}\"/><ui-action-row data-kind=\"report\" bind:press=\"sheet\" label=\"{{t.report}}\" navigation=\"{{true}}\"/></block>"
+    },
+    {
+      "file": "miniprogram/components/ui-identity-row/index.wxss",
+      "line": 1,
+      "code": ".identity{box-sizing:border-box;width:100%;min-width:0;text-align:left;display:flex;align-items:center;gap:var(--identityGap);padding:var(--headingGap) 0}.copy{flex:1;min-width:0}.name{display:block;font-size:var(--typeSection);font-weight:600;line-height:1.4;overflow-wrap:anywhere}.description{display:block;margin-top:var(--spaceUnit);color:var(--muted);font-size:var(--typeBody);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}.actions{flex:none;align-self:center}"
+    },
+    {
+      "file": "miniprogram/components/ui-identity-row/index.wxss",
+      "line": 8,
+      "code": ".name-line{display:flex;align-items:center;flex-wrap:wrap;gap:var(--spaceUnit)}.chevron{display:block;flex:none;align-self:center;width:var(--iconControlGlyph);height:var(--iconControlGlyph);margin-left:auto;transform:rotate(180deg)}.is-stacked .name-line{justify-content:center}.is-stacked .name{max-width:100%}"
+    },
+    {
+      "file": "miniprogram/components/ui-identity-row/index.js",
+      "line": 2,
+      "code": "Component({options:{virtualHost:true,styleIsolation:'isolated',multipleSlots:true},data:{theme:theme.style()},properties:{src:String,name:String,description:String,size:{type:Number,value:36},interactive:Boolean,custom:Boolean,disabled:Boolean,stacked:Boolean,flush:Boolean,navigation:Boolean,typeLabel:String,},methods:{press(e){if(this.data.interactive&&!this.data.disabled&&!this.data.loading)this.triggerEvent('press',e.detail||{});},}});"
+    }
+  ],
+  "relation-kind-and-metadata": [
+    {
+      "file": "miniprogram/lib/display-metadata.js",
+      "line": 2,
+      "code": "function join(...values){return values.filter(v=>typeof v==='string'||typeof v==='number').map(v=>String(v).trim()).filter(Boolean).join(' · ');}"
+    },
+    {
+      "file": "miniprogram/lib/display-metadata.js",
+      "line": 3,
+      "code": "function typeLabel(item={},locale){const en=locale==='en';if(item.kind==='SPACE')return en?'Space':'空间';if(item.kind==='ORGANIZATION')return en?'Organization':'组织';if(item.type==='Group'||item.type==='entity')return en?'Group':'小组';if(item.type==='User'||item.type==='profile'||item.type==='person'||item.route==='member')return en?'Person':'个人';return '';}"
+    },
+    {
+      "file": "miniprogram/lib/display-metadata.js",
+      "line": 4,
+      "code": "function targetId(item={}){return item.kind==='SPACE'||item.kind==='ORGANIZATION'||item.type==='entity'||item.type==='Group'?item.id:(item.owner||item.id);}"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 52,
+      "code": "function normalize(item,t,locale){const result=normalizeBase(item,t,locale),event=item.event||item;const galleryUrls=[...new Set([...(event.cover_url?[event.cover_url]:[]),...(event.media||[]).filter(x=>x.type==='image'&&x.url).map(x=>x.url)])];return {...result,relationTargetId:require('./display-metadata').targetId(item),identityMeta:require('./display-metadata').join(item.bio,result.cityLabel||item.city),cityBioMeta:require('./display-metadata').join(result.cityLabel||item.city,item.bio),relationTypeLabel:require('./display-metadata').typeLabel(item,locale),statusTone:require('./status-tone')(item.status),...require('./event-content')(event),galleryUrls,...editorial.eventState(event,t,locale),dateLine:editorial.eventDate(event,locale),feedIdentity:editorial.feedIdentity(item,locale),feedHeadline:editorial.feedHeadline(item,locale),registrationAction:editorial.registrationAction(item.registration?.status||item.status,locale),reviewGuidance:editorial.reviewGuidance(item.status,locale),event:result.event};}"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 209,
+      "code": "this.setData({record:r.profile?{...r.profile,cityBioMeta:require('./display-metadata').join(this.data.cityName,r.profile.bio)}:null,me:r,managed:e.items,counts,menuGroups,reviewCount:reviewCount||0});"
+    },
+    {
+      "file": "miniprogram/templates/screen.wxml",
+      "line": 188,
+      "code": "<ui-identity-row wx:elif=\"{{route === 'relations' || route === 'following' || route === 'entity-members'}}\" data-index=\"{{index}}\" bind:press=\"openItem\" src=\"{{(item.avatar_url) || ''}}\" name=\"{{item.display_name || item.name}}\" description=\"{{item.identityMeta}}\" type-label=\"{{item.relationTypeLabel}}\" interactive=\"{{true}}\"><view slot=\"actions\"><ui-button wx:if=\"{{item.relationTargetId !== currentUser}}\" data-id=\"{{item.relationTargetId}}\" data-enabled=\"{{!item.following}}\" catch:press=\"personFollow\" variant=\"secondary\" compact=\"{{true}}\" label=\"{{item.following ? (locale === 'en' ? 'Following' : '已关注') : t.follow}}\"/></view></ui-identity-row>"
+    }
+  ],
+  "removed-space-links": [
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 17,
+      "code": "entityLinks(record,includeExternal=true){"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 183,
+      "code": "const links=editorial.entityLinks(r,route==='org'),hosts=await Promise.all(links.hosts.map(async link=>{try{const host=await this.read('member',{id:link.user_id});return {...host,roleLabel:p.locale==='en'?(link.role_en||'Host'):(link.role||'负责人')};}catch{return null;}}));"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 268,
+      "code": "openOfficial(){"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 272,
+      "code": "if(api.isMock()||account.demo||!/^gh_[a-zA-Z0-9_]+$/.test(account.username||'')||typeof wx.openOfficialAccountProfile!=='function')return fallback();"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 273,
+      "code": "try{wx.openOfficialAccountProfile({username:account.username,fail:fallback});}catch{fallback();}"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 275,
+      "code": "openRecap(e){"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 279,
+      "code": "if(api.isMock()||article.demo||!url||typeof wx.openOfficialAccountArticle!=='function')return fallback();"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 280,
+      "code": "try{wx.openOfficialAccountArticle({url,fail:fallback});}catch{fallback();}"
+    },
+    {
+      "file": "miniprogram/templates/screen.wxml",
+      "line": 108,
+      "code": "<ui-menu-group wx:if=\"{{route === 'org' && entityContent.account}}\" flush><ui-action-row bind:press=\"openOfficial\" label=\"{{entityContent.account.label}}\" description=\"{{locale === 'en' ? 'WeChat official account' : '组织公众号'}}\" navigation=\"{{true}}\"/></ui-menu-group>"
+    },
+    {
+      "file": "miniprogram/templates/screen.wxml",
+      "line": 110,
+      "code": "<view wx:if=\"{{route === 'org' && entityContent.recaps.length}}\" class=\"entity-stories\"><view class=\"section-heading\"><text>{{locale === 'en' ? 'Organization stories' : '组织回顾'}}</text><ui-button wx:if=\"{{entityContent.recaps.length > 2}}\" bind:press=\"toggleRecaps\" variant=\"secondary\" compact=\"{{true}}\" label=\"{{showAllRecaps ? (locale === 'en' ? 'Show less' : '收起') : t.view}}\"/></view><ui-menu-group wx:if=\"{{entityContent.recaps.length}}\" flush><block wx:for=\"{{entityContent.recaps}}\" wx:key=\"label\"><ui-action-row wx:if=\"{{showAllRecaps || index < 2}}\" data-index=\"{{index}}\" bind:press=\"openRecap\" label=\"{{item.label}}\" description=\"{{item.published_at}}{{item.demo ? (locale === 'en' ? ' · Demo story' : ' · 演示文章') : ''}}\" icon=\"{{item.cover_url}}\"/></block></ui-menu-group></view>"
+    },
+    {
+      "file": "miniprogram/lib/mock/seed.js",
+      "line": 78,
+      "code": "space.public_links=["
+    }
+  ],
+  "retained-profile-branches-no-interest-restoration": [
+    {
+      "file": "miniprogram/lib/forms.js",
+      "line": 6,
+      "code": "profile:[['avatar_url','image',1],['display_name','text',1],['city','city',1],['bio','area',2],['introduction','area',2],['wechat','text',4],['work_links','links',4],['social_links','links',4],['frequent_spaces','spaces',4]],"
+    },
+    {
+      "file": "miniprogram/lib/forms.js",
+      "line": 23,
+      "code": "if(kind==='profile')delete p.interests;"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 125,
+      "code": "if(route==='onboarding'){"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 254,
+      "code": "navigate(e){if(this.data.sheet)this.closeSheet();const source=e.currentTarget.dataset,d=source.route==='onboarding'?{...source,route:'edit-profile'}:source;if(d.route==='space'&&!d.id)return;if(d.route==='review-lab'){wx.reLaunch({url:'/pages/review-lab/index'});return;}if(['publish','campaign-create','create-space','edit-profile','messages','me'].includes(d.route)){return this.run(async()=>{if(await this.requireAccount('',{},d.route,d.id||''))go(d.route,d.id||'',d.extra||{});});}go(d.route,d.id||'',d.extra||{});},"
+    },
+    {
+      "file": "miniprogram/lib/page.js",
+      "line": 292,
+      "code": "this.setData({accountCityIndex:Math.max(0,cityIndex),accountCityLabel:city?.[this.data.locale==='en'?'en':'zh']||'',accountBioCount:profileRules.length(values.bio),accountIntroCount:profileRules.length(values.introduction),accountOpen:true,accountStage:account?accountFlow.stage(account)==='ready'?'welcome':identityPending||cached?.identityPending?'identity':accountFlow.stage(account):'login',account,accountForm:values,accountQuestion:cached?.step||1,accountErrors:{},accountLoaded:true,error:'',sheet:'',accountPrivacy:false});"
+    },
+    {
+      "file": "miniprogram/templates/account.wxml",
+      "line": 40,
+      "code": "<view wx:elif=\"{{accountStage === 'profile'}}\" class=\"account-fields\">"
+    },
+    {
+      "file": "miniprogram/templates/account.wxml",
+      "line": 42,
+      "code": "<view hidden=\"{{accountQuestion !== 1}}\" class=\"account-fields {{accountQuestion !== 1 ? 'is-step-hidden' : ''}}\">"
+    },
+    {
+      "file": "miniprogram/templates/account.wxml",
+      "line": 46,
+      "code": "<view hidden=\"{{accountQuestion !== 2}}\" class=\"account-fields {{accountQuestion !== 2 ? 'is-step-hidden' : ''}}\">"
+    },
+    {
+      "file": "miniprogram/templates/account.wxml",
+      "line": 49,
+      "code": "<view hidden=\"{{accountQuestion !== 3}}\" class=\"account-fields {{accountQuestion !== 3 ? 'is-step-hidden' : ''}}\">"
+    }
+  ],
+  "form-spacing": [
+    {
+      "file": "miniprogram/components/ui-panel/index.wxss",
+      "line": 3,
+      "code": ".layout-form{display:flex;flex-direction:column;align-items:stretch;gap:var(--itemGap);min-width:0}"
+    },
+    {
+      "file": "miniprogram/templates/screen.wxml",
+      "line": 179,
+      "code": "<block wx:if=\"{{route === 'feedback'}}\"><ui-panel context=\"canvas\" inset=\"none\" layout=\"form\"><ui-form-field standalone disabled=\"{{busy}}\" data-key=\"reason\" value=\"{{sheetForm.reason}}\" placeholder=\"{{t.reason}}\" type=\"area\" bind:input=\"sheetInput\" bind:keyboardheightchange=\"keyboardChange\"/><ui-button data-kind=\"report\" bind:press=\"sheet\" variant=\"primary\" block disabled=\"{{busy}}\" loading=\"{{busy}}\" label=\"{{t.feedback}}\"/></ui-panel></block>"
+    },
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 15,
+      "code": "<block wx:elif=\"{{sheet === 'return'}}\"><ui-panel context=\"canvas\" inset=\"none\" layout=\"form\"><ui-form-field standalone data-key=\"note\" value=\"{{sheetForm.note}}\" placeholder=\"{{t.note}}\" type=\"area\" bind:input=\"sheetInput\" bind:keyboardheightchange=\"keyboardChange\"/><ui-button data-op=\"review\" data-approve=\"{{false}}\" loading=\"{{busy}}\" disabled=\"{{busy}}\" bind:press=\"action\" variant=\"primary\" block label=\"{{locale === 'en' ? 'Send requested changes' : '发送修改意见'}}\"/></ui-panel></block>"
+    },
+    {
+      "file": "miniprogram/templates/sheets.wxml",
+      "line": 16,
+      "code": "<block wx:else><view class=\"form-stack\">"
+    },
+    {
+      "file": "miniprogram/app.wxss",
+      "line": 108,
+      "code": ".form-stack{display:flex;flex-direction:column;align-items:stretch;gap:var(--itemGap);min-width:0}"
+    }
+  ]
+}

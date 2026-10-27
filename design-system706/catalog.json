@@ -3719,12 +3719,29 @@
   {
     "name": "Section",
     "title": "内容区块",
-    "props": "title,action:string; children:Node; onPress:()=>void",
-    "guide": "区块留白与标题统一，嵌套正文不机械多层套卡。",
+    "props": "title,action:string; layout:content|form; fields:FormFieldProps[]; actions:ButtonProps[]; children:Node; onPress:()=>void",
+    "guide": "区块留白与标题统一，嵌套正文不机械多层套卡。layout=form由容器gap统一字段与操作间距；原生对应Panel layout=form或form-stack，内部字段standalone避免双重margin。",
     "examples": [
       {
-        "label": "默认",
-        "props": {}
+        "label": "反馈字段与操作间距",
+        "props": {
+          "title": "反馈与建议",
+          "layout": "form",
+          "fields": [
+            {
+              "label": "反馈内容",
+              "multiline": true,
+              "placeholder": "请填写反馈内容"
+            }
+          ],
+          "actions": [
+            {
+              "label": "反馈与建议",
+              "variant": "primary",
+              "block": true
+            }
+          ]
+        }
       }
     ],
     "uses": [
@@ -3847,7 +3864,7 @@
     "name": "EntityCard",
     "title": "空间/组织摘要",
     "props": "title,description,address:string",
-    "guide": "地点与身份说明来自公开数据；不从管理角色推断公开负责人。",
+    "guide": "地点与身份说明来自公开数据；不从管理角色推断公开负责人。空间页不再展示公众号/文章回顾入口，不因旧映射重新生成；人物作品/社交和其他业务链接不受影响。",
     "examples": [
       {
         "label": "默认",
@@ -3954,13 +3971,6 @@
         "source": "miniprogram/templates/screen.wxml",
         "line": 111,
         "mappingKind": "source-implementation-or-semantic-equivalent"
-      },
-      {
-        "page": "space",
-        "location": "空间主页 · LinkList语义需求",
-        "source": "miniprogram/templates/screen.wxml",
-        "line": 113,
-        "mappingKind": "design-semantic-requirement"
       },
       {
         "page": "org",
@@ -4082,12 +4092,34 @@
   {
     "name": "IdentityRow",
     "title": "身份行",
-    "props": "name,description,src:string; size:number",
-    "guide": "组合Avatar与文字：文字组沿头像垂直居中，名称typeSection、辅助说明typeBody，两行间spaceUnit、图文间identityGap；全局卡片与主页复用，不附加无依据的身份或活跃程度。",
+    "props": "name,description,src,kind,type,typeLabel,bio,city:string; navigation:boolean; size:number; onPress:()=>void",
+    "guide": "组合Avatar与文字：整行width100%，navigation将箭头置于最右，头像与姓名左侧相邻；kind/type标识实际个人/空间/组织，空元信息过滤后join。文字组沿头像垂直居中，名称typeSection、辅助说明typeBody，两行间spaceUnit、图文间identityGap；全局卡片与主页复用，不附加无依据的身份或活跃程度。",
     "examples": [
       {
-        "label": "默认",
-        "props": {}
+        "label": "公开参与者整行",
+        "props": {
+          "name": "林叶",
+          "description": "",
+          "navigation": true
+        }
+      },
+      {
+        "label": "空间关注",
+        "props": {
+          "name": "上海706",
+          "kind": "SPACE",
+          "city": "上海",
+          "bio": ""
+        }
+      },
+      {
+        "label": "个人关注",
+        "props": {
+          "name": "ciao",
+          "type": "profile",
+          "city": "上海",
+          "bio": ""
+        }
       }
     ],
     "uses": [
@@ -4472,7 +4504,7 @@
     "name": "ParticipantSummary",
     "title": "公开参与者摘要",
     "props": "names:string[]; label:string",
-    "guide": "打开公开参与者弹层，明确不是完整名单，不展示私密联系方式。",
+    "guide": "打开公开参与者弹层，统一IdentityRow全宽与最右箭头；明确不是完整名单，不展示私密联系方式。",
     "examples": [
       {
         "label": "公开部分名单",

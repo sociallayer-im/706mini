@@ -1,8 +1,8 @@
-身份行。组合Avatar与文字：文字组沿头像垂直居中，名称typeSection、辅助说明typeBody，两行间spaceUnit、图文间identityGap；全局卡片与主页复用，不附加无依据的身份或活跃程度。
+身份行。组合Avatar与文字：整行width100%，navigation将箭头置于最右，头像与姓名左侧相邻；kind/type标识实际个人/空间/组织，空元信息过滤后join。文字组沿头像垂直居中，名称typeSection、辅助说明typeBody，两行间spaceUnit、图文间identityGap；全局卡片与主页复用，不附加无依据的身份或活跃程度。
 
 ## 调用参数
 
-`name,description,src:string; size:number`
+`name,description,src,kind,type,typeLabel,bio,city:string; navigation:boolean; size:number; onPress:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"IdentityRow",props)`。所有数据为textContent，不接受任意HTML。
 

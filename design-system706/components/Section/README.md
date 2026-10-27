@@ -1,8 +1,8 @@
-内容区块。区块留白与标题统一，嵌套正文不机械多层套卡。
+内容区块。区块留白与标题统一，嵌套正文不机械多层套卡。layout=form由容器gap统一字段与操作间距；原生对应Panel layout=form或form-stack，内部字段standalone避免双重margin。
 
 ## 调用参数
 
-`title,action:string; children:Node; onPress:()=>void`
+`title,action:string; layout:content|form; fields:FormFieldProps[]; actions:ButtonProps[]; children:Node; onPress:()=>void`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"Section",props)`。所有数据为textContent，不接受任意HTML。
 

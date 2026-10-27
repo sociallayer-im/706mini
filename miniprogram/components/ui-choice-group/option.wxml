@@ -2,6 +2,6 @@
  <label class="choice mode-{{mode}} {{layout === 'tags' ? 'choice-tag' : 'choice-row'}} {{item.checked ? 'is-selected' : ''}} {{item.unavailable ? 'is-disabled' : ''}}">
   <view class="choice-indicator"><radio wx:if="{{mode === 'single'}}" class="choice-native" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.unavailable}}" color="{{ink}}"/><checkbox wx:else class="choice-native" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.unavailable}}" color="{{ink}}"/><view class="choice-mark" aria-hidden="true"><view wx:if="{{item.checked}}" class="{{mode === 'single' ? 'choice-dot' : 'choice-tick'}}"/></view></view>
   <image wx:if="{{eventDetails && item.cover_url}}" class="choice-cover" src="{{item.cover_url}}" mode="aspectFill"/>
-  <view class="choice-copy"><text class="choice-label">{{item.label}}</text><block wx:if="{{eventDetails}}"><text class="choice-description">{{item.dateLabel}} · {{item.cityLabel || item.city}} · {{item.venue_display}}</text><text class="choice-description">{{item.host_display}}</text></block><text wx:elif="{{item.description}}" class="choice-description">{{item.description}}</text></view>
+  <view class="choice-copy"><text class="choice-label">{{item.label}}</text><block wx:if="{{eventDetails}}"><text class="choice-description">{{item.eventMeta}}</text><text class="choice-description">{{item.host_display}}</text></block><text wx:elif="{{item.description}}" class="choice-description">{{item.description}}</text></view>
  </label>
 </template>

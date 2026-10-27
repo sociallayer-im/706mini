@@ -14,7 +14,6 @@
 
 - member · member-section · miniprogram/templates/screen.wxml:110
 - member · member-section · miniprogram/templates/screen.wxml:111
-- space · 空间主页 · LinkList语义需求 · miniprogram/templates/screen.wxml:113
 - org · 组织主页 · LinkList语义需求 · miniprogram/templates/screen.wxml:113
 - edit-profile · 编辑资料 · LinkList语义需求 · miniprogram/templates/screen.wxml:160
 - campaign · 专题详情 · LinkList语义需求 · miniprogram/templates/screen.wxml:100

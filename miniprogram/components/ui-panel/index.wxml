@@ -1,1 +1,1 @@
-<view class="panel context-{{context}} inset-{{inset}}" style="{{theme}}"><slot/></view>
+<view class="panel layout-{{layout}} context-{{context}} inset-{{inset}}" style="{{theme}}"><slot/></view>

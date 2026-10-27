@@ -1,6 +1,6 @@
 {
   "scope": "当前注册路由与共享弹窗的源码接入；不等于全页面 GUI、真机或业务验收",
-  "source": "miniprogram/templates/screen.wxml + sheets.wxml",
+  "source": "miniprogram/templates/screen.wxml + sheets.wxml + account.wxml",
   "families": [
     {
       "family": "Button",
@@ -759,7 +759,6 @@
         "IdentityRow",
         "FollowControl",
         "ActionRow",
-        "LinkList",
         "EventCard",
         "Avatar",
         "Button",
@@ -784,7 +783,11 @@
         "ui-notice",
         "ui-sheet"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "removedRequirements": [
+        "official",
+        "recap"
+      ]
     },
     {
       "route": "pages/org/index",
@@ -849,12 +852,13 @@
       "entry": "miniprogram/pages/entity-members/index.wxml",
       "template": "miniprogram/templates/screen.wxml",
       "families": [
-        "IdentityRow",
         "Avatar",
+        "Badge",
+        "EmptyState",
         "FollowControl",
         "IconButton",
+        "IdentityRow",
         "LoadingState",
-        "EmptyState",
         "Notice",
         "Sheet"
       ],
@@ -868,7 +872,8 @@
         "ui-notice",
         "ui-sheet"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "contract": "Type from kind/type, filtered metadata, entity id vs person owner target."
     },
     {
       "route": "pages/edit-entity/index",
@@ -955,21 +960,26 @@
         "ui-notice",
         "ui-sheet"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "dynamicBranch": "profile-editor",
+      "removedRequirements": [
+        "profile-interest-selection"
+      ]
     },
     {
       "route": "pages/relations/index",
       "entry": "miniprogram/pages/relations/index.wxml",
       "template": "miniprogram/templates/screen.wxml",
       "families": [
-        "SegmentedControl",
-        "IdentityRow",
         "Avatar",
+        "Badge",
+        "EmptyState",
         "FollowControl",
         "IconButton",
+        "IdentityRow",
         "LoadingState",
-        "EmptyState",
         "Notice",
+        "SegmentedControl",
         "Sheet"
       ],
       "nativeComponents": [
@@ -983,39 +993,34 @@
         "ui-notice",
         "ui-sheet"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "contract": "Type from kind/type, filtered metadata, entity id vs person owner target."
     },
     {
       "route": "pages/onboarding/index",
       "entry": "miniprogram/pages/onboarding/index.wxml",
-      "template": "miniprogram/templates/screen.wxml",
+      "template": "miniprogram/templates/account.wxml",
       "families": [
-        "Stepper",
+        "Avatar",
         "FormField",
-        "ChoiceGroup",
         "Checkbox",
         "Button",
-        "StatusSummary",
-        "IconButton",
-        "LoadingState",
-        "EmptyState",
-        "Notice",
-        "Sheet"
+        "IconButton"
       ],
       "nativeComponents": [
-        "ui-button",
-        "ui-checkbox",
-        "ui-choice-group",
-        "ui-empty-state",
+        "ui-avatar-picker",
         "ui-form-field",
-        "ui-icon-button",
-        "ui-loading-state",
-        "ui-notice",
-        "ui-sheet",
-        "ui-status-summary",
-        "ui-stepper"
+        "ui-select-field",
+        "ui-checkbox",
+        "ui-button",
+        "ui-icon-button"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "dynamicBranch": "account-overlay",
+      "removedRequirements": [
+        "legacy profile-interest-selection",
+        "legacy onboarding ordinary form"
+      ]
     },
     {
       "route": "pages/calendar/index",
@@ -1489,14 +1494,15 @@
       "entry": "miniprogram/pages/following/index.wxml",
       "template": "miniprogram/templates/screen.wxml",
       "families": [
-        "SegmentedControl",
-        "IdentityRow",
         "Avatar",
+        "Badge",
+        "EmptyState",
         "FollowControl",
         "IconButton",
+        "IdentityRow",
         "LoadingState",
-        "EmptyState",
         "Notice",
+        "SegmentedControl",
         "Sheet"
       ],
       "nativeComponents": [
@@ -1510,7 +1516,8 @@
         "ui-notice",
         "ui-sheet"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "contract": "Type from kind/type, filtered metadata, entity id vs person owner target."
     },
     {
       "route": "pages/more/index",
@@ -1543,26 +1550,28 @@
     {
       "route": "pages/login/index",
       "entry": "miniprogram/pages/login/index.wxml",
-      "template": "miniprogram/templates/screen.wxml",
+      "template": "miniprogram/templates/account.wxml",
       "families": [
+        "Avatar",
         "FormField",
+        "Checkbox",
         "Button",
-        "Notice",
-        "IconButton",
-        "LoadingState",
-        "EmptyState",
-        "Sheet"
+        "IconButton"
       ],
       "nativeComponents": [
-        "ui-button",
-        "ui-empty-state",
+        "ui-avatar-picker",
         "ui-form-field",
-        "ui-icon-button",
-        "ui-loading-state",
-        "ui-notice",
-        "ui-sheet"
+        "ui-select-field",
+        "ui-checkbox",
+        "ui-button",
+        "ui-icon-button"
       ],
-      "evidence": "source-based; conditional rendering remains in shared template"
+      "evidence": "source-based; conditional rendering remains in shared template",
+      "dynamicBranch": "account-overlay",
+      "removedRequirements": [
+        "legacy profile-interest-selection",
+        "legacy onboarding ordinary form"
+      ]
     },
     {
       "route": "pages/attendees/index",
@@ -1806,7 +1815,11 @@
       "pages": [
         "event"
       ],
-      "evidence": "source-based; transitions require separate GUI/business verification"
+      "evidence": "source-based; transitions require separate GUI/business verification",
+      "controls": [
+        "ui-identity-row"
+      ],
+      "contract": "record.participants public subset only; full-width navigation to member(owner)"
     },
     {
       "id": "payment",
@@ -1931,20 +1944,20 @@
       "template": "miniprogram/templates/sheets.wxml",
       "shell": "ui-sheet",
       "pages": [
-        "space",
         "org"
       ],
-      "evidence": "source-based; transitions require separate GUI/business verification"
+      "evidence": "source-based; transitions require separate GUI/business verification",
+      "scope": "retained organization-only; removed on space"
     },
     {
       "id": "recap",
       "template": "miniprogram/templates/sheets.wxml",
       "shell": "ui-sheet",
       "pages": [
-        "space",
         "org"
       ],
-      "evidence": "source-based; transitions require separate GUI/business verification"
+      "evidence": "source-based; transitions require separate GUI/business verification",
+      "scope": "retained organization-only; removed on space"
     },
     {
       "id": "invite",
@@ -1985,6 +1998,66 @@
     "pageGutter": "miniprogram/lib/theme.js -> pageGutter",
     "horizontalRails": "all 5 scroll-x surfaces use horizontal-track; 4 page / 1 contained header",
     "filterAppearance": "pure text Chip; single/multiple semantics retained; form controls unaffected",
-    "checklist": "PAGE-MIGRATION-CHECKLIST.md"
-  }
+    "checklist": "PAGE-MIGRATION-CHECKLIST.md",
+    "currentScope": "Only retained features; removed features are not gaps and must not be regenerated from historic inventory.",
+    "formSpacing": "Panel layout=form or form-stack owns itemGap; standalone fields have no bottom margin."
+  },
+  "dynamicBranches": [
+    {
+      "id": "account-overlay",
+      "template": "miniprogram/templates/account.wxml",
+      "states": [
+        "login",
+        "identity",
+        "phone",
+        "profile-question-1",
+        "profile-question-2",
+        "profile-question-3",
+        "welcome",
+        "privacy-document"
+      ],
+      "controls": [
+        "ui-avatar-picker",
+        "ui-form-field",
+        "ui-select-field",
+        "ui-checkbox",
+        "ui-button",
+        "ui-icon-button"
+      ],
+      "entrypoints": [
+        "login",
+        "onboarding",
+        "me",
+        "messages",
+        "protected-action"
+      ],
+      "evidence": "code only; same overlay, draft and accountFlow state machine retained"
+    },
+    {
+      "id": "profile-editor",
+      "template": "miniprogram/templates/screen.wxml",
+      "entrypoints": [
+        "more/new-member-profile",
+        "me/edit-profile",
+        "member/profile-empty-field",
+        "onboarding-ready-redirect"
+      ],
+      "route": "pages/edit-profile/index",
+      "evidence": "reuse the one retained editor; no restored interest field"
+    }
+  ],
+  "removedFeatures": [
+    {
+      "feature": "profile-interest-selection",
+      "status": "removed-not-applicable",
+      "source": "miniprogram/lib/forms.js profile definitions and payload; templates/account.wxml",
+      "policy": "2026-10-27 operator correction: do not restore removed content; old 2-5 requirement superseded"
+    },
+    {
+      "feature": "space-official-account-and-stories",
+      "status": "removed",
+      "source": "space route gated in screen + entityLinks; mock placeholders removed",
+      "policy": "preserve organization and person/other business links; do not delete server data"
+    }
+  ]
 }
