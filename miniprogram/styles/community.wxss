@@ -4,7 +4,7 @@
 .community-edition .node-shelf{margin:0 0 56rpx}
 .screen.community-edition .people-heading{font-size:var(--typeSection);font-weight:600;line-height:1.4;margin:0 0 24rpx}
 .screen.community-edition .discovery-people{margin-bottom:72rpx}
-.screen.community-edition .calendar-entry{display:flex;align-items:center;gap:20rpx;padding:28rpx;margin:0 0 48rpx;border:0;border-radius:32rpx;background:var(--surface)}
+.screen.community-edition .calendar-entry{display:flex;align-items:center;gap:20rpx;padding:var(--panelInset);margin:0 0 48rpx;border:0;border-radius:32rpx;background:var(--surface)}
 .community-edition .calendar-sticker{display:flex;align-items:center;justify-content:center;flex:none;width:64rpx;height:64rpx;border-radius:50%;background:var(--accentSoft);transform:none}
 .calendar-sticker>image{width:44rpx;height:44rpx}
 .screen.community-edition .calendar-entry .section-title{font-size:var(--typeSection);line-height:1.4;font-weight:600}

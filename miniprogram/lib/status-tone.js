@@ -1,0 +1,3 @@
+// Business enum -> semantic display tone. Unknown states retain text and neutral color.
+const tones={CONFIRMED:'success',APPROVED:'success',PUBLISHED:'success',ACTIVE:'success',CHECKED_IN:'success',REVIEW_APPROVED:'success',REQUESTED:'pending',PENDING:'pending',IN_REVIEW:'pending',APPROVED_AWAITING_PAYMENT:'pending',CHANGES_REQUESTED:'pending',ROLE_INVITED:'pending',REVIEW_REQUESTED:'pending',WAITLISTED:'waiting',REJECTED:'danger',CANCELLED:'danger',REVOKED:'danger',DECLINED:'danger',DRAFT:'neutral',EXPIRED:'neutral',REFUNDED:'neutral',ENDED:'neutral'};
+module.exports=status=>tones[status]||'neutral';

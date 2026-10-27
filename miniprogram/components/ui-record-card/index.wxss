@@ -7,3 +7,4 @@
 .record-cover{display:block;width:100%;height:var(--eventArtHeight);margin-bottom:var(--headingGap);border-radius:var(--radiusImage);background:var(--control)}
 .record-eyebrow{display:block;font-size:var(--typeFact);line-height:1.6;color:var(--muted)}
 .record-description.is-prose{font-size:var(--typeBody);color:var(--ink)}
+.has-side-actions .record-layout{display:flex;align-items:flex-start;gap:var(--actionGap)}.record-copy{flex:1;min-width:0}.has-side-actions .record-actions{flex:none;max-width:45%;min-width:0;align-self:flex-start;flex-direction:column;align-items:flex-end;justify-content:flex-end}

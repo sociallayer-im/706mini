@@ -34,9 +34,9 @@
   },
   "lastChange": {
     "by": "Shing",
-    "at": "2026-10-26T06:50:09.897178+00:00",
-    "via": "Codex · calendar directions and growing CTA",
-    "note": "IconButton directions preserve back and map next to right; native week/month forward/back verified. Explicit grow fills both button and face; native event CTA checked at 390/320. Web normal/disabled/loading/long checks at 320/390/430. 28 native contracts plus layout/gallery/gutter checks and direct compilation pass."
+    "at": "2026-10-26T13:09:18.815463+00:00",
+    "via": "Codex · card content and management layout code review",
+    "note": "Rebased onto a5f6f90 preserving account/role/member changes. 44 routes / 45 native components source-reviewed; card header insets, right/top action columns, enum-backed badges, non-mutating event text suppression. No new screenshots per operator. 94WXML/50WXSS compile, 28 native contracts, 9 text cases, 29 inherited integration tests and existing offline/layout checks passed."
   },
   "localAssets": [
     {

@@ -1,1 +1,3 @@
-原生706 menu-group组件。视觉与交互外壳复用theme令牌，业务权限、请求、草稿与状态机留在调用页面。
+# MenuGroup / Card Header
+
+`title`是卡片内标题，由surface内Header负责panelInset与headingGap；下面ActionRow同样使用panelInset，标题左缘与行icon一致。不要把裸标题塞进默认slot，不给所有slot重复加padding。可选header-actions具名slot位于右侧，长标题flex1/min-width0自然换行。无title的菜单不增加标题占位。页面外标题使用Section默认page；独立白卡Section明确context=card，已在Panel内则不重复card容器。

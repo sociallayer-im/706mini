@@ -21,5 +21,5 @@ module.exports=function personalEvent(item,mode,locale,t){
   if(phase==='ENDED')add(t.clone,'','secondary','clone');
  }
  const saved=dates.format(item.saved_display||item.updated_at,locale);
- return {event,state,note,actions,stamp:draft&&saved?(en?'Saved ':'保存于 ')+saved:'',target:mode==='registrations'?'event':draft||phase==='CHANGES_REQUESTED'?'activity-preview':'event',date:event.dateLine||(en?'Time to be confirmed':'时间待定'),venue:event.venue_display||event.venue_name||(en?'Location to be confirmed':'地点待定'),host:event.hostLine||event.host_display,fee:event.feeLabel};
+ return {event,state,tone:require('./status-tone')(mode==='registrations'?item.status:phase),note,actions,stamp:draft&&saved?(en?'Saved ':'保存于 ')+saved:'',target:mode==='registrations'?'event':draft||phase==='CHANGES_REQUESTED'?'activity-preview':'event',date:event.dateLine||(en?'Time to be confirmed':'时间待定'),venue:event.venue_display||event.venue_name||(en?'Location to be confirmed':'地点待定'),host:event.hostLine||event.host_display,fee:event.feeLabel};
 };

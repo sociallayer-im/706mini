@@ -9,3 +9,7 @@
 .filter-choices{display:flex;flex-wrap:wrap;align-items:center;gap:var(--actionGap)}
 
 .button.is-grow{flex:1 1 0%;min-width:var(--touchTarget)}.button.is-grow .face{width:100%;flex:1;min-width:0}.button .face>span:last-child{min-width:0;overflow-wrap:anywhere}
+.tone-success{color:var(--statusSuccessInk);background:var(--statusSuccessSurface)}
+.tone-pending{color:var(--statusPendingInk);background:var(--statusPendingSurface)}
+.tone-danger{color:var(--danger);background:var(--statusDangerSurface)}
+.tone-waiting{color:var(--statusWaitingInk);background:var(--statusWaitingSurface)}

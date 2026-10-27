@@ -1,8 +1,8 @@
 {
   "scope": "source layout contracts; GUI and browser geometry recorded separately",
-  "pages": 42,
-  "horizontalRails": 5,
-  "pageRails": 4,
+  "pages": 44,
+  "horizontalRails": 4,
+  "pageRails": 3,
   "containedHeaderRails": 1,
   "sourceChecks": "pass",
   "networkCalls": 0,

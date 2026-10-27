@@ -1,5 +1,5 @@
 .group{margin:var(--itemGap) 0}.title{display:block;font-size:var(--typeFact);color:var(--muted);margin-bottom:var(--headingGap)}.surface{background:var(--surface);border-radius:var(--radius);overflow:hidden}
 
-.inside-title{display:block;margin:0;padding:20rpx var(--headingGap) 8rpx;font-size:var(--typeFact);font-weight:500;line-height:1.5;color:var(--muted)}
+.inside-title{display:block;margin:0;padding:var(--panelInset) var(--panelInset) var(--headingGap);font-size:var(--typeFact);font-weight:500;line-height:1.5;color:var(--muted)}
 
 .group.is-flush{margin:0}

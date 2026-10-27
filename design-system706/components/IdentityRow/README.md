@@ -2,7 +2,7 @@
 
 ## 调用参数
 
-`name,description,src:string; size:number`
+`name,description,src,action:string; size:number`
 
 使用方提供容器、业务数据和事件处理器。返回DOM节点；挂载用 `DS706.mount(container,"IdentityRow",props)`。所有数据为textContent，不接受任意HTML。
 

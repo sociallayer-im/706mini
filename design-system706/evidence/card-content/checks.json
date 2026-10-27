@@ -1,0 +1,48 @@
+{
+  "validationPolicy": "No new screenshots or screenshot checks after latest operator instruction; code and required compile checks only. Rebased onto remote a5f6f90 and preserved account/roles/stacked member changes.",
+  "wcc": {
+    "files": 94,
+    "exit": 0,
+    "stderr": ""
+  },
+  "wcsc": {
+    "files": 50,
+    "exit": 0,
+    "stderr": ""
+  },
+  "verify-detail-presentation.cjs": {
+    "exit": 0,
+    "stdout": "{\"cases\":[\"identical\",\"opening paragraph\",\"whitespace\",\"summary only\",\"body only\",\"different\",\"similar words are not exact\",\"substring is not paragraph\",\"later occurrence\"],\"sourceUnchanged\":true,\"headerAndActionContracts\":\"pass\"}\n",
+    "stderr": ""
+  },
+  "verify-native-system.cjs": {
+    "exit": 0,
+    "stdout": "{\n  \"scope\": \"offline native component and page interaction contracts; not GUI/device acceptance\",\n  \"checks\": 28,\n  \"passed\": 28,\n  \"failed\": [],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "stderr": ""
+  },
+  "verify-paper-layout.cjs": {
+    "exit": 0,
+    "stdout": "Paper layout contracts: native header 320/375/430, fallback, bilingual capacity/host states, compact card and developer entry passed; networkCalls=0.\n",
+    "stderr": ""
+  },
+  "verify-page-gutters.cjs": {
+    "exit": 0,
+    "stdout": "{\n  scope: 'source layout contracts; GUI and browser geometry recorded separately',\n  pages: 44,\n  horizontalRails: 4,\n  pageRails: 3,\n  containedHeaderRails: 1,\n  sourceChecks: 'pass',\n  networkCalls: 0,\n  productionWrites: 0\n}\n",
+    "stderr": ""
+  },
+  "verify-native-review.cjs": {
+    "exit": 0,
+    "stdout": "{\n  \"catalog\": 118,\n  \"checks\": [\n    \"film detail and sheet examples stay independent; record-backed host/social/badges; original body/fit/tags and registration state\",\n    \"self dashboard 1/3/2/1 counts, 2 event + 1 campaign tasks, authorized entity links, persistent preferences\",\n    \"source feed copy, two banners, combined free/capacity filters, all six notification bodies/categories; backend read-all compatibility only\",\n    \"all eight member totals 18/42/16 or 32/128/23; cancellation, deduplication, visibility and consent\",\n    \"all catalog states and sheets load\",\n    \"18/42 relations and directory 4/36 + 2/12 derived from records\",\n    \"directory/relations totals change after state mutation\",\n    \"published campaign changes require a new review\",\n    \"more city and registration titles\",\n    \"source feed has two posts; recommendation windows exclude self and reach seven peers\",\n    \"four personal-list states with working phase filters; review edits supersede previous decisions\",\n    \"cold-storage and in-memory old fixture upgrades; versioned draft isolation\",\n    \"public avatar consent and manager-only pending counts\",\n    \"no public entity contact\",\n    \"calendar range retains carry-in events\",\n    \"midnight split and overlap placement\",\n    \"multi-method save/read\",\n    \"media limit rollback\",\n    \"payment-gated private access\",\n    \"private media revoked after cancellation\",\n    \"free waitlist promotion\"\n  ],\n  \"networkCalls\": 0,\n  \"productionWrites\": 0\n}\n",
+    "stderr": ""
+  },
+  "verify-global-design.cjs": {
+    "exit": 0,
+    "stdout": "Global design: 44 routes × 2 languages; shared palette/icons, task chrome, public-only preview, duplicate-submit guard, preserved failure input passed; networkCalls=0.\n",
+    "stderr": ""
+  },
+  "remote-integration-tests": {
+    "exit": 0,
+    "stdout": "✔ developer journey starts with browsing, gates real actions and can replay after setup without resetting other work (400.416834ms)\n✔ guest signs in over the original page, finishes setup, previews own profile and resumes registration explicitly (295.759125ms)\n✔ closing and reopening resumes the profile question without changing the underlying editor draft (168.990666ms)\n✔ existing completed account returns without onboarding; phone verified is independent of profile completion (136.355458ms)\n✔ return destination expires and cannot cross accounts (115.680792ms)\n✔ private phone state never appears in a public member record (127.940208ms)\n✔ a minimal profile can later be saved with no interests selected (124.232667ms)\n✔ editing optional profile fields saves full text, permits blanks and keeps onboarding complete (335.491959ms)\n✔ completed accounts reuse the existing editor from every profile entry and old onboarding links (345.317083ms)\n✔ signature and full introduction enforce limits without flattening or truncating stored words (107.627209ms)\n✔ binding uses authenticated bind context, rejects account switching and never marks an unbound self as complete (71.662875ms)\n✔ shared action control forwards one press and blocks disabled or pending actions (2.435083ms)\n✔ campaign card destinations distinguish draft editing, review progress and public details (3.813166ms)\n✔ review history formats actual update timestamps and retains reviewer notes in both languages (5.34575ms)\n✔ drafts show editing progress and readable saved time independently of old public dates (6.183417ms)\n✔ personal registration IDs never substitute for event IDs (1.798958ms)\n✔ review and published list actions retain their destinations and unknown capacity stays unknown (1.353208ms)\n✔ closing a sheet never restores the main tab bar on any child route (33.703333ms)\n✔ public campaigns need a published event and attendee actions follow the role (1.453083ms)\n✔ a WeChat ticket price stays in fen and a free event is zero (0.168334ms)\n✔ event and registration words match the screens (1.4365ms)\n✔ inbox copy keeps the title the message row splits on (0.650541ms)\n✔ the follow feed rollup uses the headline key (0.324584ms)\n✔ public event lists do not send the bearer token (0.219542ms)\n✔ calendar dates use the Shanghai day of an exclusive end (1.33725ms)\n✔ reports follow the page that opened the sheet (0.520708ms)\n✔ server errors map onto the words the screens already translate (0.72175ms)\n✔ group QR is the uploaded image and a missing city is not labeled same-city data (0.724666ms)\n✔ event gallery survives the soon content round trip without losing prose or signed URLs (0.698958ms)\nℹ tests 29\nℹ suites 0\nℹ pass 29\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2389.016875\n",
+    "stderr": ""
+  }
+}

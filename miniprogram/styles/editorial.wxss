@@ -224,3 +224,5 @@
 .campaign-introduction{display:block;margin:0;font-size:var(--typeBody);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}
 
 .entity-history-entry{margin-top:var(--itemGap)}
+.section-heading>text:first-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.screen .series-copy{padding:var(--panelInset)}
