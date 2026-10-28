@@ -13,6 +13,8 @@
 
 ## 开发文档
 
+- [最小核心路径与体验版测试参考](docs/meetings/feishu-obcnvugicq24174v6764f7s1.md)：10/28去敏保存的历史讨论；核对现行保留路径，不恢复删除内容或把部署当真人验收。
+
 - [数据模型与关系首页](data-integration-review/model.html)：前后端数据对接的第一视图；继续进入字段、需求、接口和Gap。见[说明](docs/data-integration/README.md)。
 
 - [后端 AI Agent 开发手册](docs/backend-ai-agent-development-manual.md)：产品界面与交互、状态机、数据模型、API、权限、支付、隐私及联调验收标准。
